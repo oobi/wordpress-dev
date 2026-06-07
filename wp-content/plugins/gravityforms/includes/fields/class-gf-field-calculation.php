@@ -79,7 +79,7 @@ class GF_Field_Calculation extends GF_Field {
 
 		if ( $is_entry_detail || $is_form_editor  ) {
 			$style          = $this->disableQuantity ? "style='display:none;'" : '';
-			$quantity_field = " <label for='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity_label gform-field-label' {$style}>{$product_quantity_sub_label}</label> <input type='number' name='input_{$id}.3' value='{$quantity}' id='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity' size='10' min='0' {$disabled_text} />";
+			$quantity_field = " <label for='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity_label gform-field-label' {$style}>{$product_quantity_sub_label}</label> <input type='number' name='input_{$id}.3' value='{$quantity}' id='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity' size='10' min='0' {$disabled_text} {$style} />";
 		} elseif ( ! $this->disableQuantity ) {
 			$tabindex                  = $this->get_tabindex();
 			$describedby_extra_id = array();
@@ -104,8 +104,8 @@ class GF_Field_Calculation extends GF_Field {
 		return "<div class='ginput_container ginput_container_product_calculation'>
 					<input type='hidden' name='input_{$id}.1' value='{$product_name}' class='gform_hidden' />
 					$wrapper_open
-						<label class='gform-field-label gform-field-label--type-sub-large ginput_product_price_label'>" . gf_apply_filters( array( 'gform_product_price', $form_id, $this->id ), esc_html__( 'Price', 'gravityforms' ), $form_id ) . ":</label>
-						<label class='gform-field-label gform-field-label--type-sub-large ginput_product_price' id='{$field_id}'>" . esc_html( GFCommon::to_money( $price, $currency ) ) . "</label>
+						<span class='gform-field-label gform-field-label--type-sub-large ginput_product_price_label'>" . gf_apply_filters( array( 'gform_product_price', $form_id, $this->id ), esc_html__( 'Price', 'gravityforms' ), $form_id ) . ":</span>
+						<span class='gform-field-label gform-field-label--type-sub-large ginput_product_price' id='{$field_id}'>" . esc_html( GFCommon::to_money( $price, $currency ) ) . "</span>
 					$wrapper_close
 					<input type='hidden' name='input_{$id}.2' id='ginput_base_price_{$form_id}_{$this->id}' class='gform_hidden ginput_calculated_price' value='" . esc_attr( $price ) . "'/>
 					{$quantity_field}
@@ -140,7 +140,21 @@ class GF_Field_Calculation extends GF_Field {
 		return $label;
 	}
 
-	public function get_value_entry_detail( $value, $currency = '', $use_text = false, $format = 'html', $media = 'screen' ) {
+	/**
+	 * Format the entry value for display on the entry detail page and for the {all_fields} merge tag.
+	 *
+	 * @since 1.9
+	 * @since 2.9.29 Changed the second parameter $currency (string) to $entry (array).
+	 *
+	 * @param string|array $value    The field value.
+	 * @param array        $entry    The entry.
+	 * @param bool|false   $use_text When processing choice based fields should the choice text be returned instead of the value.
+	 * @param string       $format   The format requested for the location the merge is being used. Possible values: html, text or url.
+	 * @param string       $media    The location where the value will be displayed. Possible values: screen or email.
+	 *
+	 * @return string
+	 */
+	public function get_value_entry_detail( $value, $entry = array(), $use_text = false, $format = 'html', $media = 'screen' ) {
 		if ( is_array( $value ) && ! empty( $value ) ) {
 			$product_name = trim( $value[ $this->id . '.1' ] );
 			$price        = trim( $value[ $this->id . '.2' ] );
@@ -148,7 +162,7 @@ class GF_Field_Calculation extends GF_Field {
 
 			$product = $product_name . ', ' . esc_html__( 'Qty: ', 'gravityforms' ) . $quantity . ', ' . esc_html__( 'Price: ', 'gravityforms' ) . $price;
 
-			return $product;
+			return wp_kses( $product, wp_kses_allowed_html( 'data' ) );
 		} else {
 			return '';
 		}

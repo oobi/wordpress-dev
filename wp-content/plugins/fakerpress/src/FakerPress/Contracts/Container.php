@@ -1,4 +1,9 @@
 <?php
+/**
+ * Container for FakerPress.
+ *
+ * @since TBD
+ */
 
 namespace FakerPress\Contracts;
 
@@ -6,6 +11,11 @@ use FakerPress\Exceptions\Not_Bound_Exception;
 
 use FakerPress\ThirdParty\lucatume\DI52\Container as DI52_Container;
 
+/**
+ * Container for FakerPress.
+ *
+ * @since TBD
+ */
 class Container extends DI52_Container {
 	/**
 	 * @since 0.6.2
@@ -43,7 +53,7 @@ class Container extends DI52_Container {
 	 */
 	public static function init(): self {
 		if ( empty( self::$instance ) ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 
 		return static::$instance;

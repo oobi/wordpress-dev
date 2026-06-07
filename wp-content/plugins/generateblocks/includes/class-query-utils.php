@@ -67,6 +67,14 @@ class GenerateBlocks_Query_Utils extends GenerateBlocks_Singleton {
 	public function get_user_query( WP_REST_Request $request ) {
 		$args = $request->get_param( 'args' ) ?? [];
 
+		// Sanitize dangerous query args for users without list_users capability.
+		if ( ! current_user_can( 'list_users' ) ) {
+			unset( $args['meta_query'] );
+			unset( $args['meta_key'] );
+			unset( $args['meta_value'] );
+			unset( $args['meta_compare'] );
+		}
+
 		if ( ! isset( $args['number'] ) ) {
 			$args['number'] = 150;
 		}
@@ -75,9 +83,31 @@ class GenerateBlocks_Query_Utils extends GenerateBlocks_Singleton {
 		$query     = new WP_User_Query( $args );
 		$max_pages = round( $query->get_total() / $number );
 
+		// Filter sensitive data from user objects while maintaining structure.
+		$users = array_map(
+			function( $user ) {
+				// Always remove critical security fields.
+				unset( $user->data->user_pass );
+				unset( $user->data->user_activation_key );
+
+				if ( ! current_user_can( 'manage_options' ) ) {
+					// Remove sensitive values for non-admin users.
+					unset( $user->data->user_login );
+					unset( $user->data->user_email );
+
+					// Remove capability data to prevent role enumeration.
+					unset( $user->caps );
+					unset( $user->allcaps );
+				}
+
+				return $user;
+			},
+			$query->get_results()
+		);
+
 		return rest_ensure_response(
 			[
-				'users'     => $query->get_results(),
+				'users'     => $users,
 				'total'     => $query->get_total(),
 				'max_pages' => $max_pages,
 			]
@@ -132,6 +162,27 @@ class GenerateBlocks_Query_Utils extends GenerateBlocks_Singleton {
 				null,
 				$current
 			)
+		);
+
+		// Filter sensitive data in-place so consumers still receive the full WP_Query object.
+		$query->posts = array_map(
+			function( $post ) {
+				$requires_password = ! empty( $post->post_password ) && post_password_required( $post );
+				$can_read_post     = current_user_can( 'read_post', $post->ID );
+				$can_bypass_pw     = current_user_can( 'edit_post', $post->ID ) || get_current_user_id() === (int) $post->post_author;
+
+				unset( $post->post_password );
+				unset( $post->guid );
+				unset( $post->post_content_filtered );
+
+				if ( ! $can_read_post || ( $requires_password && ! $can_bypass_pw ) ) {
+					unset( $post->post_content );
+					unset( $post->post_excerpt );
+				}
+
+				return $post;
+			},
+			$query->posts
 		);
 
 		return rest_ensure_response( $query );

@@ -243,7 +243,7 @@ class Generic_Map extends Base {
 		$key_field              = $this->key_field;
 		$key_field['choices']   = rgar( $key_field, 'choices' ) ? $this->get_choices( $key_field['choices'] ) : array();
 		// Populate default choices only if the feed hasn't been saved yet.
-		if ( empty( $_GET['fid'] ) ) {
+		if ( empty( rgget( 'fid' ) ) ) {
 			$key_field['choices'] = $this->populate_default_key_values( $key_field['choices'] );
 		}
 		// Prepare JS params.
@@ -600,10 +600,10 @@ class Generic_Map extends Base {
 		 *
 		 * @param array             $fields              The value and label properties for each choice.
 		 * @param int               $form_id             The ID of the form currently being configured.
-		 * @param null|array        $field_type          Null or the field types to be included in the drop down.
+		 * @param null|array        $required_types      Null or the field types to be included in the drop down.
 		 * @param null|array|string $exclude_field_types Null or the field type(s) to be excluded from the drop down.
 		 */
-		$choices = apply_filters( 'gform_addon_field_map_choices', $choices, $form_id, $input_type, $excluded_types );
+		$choices = apply_filters( 'gform_addon_field_map_choices', $choices, $form_id, $required_types, $excluded_types );
 
 		/**
 		 * Filter the choices available in the field map drop down.
@@ -612,10 +612,10 @@ class Generic_Map extends Base {
 		 *
 		 * @param array             $fields              The value and label properties for each choice.
 		 * @param int               $form_id             The ID of the form currently being configured.
-		 * @param null|array        $field_type          Null or the field types to be included in the drop down.
+		 * @param null|array        $required_types      Null or the field types to be included in the drop down.
 		 * @param null|array|string $exclude_field_types Null or the field type(s) to be excluded from the drop down.
 		 */
-		$choices = apply_filters( 'gform_field_map_choices', $choices, $form_id, $input_type, $excluded_types );
+		$choices = apply_filters( 'gform_field_map_choices', $choices, $form_id, $required_types, $excluded_types );
 		return array_values( $choices );
 
 	}

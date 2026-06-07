@@ -20,8 +20,8 @@ class WP_Attachment extends Base {
 	/**
 	 * Hold the default width and height for the diff providers.
 	 *
-	 * @since  0.1.0
-	 * @since  0.5.0 now it's a public static var.
+	 * @since 0.1.0
+	 * @since 0.5.0 now it's a public static var.
 	 *
 	 * @var array
 	 */
@@ -30,7 +30,7 @@ class WP_Attachment extends Base {
 			'width'  => [ 200, 640 ],
 			'height' => 1.25,
 		],
-		LoremPicsum::ID       => [
+		LoremPicsum::ID => [
 			'width'  => [ 1024, 1440 ],
 			'height' => 1.5,
 		],
@@ -47,9 +47,9 @@ class WP_Attachment extends Base {
 		$args = wp_parse_args( $args, static::$type_defaults[ $type ] );
 
 		if ( Placeholder::ID === $type ) {
-			$url = call_user_func_array( [ $this->generator, Placeholder::ID ], (array) $args );
+			$url = call_user_func_array( [ $this->generator, 'placeholder' ], (array) $args );
 		} elseif ( LoremPicsum::ID === $type ) {
-			$url = call_user_func_array( [ $this->generator, LoremPicsum::ID ], (array) $args );
+			$url = call_user_func_array( [ $this->generator, 'lorempicsum' ], (array) $args );
 		}
 
 		return $url;

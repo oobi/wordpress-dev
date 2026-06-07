@@ -2,14 +2,11 @@
 
 namespace FakerPress\Module;
 
-use FakerPress\Plugin;
-use FakerPress\Utils;
-use FakerPress\ThirdParty\Faker;
 use FakerPress;
 use function FakerPress\make;
 use function FakerPress\get;
-use function FakerPress\get_request_var;
 use function FakerPress\is_truthy;
+use WP_Error;
 
 class Comment extends Abstract_Module {
 	/**
@@ -54,7 +51,7 @@ class Comment extends Abstract_Module {
 		];
 		$comments = [];
 
-		$query_comments = new \WP_Comment_Query;
+		$query_comments = new \WP_Comment_Query();
 		$args           = wp_parse_args( $args, $defaults );
 
 		$query_comments = $query_comments->query( $args );
@@ -114,18 +111,26 @@ class Comment extends Abstract_Module {
 		}
 
 		// Flag the Object as FakerPress
-		update_post_meta( $comment_id, static::get_flag(), 1 );
+		update_comment_meta( $comment_id, static::get_flag(), 1 );
 
 		return $comment_id;
 	}
 
-	public function parse_request( $qty, $request = [] ) {
-		if ( is_null( $qty ) ) {
-			$qty = make( Utils::class )->get_qty_from_range( get_request_var( [ Plugin::$slug, 'qty' ] ) );
-		}
-
-		if ( 0 === $qty ) {
-			return esc_attr__( 'Zero is not a good number of comments to fake...', 'fakerpress' );
+	/**
+	 * Parse the request data and generate the comments.
+	 *
+	 * @since 0.6.4
+	 *
+	 * @throws \Exception
+	 *
+	 * @param int   $qty     The quantity of comments to generate.
+	 * @param array $request The request data.
+	 *
+	 * @return array|WP_Error
+	 */
+	public function parse_request( int $qty, array $request = [] ) {
+		if ( 0 === $qty || ! is_numeric( $qty ) || $qty < 1 ) {
+			return new WP_Error( 'fakerpress_zero_comments', __( 'Zero is not a good number of comments to fake...', 'fakerpress' ) );
 		}
 
 		$comment_content_size      = get( $request, 'content_size', [ 1, 5 ] );
@@ -140,7 +145,7 @@ class Comment extends Abstract_Module {
 
 		$results = [];
 
-		for ( $i = 0; $i < $qty; $i ++ ) {
+		for ( $i = 0; $i < $qty; $i++ ) {
 			$this->set( 'comment_date', $min_date, $max_date );
 			$this->set(
 				'comment_content',
@@ -157,7 +162,12 @@ class Comment extends Abstract_Module {
 			$this->set( 'comment_parent' );
 			$this->set( 'comment_author_IP' );
 			$this->set( 'comment_agent' );
-			$this->set( 'comment_approved' );
+			$comment_approved = get( $request, 'comment_approved' );
+			if ( null !== $comment_approved ) {
+				$this->set( 'comment_approved', $comment_approved );
+			} else {
+				$this->set( 'comment_approved' );
+			}
 			$this->set( 'comment_post_ID', null, [ 'post_type' => $post_types ] );
 			$this->set( 'comment_author_email' );
 			$this->set( 'comment_author_url' );

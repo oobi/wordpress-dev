@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-25 15:37:15+0000\n"
+"PO-Revision-Date: 2025-06-03 13:34:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -285,6 +285,414 @@ msgstr "January"
 #, gp-priority: high
 msgid "Uncategorized"
 msgstr "Uncategorized"
+
+#: wp-includes/blocks/query/block.json
+msgctxt "block keyword"
+msgid "custom post types"
+msgstr "custom post types"
+
+#: wp-includes/blocks/query/block.json
+msgctxt "block keyword"
+msgid "blogs"
+msgstr "blogs"
+
+#: wp-includes/blocks/query/block.json
+msgctxt "block keyword"
+msgid "blog"
+msgstr "blog"
+
+#: wp-includes/blocks/query-total/block.json
+msgctxt "block description"
+msgid "Display the total number of results in a query."
+msgstr "Display the total number of results in a query."
+
+#: wp-includes/blocks/query-total/block.json
+msgctxt "block title"
+msgid "Query Total"
+msgstr "Query Total"
+
+#: wp-includes/js/dist/edit-site.js:19552
+#: wp-admin/includes/class-wp-theme-install-list-table.php:63
+msgctxt "noun"
+msgid "Upload"
+msgstr "Upload"
+
+#. translators: Hidden accessibility text.
+#: wp-includes/js/dist/block-editor.js:24700
+#: wp-includes/js/dist/block-editor.js:68826
+#: wp-includes/js/dist/block-editor.js:68844
+#: wp-includes/js/dist/block-library.js:65522
+#: wp-includes/js/dist/editor.js:24986
+#: wp-admin/includes/class-custom-background.php:357
+#: wp-admin/includes/class-custom-image-header.php:667
+#: wp-admin/includes/media.php:2285 wp-admin/includes/media.php:2289
+msgctxt "verb"
+msgid "Upload"
+msgstr "Upload"
+
+#. translators: %s human readable rate limit.
+#: wp-mail.php:45
+msgid "Email checks are rate limited to once every %s."
+msgstr "Email checks are rate limited to once every %s."
+
+#: wp-includes/theme.php:4356
+msgid "This function should not be called before the theme directory is registered."
+msgstr "This function should not be called before the theme directory is registered."
+
+#: wp-includes/taxonomy.php:149
+msgid "Add Link Category"
+msgstr "Add Link Category"
+
+#: wp-includes/script-loader.php:1008
+msgid "This file cannot be processed by the web server."
+msgstr "This file cannot be processed by the web server."
+
+#: wp-includes/script-loader.php:835 wp-admin/js/tags.js:62
+msgid "An error occurred while processing your request. Please try again later."
+msgstr "An error occurred while processing your request. Please try again later."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:656
+msgid "A list of allowed area values for template parts."
+msgstr "A list of allowed area values for template parts."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:637
+msgid "A list of default template types."
+msgstr "A list of default template types."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-template-revisions-controller.php:182
+msgid "Templates based on theme files can't have revisions."
+msgstr "Templates based on theme files can't have revisions."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3076
+msgid "Whether to ignore sticky posts or not."
+msgstr "Whether to ignore sticky posts or not."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:170
+#: wp-includes/script-loader.php:1032
+msgid "The web server cannot generate responsive image sizes for this image. Convert it to JPEG or PNG before uploading."
+msgstr "The web server cannot generate responsive image sizes for this image. Convert it to JPEG or PNG before uploading."
+
+#: wp-includes/rest-api.php:437
+msgid "The REST route parameter must be a string."
+msgstr "The REST route parameter must be a string."
+
+#: wp-includes/post.php:418 wp-includes/post.php:419
+msgid "Add Template Part"
+msgstr "Add Template Part"
+
+#: wp-includes/post.php:353 wp-includes/post.php:354
+msgid "Add Template"
+msgstr "Add Template"
+
+#: wp-includes/post.php:205 wp-includes/post.php:206
+msgid "Add Changeset"
+msgstr "Add Changeset"
+
+#: wp-includes/post.php:78 wp-admin/menu.php:73 wp-admin/upload.php:215
+#: wp-admin/upload.php:422
+msgid "Add Media File"
+msgstr "Add Media File"
+
+#: wp-includes/post-template.php:1796
+msgid "Invalid password."
+msgstr "Invalid password."
+
+#. translators: 1: Name of a cryptographic hash algorithm. 2: List of supported
+#. algorithms.
+#: wp-includes/pluggable.php:2622
+msgid "Unsupported hashing algorithm: %1$s. Supported algorithms are: %2$s"
+msgstr "Unsupported hashing algorithm: %1$s. Supported algorithms are: %2$s"
+
+#: wp-includes/html-api/class-wp-html-processor.php:5688
+msgid "Cannot set bookmarks on tokens that do no appear in the original HTML text."
+msgstr "Cannot set bookmarks on tokens that do no appear in the original HTML text."
+
+#. translators: %s: A tag name like IFRAME or TEXTAREA.
+#: wp-includes/html-api/class-wp-html-processor.php:498
+msgid "The context element \"%s\" is not supported."
+msgstr "The context element \"%s\" is not supported."
+
+#. translators: %s: A tag name like INPUT or BR.
+#: wp-includes/html-api/class-wp-html-processor.php:478
+msgid "The context element cannot be a void element, found \"%s\"."
+msgstr "The context element cannot be a void element, found \"%s\"."
+
+#: wp-includes/html-api/class-wp-html-processor.php:464
+msgid "The context element must be a start tag."
+msgstr "The context element must be a start tag."
+
+#: wp-includes/html-api/class-wp-html-processor.php:315
+msgid "No valid context element was detected."
+msgstr "No valid context element was detected."
+
+#. translators: %s: parameter name.
+#: wp-includes/functions.php:9198
+msgid "The %s argument must not be empty."
+msgstr "The %s argument must not be empty."
+
+#: wp-includes/customize/class-wp-customize-header-image-control.php:249
+msgid "Add Image"
+msgstr "Add Image"
+
+#: wp-includes/customize/class-wp-customize-header-image-control.php:249
+msgid "Add Header Image"
+msgstr "Add Header Image"
+
+#: wp-includes/class-wp-xmlrpc-server.php:5054
+#: wp-includes/class-wp-xmlrpc-server.php:6587
+msgid "No posts found or an error occurred while retrieving posts."
+msgstr "No posts found or an error occurred while retrieving posts."
+
+#: wp-includes/class-wp-xmlrpc-server.php:4034
+msgid "An error occurred while processing your comment. Please ensure all fields are filled correctly and try again."
+msgstr "An error occurred while processing your comment. Please ensure all fields are filled correctly and try again."
+
+#. translators: %s: context string
+#: wp-includes/class-wp-url-pattern-prefixer.php:72
+msgid "Invalid URL pattern context %s."
+msgstr "Invalid URL pattern context %s."
+
+#: wp-includes/class-wp-taxonomy.php:627 wp-includes/taxonomy.php:236
+msgid "Add Category"
+msgstr "Add Category"
+
+#: wp-includes/class-wp-taxonomy.php:627
+msgid "Add Tag"
+msgstr "Add Tag"
+
+#. translators: %s: forbidden eagerness value
+#: wp-includes/class-wp-speculation-rules.php:198
+msgid "The eagerness value \"%s\" is forbidden for document-level speculation rules."
+msgstr "The eagerness value \"%s\" is forbidden for document-level speculation rules."
+
+#. translators: %s: invalid eagerness value
+#: wp-includes/class-wp-speculation-rules.php:185
+msgid "The value \"%s\" is not a valid eagerness for a speculation rule."
+msgstr "The value \"%s\" is not a valid eagerness for a speculation rule."
+
+#. translators: 1: source value, 2: forbidden key
+#: wp-includes/class-wp-speculation-rules.php:154
+#: wp-includes/class-wp-speculation-rules.php:168
+msgid "A speculation rule of source \"%1$s\" must not include a \"%2$s\" key."
+msgstr "A speculation rule of source \"%1$s\" must not include a \"%2$s\" key."
+
+#. translators: %s: invalid source value
+#: wp-includes/class-wp-speculation-rules.php:141
+msgid "The value \"%s\" is not a valid source for a speculation rule."
+msgstr "The value \"%s\" is not a valid source for a speculation rule."
+
+#. translators: 1: allowed key, 2: alternative allowed key
+#: wp-includes/class-wp-speculation-rules.php:127
+msgid "A speculation rule must include either a \"%1$s\" key or a \"%2$s\" key, but not both."
+msgstr "A speculation rule must include either a \"%1$s\" key or a \"%2$s\" key, but not both."
+
+#. translators: %s: invalid ID value
+#: wp-includes/class-wp-speculation-rules.php:105
+msgid "A speculation rule with ID \"%s\" already exists."
+msgstr "A speculation rule with ID \"%s\" already exists."
+
+#. translators: %s: invalid ID value
+#: wp-includes/class-wp-speculation-rules.php:92
+msgid "The value \"%s\" is not a valid ID for a speculation rule."
+msgstr "The value \"%s\" is not a valid ID for a speculation rule."
+
+#. translators: %s: invalid mode value
+#: wp-includes/class-wp-speculation-rules.php:79
+msgid "The value \"%s\" is not a valid speculation rules mode."
+msgstr "The value \"%s\" is not a valid speculation rules mode."
+
+#: wp-includes/class-wp-post-type.php:993
+msgid "Add Page"
+msgstr "Add Page"
+
+#: wp-includes/class-wp-post-type.php:993
+msgid "Add Post"
+msgstr "Add Post"
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:88
+msgid "Cannot set or reset variable: "
+msgstr "Cannot set or reset variable: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:86
+msgid "SMTP server error: "
+msgstr "SMTP server error: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:84
+msgid "Detail: "
+msgstr "Detail: "
+
+#: wp-includes/class-wp-phpmailer.php:82
+msgid "SMTP connect() failed."
+msgstr "SMTP connect() failed."
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:81
+msgid "Additional SMTP info: "
+msgstr "Additional SMTP info: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:79
+msgid "SMTP code: "
+msgstr "SMTP code: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:77
+msgid "Signing Error: "
+msgstr "Signing Error: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:75
+msgid "SMTP Error: The following recipients failed: "
+msgstr "SMTP Error: The following recipients failed: "
+
+#: wp-includes/class-wp-phpmailer.php:73
+msgid "You must provide at least one recipient email address."
+msgstr "You must provide at least one recipient email address."
+
+#. translators: There is a space at the beginning.
+#: wp-includes/class-wp-phpmailer.php:72
+msgid " mailer is not supported."
+msgstr " mailer is not supported."
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:70
+msgid "Invalid host: "
+msgstr "Invalid host: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:68
+msgid "Invalid hostentry: "
+msgstr "Invalid hostentry: "
+
+#: wp-includes/class-wp-phpmailer.php:66
+msgid "Invalid header name or value"
+msgstr "Invalid header name or value"
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:65
+msgid "Invalid address: "
+msgstr "Invalid address: "
+
+#: wp-includes/class-wp-phpmailer.php:63
+msgid "Could not instantiate mail function."
+msgstr "Could not instantiate mail function."
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:62
+msgid "The following From address failed: "
+msgstr "The following From address failed: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:60
+msgid "File Error: Could not open file: "
+msgstr "File Error: Could not open file: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:58
+msgid "Could not access file: "
+msgstr "Could not access file: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:56
+msgid "Extension missing: "
+msgstr "Extension missing: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:54
+msgid "Could not execute: "
+msgstr "Could not execute: "
+
+#. translators: There is a space after the colon.
+#: wp-includes/class-wp-phpmailer.php:52
+msgid "Unknown encoding: "
+msgstr "Unknown encoding: "
+
+#: wp-includes/class-wp-phpmailer.php:50
+msgid "Message body empty"
+msgstr "Message body empty"
+
+#: wp-includes/class-wp-phpmailer.php:49
+msgid "SMTP Error: data not accepted."
+msgstr "SMTP Error: data not accepted."
+
+#: wp-includes/class-wp-phpmailer.php:48
+msgid "SMTP Error: Could not connect to SMTP host."
+msgstr "SMTP Error: Could not connect to SMTP host."
+
+#. translators: 1: mail.add_x_header. 2: php.ini
+#: wp-includes/class-wp-phpmailer.php:42
+msgid "Your version of PHP is affected by a bug that may result in corrupted messages. To fix it, switch to sending using SMTP, disable the %1$s option in your %2$s, or switch to MacOS or Linux, or upgrade your PHP version."
+msgstr "Your version of PHP is affected by a bug that may result in corrupted messages. To fix it, switch to sending using SMTP, disable the %1$s option in your %2$s, or switch to MacOS or Linux, or upgrade your PHP version."
+
+#: wp-includes/class-wp-phpmailer.php:39
+msgid "SMTP Error: Could not authenticate."
+msgstr "SMTP Error: Could not authenticate."
+
+#: wp-includes/class-wp-editor.php:197 wp-includes/class-wp-editor.php:1399
+msgctxt "Name for the Code editor tab (formerly Text)"
+msgid "Code"
+msgstr "Code"
+
+#: wp-includes/class-wp-customize-nav-menus.php:1276
+msgid "The link text cannot be empty."
+msgstr "The link text cannot be empty."
+
+#: wp-includes/class-wp-customize-nav-menus.php:1271
+#: wp-admin/includes/nav-menu.php:354
+msgid "Please provide a valid link."
+msgstr "Please provide a valid link."
+
+#: wp-includes/class-wp-customize-manager.php:457
+msgid "An error occurred while customizing. Please refresh the page and try again."
+msgstr "An error occurred while customizing. Please refresh the page and try again."
+
+#: wp-includes/class-wp-block-metadata-registry.php:204
+msgid "No registered block metadata collection was found for the provided path."
+msgstr "No registered block metadata collection was found for the provided path."
+
+#. translators: %d: number of results.
+#: wp-includes/blocks/query-total.php:66
+msgid "%d result found"
+msgid_plural "%d results found"
+msgstr[0] "%d result found"
+msgstr[1] "%d results found"
+
+#. translators: 1: Start index of posts, 2: End index of posts, 3: Total number
+#. of posts
+#: wp-includes/blocks/query-total.php:54
+msgid "Displaying %1$s – %2$s of %3$s"
+msgstr "Displaying %1$s – %2$s of %3$s"
+
+#. translators: 1: Start index of posts, 2: Total number of posts
+#: wp-includes/blocks/query-total.php:47
+msgid "Displaying %1$s of %2$s"
+msgstr "Displaying %1$s of %2$s"
+
+#: wp-includes/blocks/image.php:158
+msgid "Enlarge"
+msgstr "Enlarge"
+
+#: wp-includes/block-template.php:40
+msgid "This page is blank because the template is empty. You can reset or customize it in the Site Editor."
+msgstr "This page is blank because the template is empty. You can reset or customize it in the Site Editor."
+
+#. translators: %s: Post format name.
+#: wp-includes/block-template-utils.php:220
+msgid "Displays the %s post format archive."
+msgstr "Displays the %s post format archive."
+
+#. translators: %s: Post format name.
+#: wp-includes/block-template-utils.php:215
+msgctxt "Template name"
+msgid "Post Format: %s"
+msgstr "Post Format: %s"
+
+#: wp-includes/block-patterns.php:42
+msgid "Bold sections designed to showcase key content."
+msgstr "Bold sections designed to showcase key content."
 
 #. translators: %s: list of allowed collection roots
 #: wp-includes/class-wp-block-metadata-registry.php:127
@@ -1577,6 +1985,11 @@ msgctxt "block title"
 msgid "Excerpt"
 msgstr "Excerpt"
 
+#: wp-includes/blocks/pattern/block.json
+msgctxt "block title"
+msgid "Pattern Placeholder"
+msgstr "Pattern Placeholder"
+
 #: wp-includes/blocks/footnotes/block.json
 msgctxt "block keyword"
 msgid "references"
@@ -1586,6 +1999,11 @@ msgstr "references"
 msgctxt "block title"
 msgid "Footnotes"
 msgstr "Footnotes"
+
+#: wp-includes/blocks/query/block.json
+msgctxt "block keyword"
+msgid "list"
+msgstr "list"
 
 #: wp-includes/blocks/details/block.json
 msgctxt "block keyword"
@@ -2228,6 +2646,11 @@ msgstr "A variety of designs to display your team members."
 msgid "Sections whose purpose is to trigger a specific action."
 msgstr "Sections whose purpose is to trigger a specific action."
 
+#: wp-includes/block-patterns.php:83
+msgctxt "Block pattern category"
+msgid "Call to action"
+msgstr "Call to action"
+
 #: wp-includes/block-patterns.php:77
 msgid "A set of high quality curated patterns."
 msgstr "A set of high quality curated patterns."
@@ -2269,6 +2692,11 @@ msgstr "Sorry, you are not allowed to view terms for this post."
 #: wp-includes/block-supports/typography.php:349
 msgid "Raw size value must be a string, integer, or float."
 msgstr "Raw size value must be a string, integer, or float."
+
+#: wp-includes/blocks/list-item/block.json
+msgctxt "block title"
+msgid "List Item"
+msgstr "List Item"
 
 #: wp-includes/blocks/comments/block.json
 msgctxt "block title"
@@ -2588,6 +3016,11 @@ msgctxt "block description"
 msgid "Contains the block elements used to render content when no query results are found."
 msgstr "Contains the block elements used to render content when no query results are found."
 
+#: wp-includes/blocks/query-no-results/block.json
+msgctxt "block title"
+msgid "No Results"
+msgstr "No Results"
+
 #: wp-includes/blocks/post-author/block.json
 msgctxt "block description"
 msgid "Display post author details such as name, avatar, and bio."
@@ -2752,6 +3185,10 @@ msgstr "Comment Content"
 #: wp-admin/options-discussion.php:290 wp-admin/options-discussion.php:294
 msgid "Default Avatar"
 msgstr "Default Avatar"
+
+#: wp-includes/post.php:287 wp-includes/post.php:288
+msgid "Add Pattern"
+msgstr "Add Pattern"
 
 #: wp-includes/media-template.php:847 wp-includes/media-template.php:1103
 #: wp-includes/media-template.php:1167
@@ -3614,6 +4051,10 @@ msgstr "Edit Navigation Menu"
 #: wp-includes/post.php:527
 msgid "New Navigation Menu"
 msgstr "New Navigation Menu"
+
+#: wp-includes/post.php:525 wp-includes/post.php:526
+msgid "Add Navigation Menu"
+msgstr "Add Navigation Menu"
 
 #: wp-includes/post.php:524
 msgctxt "post type singular name"
@@ -6663,6 +7104,10 @@ msgstr "Unable to get meta information for file."
 msgid "Limit result set to blocks matching the search term."
 msgstr "Limit result set to blocks matching the search term."
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:288
+msgid "The date when the block was last updated, in human readable format."
+msgstr "The date when the block was last updated, in human readable format."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:276
 msgid "The block icon."
 msgstr "The block icon."
@@ -7974,6 +8419,10 @@ msgstr "A calendar of your site’s posts."
 #: wp-includes/media.php:5024
 msgid "Edit gallery"
 msgstr "Edit gallery"
+
+#: wp-includes/js/dist/edit-site.js:22391 wp-admin/includes/theme.php:335
+msgid "Custom Colors"
+msgstr "Custom Colours"
 
 #: wp-includes/class-wp-recovery-mode.php:247
 msgid "Failed to exit recovery mode. Please try again later."
@@ -9879,6 +10328,25 @@ msgstr "Change audio"
 msgid "Select audio"
 msgstr "Select audio"
 
+#. translators: %s: Header height in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:231
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header height of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header height of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
+#. translators: %s: Header width in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:225
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header width of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header width of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
+#. translators: %s: Header size in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:219
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header size of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header size of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
+#: wp-includes/customize/class-wp-customize-header-image-control.php:215
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
 #. translators: 1: Month number (01, 02, etc.), 2: Month abbreviation.
 #: wp-includes/customize/class-wp-customize-date-time-control.php:234
 #: wp-admin/includes/template.php:846
@@ -10110,6 +10578,10 @@ msgstr "View User"
 msgid "This widget may have contained code that may work better in the &#8220;Custom HTML&#8221; widget. If you have not yet, how about trying that widget instead?"
 msgstr "This widget may have contained code that may work better in the &#8220;Custom HTML&#8221; widget. If you haven&#8217;t yet, how about trying that widget instead?"
 
+#: wp-includes/widgets/class-wp-widget-text.php:560
+msgid "Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Code&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!"
+msgstr "Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Code&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!"
+
 #: wp-includes/widgets/class-wp-widget-text.php:559
 msgid "Did you just paste HTML?"
 msgstr "Did you just paste HTML?"
@@ -10194,6 +10666,10 @@ msgstr "Add Audio"
 #: wp-admin/includes/media.php:3332
 msgid "(no author)"
 msgstr "(no author)"
+
+#: wp-includes/script-loader.php:1317 wp-admin/includes/file.php:638
+msgid "An error occurred. Please try again later."
+msgstr "An error occurred. Please try again later."
 
 #. translators: %s: URL to Network Settings screen.
 #: wp-signup.php:965
@@ -14148,6 +14624,10 @@ msgstr "Add Items"
 msgid "User Dashboard: %s"
 msgstr "User Dashboard: %s"
 
+#: wp-includes/admin-bar.php:208
+msgid "https://learn.wordpress.org/"
+msgstr "https://learn.wordpress.org/"
+
 #. translators: 1: The 'id' argument, 2: Sidebar name, 3: Recommended 'id'
 #. value.
 #: wp-includes/widgets.php:307
@@ -15740,6 +16220,36 @@ msgstr "Change"
 #: wp-admin/includes/class-wp-privacy-requests-table.php:44
 msgid "Status"
 msgstr "Status"
+
+#: wp-includes/js/dist/edit-site.js:22436
+#: wp-includes/js/dist/edit-site.js:22482 wp-admin/comment.php:63
+#: wp-admin/edit-comments.php:208 wp-admin/edit-form-advanced.php:337
+#: wp-admin/edit-link-form.php:66 wp-admin/edit-tags.php:271
+#: wp-admin/edit.php:252 wp-admin/edit.php:309
+#: wp-admin/erase-personal-data.php:23 wp-admin/export-personal-data.php:23
+#: wp-admin/export.php:51 wp-admin/import.php:24
+#: wp-admin/includes/class-custom-background.php:99
+#: wp-admin/includes/class-custom-image-header.php:108
+#: wp-admin/includes/class-wp-screen.php:856 wp-admin/includes/ms.php:1149
+#: wp-admin/index.php:44 wp-admin/link-manager.php:57 wp-admin/media-new.php:49
+#: wp-admin/my-sites.php:44 wp-admin/nav-menus.php:724
+#: wp-admin/nav-menus.php:765 wp-admin/options-discussion.php:24
+#: wp-admin/options-general.php:53 wp-admin/options-media.php:34
+#: wp-admin/options-permalink.php:23 wp-admin/options-privacy.php:38
+#: wp-admin/options-reading.php:25 wp-admin/options-writing.php:23
+#: wp-admin/plugin-editor.php:136 wp-admin/plugin-install.php:96
+#: wp-admin/plugins.php:563 wp-admin/revision.php:153
+#: wp-admin/site-health.php:80 wp-admin/theme-editor.php:28
+#: wp-admin/theme-install.php:123 wp-admin/themes.php:143
+#: wp-admin/update-core.php:996 wp-admin/upload.php:178 wp-admin/upload.php:368
+#: wp-admin/user-edit.php:71 wp-admin/user-new.php:293 wp-admin/users.php:34
+#: wp-admin/widgets-form.php:43 wp-admin/network/index.php:34
+#: wp-admin/network/settings.php:49 wp-admin/network/site-new.php:23
+#: wp-admin/network/sites.php:29 wp-admin/network/themes.php:312
+#: wp-admin/network/upgrade.php:22 wp-admin/network/user-new.php:20
+#: wp-admin/network/users.php:229
+msgid "Overview"
+msgstr "Overview"
 
 #: wp-includes/general-template.php:4963
 msgctxt "admin color scheme"
@@ -18338,6 +18848,10 @@ msgstr "Oops: %s"
 #: wp-mail.php:73
 msgid "There does not seem to be any new mail."
 msgstr "There does not seem to be any new mail."
+
+#: wp-mail.php:48
+msgid "Slow down, no need to check for new mails so often!"
+msgstr "Slow down, no need to check for new mails so often!"
 
 #: wp-login.php:1447
 msgid "You are now logged out."

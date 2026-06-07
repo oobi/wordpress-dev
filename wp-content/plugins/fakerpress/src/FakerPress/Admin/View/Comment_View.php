@@ -4,7 +4,6 @@ namespace FakerPress\Admin\View;
 
 use FakerPress\Admin;
 use FakerPress\Module\Comment;
-use FakerPress\Module\Post;
 use FakerPress\Plugin;
 use function FakerPress\get_request_var;
 use function FakerPress\make;
@@ -12,7 +11,7 @@ use function FakerPress\make;
 /**
  * Class Post_View
  *
- * @since   0.6.4
+ * @since 0.6.4
  *
  * @package FakerPress\Admin\View
  */
@@ -68,12 +67,12 @@ class Comment_View extends Abstract_View {
 		}
 
 		// After this point we are safe to say that we have a good POST request
-		$results = make( Comment::class )->parse_request( null, get_request_var( Plugin::$slug, [] ) );
+		$results = (array) make( Comment::class )->parse_request( null, get_request_var( Plugin::$slug, [] ) );
 
 		if ( ! empty( $results ) ) {
 			return Admin::add_message(
 				sprintf(
-					__( 'Faked %d new %s: [ %s ]', 'fakerpress' ),
+					__( 'Faked %1$d new %2$s: [ %3$s ]', 'fakerpress' ),
 					count( $results ),
 					_n( 'comment', 'comments', count( $results ), 'fakerpress' ),
 					implode( ', ', array_map( [ $this, 'format_link' ], $results ) )

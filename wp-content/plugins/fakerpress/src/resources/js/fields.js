@@ -1,9 +1,11 @@
-( function( $, _, fp ){
+( function( $, _ ){
 	'use strict';
 
 	const isNumeric = ( n ) => {
 		return ! isNaN( parseFloat( n ) ) && isFinite( n );
 	};
+
+	const fp = {};
 
 	fp.fields = {};
 	fp.ready_class = 'fp-js-ready';
@@ -225,7 +227,23 @@
 					};
 
 					args.ajax.data = function( search, page ) {
-						var post_types = _.intersection( $( '#fakerpress-field-post_types' ).val().split( ',' ), _.pluck( _.where( $( '#fakerpress-field-post_types' ).data( 'options' ), { hierarchical: true } ) , 'id' ) );
+						var post_types = [];
+						var $post_types_field = $( '#fakerpress-field-post_types' );
+						
+						// Check if post_types field exists on the page and has a value
+						if ( $post_types_field.length > 0 && $post_types_field.val() ) {
+							// Use the selected post types from the field
+							var field_value = $post_types_field.val();
+							var field_options = $post_types_field.data( 'options' );
+							
+							if ( field_value && field_options ) {
+								post_types = _.intersection( field_value.split( ',' ), _.pluck( _.where( field_options, { hierarchical: true } ) , 'id' ) );
+							}
+						} else {
+							// Default to all public post types when field doesn't exist or has no value (e.g., on attachments page)
+							// This will be handled server-side to get all public post types
+							post_types = [];
+						}
 
 						return {
 							action: 'fakerpress.select2-' + source,
@@ -482,7 +500,7 @@
 					} );
 				},
 
-				is_removeable: function() {
+				is_removable: function() {
 					if ( 1 === this.$.items.length ){
 						var $item = this.$.items.eq( 0 );
 
@@ -537,7 +555,7 @@
 
 				},
 
-				is_removeable: function() {
+				is_removable: function() {
 					if ( 1 === this.$.items.length ){
 						var $item = this.$.items.eq( 0 );
 
@@ -654,7 +672,7 @@
 			fieldset.$.items = fieldset.$.wrap.children( fieldset.selector.item );
 
 			// If there is just one meta, disable the remove button
-			if ( fieldset.is_removeable() ) {
+			if ( fieldset.is_removable() ) {
 				fieldset.$.items.eq( 0 )
 					.find( fp.fieldset.selector.remove ).prop( 'disabled', true )
 					.end().find( fieldset.selector.name ).prop( 'required', false );
@@ -722,7 +740,7 @@
 		}
 	};
 
-	$( document ).ready( function() {
+	$( () => {
 		$.each( fp.fieldset.items, function( index, fieldset ) {
 			fp.fieldset.setup( fieldset );
 			fieldset.$.container.each( function( _index, container ) {
@@ -736,4 +754,4 @@
 		} );
 	} );
 
-}( window.jQuery, window._, window.fakerpress ) );
+}( window.jQuery, window._ ) );

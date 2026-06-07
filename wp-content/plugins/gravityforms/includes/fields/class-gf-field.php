@@ -28,6 +28,16 @@ class GF_Field extends stdClass implements ArrayAccess {
 	private $_is_entry_detail = null;
 
 	/**
+	 * Indicates the field is used to capture payments.
+	 *
+	 * @since 2.9.23
+	 *
+	 * @var bool
+	 */
+	public $is_payment = false;
+
+
+	/**
 	 * An array of properties used to help define and determine the context for the field.
 	 * As this is private, it won't be available in any json_encode() output and consequently not saved in the Form array.
 	 *
@@ -89,7 +99,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 		}
 
 		if ( ! self::$deprecation_notice_fired ) {
-			_deprecated_function( "Array access to the field object is now deprecated. Further notices will be suppressed. \$field['" . $offset . "']", '2.0', 'the object operator e.g. $field->' . $offset );
+			_deprecated_function( "Array access to the field object is now deprecated. Further notices will be suppressed. \$field['" . esc_attr( $offset ) . "']", '2.0', 'the object operator e.g. $field->' . esc_attr( $offset ) );
 			self::$deprecation_notice_fired = true;
 		}
 	}
@@ -585,6 +595,17 @@ class GF_Field extends stdClass implements ArrayAccess {
 
 		// Get the field sidebar messages, this could be an array of messages or a warning message string.
 		$field_sidebar_messages  = GFCommon::is_form_editor() ? $this->get_field_sidebar_messages() : '';
+
+		/**
+		 * Allows the field sidebar messages to be modified.
+		 *
+		 * @since 2.9.30
+		 *
+		 * @param array|string $field_sidebar_messages The field sidebar messages.
+		 * @param GF_Field     $field                  The field object.
+		 */
+		$field_sidebar_messages = $is_form_editor ? apply_filters( 'gform_field_sidebar_messages', $field_sidebar_messages, $this ) : $field_sidebar_messages;
+
 		$sidebar_message_type    = 'warning';
 		$sidebar_message_content = $field_sidebar_messages;
 
@@ -803,7 +824,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 
 				return false;
 			} elseif ( $this->enablePrice ) {
-				list( $label, $price ) = rgexplode( '|', $value, 2 );
+				list( $label, $price ) = rgexplode( '|', $value, 2, true );
 				$is_empty = ( strlen( trim( $price ) ) <= 0 );
 
 				return $is_empty;
@@ -1011,25 +1032,28 @@ class GF_Field extends stdClass implements ArrayAccess {
 	/**
 	 * Retrieve the input value on submission.
 	 *
+	 * @since 1.9
+	 * @since 2.9.17 Updated to return null if the field failed state validation.
+	 *
 	 * @param string    $standard_name            The input name used when accessing the $_POST.
 	 * @param string    $custom_name              The dynamic population parameter name.
 	 * @param array     $field_values             The dynamic population parameter names with their corresponding values to be populated.
 	 * @param bool|true $get_from_post_global_var Whether to get the value from the $_POST array as opposed to $field_values.
 	 *
-	 * @return array|string
+	 * @return array|string|null
 	 */
 	public function get_input_value_submission( $standard_name, $custom_name = '', $field_values = array(), $get_from_post_global_var = true ) {
 
 		$form_id = $this->formId;
-		if ( ! empty( $_POST[ 'is_submit_' . $form_id ] ) && $get_from_post_global_var ) {
-			$value = rgpost( $standard_name );
-			$value = GFFormsModel::maybe_trim_input( $value, $form_id, $this );
+		if ( ! empty( $_POST[ 'is_submit_' . $form_id ] ) && $get_from_post_global_var ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$value = $this->get_context_property( 'failed_state_validation' ) ? null : rgpost( $standard_name );
 
-			return $value;
+			return GFFormsModel::maybe_trim_input( $value, $form_id, $this );
 		} elseif ( $this->allowsPrepopulate ) {
 			return GFFormsModel::get_parameter_value( $custom_name, $field_values, $this );
 		}
 
+		return null;
 	}
 
 
@@ -1171,23 +1195,62 @@ class GF_Field extends stdClass implements ArrayAccess {
 	}
 
 	/**
+	 * Returns the field value formatted for the {all_fields} merge tag (email output).
+	 *
+	 * @since 2.9.31
+	 *
+	 * @param string|array $value    The field value.
+	 * @param array        $entry    The entry.
+	 * @param bool|false   $use_text When processing choice based fields should the choice text be returned instead of the value.
+	 * @param string       $format   The format requested for the location the merge is being used. Possible values: html, text or url.
+	 *
+	 * @return string|false
+	 */
+	public function get_value_all_fields_merge_tag( $value, $entry, $use_text, $format ) {
+
+		return $this->get_value_entry_detail( $value, $entry, $use_text, $format, 'email' );
+	}
+
+	/**
 	 * Format the entry value for display on the entry detail page and for the {all_fields} merge tag.
 	 *
 	 * Return a value that's safe to display for the context of the given $format.
 	 *
+	 * @since 1.9
+	 * @since 2.9.14 Updated to display an inline error message on the entry detail page for array-based values.
+	 * @since 2.9.29 Changed the second parameter $currency (string) to $entry (array).
+	 *
 	 * @param string|array $value    The field value.
-	 * @param string       $currency The entry currency code.
+	 * @param array        $entry    The entry.
 	 * @param bool|false   $use_text When processing choice based fields should the choice text be returned instead of the value.
 	 * @param string       $format   The format requested for the location the merge is being used. Possible values: html, text or url.
 	 * @param string       $media    The location where the value will be displayed. Possible values: screen or email.
 	 *
-	 * @return string
+	 * @return string|false
 	 */
-	public function get_value_entry_detail( $value, $currency = '', $use_text = false, $format = 'html', $media = 'screen' ) {
+	public function get_value_entry_detail( $value, $entry = array(), $use_text = false, $format = 'html', $media = 'screen' ) {
 
 		if ( is_array( $value ) ) {
-			_doing_it_wrong( __METHOD__, 'Override this method to handle array values', '2.0' );
-			return $value;
+			if ( ! $this->is_entry_detail() ) {
+				// Returning false for {all_fields}, so the field is omitted from the output even when the empty modifier is used.
+				return $media === 'email' ? false : '';
+			}
+
+			$class = get_class( $this );
+			if ( $class === GF_Field::class ) {
+				$error_message = sprintf( esc_html__( 'Field value cannot be displayed. Please activate the add-on that includes the `%s` field type.', 'gravityforms' ), $this->type );
+			} else {
+				$error_message = sprintf( esc_html__( 'Field value cannot be displayed. If you are the developer of the `%s` field type, please implement `%s::get_value_entry_detail()` to define how the value is displayed.', 'gravityforms' ), $this->type, $class );
+			}
+
+			return '<div class="error-alert-container alert-container">
+						<div class="gform-alert gform-alert--error">
+							<span class="gform-alert__icon gform-icon gform-icon--circle-close" aria-hidden="true"></span>
+							<div class="gform-alert__message-wrap">
+								<p class="gform-alert__message">' . $error_message . '</p>
+							</div>
+						</div>
+					</div>';
 		}
 
 		if ( $format === 'html' ) {
@@ -1284,7 +1347,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 		$price = '';
 
 		if ( $this->enablePrice ) {
-			$parts = explode( '|', $value );
+			$parts = rgexplode( '|', $value, 2, true );
 			$value = $parts[0];
 
 			if ( ! empty( $parts[1] ) ) {
@@ -1768,6 +1831,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 		$conditional         = "<span class='gfield-compact-icon--conditional' id='gfield_{$this->id}-conditional-logic-icon' title='" . esc_attr( 'Conditional Logic', 'gravityforms' ) . "' style='display: {$conditional_display}' aria-label=" . esc_html( 'Conditional Logic', 'gravityforms' ) . ">" . GFCommon::get_icon_markup( array( 'icon' => 'gform-icon--conditional-logic' ) ) . "<span class='screen-reader-text'>" . esc_attr( 'This field has conditional logic enabled.', 'gravityforms' ) . "</span></span>";
 
 		$field_sidebar_messages    = $this->get_field_sidebar_messages();
+		$field_sidebar_messages    = GFCommon::is_form_editor() ? apply_filters( 'gform_field_sidebar_messages', $field_sidebar_messages, $this ) : $field_sidebar_messages;
 		$sidebar_message           = is_array( rgar( $field_sidebar_messages, '0' ) ) ? array_shift( $field_sidebar_messages ) : $field_sidebar_messages;
 		$compact_view_sidebar_message_icon = '';
 		if ( ! empty( $sidebar_message ) ) {

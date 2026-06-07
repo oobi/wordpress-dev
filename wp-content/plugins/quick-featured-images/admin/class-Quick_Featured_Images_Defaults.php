@@ -204,8 +204,9 @@ class Quick_Featured_Images_Defaults {
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
-		// Auto set featured image on saving a post
-		add_action( 'save_post', array( $this, 'add_featured_image' ), 10 , 3 );
+		// Auto set featured image after the post, its terms and meta data were saved.
+		// This avoids category-based rules lagging one save behind in REST-based editors.
+		add_action( 'wp_after_insert_post', array( $this, 'add_featured_image' ), 10, 4 );
 		
 		// Auto delete rule if an image is deleted in the media library
 		add_action( 'delete_attachment', array( $this, 'delete_rules_by_thumb_id' ) );
@@ -468,7 +469,7 @@ class Quick_Featured_Images_Defaults {
 	 * @access   private
 	 * @since    8.0
 	 */
-	public function add_featured_image( $post_id, $post, $is_update ) {
+	public function add_featured_image( $post_id, $post, $is_update, $post_before = null ) {
 		// get out if post is autosave type
 		if ( wp_is_post_autosave( $post_id ) ) return;
 		// get out if post is revision

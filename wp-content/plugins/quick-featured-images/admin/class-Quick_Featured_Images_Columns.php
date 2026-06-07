@@ -502,113 +502,159 @@ class Quick_Featured_Images_Columns {
      * Set post featured image per Ajax request
      *
 	 * @since     12.0
-	 *
+	 * @updated   13.7.3
      */
-    public function set_thumbnail () {
+	public function set_thumbnail() {
 
-		if ( ! isset( $_POST[ 'qfi_nonce' ] ) or
-             ! wp_verify_nonce( $_POST[ 'qfi_nonce' ], 'qfi-image-column' ) or
-             ! user_can( get_current_user_id(), 'edit_published_posts') ) {
-			$text = 'Sorry, you are not allowed to edit this item.';
-			die( __( $text ) );
+		// Verify nonce first.
+		if ( ! isset( $_POST['qfi_nonce'] ) || ! wp_verify_nonce( $_POST['qfi_nonce'], 'qfi-image-column' ) ) {
+			/* translators: error message shown when nonce or permission check fails */
+			wp_die( esc_html__( 'Sorry, you are not allowed to edit this item.', 'quick-featured-images' ) );
 		}
-		if ( isset( $_POST[ 'post_id' ] ) and isset( $_POST[ 'thumbnail_id' ] ) ) {
-			// sanitze ids
-			$post_id		= absint( $_POST[ 'post_id' ][ 0 ] );
-			$thumbnail_id	= absint( $_POST[ 'thumbnail_id' ] );
-			// try to set thumbnail; returns true if successful
-			$success = set_post_thumbnail( $post_id, $thumbnail_id );
-			if ( $success ) {
 
-				/*
-				 * build the HTML response
-				 */
-				 
-				$thumb_title = _draft_or_post_title( $thumbnail_id );
-				
-				// 'change thumbnail' link
-				$html = sprintf(
-					'<a href="%s" id="qfi_set_%d" class="qfi_set_fi" title="%s">%s<br />%s</a>',
-					esc_url( get_upload_iframe_src( 'image', $post_id ) ),
-					$post_id,
-					esc_attr( sprintf( $this->translation_cache[ 'Change x' ], $thumb_title ) ),
-					get_the_post_thumbnail( $post_id, array( $this->used_thumbnail_width, $this->used_thumbnail_width ) ),
-					$this->translation_cache[ 'Change image' ]
-				);
+		// Validate incoming parameters exist.
+		if ( ! isset( $_POST['post_id'] ) || ! isset( $_POST['thumbnail_id'] ) ) {
+			/* translators: invalid request */
+			wp_die( esc_html__( 'Invalid request.', 'quick-featured-images' ) );
+		}
 
-				// 'edit image' link
-				$html .= sprintf(	
-					'<br /><a href="%s" title="%s">%s</a>',
-					esc_url( get_edit_post_link( $thumbnail_id ) ),
-					esc_attr( sprintf( $this->translation_cache[ 'Edit x' ], $thumb_title ) ),
-					$this->translation_cache[ 'Edit Image' ]
-				);
+		// Sanitize IDs (first element expected for post_id array).
+		$post_id      = absint( $_POST['post_id'][0] );
+		$thumbnail_id = absint( $_POST['thumbnail_id'] );
 
-				// 'remove thumbnail' link
-				$html .= sprintf(
-					'<br /><a href="#" id="qfi_delete_%d" class="qfi_delete_fi hide-if-no-js" title="%s">%s</a>',
-					$post_id,
-					esc_attr( sprintf( $this->translation_cache[ 'Remove x' ], $thumb_title ) ),
-					$this->translation_cache[ 'Remove featured image' ]
-				);
-				
-				// return response to Ajax script
-				echo $html;
-				
-			} else {
-				// return error message to Ajax script
+		// Basic sanity: ensure we have a valid post ID.
+		if ( 0 === $post_id ) {
+			/* translators: invalid post id */
+			wp_die( esc_html__( 'Invalid post ID.', 'quick-featured-images' ) );
+		}
+
+		// Per-object authorization: ensure current user may edit this specific post.
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			/* translators: not allowed to edit the requested post */
+			wp_die( esc_html__( 'Sorry, you are not allowed to edit this item.', 'quick-featured-images' ) );
+		}
+
+		// If a thumbnail id was provided, ensure it references an attachment.
+		if ( $thumbnail_id ) {
+			$attachment = get_post( $thumbnail_id );
+			if ( ! $attachment || 'attachment' !== $attachment->post_type ) {
+				// Attachment invalid — respond with the same message the original code used for failure.
 				echo $this->translation_cache[ 'Item not added.' ];
+				die();
 			}
 		}
+
+		// Try to set the post thumbnail.
+		$success = set_post_thumbnail( $post_id, $thumbnail_id );
+		if ( $success ) {
+
+			/*
+			 * Build the HTML response to remain compatible with the plugin's JS.
+			 */
+
+			$thumb_title = _draft_or_post_title( $thumbnail_id );
+
+			// 'change thumbnail' link
+			$html = sprintf(
+				'<a href="%s" id="qfi_set_%d" class="qfi_set_fi" title="%s">%s<br />%s</a>',
+				esc_url( get_upload_iframe_src( 'image', $post_id ) ),
+				$post_id,
+				esc_attr( sprintf( $this->translation_cache[ 'Change x' ], $thumb_title ) ),
+				get_the_post_thumbnail( $post_id, array( $this->used_thumbnail_width, $this->used_thumbnail_width ) ),
+				$this->translation_cache[ 'Change image' ]
+			);
+
+			// 'edit image' link
+			$html .= sprintf(
+				'<br /><a href="%s" title="%s">%s</a>',
+				esc_url( get_edit_post_link( $thumbnail_id ) ),
+				esc_attr( sprintf( $this->translation_cache[ 'Edit x' ], $thumb_title ) ),
+				$this->translation_cache[ 'Edit Image' ]
+			);
+
+			// 'remove thumbnail' link
+			$html .= sprintf(
+				'<br /><a href="#" id="qfi_delete_%d" class="qfi_delete_fi hide-if-no-js" title="%s">%s</a>',
+				$post_id,
+				esc_attr( sprintf( $this->translation_cache[ 'Remove x' ], $thumb_title ) ),
+				$this->translation_cache[ 'Remove featured image' ]
+			);
+
+			// Return response to Ajax script
+			echo $html;
+
+		} else {
+			// return error message to Ajax script
+			echo $this->translation_cache[ 'Item not added.' ];
+		}
+
 		die();
-    }
+	}
 
     /**
      * Remove post featured image per Ajax request
      *
 	 * @since     12.0
-	 *
+	 * @updated   13.7.3
      */
-    public function delete_thumbnail () {
+	public function delete_thumbnail() {
 
-        if ( ! isset( $_POST[ 'qfi_nonce' ] ) or
-             ! wp_verify_nonce( $_POST[ 'qfi_nonce' ], 'qfi-image-column' ) or
-             ! user_can( get_current_user_id(), 'edit_published_posts') ) {
-			$text = 'Sorry, you are not allowed to delete this item.';
-			die( __( $text ) );
+		// Verify nonce first.
+		if ( ! isset( $_POST['qfi_nonce'] ) || ! wp_verify_nonce( $_POST['qfi_nonce'], 'qfi-image-column' ) ) {
+			/* translators: error message shown when nonce or permission check fails */
+			wp_die( esc_html__( 'Sorry, you are not allowed to delete this item.', 'quick-featured-images' ) );
 		}
-		if ( isset( $_POST[ 'post_id' ] ) ) {
-			// sanitze post id
-			$post_id = absint( $_POST[ 'post_id' ][ 0 ] );
-			// try to delete thumbnail; returns true if successful
-			$success = delete_post_thumbnail( $post_id );
-			if ( $success ) {
-				/*
-				 * build the HTML response
-				 */
-				
-				$post_title = _draft_or_post_title( $post_id );
 
-				// 'set thumbnail' link
-				$html = sprintf(
-					'%s<br /><a href="%s" id="qfi_set_%d" class="qfi_set_fi" title="%s">%s</a>',
-					$this->translation_cache[ 'Item deleted.' ],
-					esc_url( get_upload_iframe_src( 'image', $post_id ) ),
-					$post_id,
-					esc_attr( sprintf( $this->translation_cache[ 'Set image for x' ], $post_title ) ),
-					$this->translation_cache[ 'Set featured image' ]
-				);
-
-				// return response to Ajax script
-				echo $html;
-				
-			} else {
-				// return error message to Ajax script
-				echo $this->translation_cache[ 'Item not updated.' ];
-			}
+		// Validate incoming parameter.
+		if ( ! isset( $_POST['post_id'] ) ) {
+			/* translators: invalid request */
+			wp_die( esc_html__( 'Invalid request.', 'quick-featured-images' ) );
 		}
+
+		// Sanitize post ID (first element expected).
+		$post_id = absint( $_POST['post_id'][0] );
+
+		// Basic sanity: ensure we have a valid post ID.
+		if ( 0 === $post_id ) {
+			/* translators: invalid post id */
+			wp_die( esc_html__( 'Invalid post ID.', 'quick-featured-images' ) );
+		}
+
+		// Per-object authorization: ensure current user may edit this specific post.
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			/* translators: not allowed to edit the requested post */
+			wp_die( esc_html__( 'Sorry, you are not allowed to delete this item.', 'quick-featured-images' ) );
+		}
+
+		// Try to delete thumbnail; returns true if successful.
+		$success = delete_post_thumbnail( $post_id );
+		if ( $success ) {
+
+			/*
+			 * Build the HTML response to remain compatible with the plugin's JS.
+			 */
+			$post_title = _draft_or_post_title( $post_id );
+
+			// 'set thumbnail' link
+			$html = sprintf(
+				'%s<br /><a href="%s" id="qfi_set_%d" class="qfi_set_fi" title="%s">%s</a>',
+				$this->translation_cache[ 'Item deleted.' ],
+				esc_url( get_upload_iframe_src( 'image', $post_id ) ),
+				$post_id,
+				esc_attr( sprintf( $this->translation_cache[ 'Set image for x' ], $post_title ) ),
+				$this->translation_cache[ 'Set featured image' ]
+			);
+
+			// Return response to Ajax script
+			echo $html;
+
+		} else {
+			// return error message to Ajax script
+			echo $this->translation_cache[ 'Item not updated.' ];
+		}
+
 		die();
-    }
+	}
 
 	/**
 	 *

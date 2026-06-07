@@ -1,15 +1,29 @@
 <?php
+/**
+ * FakerPress Post Provider
+ *
+ * @package FakerPress
+ * 
+ * @since TBD
+ */
 namespace FakerPress\Provider;
 
 use FakerPress\ThirdParty\Faker\Provider\Base;
-use FakerPress;
+use FakerPress\ThirdParty\Cake\Chronos\Chronos;
 use FakerPress\Utils;
 use function FakerPress\make;
 
+/**
+ * FakerPress WP_Post Provider
+ *
+ * @package FakerPress
+ * 
+ * @since TBD
+ */
 class WP_Post extends Base {
 
 	protected static $default = [
-		'ping_status' => [ 'closed', 'open' ],
+		'ping_status'    => [ 'closed', 'open' ],
 		'comment_status' => [ 'closed', 'open' ],
 	];
 
@@ -23,7 +37,16 @@ class WP_Post extends Base {
 	public function post_type( $haystack = [] ) {
 		if ( empty( $haystack ) ) {
 			// Later on we will remove the Attachment rule
-			$haystack = array_diff( get_post_types( [ 'public' => true, 'show_ui' => true ], 'names' ), [ 'attachment' ] );
+			$haystack = array_diff(
+				get_post_types(
+					[
+						'public'  => true,
+						'show_ui' => true,
+					],
+					'names' 
+				),
+				[ 'attachment' ] 
+			);
 		}
 
 		return $this->generator->randomElement( (array) $haystack );
@@ -38,28 +61,28 @@ class WP_Post extends Base {
 	}
 
 	public function post_date( $interval = 'now' ) {
-		$format = 'Y-m-d H:i:s';
+		$format   = 'Y-m-d H:i:s';
 		$interval = (array) $interval;
 
-		// Unfortunatelly there is not such solution to this problem, we need to try and catch with DateTime
+		// Unfortunately there is not such solution to this problem, we need to try and catch with DateTime
 		try {
-			$min = new \FakerPress\ThirdParty\Carbon\Carbon( array_shift( $interval ) );
+			$min = new Chronos( array_shift( $interval ) );
 		} catch ( \Exception $e ) {
-			$min = new \FakerPress\ThirdParty\Carbon\Carbon( 'today' );
+			$min = new Chronos( 'today' );
 			$min = $min->startOfDay();
 		}
 
 		if ( ! empty( $interval ) ) {
-			// Unfortunatelly there is not such solution to this problem, we need to try and catch with DateTime
+			// Unfortunately there is not such solution to this problem, we need to try and catch with DateTime
 			try {
-				$max = new \FakerPress\ThirdParty\Carbon\Carbon( array_shift( $interval ) );
+				$max = new Chronos( array_shift( $interval ) );
 			} catch ( \Exception $e ) {
 
 			}
 		}
 
 		if ( ! isset( $max ) ) {
-			$max = new \FakerPress\ThirdParty\Carbon\Carbon( 'now' );
+			$max = new Chronos( 'now' );
 		}
 
 		// If max has no Time set it to the end of the day
@@ -69,16 +92,14 @@ class WP_Post extends Base {
 			$max = $max->endOfDay();
 		}
 
-		$selected = $this->generator->dateTimeBetween( (string) $min, (string) $max )->format( $format );
-
-		return $selected;
+		return $this->generator->dateTimeBetween( (string) $min, (string) $max )->format( $format );
 	}
 
 	public function post_content( $html = true, $args = [] ) {
 		$defaults = [
 			'qty' => [ 5, 15 ],
 		];
-		$args = wp_parse_args( $args, $defaults );
+		$args     = wp_parse_args( $args, $defaults );
 
 		if ( true === $html ) {
 			$content = implode( "\n", $this->generator->html_elements( $args ) );
@@ -92,16 +113,16 @@ class WP_Post extends Base {
 	/**
 	 * Configures a Excerpt for the Post
 	 *
-	 * @since  0.4.9
+	 * @since 0.4.9
 	 *
-	 * @param  array|int  $qty     How many words we should generate (range with Array)
-	 * @param  boolean    $html    Should use HTML or not (currently not used)
-	 * @param  integer    $weight  Percentage of times where we will setup a Excerpt
+	 * @param array|int $qty     How many words we should generate (range with Array)
+	 * @param boolean   $html    Should use HTML or not (currently not used)
+	 * @param integer   $weight  Percentage of times where we will setup a Excerpt
 	 *
 	 * @return string
 	 */
 	public function post_excerpt( $qty = [ 25, 75 ], $html = false, $weight = 60 ) {
-		$words = make( Utils::class )->get_qty_from_range( $qty );
+		$words      = make( Utils::class )->get_qty_from_range( $qty );
 		$paragraphs = $this->generator->randomElement( [ 1, 1, 1, 1, 1, 2, 2, 2, 3, 4 ] );
 
 		for ( $i = 0; $i < $paragraphs; $i++ ) {
@@ -117,9 +138,9 @@ class WP_Post extends Base {
 		if ( empty( $haystack ) ) {
 			$haystack = get_users(
 				[
-					'blog_id' => get_current_blog_id(),
+					'blog_id'     => get_current_blog_id(),
 					'count_total' => false,
-					'fields' => 'ID', // When you pass only one field it returns an array of the values
+					'fields'      => 'ID', // When you pass only one field it returns an array of the values
 				]
 			);
 		}
@@ -170,21 +191,29 @@ class WP_Post extends Base {
 		}
 
 		// The percentage of change in which the terms will be applied
-		$rates = apply_filters( 'fakerpress/provider/WP_Post/tax_input.rates', [
-			'category' => 50,
-			'post_tag' => 45,
-			'__default' => 35,
-		] );
+		$rates = apply_filters(
+			'fakerpress/provider/WP_Post/tax_input.rates',
+			[
+				'category'  => 50,
+				'post_tag'  => 45,
+				'__default' => 35,
+			] 
+		);
 
 		// The amount of terms that might have, provide a number for exact and [ int, int ] to range
-		$ranges = apply_filters( 'fakerpress/provider/WP_Post/tax_input.ranges', [
-			'category' => [ 1, 3 ],
-			'post_tag' => [ 0, 15 ],
-			'__default' => [ 0, 3 ],
-		] );
+		$ranges = apply_filters(
+			'fakerpress/provider/WP_Post/tax_input.ranges',
+			[
+				'category'  => [ 1, 3 ],
+				'post_tag'  => [ 0, 15 ],
+				'__default' => [ 0, 3 ],
+			] 
+		);
 
 		foreach ( $config as $settings ) {
-			$settings = (object) $settings;
+			$settings               = (object) $settings;
+			$settings->taxonomies ??= [];
+			$settings->terms      ??= [];
 
 			if ( ! empty( $settings->taxonomies ) && is_string( $settings->taxonomies ) ) {
 				$settings->taxonomies = explode( ',', $settings->taxonomies );
@@ -198,7 +227,13 @@ class WP_Post extends Base {
 
 			foreach ( $settings->taxonomies as $taxonomy ) {
 				if ( empty( $settings->terms ) ) {
-					$terms = get_terms( $taxonomy, [ 'fields' => 'ids', 'hide_empty' => false ] );
+					$terms = get_terms(
+						$taxonomy,
+						[
+							'fields'     => 'ids',
+							'hide_empty' => false,
+						] 
+					);
 				} else {
 					$terms = $settings->terms;
 				}
@@ -207,13 +242,13 @@ class WP_Post extends Base {
 				$terms = array_filter( array_map( 'absint', $terms ) );
 
 				if ( ! isset( $settings->qty ) ) {
-					$qty = make( Utils::class )->get_qty_from_range( ( isset( $ranges[ $taxonomy ] ) ? $ranges[ $taxonomy ] : $ranges['__default'] ), $terms );
+					$qty = make( Utils::class )->get_qty_from_range( ( $ranges[ $taxonomy ] ?? $ranges['__default'] ), $terms );
 				} else {
 					$qty = (int) make( Utils::class )->get_qty_from_range( $settings->qty, $terms );
 				}
 
 				if ( ! isset( $settings->rate ) ) {
-					$rate = isset( $rates[ $taxonomy ] ) ? $rates[ $taxonomy ] : $rates['__default'];
+					$rate = $rates[ $taxonomy ] ?? $rates['__default'];
 				} else {
 					$rate = (int) $settings->rate;
 				}

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-06 05:13:12+0000\n"
+"PO-Revision-Date: 2025-05-22 08:43:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1985,6 +1985,11 @@ msgctxt "block title"
 msgid "Excerpt"
 msgstr "Excerpt"
 
+#: wp-includes/blocks/pattern/block.json
+msgctxt "block title"
+msgid "Pattern Placeholder"
+msgstr "Pattern Placeholder"
+
 #: wp-includes/blocks/footnotes/block.json
 msgctxt "block keyword"
 msgid "references"
@@ -1994,6 +1999,11 @@ msgstr "references"
 msgctxt "block title"
 msgid "Footnotes"
 msgstr "Footnotes"
+
+#: wp-includes/blocks/query/block.json
+msgctxt "block keyword"
+msgid "list"
+msgstr "list"
 
 #: wp-includes/blocks/details/block.json
 msgctxt "block keyword"
@@ -2636,6 +2646,11 @@ msgstr "A variety of designs to display your team members."
 msgid "Sections whose purpose is to trigger a specific action."
 msgstr "Sections whose purpose is to trigger a specific action."
 
+#: wp-includes/block-patterns.php:83
+msgctxt "Block pattern category"
+msgid "Call to action"
+msgstr "Call to action"
+
 #: wp-includes/block-patterns.php:77
 msgid "A set of high quality curated patterns."
 msgstr "A set of high quality curated patterns."
@@ -2677,6 +2692,11 @@ msgstr "Sorry, you are not allowed to view terms for this post."
 #: wp-includes/block-supports/typography.php:349
 msgid "Raw size value must be a string, integer, or float."
 msgstr "Raw size value must be a string, integer, or float."
+
+#: wp-includes/blocks/list-item/block.json
+msgctxt "block title"
+msgid "List Item"
+msgstr "List Item"
 
 #: wp-includes/blocks/comments/block.json
 msgctxt "block title"
@@ -2996,6 +3016,11 @@ msgctxt "block description"
 msgid "Contains the block elements used to render content when no query results are found."
 msgstr "Contains the block elements used to render content when no query results are found."
 
+#: wp-includes/blocks/query-no-results/block.json
+msgctxt "block title"
+msgid "No Results"
+msgstr "No Results"
+
 #: wp-includes/blocks/post-author/block.json
 msgctxt "block description"
 msgid "Display post author details such as name, avatar, and bio."
@@ -3160,6 +3185,10 @@ msgstr "Comment Content"
 #: wp-admin/options-discussion.php:290 wp-admin/options-discussion.php:294
 msgid "Default Avatar"
 msgstr "Default Avatar"
+
+#: wp-includes/post.php:287 wp-includes/post.php:288
+msgid "Add Pattern"
+msgstr "Add Pattern"
 
 #: wp-includes/media-template.php:847 wp-includes/media-template.php:1103
 #: wp-includes/media-template.php:1167
@@ -4022,6 +4051,10 @@ msgstr "Edit Navigation Menu"
 #: wp-includes/post.php:527
 msgid "New Navigation Menu"
 msgstr "New Navigation Menu"
+
+#: wp-includes/post.php:525 wp-includes/post.php:526
+msgid "Add Navigation Menu"
+msgstr "Add Navigation Menu"
 
 #: wp-includes/post.php:524
 msgctxt "post type singular name"
@@ -7071,6 +7104,10 @@ msgstr "Unable to get meta information for file."
 msgid "Limit result set to blocks matching the search term."
 msgstr "Limit result set to blocks matching the search term."
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:288
+msgid "The date when the block was last updated, in human readable format."
+msgstr "The date when the block was last updated, in human readable format."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:276
 msgid "The block icon."
 msgstr "The block icon."
@@ -8382,6 +8419,10 @@ msgstr "A calendar of your site’s posts."
 #: wp-includes/media.php:5024
 msgid "Edit gallery"
 msgstr "Edit gallery"
+
+#: wp-includes/js/dist/edit-site.js:22391 wp-admin/includes/theme.php:335
+msgid "Custom Colors"
+msgstr "Custom Colours"
 
 #: wp-includes/class-wp-recovery-mode.php:247
 msgid "Failed to exit recovery mode. Please try again later."
@@ -10287,6 +10328,25 @@ msgstr "Change audio"
 msgid "Select audio"
 msgstr "Select audio"
 
+#. translators: %s: Header height in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:231
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header height of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header height of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
+#. translators: %s: Header width in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:225
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header width of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header width of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
+#. translators: %s: Header size in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:219
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header size of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header size of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
+#: wp-includes/customize/class-wp-customize-header-image-control.php:215
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+
 #. translators: 1: Month number (01, 02, etc.), 2: Month abbreviation.
 #: wp-includes/customize/class-wp-customize-date-time-control.php:234
 #: wp-admin/includes/template.php:846
@@ -10518,6 +10578,10 @@ msgstr "View User"
 msgid "This widget may have contained code that may work better in the &#8220;Custom HTML&#8221; widget. If you have not yet, how about trying that widget instead?"
 msgstr "This widget may have contained code that may work better in the &#8220;Custom HTML&#8221; widget. If you have not yet, how about trying that widget instead?"
 
+#: wp-includes/widgets/class-wp-widget-text.php:560
+msgid "Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Code&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!"
+msgstr "Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Code&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!"
+
 #: wp-includes/widgets/class-wp-widget-text.php:559
 msgid "Did you just paste HTML?"
 msgstr "Did you just paste HTML?"
@@ -10602,6 +10666,10 @@ msgstr "Add Audio"
 #: wp-admin/includes/media.php:3332
 msgid "(no author)"
 msgstr "(no author)"
+
+#: wp-includes/script-loader.php:1317 wp-admin/includes/file.php:638
+msgid "An error occurred. Please try again later."
+msgstr "An error occurred. Please try again later."
 
 #. translators: %s: URL to Network Settings screen.
 #: wp-signup.php:965
@@ -14555,6 +14623,10 @@ msgstr "Add Items"
 #: wp-includes/admin-bar.php:388 wp-admin/admin-header.php:48
 msgid "User Dashboard: %s"
 msgstr "User Dashboard: %s"
+
+#: wp-includes/admin-bar.php:208
+msgid "https://learn.wordpress.org/"
+msgstr "https://learn.wordpress.org/"
 
 #. translators: 1: The 'id' argument, 2: Sidebar name, 3: Recommended 'id'
 #. value.
@@ -18776,6 +18848,10 @@ msgstr "Oops: %s"
 #: wp-mail.php:73
 msgid "There does not seem to be any new mail."
 msgstr "There does not seem to be any new mail."
+
+#: wp-mail.php:48
+msgid "Slow down, no need to check for new mails so often!"
+msgstr "Slow down, no need to check for new mails so often!"
 
 #: wp-login.php:1447
 msgid "You are now logged out."

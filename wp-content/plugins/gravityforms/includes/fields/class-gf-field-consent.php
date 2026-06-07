@@ -76,7 +76,7 @@ class GF_Field_Consent extends GF_Field {
 		 *
 		 * @param string $tag Image tag.
 		 */
-		$this->checked_indicator_markup = apply_filters( 'gform_consent_checked_indicator_markup', '<img src="' . esc_url( $this->checked_indicator_url ) . '" />' );
+		$this->checked_indicator_markup = apply_filters( 'gform_consent_checked_indicator_markup', '<img src="' . esc_url( $this->checked_indicator_url ) . '" alt="" />' );
 	}
 
 	/**
@@ -209,7 +209,7 @@ class GF_Field_Consent extends GF_Field {
 		$target_input_id       = parent::get_first_input_id( $form );
 		$for_attribute         = empty( $target_input_id ) ? '' : "for='{$target_input_id}'";
 		$label_class_attribute = 'class="gform-field-label gform-field-label--type-inline gfield_consent_label"';
-		$required_div          = ( $this->labelPlacement === 'hidden_label' && $this->isRequired ) ? $this->get_required_indicator() : '';
+		$required_div          = ( $this->labelPlacement === 'hidden_label' && $this->isRequired && ! GFCommon::is_entry_detail_edit() ) ? $this->get_required_indicator() : '';
 
 		if ( $is_admin && ! GFCommon::is_entry_detail_edit() ) {
 			$checkbox_label = ! is_array( $value ) || empty( $value[ $id . '.2' ] ) ? $this->checkboxLabel : $value[ $id . '.2' ];
@@ -406,7 +406,7 @@ class GF_Field_Consent extends GF_Field {
 		switch ( $input_id ) {
 			case '1':
 				$value  = ! rgblank( $value ) ? $this->checked_indicator_markup : '';
-				$value .= ! rgblank( $value ) ? ' ' . trim( $entry[ $this->id . '.2' ] ) : '';
+				$value .= ! rgblank( $value ) ? ' ' . wp_kses( trim( $entry[ $this->id . '.2' ] ), wp_kses_allowed_html( 'data' ) ) : '';
 				break;
 		}
 
@@ -417,16 +417,17 @@ class GF_Field_Consent extends GF_Field {
 	 * Format the entry value for display on the entry detail page and for the {all_fields} merge tag.
 	 *
 	 * @since 2.4
+	 * @since 2.9.29 Changed the second parameter $currency (string) to $entry (array).
 	 *
 	 * @param string|array $value    The field value.
-	 * @param string       $currency The entry currency code.
+	 * @param array        $entry    The entry.
 	 * @param bool|false   $use_text When processing choice based fields should the choice text be returned instead of the value.
 	 * @param string       $format   The format requested for the location the merge is being used. Possible values: html, text or url.
 	 * @param string       $media    The location where the value will be displayed. Possible values: screen or email.
 	 *
 	 * @return string
 	 */
-	public function get_value_entry_detail( $value, $currency = '', $use_text = false, $format = 'html', $media = 'screen' ) {
+	public function get_value_entry_detail( $value, $entry = array(), $use_text = false, $format = 'html', $media = 'screen' ) {
 		$return = '';
 
 		if ( is_array( $value ) && ! empty( $value ) ) {
@@ -436,7 +437,7 @@ class GF_Field_Consent extends GF_Field {
 
 			if ( ! rgblank( $consent ) ) {
 				$return  = $this->checked_indicator_markup;
-				$return .= ' ' . wp_kses_post( $text );
+				$return .= ' ' . wp_kses( $text, wp_kses_allowed_html( 'data' ) );
 
 				if ( $media === 'screen' ) {
 					// checking revisions.
@@ -567,7 +568,7 @@ class GF_Field_Consent extends GF_Field {
 	public function get_field_description_from_revision( $revision_id ) {
 		global $wpdb;
 		$revisions_table_name = GFFormsModel::get_form_revisions_table_name();
-		$display_meta         = $wpdb->get_var( $wpdb->prepare( "SELECT display_meta FROM $revisions_table_name WHERE form_id=%d AND id=%d", $this->formId, $revision_id ) );
+		$display_meta         = $wpdb->get_var( $wpdb->prepare( "SELECT display_meta FROM $revisions_table_name WHERE form_id=%d AND id=%d", $this->formId, $revision_id ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		$value                = '';
 		$is_entry_detail = $this->is_entry_detail();
 

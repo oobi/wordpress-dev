@@ -133,7 +133,8 @@ if (false === class_exists('WF_Licensing')) {
       $log_content .= '[' . gmdate('r') . '] ' . $this->prefix . ': ';
       $log_content .= (string) $message . PHP_EOL;
       foreach ($data as $tmp) {
-        $log_content .= var_export($tmp, true) . PHP_EOL;
+        //only used for logging, no visible output
+        $log_content .= var_export($tmp, true) . PHP_EOL; //phpcs:ignore
       }
       $log_content .= PHP_EOL;
       $wp_filesystem->put_contents( $log_file, $log_content );

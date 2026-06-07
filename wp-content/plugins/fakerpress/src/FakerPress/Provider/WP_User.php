@@ -2,7 +2,7 @@
 namespace FakerPress\Provider;
 
 use FakerPress\ThirdParty\Faker\Provider\Base;
-use FakerPress;
+use FakerPress\ThirdParty\Cake\Chronos\Chronos;
 use FakerPress\Utils;
 use function FakerPress\make;
 
@@ -129,16 +129,16 @@ class WP_User extends Base {
 	 * @since 0.6.2 Introduced type safety.
 	 *
 	 * @param string|null $pass
-	 * @param int		 $qty
+	 * @param int         $qty
 	 *
 	 * @return string|null
 	 */
-	public function user_pass( ?string $pass = null, int $qty = 10 ): ?string {
+	public function user_pass( ?string $pass = null, int $qty = 16 ): ?string {
 		if ( is_null( $pass ) ) {
 			if ( function_exists( 'wp_generate_password' ) ) {
-				$pass = wp_generate_password( $qty );
+				$pass = wp_generate_password( $qty, true );
 			} else {
-				$pass = $this->generator->randomNumber( $qty - 1 ) . $this->generator->randomLetter();
+				$pass = $this->generator->password( $qty );
 			}
 		}
 		return $pass;
@@ -150,7 +150,7 @@ class WP_User extends Base {
 	 * @since 0.1.0
 	 * @since 0.6.2 Introduced type safety.
 	 *
-	 * @param bool $html Whether to return HTML or plain text.
+	 * @param bool  $html Whether to return HTML or plain text.
 	 * @param array $args
 	 *
 	 * @return string|null
@@ -159,7 +159,7 @@ class WP_User extends Base {
 		$defaults = [
 			'qty' => [ 5, 15 ],
 		];
-		$args = wp_parse_args( $args, $defaults );
+		$args     = wp_parse_args( $args, $defaults );
 
 		if ( true === $html ) {
 			$content = implode( "\n", $this->generator->html_elements( $args ) );
@@ -186,15 +186,15 @@ class WP_User extends Base {
 
 	public function user_registered( $min = 'now', $max = null ) {
 		try {
-			$min = new \FakerPress\ThirdParty\Carbon\Carbon( $min );
+			$min = new Chronos( $min );
 		} catch ( \Exception $e ) {
 			return null;
 		}
 
 		if ( ! is_null( $max ) ) {
-			// Unfortunatelly there is not such solution to this problem, we need to try and catch with DateTime
+			// Unfortunately there is not such solution to this problem, we need to try and catch with DateTime
 			try {
-				$max = new \FakerPress\ThirdParty\Carbon\Carbon( $max );
+				$max = new Chronos( $max );
 			} catch ( \Exception $e ) {
 				return null;
 			}

@@ -2,7 +2,7 @@
 
 - Stable tag: trunk
 - Requires at least: 5.4
-- Tested up to: 6.7
+- Tested up to: 7.0
 - Requires PHP: 5.3
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,7 +43,6 @@ Here are the features of baguetteBox.js:
 - Gallery (Default Classic Editor Gallery)
 - CoBlocks Gallery Collage / Masonry / Offset / Stacked
 - Meow Gallery (+ Gallery Block)
-- GenerateBlocks Image (Set `Enable Dynamic Data` → `Link source` to `Single image`)
 
 Don't forget to select Link to → Media File for all of your Galleries & Images to work properly.
 
@@ -126,6 +125,10 @@ Or disable the animation completely with `'false'`:
 add_filter( 'baguettebox_animation', function () { return 'false'; } );
 ```
 
+### Can I exclude single images from applying the lightbox?
+
+You can remove the link from the image or add the CSS class `no-lightbox` to the image link. Not to the image directly; you have to add the class to the link.
+
 ## Screenshots
 
 1. Simple, modern and minimalistic Lightbox for your Gallery Block<br>![Lightbox for the Gallery Block](https://github.com/goaround/gallery-block-lightbox/blob/master/.wordpress-org/screenshot-1.png)
@@ -135,6 +138,11 @@ add_filter( 'baguettebox_animation', function () { return 'false'; } );
 If you would like to have this as a default behaviour, go to `yourblog.com/wp-admin/options.php` and search for `image_default_link_type`. Set the value to `file` and hit save. This will apply to all new Image & Gallery Blocks.
 
 ## Changelog
+
+
+### 1.16.1
+
+- No changes, just a version fix.
 
 ### 1.16
 

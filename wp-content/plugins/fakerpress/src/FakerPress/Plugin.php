@@ -1,9 +1,22 @@
 <?php
+/**
+ * Plugin main class.
+ *
+ * @since 0.1.0
+ *
+ * @package FakerPress
+ * @subpackage Main
+ * @copyright Copyright (c) 2014-2025, Gustavo Bordoni
+ * @license http://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
+ */
 
 namespace FakerPress;
 
-use FakerPress\Contracts\Service_Provider;
-
+/**
+ * Main plugin class used to setup all the necessary components.
+ *
+ * @since 0.1.0
+ */
 class Plugin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -12,7 +25,7 @@ class Plugin {
 	 *
 	 * @var string
 	 */
-	public const VERSION = '0.6.6';
+	public const VERSION = '0.9.1';
 
 	/**
 	 * @since 0.6.0
@@ -125,6 +138,7 @@ class Plugin {
 		$this->plugin_url  = plugins_url( $this->plugin_dir, $this->plugin_path );
 
 		$this->autoload();
+		$this->static_load();
 
 		// Register this as a singleton on the container.
 		singleton( static::class, $this );
@@ -140,6 +154,22 @@ class Plugin {
 	}
 
 	/**
+	 * Loads function files that must be available after the Composer autoloader runs.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @return void
+	 */
+	protected function static_load(): void {
+		require_once $this->plugin_path . 'src' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'container.php';
+		require_once $this->plugin_path . 'src' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'date.php';
+		require_once $this->plugin_path . 'src' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'variables.php';
+		require_once $this->plugin_path . 'src' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'conditionals.php';
+		require_once $this->plugin_path . 'src' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'sorting.php';
+		require_once $this->plugin_path . 'src' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'assets.php';
+	}
+
+	/**
 	 * Autoload the classes for the plugin via Composer.
 	 *
 	 * @since 0.6.2
@@ -147,11 +177,7 @@ class Plugin {
 	 * @return void
 	 */
 	protected function autoload(): void {
-		// Load Composer Vendor Modules
 		require_once $this->plugin_path . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-
-		// Load Composer Vendor Modules
-		require_once $this->plugin_path . 'vendor-prefixed' . DIRECTORY_SEPARATOR . 'autoload.php';
 	}
 
 	/**
@@ -166,9 +192,15 @@ class Plugin {
 		singleton( Utils\Assets::class, Utils\Assets::class );
 		singleton( Utils::class, Utils::class );
 
+		bind( REST\Endpoints\Comments::class, REST\Endpoints\Comments::class );
+		bind( REST\Endpoints\Posts::class, REST\Endpoints\Posts::class );
+		bind( REST\Endpoints\Users::class, REST\Endpoints\Users::class );
+		bind( REST\Endpoints\Terms::class, REST\Endpoints\Terms::class );
+
 		// Register all the Service Providers.
 		register( Assets::class );
 		register( Hooks::class );
+		register( REST\Controller::class );
 
 		register( Module\Factory::class );
 		register( Admin\View\Factory::class );
@@ -180,7 +212,7 @@ class Plugin {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @uses  plugin_dir_path
+	 * @uses plugin_dir_path
 	 *
 	 * @param string $append A string to be appended to the root path
 	 *
@@ -194,7 +226,7 @@ class Plugin {
 	 * Return a URL relative to the plugin root
 	 *
 	 * @since 0.1.0
-	 * @uses  plugins_url
+	 * @uses plugins_url
 	 *
 	 * @param string $file A string to be appended to the root url
 	 *
@@ -209,9 +241,9 @@ class Plugin {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @uses  admin_url
-	 * @uses  wp_parse_args
-	 * @uses  add_query_arg
+	 * @uses admin_url
+	 * @uses wp_parse_args
+	 * @uses add_query_arg
 	 *
 	 * @param string|array $args Arguments for the admin URL
 	 * @param string       $hash Hash for the admin URL
@@ -238,7 +270,7 @@ class Plugin {
 	 * Returns a URL for the external project website
 	 *
 	 * @since 0.3.2
-	 * @uses  esc_url_raw
+	 * @uses esc_url_raw
 	 *
 	 * @param string $path Hash for the admin URL
 	 *
@@ -250,9 +282,7 @@ class Plugin {
 
 	public static function get( $name, $default = false ) {
 		$options = static::all();
-		$value   = get( $options, $name, $default );
-
-		return $value;
+		return get( $options, $name, $default );
 	}
 
 	public static function update( $name = null, $value = false ) {
@@ -261,7 +291,7 @@ class Plugin {
 
 		foreach ( (array) $name as $k => $index ) {
 			if ( 0 === $k ) {
-				$opts[ - 1 ] = &$options;
+				$opts[- 1] = &$options;
 			}
 
 			if ( count( $name ) - 1 !== $k && ! isset( $opts[ $k - 1 ][ $index ] ) ) {

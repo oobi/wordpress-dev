@@ -3,9 +3,9 @@ Contributors: edge22
 Donate link: https://generatepress.com
 Tags: blocks, gutenberg, editor, page builder, posts
 Requires at least: 6.5
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 2.1.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,38 @@ In most cases, #1 will work fine and is way easier.
 GenerateBlocks was built to work hand-in-hand with [GeneratePress](https://generatepress.com). However, it will work with any theme you choose.
 
 == Changelog ==
+
+= 2.2.1 =
+* Security: Improve dynamic tag replacement security in the editor
+
+= 2.2.0 =
+* Security: Improve REST endpoint access control
+* Security: Add dynamic tag validation middleware to stop unsafe meta references during save
+* Feature: Add `generateblocks.media.imageAttributes` filter to control Media block auto-populated attributes
+* Feature: Add grid-auto-columns field to Styles Builder
+* Feature: Add grid-auto-rows field to Styles Builder
+* Feature: Add grid-template-areas field to Styles Builder
+* Feature: Add grid-area field to Styles Builder
+* Feature: Add text-wrap field to Styles Builder
+* Feature: Add global CSS values (inherit, initial, revert, revert-layer, unset) to SelectControl components
+* Fix: Editor sidebar header alignment
+* Fix: Search controls input styles in WordPress 6.9
+* Fix: Undo behavior in editor when editing styles
+* Fix: Unique ID regeneration when pasting a block before its original
+* Fix: Block HTML attribute escaping in WordPress 6.9
+* Tweak: Show standard icons in all libraries
+* Tweak: Show compound selector symbol in Styles Builder list
+* Tweak: Enforce template selector sizing overrides
+
+= 2.1.2 =
+* Security: Restricted options REST API endpoint access for contributors/editors
+
+= 2.1.1 =
+* Security: Remove sensitive values from REST API response for logged in users
+* Fix: Disable image links in the editor
+* Fix: Parse shortcodes in URL HTML attribute fields
+* Fix: Keep existing image size when changing image in block
+* Tweak: Improve image size field loading UI
 
 = 2.1.0 =
 * Feature: Enable full iframe editor

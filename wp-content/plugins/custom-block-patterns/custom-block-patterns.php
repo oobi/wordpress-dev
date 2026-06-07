@@ -3,7 +3,7 @@
  * Plugin Name: Custom Block Patterns
  * Plugin URI: https://github.com/ddryo/Custom-Block-Patterns
  * Description: You can easily create your own block patterns and register them.
- * Version: 1.4.0
+ * Version: 1.4.1
  * Author: LOOS, Inc.
  * Author URI: https://loos.co.jp/
  * License: GPL2 or later

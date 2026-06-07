@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development - Administration - Network Admin package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-30 06:05:19+0000\n"
+"PO-Revision-Date: 2025-06-04 17:42:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -804,6 +804,10 @@ msgstr "Add the designated lines of code to wp-config.php (just before <code>/*.
 msgid "Language Settings"
 msgstr "Language Settings"
 
+#: wp-admin/network/settings.php:253
+msgid "Allow site administrators to add new users to their site via the \"Users &rarr; Add User\" page"
+msgstr "Allow site administrators to add new users to their site via the \"Users &rarr; Add User\" page"
+
 #: wp-admin/network/settings.php:58
 msgid "Super admins can no longer be added on the Options screen. You must now go to the list of existing users on Network Admin > Users and click on Username or the Edit action link below that name. This goes to an Edit User page where you can check a box to grant super admin privileges."
 msgstr "Super admins can no longer be added on the Options screen. You must now go to the list of existing users on Network Admin > Users and click on Username or the Edit action link below that name. This goes to an Edit User page where you can check a box to grant super admin privileges."
@@ -924,6 +928,14 @@ msgstr "Dashboard leads to the Dashboard for that site."
 #: wp-admin/network/sites.php:34
 msgid "An Edit link to a separate Edit Site screen."
 msgstr "An Edit link to a separate Edit Site screen."
+
+#: wp-admin/network/sites.php:31
+msgid "Add Site takes you to the screen for adding a new site to the network. You can search for a site by Name, ID number, or IP address. Screen Options allows you to choose how many sites to display on one page."
+msgstr "Add Site takes you to the screen for adding a new site to the network. You can search for a site by Name, ID number, or IP address. Screen Options allows you to choose how many sites to display on one page."
+
+#: wp-admin/network/settings.php:251
+msgid "Add Users"
+msgstr "Add Users"
 
 #: wp-admin/network/user-new.php:55
 msgid "Cannot add user."
@@ -1046,6 +1058,10 @@ msgstr "Fill in the information below and you&#8217;ll be on your way to creatin
 #: wp-admin/includes/network.php:188
 msgid "Welcome to the Network installation process!"
 msgstr "Welcome to the Network installation process!"
+
+#: wp-admin/includes/network.php:161
+msgid "The network could not be created."
+msgstr "The network could not be created."
 
 #: wp-admin/includes/network.php:146
 msgid "Once the network is created, you may reactivate your plugins."
@@ -1412,6 +1428,10 @@ msgstr "Limited Email Registrations"
 #: wp-admin/network/settings.php:258
 msgid "Banned Names"
 msgstr "Banned Names"
+
+#: wp-admin/network/site-users.php:353
+msgid "Add New User"
+msgstr "Add New User"
 
 #: wp-admin/network/settings.php:239
 msgid "Registration notification"

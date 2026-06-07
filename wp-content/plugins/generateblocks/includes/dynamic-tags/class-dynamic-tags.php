@@ -502,7 +502,13 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 		$content      = $request->get_param( 'content' );
 		$context      = $request->get_param( 'context' );
 		$client_id    = $request->get_param( 'clientId' );
-		$post_id      = $context['postId'] ?? 0;
+		$post_id      = absint( $context['postId'] ?? 0 );
+
+		// Verify the current user can read the context post.
+		if ( $post_id && ! current_user_can( 'read_post', $post_id ) ) {
+			return rest_ensure_response( [] );
+		}
+
 		$fallback_id  = $post_id;
 		$instance     = new stdClass();
 		$replacements = [];
@@ -512,13 +518,14 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 
 		// Create a unique cache key.
 		$cache_key = sprintf(
-			'replacements_%s_%s_%s',
+			'replacements_%s_%s_%s_%s',
 			md5( $content ),
 			$client_id,
-			$post_id
+			$post_id,
+			get_current_user_id()
 		);
 
-		$replacements_cache = wp_cache_get( $cache_key, 'generate_blocks_dynamic_tags' );
+		$replacements_cache = wp_cache_get( $cache_key, 'generateblocks_dynamic_tags' );
 
 		// Return the cache here if present.
 		if ( false !== $replacements_cache ) {
@@ -554,6 +561,25 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 
 				if ( 'user' === $type ) {
 					$fallback_id = get_current_user_id();
+				}
+
+				// Check object-level access for tags where id: refers to a post ID.
+				// Parse options using the same logic the callbacks use so the
+				// authorised ID always matches the ID used for data retrieval.
+				if ( in_array( $type, [ 'post', 'author', 'media' ], true ) ) {
+					$tag_options_string = isset( $split_tag[1] ) ? ltrim( $split_tag[1], ' ' ) : '';
+					$tag_options        = GenerateBlocks_Register_Dynamic_Tag::parse_options( $tag_options_string, $tag_name );
+					$tag_post_id        = isset( $tag_options['id'] ) ? absint( $tag_options['id'] ) : 0;
+
+					if ( $tag_post_id && ! current_user_can( 'read_post', $tag_post_id ) ) {
+						$replacements[] = [
+							'original'    => "{{{$tag}}}",
+							'replacement' => '',
+							'fallback'    => $fallback,
+						];
+
+						continue;
+					}
 				}
 
 				if ( ! generateblocks_str_contains( $tag, ' ' ) ) {
@@ -609,11 +635,15 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 			return $user;
 		}
 
+		$viewing_own  = (int) get_current_user_id() === (int) $user->ID;
+		$can_view_all = current_user_can( 'list_users' );
+		$is_admin     = current_user_can( 'manage_options' );
+
 		$data   = get_object_vars( $user->data );
 		$meta   = array_filter(
 			get_user_meta( $user->ID ),
 			function ( $key ) {
-				$hidden  = generateblocks_str_starts_with( $key, '_' );
+				$hidden  = is_protected_meta( $key, 'user' );
 				$is_rest = $this->is_rest_field( $key );
 
 				return ! $hidden && $is_rest;
@@ -626,16 +656,44 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 			$meta
 		);
 
-		// Remove all hidden or disallowed meta fields.
-		$user->meta = array_filter(
-			$user_meta,
-			function( $key ) {
-				$disallowed = in_array( $key, GenerateBlocks_Meta_Handler::DISALLOWED_KEYS, true );
+		// Determine allowed keys based on capabilities.
+		if ( ! $viewing_own && ! $can_view_all ) {
+			// Non-privileged users viewing others: whitelist only.
+			$allowed_keys = [];
 
-				return ! $disallowed;
-			},
-			ARRAY_FILTER_USE_KEY
+			if (
+				class_exists( 'GenerateBlocks_Dynamic_Tag_Security' ) &&
+				method_exists( 'GenerateBlocks_Dynamic_Tag_Security', 'get_safe_user_meta_keys' )
+			) {
+				$allowed_keys = GenerateBlocks_Dynamic_Tag_Security::get_safe_user_meta_keys();
+			}
+		} else {
+			// Viewing own data or privileged: all keys except disallowed.
+			$allowed_keys = array_keys( $user_meta );
+			$allowed_keys = array_diff( $allowed_keys, GenerateBlocks_Meta_Handler::DISALLOWED_KEYS );
+
+			// Only admins can access user_login and user_email.
+			if ( ! $is_admin ) {
+				$allowed_keys = array_diff( $allowed_keys, [ 'user_login', 'user_email' ] );
+			}
+		}
+
+		// Apply filter once.
+		$user->meta = array_intersect_key(
+			$user_meta,
+			array_fill_keys( $allowed_keys, true )
 		);
+
+		// Also remove disallowed keys from the main data object.
+		foreach ( GenerateBlocks_Meta_Handler::DISALLOWED_KEYS as $key ) {
+			unset( $user->data->$key );
+		}
+
+		if ( ! $is_admin ) {
+			// Remove sensitive values for non-admin users.
+			unset( $user->data->user_login );
+			unset( $user->data->user_email );
+		}
 
 		return $user;
 	}
@@ -653,16 +711,31 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 		// Fetch the post.
 		$post = get_post( $id );
 		if ( ! $post ) {
-			return new WP_Error( 'no_post', 'Post not found', array( 'status' => 404 ) );
+			return new WP_Error(
+				'no_post',
+				'Post not found',
+				array( 'status' => 404 )
+			);
+		}
+
+		// Verify user can read this post.
+		if ( ! current_user_can( 'read_post', $id ) ) {
+			return new WP_Error(
+				'rest_forbidden',
+				'Sorry, you are not allowed to read this post.',
+				array( 'status' => 403 )
+			);
 		}
 
 		$response = $post;
 
-		if ( in_array( 'post', $load, true ) ) {
+		$can_access = self::can_current_user_bypass_password_protection( $post );
+
+		if ( in_array( 'post', $load, true ) && $can_access ) {
 			$post_meta = array_filter(
 				get_post_meta( $id ),
 				function ( $key ) {
-					return ! generateblocks_str_starts_with( $key, '_' );
+					return ! is_protected_meta( $key, 'post' );
 				},
 				ARRAY_FILTER_USE_KEY
 			);
@@ -670,13 +743,13 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 		}
 
 		// Fetch comments if requested.
-		if ( in_array( 'comments', $load, true ) ) {
+		if ( in_array( 'comments', $load, true ) && $can_access ) {
 			$comments = get_comments( array( 'post_id' => $id ) );
 			$response->comments = $comments;
 		}
 
 		// Fetch terms if requested and if taxonomy is provided in options.
-		if ( in_array( 'terms', $load, true ) && isset( $options['taxonomy'] ) ) {
+		if ( in_array( 'terms', $load, true ) && isset( $options['taxonomy'] ) && $can_access ) {
 			$terms = wp_get_post_terms( $id, $options['taxonomy'] );
 			if ( ! isset( $response->terms ) ) {
 				$response->terms = [];
@@ -708,7 +781,93 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 			$options
 		);
 
+		// Filter sensitive data from post object.
+		$has_password        = ! empty( $filtered_response->post_password );
+		$can_see_pw_content  = self::can_current_user_bypass_password_protection( $filtered_response );
+
+		// Always remove password-protected post passwords.
+		unset( $filtered_response->post_password );
+
+		// Always remove internal URLs.
+		unset( $filtered_response->guid );
+
+		// Always remove filtered content cache.
+		unset( $filtered_response->post_content_filtered );
+
+		// For password-protected posts, remove content/excerpt/meta unless user has permission.
+		if ( $has_password && ! $can_see_pw_content ) {
+			unset( $filtered_response->post_content );
+			unset( $filtered_response->post_excerpt );
+			unset( $filtered_response->meta );
+			unset( $filtered_response->comments );
+			unset( $filtered_response->terms );
+		}
+
+		// For non-admins, remove any unexpected fields added by filters.
+		if ( ! current_user_can( 'edit_post', $id ) ) {
+			$expected = [
+				'ID',
+				'post_author',
+				'post_date',
+				'post_date_gmt',
+				'post_content',
+				'post_title',
+				'post_excerpt',
+				'post_status',
+				'comment_status',
+				'ping_status',
+				'post_name',
+				'to_ping',
+				'pinged',
+				'post_modified',
+				'post_modified_gmt',
+				'post_parent',
+				'menu_order',
+				'post_type',
+				'post_mime_type',
+				'comment_count',
+				'filter',
+				'meta',
+				'comments',
+				'terms',
+			];
+
+			foreach ( get_object_vars( $filtered_response ) as $key => $value ) {
+				if ( ! in_array( $key, $expected, true ) ) {
+					unset( $filtered_response->$key );
+				}
+			}
+		}
+
 		return rest_ensure_response( $filtered_response );
+	}
+
+	/**
+	 * Determine if current user can bypass password protection and view sensitive data.
+	 *
+	 * @param WP_Post|object $post Post object.
+	 * @return bool
+	 */
+	public static function can_current_user_bypass_password_protection( $post ) {
+		if ( ! is_object( $post ) ) {
+			return false;
+		}
+
+		if ( empty( $post->post_password ) ) {
+			return true;
+		}
+
+		$post_id = isset( $post->ID ) ? (int) $post->ID : 0;
+
+		if ( $post_id && current_user_can( 'edit_post', $post_id ) ) {
+			return true;
+		}
+
+		if ( isset( $post->post_author ) && get_current_user_id() === (int) $post->post_author ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
@@ -717,29 +876,31 @@ class GenerateBlocks_Dynamic_Tags extends GenerateBlocks_Singleton {
 	 * @param WP_REST_Request $request Full data about the request.
 	 */
 	public function get_user_record( WP_REST_Request $request ) {
-		$id = $request->get_param( 'id' );
+		$id = (int) $request->get_param( 'id' );
 
 		if ( ! $id ) {
 			return rest_ensure_response(
 				new WP_Error(
-					'Invalid user ID',
+					'invalid_user_id',
 					'User ID is required',
 					[ 'status' => 400 ]
 				)
 			);
 		}
 
-		$response = $this->add_meta_to_user_record(
-			get_user_by( 'ID', $id )
-		)->data;
+		$user = get_user_by( 'ID', $id );
 
-		if ( ! $response ) {
-			$response = new WP_Error(
-				'User not found',
-				'User not found',
-				[ 'status' => 400 ]
+		if ( ! $user ) {
+			return rest_ensure_response(
+				new WP_Error(
+					'user_not_found',
+					'User not found',
+					[ 'status' => 404 ]
+				)
 			);
 		}
+
+		$response = $this->add_meta_to_user_record( $user )->data;
 
 		/**
 		 * Allows filtering of the post record response data to add or alter data.

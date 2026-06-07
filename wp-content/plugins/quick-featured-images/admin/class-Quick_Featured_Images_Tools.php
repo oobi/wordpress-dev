@@ -776,7 +776,6 @@ class Quick_Featured_Images_Tools { // only for debugging: extends Quick_Feature
 	 * 
 	 * @access   private
 	 * @since     13.0
-	 *
 	 */
 	private function find_orphaned() {
 		$orphaned_ids = array();
@@ -800,22 +799,40 @@ class Quick_Featured_Images_Tools { // only for debugging: extends Quick_Feature
 
 	/**
 	 * Call the WP Query to delete all thumbnail entries without existing image files
-	 * 
-	 * @access   private
-	 * @since     13.0
 	 *
+	 * @return int|false Number of deleted rows or false on failure.
+	 *
+	 * @access  private
+	 * @since   13.0
+	 * @updated 13.7.4
 	 */
 	private function delete_orphaned() {
 		global $wpdb;
-		// look for "file-less" featured images
+
+		// Get orphaned thumbnail IDs.
 		$orphaned_ids = $this->find_orphaned();
-		// if there are none, return false
+
+		// If no orphaned thumbnails found, exit early.
 		if ( empty( $orphaned_ids ) ) {
 			return false;
-		} else {
-			// delete orphaned thumbnail entries in database, return number of deleted entries or false
-			return $wpdb->query( sprintf( "DELETE FROM $wpdb->postmeta WHERE meta_key = '_thumbnail_id' AND meta_value IN ( %s );", implode( ',', $orphaned_ids ) ) );
 		}
+
+		// Sanitize all IDs as integers.
+		$orphaned_ids = array_map( 'absint', $orphaned_ids );
+
+		// Build placeholder list for prepared statement.
+		$placeholders = implode( ',', array_fill( 0, count( $orphaned_ids ), '%d' ) );
+
+		// Prepare the SQL query securely.
+		$query = $wpdb->prepare(
+			   "DELETE FROM {$wpdb->postmeta} 
+         WHERE meta_key = '_thumbnail_id' 
+         AND meta_value IN ($placeholders)",
+			...$orphaned_ids
+		);
+
+		// Execute query and return the number of affected rows.
+		return $wpdb->query( $query );
 	}
 
 	/**

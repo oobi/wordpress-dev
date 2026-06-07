@@ -62,6 +62,7 @@ class GF_Field_Radio extends GF_Field {
 			'description_setting',
 			'css_class_setting',
 			'other_choice_setting',
+			'display_choices_columns_setting',
 		);
 	}
 
@@ -150,6 +151,8 @@ class GF_Field_Radio extends GF_Field {
 
 			$choice_id = 0;
 			$count     = 1;
+			// Determine max choices to show in the form editor if Display in columns setting is enabled.
+			$max_choices = $this->enableDisplayInColumns === true ? 10 : 5;
 
 			/**
 			 * A filter that allows for the setting of the maximum number of choices shown in
@@ -160,7 +163,7 @@ class GF_Field_Radio extends GF_Field {
 			 * @param int    $max_choices_visible_count The default number of choices visible is 5.
 			 * @param object $field                     The current field object.
 			 */
-			$max_choices_count = gf_apply_filters( array( 'gform_field_choices_max_count_visible', $form_id ), 5, $this );
+			$max_choices_count = gf_apply_filters( array( 'gform_field_choices_max_count_visible', $form_id ), $max_choices, $this );
 
 			$tag = GFCommon::is_legacy_markup_enabled( $form_id ) ? 'li' : 'div';
 
@@ -431,8 +434,26 @@ class GF_Field_Radio extends GF_Field {
 		return $this->get_selected_choice_output( $value, rgar( $entry, 'currency' ) );
 	}
 
-	public function get_value_entry_detail( $value, $currency = '', $use_text = false, $format = 'html', $media = 'screen' ) {
-		return $this->get_selected_choice_output( $value, $currency, $use_text );
+	/**
+	 * Format the entry value for display on the entry detail page and for the {all_fields} merge tag.
+	 *
+	 * @since 1.9
+	 * @since 2.9.29 Changed the second parameter $currency (string) to $entry (array).
+	 *
+	 * @param string|array $value    The field value.
+	 * @param array        $entry    The entry.
+	 * @param bool|false   $use_text When processing choice based fields should the choice text be returned instead of the value.
+	 * @param string       $format   The format requested for the location the merge is being used. Possible values: html, text or url.
+	 * @param string       $media    The location where the value will be displayed. Possible values: screen or email.
+	 *
+	 * @return string
+	 */
+	public function get_value_entry_detail( $value, $entry = array(), $use_text = false, $format = 'html', $media = 'screen' ) {
+		if ( $this->type === 'post_category' ) {
+			$value = GFCommon::prepare_post_category_value( $value, $this, 'entry_detail' );
+		}
+
+		return $this->get_selected_choice_output( $value, rgar( $entry, 'currency' ), $use_text );
 	}
 
 	/**
@@ -481,11 +502,11 @@ class GF_Field_Radio extends GF_Field {
 		foreach ( $items as $input_id => $item ) {
 			switch (true) {
 				case $use_value:
-					list( $val, $price ) = rgexplode( '|', $item, 2 );
+					list( $val, $price ) = rgexplode( '|', $item, 2, true );
 					break;
 
 				case $use_price:
-					list( $name, $val ) = rgexplode( '|', $item, 2 );
+					list( $name, $val ) = rgexplode( '|', $item, 2, true );
 					if ( $format_currency ) {
 						$val = GFCommon::to_money( $val, rgar( $entry, 'currency' ) );
 					}

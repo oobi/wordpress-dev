@@ -1,10 +1,10 @@
-=== WP Reset - Most Advanced WordPress Reset Tool ===
+=== WP Reset ===
 Tags: wordpress reset, reset database, reset wordpress, reset, advanced wordpress reset
 Contributors: WebFactory
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 6.8
-Stable tag: 2.04
+Tested up to: 7.0
+Stable tag: 2.07
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,13 +14,15 @@ WP Reset resets the entire site or selected parts using advanced reset options t
 
 <a href="https://wpreset.com/">WP Reset</a> quickly resets the site's database to the default installation values without modifying any files. It deletes all customizations and content, or just chosen parts like theme settings. WordPress Reset is fast and safe to use thanks to the built-in snapshots which provide 1-click restore functionality. It has multiple fail-safe mechanisms so you can never accidentally lose data. WP Reset is extremely helpful for plugin and theme developers. It **speeds up testing & debugging** by providing a quick way to reset settings and re-test code. It's the only WP development tool for non-developers that enables advanced reset.
 
+Having **problems with spam**, bots, or AI scrapers? Have a look at our <a href="https://wordpress.org/plugins/advanced-google-recaptcha/">free Captcha plugin</a> used on over 200,000 sites.
+
 https://youtu.be/qMnkCW2PFoI?rel=0
 
-For support please use the <a href="https://wordpress.org/support/plugin/wp-reset">official forum</a>, and if you need more information visit <a href="https://wpreset.com/">wpreset.com</a> and be sure to check out the <a href="https://wpreset.com/">roadmap</a> for the list of upcoming features.
+For support please use the <a href="https://wordpress.org/support/plugin/wp-reset">official forum</a>, and if you need more information visit <a href="https://wpreset.com/">wpreset.com</a>.
 
 Access WP Reset admin page via the "Tools" menu.
 
-**Please read carefully before proceeding to understand what WP Reset does, and remember to always create a snapshot**
+**Please read carefully before proceeding to understand what WP Reset does, and remember to always create a backup or snapshot.**
 
 #### Resetting will delete:
 
@@ -118,6 +120,18 @@ Or if needed, upload manually;
 5. Use our 1-click backup feature before running any reset tools
 
 == Changelog ==
+
+= v2.07 =
+* 2026/04/06
+* Minor updates and fixes
+
+= v2.06 =
+* 2025/09/18
+* Disabled license log
+
+= v2.05 =
+* 2025/07/31
+* Minor bug fixes and code improvements
 
 = v2.04 =
 * 2024/10/24

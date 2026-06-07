@@ -4,117 +4,97 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2b5ab7fc1623caf4bd8488cf84f4f15a
+class ComposerStaticInit46e05486257bc3dfbe40b34e0ebea8d6
 {
     public static $files = array (
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/../../vendor-prefixed/' . '/symfony/deprecation-contracts/function.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/../../vendor-prefixed/' . '/symfony/polyfill-mbstring/bootstrap.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/../../vendor-prefixed/' . '/symfony/polyfill-php80/bootstrap.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/../../vendor-prefixed/' . '/symfony/translation/Resources/functions.php',
-        'fa3de58b547e61bb6f7509ef1b3565d0' => __DIR__ . '/../..' . '/src/functions/container.php',
-        '0294eb11e5c3d538e54579e15eec6543' => __DIR__ . '/../..' . '/src/functions/date.php',
-        '710f0dc2cfef24945b5a56a51e58ffe3' => __DIR__ . '/../..' . '/src/functions/variables.php',
-        '6cf97cb39d94d83a6f29e2310cfadeab' => __DIR__ . '/../..' . '/src/functions/conditionals.php',
-        '665fc04e973d90410990feef503454ac' => __DIR__ . '/../..' . '/src/functions/sorting.php',
-        'f07b15c6c386491d1cf2e8d3721aff72' => __DIR__ . '/../..' . '/src/functions/assets.php',
+        '319b802a88e47f5bab6bc0dc8566d296' => __DIR__ . '/..' . '/prefixed/autoload.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'l' => 
+        'F' =>
         array (
-            'lucatume\\DI52\\' => 14,
-        ),
-        'S' => 
-        array (
-            'Symfony\\Polyfill\\Php80\\' => 23,
-            'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Contracts\\Translation\\' => 30,
-            'Symfony\\Component\\Translation\\' => 30,
-        ),
-        'P' => 
-        array (
-            'Psr\\Container\\' => 14,
-            'Psr\\Clock\\' => 10,
-        ),
-        'F' => 
-        array (
-            'Faker\\' => 6,
-            'FakerPress\\Dev\\' => 15,
             'FakerPress\\' => 11,
-        ),
-        'C' => 
-        array (
-            'Carbon\\Doctrine\\' => 16,
-            'Carbon\\' => 7,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'lucatume\\DI52\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/lucatume/di52/src',
-        ),
-        'Symfony\\Polyfill\\Php80\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        'Symfony\\Contracts\\Translation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/translation-contracts',
-        ),
-        'Symfony\\Component\\Translation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/translation',
-        ),
-        'Psr\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Psr\\Clock\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/clock/src',
-        ),
-        'Faker\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
-        ),
-        'FakerPress\\Dev\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/dev/src',
-        ),
-        'FakerPress\\' => 
+        'FakerPress\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src/FakerPress',
-        ),
-        'Carbon\\Doctrine\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine',
-        ),
-        'Carbon\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
     );
 
     public static $classMap = array (
-        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
-        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
-        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
-        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
+        'FakerPress\\Admin' => __DIR__ . '/../..' . '/src/FakerPress/Admin.php',
+        'FakerPress\\Admin\\Menu' => __DIR__ . '/../..' . '/src/FakerPress/Admin/Menu.php',
+        'FakerPress\\Admin\\View\\Abstract_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Abstract_View.php',
+        'FakerPress\\Admin\\View\\Attachment_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Attachment_View.php',
+        'FakerPress\\Admin\\View\\Changelog_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Changelog_View.php',
+        'FakerPress\\Admin\\View\\Comment_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Comment_View.php',
+        'FakerPress\\Admin\\View\\Error_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Error_View.php',
+        'FakerPress\\Admin\\View\\Factory' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Factory.php',
+        'FakerPress\\Admin\\View\\Interface_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Interface_View.php',
+        'FakerPress\\Admin\\View\\Post_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Post_View.php',
+        'FakerPress\\Admin\\View\\Settings_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Settings_View.php',
+        'FakerPress\\Admin\\View\\Term_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/Term_View.php',
+        'FakerPress\\Admin\\View\\User_View' => __DIR__ . '/../..' . '/src/FakerPress/Admin/View/User_View.php',
+        'FakerPress\\Ajax' => __DIR__ . '/../..' . '/src/FakerPress/Ajax.php',
+        'FakerPress\\Assets' => __DIR__ . '/../..' . '/src/FakerPress/Assets.php',
+        'FakerPress\\Contracts\\Container' => __DIR__ . '/../..' . '/src/FakerPress/Contracts/Container.php',
+        'FakerPress\\Contracts\\Service_Provider' => __DIR__ . '/../..' . '/src/FakerPress/Contracts/Service_Provider.php',
+        'FakerPress\\Dates' => __DIR__ . '/../..' . '/src/FakerPress/Dates.php',
+        'FakerPress\\Exceptions\\Container_Exception' => __DIR__ . '/../..' . '/src/FakerPress/Exceptions/Container_Exception.php',
+        'FakerPress\\Exceptions\\Not_Bound_Exception' => __DIR__ . '/../..' . '/src/FakerPress/Exceptions/Not_Bound_Exception.php',
+        'FakerPress\\Field' => __DIR__ . '/../..' . '/src/FakerPress/Field.php',
+        'FakerPress\\Fields\\Factory' => __DIR__ . '/../..' . '/src/FakerPress/Fields/Factory.php',
+        'FakerPress\\Fields\\Field_Abstract' => __DIR__ . '/../..' . '/src/FakerPress/Fields/Field_Abstract.php',
+        'FakerPress\\Fields\\Field_Interface' => __DIR__ . '/../..' . '/src/FakerPress/Fields/Field_Interface.php',
+        'FakerPress\\Fields\\Fieldset_Field' => __DIR__ . '/../..' . '/src/FakerPress/Fields/Fieldset_Field.php',
+        'FakerPress\\Fields\\Raw_Field' => __DIR__ . '/../..' . '/src/FakerPress/Fields/Raw_Field.php',
+        'FakerPress\\Hooks' => __DIR__ . '/../..' . '/src/FakerPress/Hooks.php',
+        'FakerPress\\Module\\Abstract_Module' => __DIR__ . '/../..' . '/src/FakerPress/Module/Abstract_Module.php',
+        'FakerPress\\Module\\Attachment' => __DIR__ . '/../..' . '/src/FakerPress/Module/Attachment.php',
+        'FakerPress\\Module\\Comment' => __DIR__ . '/../..' . '/src/FakerPress/Module/Comment.php',
+        'FakerPress\\Module\\Factory' => __DIR__ . '/../..' . '/src/FakerPress/Module/Factory.php',
+        'FakerPress\\Module\\Interface_Module' => __DIR__ . '/../..' . '/src/FakerPress/Module/Interface_Module.php',
+        'FakerPress\\Module\\Meta' => __DIR__ . '/../..' . '/src/FakerPress/Module/Meta.php',
+        'FakerPress\\Module\\Post' => __DIR__ . '/../..' . '/src/FakerPress/Module/Post.php',
+        'FakerPress\\Module\\Term' => __DIR__ . '/../..' . '/src/FakerPress/Module/Term.php',
+        'FakerPress\\Module\\User' => __DIR__ . '/../..' . '/src/FakerPress/Module/User.php',
+        'FakerPress\\Plugin' => __DIR__ . '/../..' . '/src/FakerPress/Plugin.php',
+        'FakerPress\\Provider\\HTML' => __DIR__ . '/../..' . '/src/FakerPress/Provider/HTML.php',
+        'FakerPress\\Provider\\Image\\LoremPicsum' => __DIR__ . '/../..' . '/src/FakerPress/Provider/Image/LoremPicsum.php',
+        'FakerPress\\Provider\\Image\\Placeholder' => __DIR__ . '/../..' . '/src/FakerPress/Provider/Image/Placeholder.php',
+        'FakerPress\\Provider\\Text\\Base' => __DIR__ . '/../..' . '/src/FakerPress/Provider/Text/Base.php',
+        'FakerPress\\Provider\\WP_Attachment' => __DIR__ . '/../..' . '/src/FakerPress/Provider/WP_Attachment.php',
+        'FakerPress\\Provider\\WP_Comment' => __DIR__ . '/../..' . '/src/FakerPress/Provider/WP_Comment.php',
+        'FakerPress\\Provider\\WP_Meta' => __DIR__ . '/../..' . '/src/FakerPress/Provider/WP_Meta.php',
+        'FakerPress\\Provider\\WP_Post' => __DIR__ . '/../..' . '/src/FakerPress/Provider/WP_Post.php',
+        'FakerPress\\Provider\\WP_Term' => __DIR__ . '/../..' . '/src/FakerPress/Provider/WP_Term.php',
+        'FakerPress\\Provider\\WP_User' => __DIR__ . '/../..' . '/src/FakerPress/Provider/WP_User.php',
+        'FakerPress\\REST\\Abstract_Endpoint' => __DIR__ . '/../..' . '/src/FakerPress/REST/Abstract_Endpoint.php',
+        'FakerPress\\REST\\Controller' => __DIR__ . '/../..' . '/src/FakerPress/REST/Controller.php',
+        'FakerPress\\REST\\Endpoints\\Attachments' => __DIR__ . '/../..' . '/src/FakerPress/REST/Endpoints/Attachments.php',
+        'FakerPress\\REST\\Endpoints\\Comments' => __DIR__ . '/../..' . '/src/FakerPress/REST/Endpoints/Comments.php',
+        'FakerPress\\REST\\Endpoints\\Documentation' => __DIR__ . '/../..' . '/src/FakerPress/REST/Endpoints/Documentation.php',
+        'FakerPress\\REST\\Endpoints\\Posts' => __DIR__ . '/../..' . '/src/FakerPress/REST/Endpoints/Posts.php',
+        'FakerPress\\REST\\Endpoints\\Terms' => __DIR__ . '/../..' . '/src/FakerPress/REST/Endpoints/Terms.php',
+        'FakerPress\\REST\\Endpoints\\Users' => __DIR__ . '/../..' . '/src/FakerPress/REST/Endpoints/Users.php',
+        'FakerPress\\REST\\Interface_Endpoint' => __DIR__ . '/../..' . '/src/FakerPress/REST/Interface_Endpoint.php',
+        'FakerPress\\REST\\OpenAPI' => __DIR__ . '/../..' . '/src/FakerPress/REST/OpenAPI.php',
+        'FakerPress\\REST\\Traits\\Handles_Batching' => __DIR__ . '/../..' . '/src/FakerPress/REST/Traits/Handles_Batching.php',
+        'FakerPress\\Template' => __DIR__ . '/../..' . '/src/FakerPress/Template.php',
+        'FakerPress\\Utils' => __DIR__ . '/../..' . '/src/FakerPress/Utils.php',
+        'FakerPress\\Utils\\Assets' => __DIR__ . '/../..' . '/src/FakerPress/Utils/Assets.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2b5ab7fc1623caf4bd8488cf84f4f15a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2b5ab7fc1623caf4bd8488cf84f4f15a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2b5ab7fc1623caf4bd8488cf84f4f15a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit46e05486257bc3dfbe40b34e0ebea8d6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit46e05486257bc3dfbe40b34e0ebea8d6::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit46e05486257bc3dfbe40b34e0ebea8d6::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-06 16:38:21+0000\n"
+"PO-Revision-Date: 2025-06-04 17:42:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,6 +36,254 @@ msgstr "0"
 msgctxt "default GMT offset or timezone string"
 msgid "0"
 msgstr "America/Toronto"
+
+#: wp-admin/about.php:93
+msgid "Speculative loading speeds up navigation by preloading links before users navigate to them, bcrypt hashing strengthens password security automatically, and database optimizations improve performance."
+msgstr "Speculative loading speeds up navigation by preloading links before users navigate to them, bcrypt hashing strengthens password security automatically, and database optimizations improve performance."
+
+#. translators: 1: URL to WordPress release notes, 2: WordPress version number,
+#. 3: The PHP extension name needed.
+#: wp-admin/upgrade.php:68
+msgid "You cannot upgrade because <a href=\"%1$s\">WordPress %2$s</a> requires the %3$s PHP extension."
+msgstr "You cannot upgrade because <a href=\"%1$s\">WordPress %2$s</a> requires the %3$s PHP extension."
+
+#: wp-admin/themes.php:70
+msgid "An error occurred while deleting the theme."
+msgstr "An error occurred while deleting the theme."
+
+#: wp-admin/theme-install.php:57 wp-admin/themes.php:234
+#: wp-admin/themes.php:255 wp-admin/network/menu.php:86
+#: wp-admin/network/themes.php:366
+msgid "Add Theme"
+msgstr "Add Theme"
+
+#. translators: %s: https://wordpress.org/about/privacy
+#: wp-admin/privacy.php:62
+msgid "WordPress.org takes privacy and transparency very seriously. To learn more about what data is collected, and how it is used, please visit <a href=\"%s\">the WordPress.org Privacy Policy</a>."
+msgstr "WordPress.org takes privacy and transparency very seriously. To learn more about what data is collected, and how it is used, please visit <a href=\"%s\">the WordPress.org Privacy Policy</a>."
+
+#: wp-admin/privacy.php:29
+msgid "WordPress.org takes privacy and transparency very seriously"
+msgstr "WordPress.org takes privacy and transparency very seriously"
+
+#. translators: %s: File path.
+#: wp-admin/plugin-editor.php:246 wp-admin/theme-editor.php:245
+msgid "File: %s"
+msgstr "File: %s"
+
+#: wp-admin/menu.php:332 wp-admin/menu.php:334 wp-admin/menu.php:342
+#: wp-admin/menu.php:344 wp-admin/user-edit.php:269 wp-admin/user-new.php:269
+#: wp-admin/user-new.php:391 wp-admin/user-new.php:515
+#: wp-admin/user-new.php:667 wp-admin/users.php:781
+#: wp-admin/network/menu.php:62 wp-admin/network/site-users.php:336
+#: wp-admin/network/site-users.php:380 wp-admin/network/user-new.php:100
+#: wp-admin/network/user-new.php:107 wp-admin/network/user-new.php:161
+#: wp-admin/network/users.php:292
+msgid "Add User"
+msgstr "Add User"
+
+#: wp-admin/menu.php:311 wp-admin/plugins.php:770 wp-admin/network/menu.php:111
+msgid "Add Plugin"
+msgstr "Add Plugin"
+
+#: wp-admin/menu.php:217
+msgctxt "design menu item"
+msgid "Design"
+msgstr "Design"
+
+#: wp-admin/menu-header.php:285
+msgid "Collapse Main Menu"
+msgstr "Collapse Main Menu"
+
+#: wp-admin/media-upload.php:39
+msgid "Invalid item ID. You can view all media items in the <a href=\"upload.php\">Media Library</a>."
+msgstr "Invalid item ID. You can view all media items in the <a href=\"upload.php\">Media Library</a>."
+
+#: wp-admin/media-upload.php:38
+msgid "An error occurred during the upload process."
+msgstr "An error occurred during the upload process."
+
+#. translators: 1: URL to WordPress release notes, 2: WordPress version number,
+#. 3: The PHP extension name needed.
+#: wp-admin/install.php:312
+msgid "You cannot install because <a href=\"%1$s\">WordPress %2$s</a> requires the %3$s PHP extension."
+msgstr "You cannot install because <a href=\"%1$s\">WordPress %2$s</a> requires the %3$s PHP extension."
+
+#: wp-admin/includes/template.php:738
+msgid "Add Custom Field:"
+msgstr "Add Custom Field:"
+
+#: wp-admin/includes/revision.php:469
+msgid "An error occurred while loading the comparison. Please refresh the page and try again."
+msgstr "An error occurred while loading the comparison. Please refresh the page and try again."
+
+#. translators: Hidden accessibility text.
+#: wp-admin/includes/meta-boxes.php:1203 wp-admin/includes/meta-boxes.php:1208
+msgid "+ Add Category"
+msgstr "+ Add Category"
+
+#: wp-admin/includes/class-wp-debug-data.php:1715
+msgid "Does not exist"
+msgstr "Does not exist"
+
+#: wp-admin/includes/class-wp-debug-data.php:530
+msgid "robots.txt"
+msgstr "robots.txt"
+
+#. translators: %s: robots.txt
+#: wp-admin/includes/class-wp-debug-data.php:525
+msgid "WordPress cannot dynamically serve a %s file due to a lack of rewrite rule support"
+msgstr "WordPress cannot dynamically serve a %s file due to a lack of rewrite rule support"
+
+#. translators: %s: robots.txt
+#: wp-admin/includes/class-wp-debug-data.php:519
+msgid "Your site is using the dynamic %s file which is generated by WordPress."
+msgstr "Your site is using the dynamic %s file which is generated by WordPress."
+
+#. translators: %s: robots.txt
+#: wp-admin/includes/class-wp-debug-data.php:513
+msgid "There is a static %s file in your installation folder. WordPress cannot dynamically serve one."
+msgstr "There is a static %s file in your installation folder. WordPress cannot dynamically serve one."
+
+#: wp-admin/includes/class-custom-image-header.php:834
+#: wp-admin/includes/class-custom-image-header.php:1022
+msgid "The active theme does not support uploading a custom header image. Please ensure your theme supports custom headers and try again."
+msgstr "The active theme does not support uploading a custom header image. Please ensure your theme supports custom headers and try again."
+
+#: wp-admin/includes/class-custom-image-header.php:833
+#: wp-admin/includes/class-custom-image-header.php:1021
+#: wp-admin/includes/class-custom-image-header.php:1032
+msgid "An error occurred while processing your header image."
+msgstr "An error occurred while processing your header image."
+
+#: wp-admin/customize.php:80
+msgid "Please try again or start a new changeset. This changeset cannot be further modified."
+msgstr "Please try again or start a new changeset. This changeset cannot be further modified."
+
+#: wp-admin/customize.php:79
+msgid "An error occurred while saving your changeset."
+msgstr "An error occurred while saving your changeset."
+
+#: wp-admin/credits.php:150
+msgid "Triage Lead"
+msgstr "Triage Lead"
+
+#: wp-admin/credits.php:149
+msgid "Tech Lead"
+msgstr "Tech Lead"
+
+#: wp-admin/credits.php:148
+msgid "Default Theme Development Lead"
+msgstr "Default Theme Development Lead"
+
+#: wp-admin/credits.php:147
+msgid "Default Theme Design Lead"
+msgstr "Default Theme Design Lead"
+
+#: wp-admin/credits.php:146
+msgid "Performance Lead"
+msgstr "Performance Lead"
+
+#: wp-admin/credits.php:145
+msgid "Design Lead"
+msgstr "Design Lead"
+
+#: wp-admin/credits.php:144
+msgid "Test Lead"
+msgstr "Test Lead"
+
+#: wp-admin/credits.php:143
+msgid "Documentation Lead"
+msgstr "Documentation Lead"
+
+#: wp-admin/credits.php:142
+msgid "Editor Triage Lead"
+msgstr "Editor Triage Lead"
+
+#: wp-admin/credits.php:141
+msgid "Editor Tech Lead"
+msgstr "Editor Tech Lead"
+
+#: wp-admin/credits.php:140
+msgid "Core Triage Lead"
+msgstr "Core Triage Lead"
+
+#: wp-admin/credits.php:139
+msgid "Core Tech Lead"
+msgstr "Core Tech Lead"
+
+#: wp-admin/credits.php:137
+msgid "Minor Release Lead"
+msgstr "Minor Release Lead"
+
+#: wp-admin/credits.php:136
+msgid "Release Coordination"
+msgstr "Release Coordination"
+
+#: wp-admin/about.php:194
+msgid "WordPress 6.8 packs a wide range of performance fixes and enhancements to speed up everything from editing to browsing. Beyond speculative loading, WordPress 6.8 pays special attention to the block editor, block type registration, and query caching. Plus, imagine never waiting longer than 50 milliseconds—for any interaction. In WordPress 6.8, the Interactivity API takes a first step toward that goal."
+msgstr "WordPress 6.8 packs a wide range of performance fixes and enhancements to speed up everything from editing to browsing. Beyond speculative loading, WordPress 6.8 pays special attention to the block editor, block type registration, and query caching. Plus, imagine never waiting longer than 50 milliseconds—for any interaction. In WordPress 6.8, the Interactivity API takes a first step toward that goal."
+
+#: wp-admin/about.php:181
+msgid "Work continues on optimizing cache key generation in the <code>WP_Query</code> class. The goal is, as ever, to boost your site&#8217;s performance, in this case by taking some more of the load off your database. This is especially good if you get a lot of traffic."
+msgstr "Work continues on optimizing cache key generation in the <code>WP_Query</code> class. The goal is, as ever, to boost your site&#8217;s performance, in this case by taking some more of the load off your database. This is especially good if you get a lot of traffic."
+
+#: wp-admin/about.php:180
+msgid "Take a load off the database"
+msgstr "Take a load off the database"
+
+#: wp-admin/about.php:172
+msgid "100+ accessibility fixes and enhancements touch a broad spectrum of the WordPress experience. This release includes fixes to every bundled theme, improvements to the navigation menu management, the customizer, and simplified labeling. The Block Editor has over 70 improvements to blocks, DataViews, and to its overall user experience."
+msgstr "100+ accessibility fixes and enhancements touch a broad spectrum of the WordPress experience. This release includes fixes to every bundled theme, improvements to the navigation menu management, the customizer, and simplified labelling. The block editor has over 70 improvements to blocks, DataViews, and to its overall user experience."
+
+#: wp-admin/about.php:158
+msgid "Now passwords are harder to crack with bcrypt hashing, which takes a lot more computing power to break. This strengthens overall security, as do other encryption improvements across WordPress. You don&#8217;t need to do anything—everything updates automatically."
+msgstr "Now passwords are harder to crack with bcrypt hashing, which takes a lot more computing power to break. This strengthens overall security, as do other encryption improvements across WordPress. You don&#8217;t need to do anything—everything updates automatically."
+
+#: wp-admin/about.php:157
+msgid "Stronger password security with bcrypt"
+msgstr "Stronger password security with bcrypt"
+
+#: wp-admin/about.php:141
+msgid "In WordPress 6.8, pages load faster than ever. When you or your user hovers over or clicks a link, WordPress may preload the next page, for a smoother, near-instant experience. The system balances speed and efficiency, and you can control how it works, with a plugin or your own code. This feature only works in modern browsers—older ones will simply ignore it without any impact."
+msgstr "In WordPress 6.8, pages load faster than ever. When you or your user hovers over or clicks a link, WordPress may preload the next page, for a smoother, near-instant experience. The system balances speed and efficiency, and you can control how it works, with a plugin or your own code. This feature only works in modern browsers—older ones will simply ignore it without any impact."
+
+#: wp-admin/about.php:140
+msgid "Near-instant page loads, thanks to Speculative Loading"
+msgstr "Near-instant page loads, thanks to Speculative Loading"
+
+#: wp-admin/about.php:134
+msgid "Easier ways to see your options in Data Views, and you can exclude sticky posts from the Query Loop. Plus, you&#8217;ll find lots of little improvements in the editor that smooth your way through everything you build."
+msgstr "Easier ways to see your options in Data Views, and you can exclude sticky posts from the Query Loop. Plus, you&#8217;ll find lots of little improvements in the editor that smooth your way through everything you build."
+
+#: wp-admin/about.php:113
+msgid "Plus, now you can see it in Classic themes that have editor-styles or a theme.json file. Find the Style Book under Appearance > Design and use it to preview your theme&#8217;s evolution, as you edit CSS or make changes in the Customizer."
+msgstr "Plus, now you can see it in Classic themes that have editor-styles or a theme.json file. Find the Style Book under Appearance > Design and use it to preview your theme&#8217;s evolution, as you edit CSS or make changes in the Customizer."
+
+#. translators: %s is a direct link to the Style Book.
+#: wp-admin/about.php:109
+msgid "Plus, now you can see it in Classic themes that have editor-styles or a theme.json file. Find <a href=\"%s\">the Style Book</a> under Appearance > Design and use it to preview your theme&#8217;s evolution, as you edit CSS or make changes in the Customizer."
+msgstr "Plus, now you can see it in Classic themes that have editor-styles or a theme.json file. Find <a href=\"%s\">the Style Book</a> under Appearance > Design and use it to preview your theme&#8217;s evolution, as you edit CSS or make changes in the Customizer."
+
+#: wp-admin/about.php:101
+msgid "The Style Book has a new, structured layout and clearer labels, to make it even easier to edit colors, typography—almost all your site styles—in one place."
+msgstr "The Style Book has a new, structured layout and clearer labels, to make it even easier to edit colours, typography—almost all your site styles—in one place."
+
+#: wp-admin/about.php:99
+msgid "The Style Book gets a cleaner look—and a few new tricks"
+msgstr "The Style Book gets a cleaner look—and a few new tricks"
+
+#: wp-admin/about.php:92
+msgid "The Style Book now has a structured layout and works with Classic themes, giving you more control over global styles."
+msgstr "The Style Book now has a structured layout and works with Classic themes, giving you more control over global styles."
+
+#: wp-admin/about.php:91
+msgid "WordPress 6.8 polishes and refines the tools you use every day, making your site faster, more secure, and easier to manage."
+msgstr "WordPress 6.8 polishes and refines the tools you use every day, making your site faster, more secure, and easier to manage."
+
+#: wp-admin/about.php:90
+msgid "A release polished to a high sheen."
+msgstr "A release polished to a high sheen."
 
 #: wp-admin/plugins.php:613
 msgid "If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
@@ -303,6 +551,10 @@ msgstr "If you are a plugin author, you can learn more about <a href=\"https://d
 #: wp-admin/about.php:215
 msgid "See everything new"
 msgstr "See everything new"
+
+#: wp-admin/about.php:215
+msgid "https://wordpress.org/download/releases/6-8/"
+msgstr "https://wordpress.org/download/releases/6-8/"
 
 #. translators: %s: Version number.
 #: wp-admin/about.php:207
@@ -1569,6 +1821,46 @@ msgstr "An avatar is an image that can be associated with a user across multiple
 msgid "Change Permalink Structure"
 msgstr "Change Permalink Structure"
 
+#. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL:
+#. those are placeholders.
+#: wp-admin/includes/misc.php:1462
+msgid ""
+"Howdy,\n"
+"\n"
+"A site administrator (###USERNAME###) recently requested to have the\n"
+"administration email address changed on this site:\n"
+"###SITEURL###\n"
+"\n"
+"To confirm this change, please click on the following link:\n"
+"###ADMIN_URL###\n"
+"\n"
+"You can safely ignore and delete this email if you do not want to\n"
+"take this action.\n"
+"\n"
+"This email has been sent to ###EMAIL###\n"
+"\n"
+"Regards,\n"
+"All at ###SITENAME###\n"
+"###SITEURL###"
+msgstr ""
+"Howdy,\n"
+"\n"
+"A site administrator (###USERNAME###) recently requested to have the\n"
+"administration email address changed on this site:\n"
+"###SITEURL###\n"
+"\n"
+"To confirm this change, please click on the following link:\n"
+"###ADMIN_URL###\n"
+"\n"
+"You can safely ignore and delete this email if you do not want to\n"
+"take this action.\n"
+"\n"
+"This email has been sent to ###EMAIL###\n"
+"\n"
+"Regards,\n"
+"All at ###SITENAME###\n"
+"###SITEURL###"
+
 #. translators: Default privacy policy heading.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:598
 msgid "Where your data is sent"
@@ -2361,6 +2653,10 @@ msgstr "<strong>Site Health Status</strong> &ndash; Informs you of any potential
 #: wp-admin/js/auth-app.js:90
 msgid "Your new password for %s is:"
 msgstr "Your new password for %s is:"
+
+#: wp-admin/user-edit.php:837
+msgid "Add Application Password"
+msgstr "Add Application Password"
 
 #: wp-admin/user-edit.php:823
 msgid "Required to create an Application Password, but not to update the user."
@@ -3308,10 +3604,20 @@ msgstr "The uploaded file has expired. Please go back and upload it again."
 msgid "Cancel and go back"
 msgstr "Cancel and go back"
 
+#: wp-admin/includes/class-theme-installer-skin.php:354
+msgctxt "theme"
+msgid "Replace installed with uploaded"
+msgstr "Replace installed with uploaded"
+
 #. translators: %s: Documentation URL.
 #: wp-admin/includes/class-theme-installer-skin.php:342
 msgid "You are updating a theme. Be sure to <a href=\"%s\">back up your database and files</a> first."
 msgstr "You are updating a theme. Be sure to <a href=\"%s\">back up your database and files</a> first."
+
+#. translators: %s: Documentation URL.
+#: wp-admin/includes/class-theme-installer-skin.php:336
+msgid "You are uploading an older version of the installed theme. You can continue to install the older version, but be sure to <a href=\"%s\">back up your database and files</a> first."
+msgstr "You are uploading an older version of the installed theme. You can continue to install the older version, but be sure to <a href=\"%s\">back up your database and files</a> first."
 
 #. translators: 1: Current WordPress version, 2: Version required by the
 #. uploaded theme.
@@ -5722,6 +6028,12 @@ msgstr "The suggested privacy policy text has changed. Please <a href=\"%s\">rev
 msgid "There are no pages."
 msgstr "There are no pages."
 
+#. translators: 1: Privacy Policy guide URL, 2: Additional link attributes, 3:
+#. Accessibility text.
+#: wp-admin/options-privacy.php:239
+msgid "Need help putting together your new Privacy Policy page? <a href=\"%1$s\" %2$s>Check out the privacy policy guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme."
+msgstr "Need help putting together your new Privacy Policy page? <a href=\"%1$s\" %2$s>Check out the privacy policy guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme."
+
 #: wp-admin/privacy-policy-guide.php:21 wp-admin/privacy-policy-guide.php:74
 #: wp-admin/privacy-policy-guide.php:83
 msgid "Privacy Policy Guide"
@@ -5778,6 +6090,10 @@ msgstr "Removed %s."
 #: wp-admin/privacy-policy-guide.php:75
 msgid "Introduction"
 msgstr "Introduction"
+
+#: wp-admin/includes/class-wp-privacy-policy-content.php:336
+msgid "Need help putting together your new Privacy Policy page? Check out the guide for recommendations on what content to include, along with policies suggested by your plugins and theme."
+msgstr "Need help putting together your new Privacy Policy page? Check out the guide for recommendations on what content to include, along with policies suggested by your plugins and theme."
 
 #: wp-admin/includes/class-wp-privacy-data-removal-requests-list-table.php:66
 #: wp-admin/includes/class-wp-privacy-data-removal-requests-list-table.php:140
@@ -7355,6 +7671,10 @@ msgstr "Release Deputy"
 msgid "Release Design Lead"
 msgstr "Release Design Lead"
 
+#: wp-admin/about.php:133
+msgid "Editor improvements"
+msgstr "Editor improvements"
+
 #. translators: %s: Documentation URL.
 #: wp-admin/includes/meta-boxes.php:832
 msgid "Custom fields can be used to add extra metadata to a post that you can <a href=\"%s\">use in your theme</a>."
@@ -7369,6 +7689,10 @@ msgstr "Trackbacks are a way to notify legacy blog systems that you&#8217;ve lin
 #: wp-admin/includes/meta-boxes.php:757
 msgid "Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href=\"%s\">Learn more about manual excerpts</a>."
 msgstr "Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href=\"%s\">Learn more about manual excerpts</a>."
+
+#: wp-admin/edit-form-advanced.php:288
+msgid "The Code mode allows you to enter HTML along with your post text. Note that &lt;p&gt; and &lt;br&gt; tags are converted to line breaks when switching to the Code editor to make it less cluttered. When you type, a single line break can be used instead of typing &lt;br&gt;, and two line breaks instead of paragraph tags. The line breaks are converted back to tags automatically."
+msgstr "The Code mode allows you to enter HTML along with your post text. Note that &lt;p&gt; and &lt;br&gt; tags are converted to line breaks when switching to the Code editor to make it less cluttered. When you type, a single line break can be used instead of typing &lt;br&gt;, and two line breaks instead of paragraph tags. The line breaks are converted back to tags automatically."
 
 #: wp-admin/edit-form-advanced.php:287
 msgid "Visual mode gives you an editor that is similar to a word processor. Click the Toolbar Toggle button to get a second row of controls."
@@ -8891,6 +9215,10 @@ msgstr "This preview is unavailable in the editor."
 msgid "You can insert media files by clicking the button above the post editor and following the directions. You can align or edit images using the inline formatting toolbar available in Visual mode."
 msgstr "You can insert media files by clicking the button above the post editor and following the directions. You can align or edit images using the inline formatting Toolbar available in Visual mode."
 
+#: wp-admin/edit-form-advanced.php:286
+msgid "<strong>Post editor</strong> &mdash; Enter the text for your post. There are two modes of editing: Visual and Code. Choose the mode by clicking on the appropriate tab."
+msgstr "<strong>Post editor</strong> &mdash; Enter the text for your post. There are two modes of editing: Visual and Code. Choose the mode by clicking on the appropriate tab."
+
 #. translators: %s: URL to header image configuration in Customizer.
 #: wp-admin/includes/class-custom-image-header.php:518
 msgid "You can now manage and live-preview Custom Header in the <a href=\"%s\">Customizer</a>."
@@ -9234,6 +9562,11 @@ msgstr "<strong>Themes and Plugins</strong> &mdash; To update individual themes 
 #: wp-admin/update-core.php:990
 msgid "On this screen, you can update to the latest version of WordPress, as well as update your themes, plugins, and translations from the WordPress.org repositories."
 msgstr "On this screen, you can update to the latest version of WordPress, as well as update your themes, plugins, and translations from the WordPress.org repositories."
+
+#. translators: %s: https://wordpress.org/themes
+#: wp-admin/themes.php:156
+msgid "If you would like to see more themes to choose from, click on the &#8220;Add Theme&#8221; button and you will be able to browse or search for additional themes from the <a href=\"%s\">WordPress Theme Directory</a>. Themes in the WordPress Theme Directory are designed and developed by third parties, and are compatible with the license WordPress uses. Oh, and they are free!"
+msgstr "If you would like to see more themes to choose from, click on the &#8220;Add Theme&#8221; button and you will be able to browse or search for additional themes from the <a href=\"%s\">WordPress Theme Directory</a>. Themes in the WordPress Theme Directory are designed and developed by third parties, and are compatible with the license WordPress uses. Oh, and they are free!"
 
 #. translators: 1: Number of megabytes, 2: Percentage.
 #: wp-admin/includes/dashboard.php:1682
@@ -10474,6 +10807,10 @@ msgstr "Tags can be selectively converted to categories using the <a href=\"%s\"
 msgid "You can delete Link Categories in the Bulk Action pull-down, but that action does not delete the links within the category. Instead, it moves them to the default Link Category."
 msgstr "You can delete Link Categories in the Bulk Action pull-down, but that action does not delete the links within the category. Instead, it moves them to the default Link Category."
 
+#: wp-admin/edit-form-advanced.php:317
+msgid "Creating a Page is very similar to creating a Post, and the screens can be customized in the same way using drag and drop, the Screen Options tab, and expanding/collapsing boxes as you choose. This screen also has the distraction-free writing space, available in both the Visual and Code modes via the Fullscreen buttons. The Page editor mostly works the same as the Post editor, but there are some Page-specific features in the Page Attributes box."
+msgstr "Creating a Page is very similar to creating a Post, and the screens can be customized in the same way using drag and drop, the Screen Options tab, and expanding/collapsing boxes as you choose. This screen also has the distraction-free writing space, available in both the Visual and Code modes via the Fullscreen buttons. The Page editor mostly works the same as the Post editor, but there are some Page-specific features in the Page Attributes box."
+
 #: wp-admin/includes/class-custom-image-header.php:595
 msgid "You can select an image to be shown at the top of your site by uploading from your computer or choosing from your media library. After selecting an image you will be able to crop it."
 msgstr "You can select an image to be shown at the top of your site by uploading from your computer or choosing from your media library. After selecting an image you will be able to crop it."
@@ -11236,6 +11573,14 @@ msgstr "Here is a basic overview of the different user roles and the permissions
 msgid "User Roles"
 msgstr "User Roles"
 
+#: wp-admin/user-new.php:288
+msgid "Remember to click the Add User button at the bottom of this screen when you are finished."
+msgstr "Remember to click the Add User button at the bottom of this screen when you are finished."
+
+#: wp-admin/user-new.php:277
+msgid "To add a new user to your site, fill in the form on this screen and click the Add User button at the bottom."
+msgstr "To add a new user to your site, fill in the form on this screen and click the Add User button at the bottom."
+
 #: wp-admin/options-permalink.php:53
 msgid "Custom Structures"
 msgstr "Custom Structures"
@@ -11790,6 +12135,11 @@ msgstr "Name"
 msgid "You can find additional themes for your site by using the Theme Browser/Installer on this screen, which will display themes from the <a href=\"%s\">WordPress Theme Directory</a>. These themes are designed and developed by third parties, are available free of charge, and are compatible with the license WordPress uses."
 msgstr "You can find additional themes for your site by using the Theme Browser/Installer on this screen, which will display themes from the <a href=\"%s\">WordPress Theme Directory</a>. These themes are designed and developed by third parties, are available free of charge, and are compatible with the license WordPress uses."
 
+#. translators: %s: WordPress Plugin Directory URL.
+#: wp-admin/plugins.php:569
+msgid "If you would like to see more plugins to choose from, click on the &#8220;Add Plugin&#8221; button and you will be able to browse or search for additional plugins from the <a href=\"%s\">WordPress Plugin Directory</a>. Plugins in the WordPress Plugin Directory are designed and developed by third parties, and are compatible with the license WordPress uses. Oh, and they are free!"
+msgstr "If you would like to see more plugins to choose from, click on the &#8220;Add Plugin&#8221; button and you will be able to browse or search for additional plugins from the <a href=\"%s\">WordPress Plugin Directory</a>. Plugins in the WordPress Plugin Directory are designed and developed by third parties, and are compatible with the license WordPress uses. Oh, and they are free!"
+
 #. translators: %s: MAX_FILE_SIZE
 #: wp-admin/includes/file.php:898
 msgid "The uploaded file exceeds the %s directive that was specified in the HTML form."
@@ -11817,6 +12167,11 @@ msgstr "Canadian English Translator Team"
 #: wp-admin/freedoms.php:100
 msgid "Every plugin and theme in WordPress.org&#8217;s directory is 100%% GPL or a similarly free and compatible license, so you can feel safe finding <a href=\"%1$s\">plugins</a> and <a href=\"%2$s\">themes</a> there. If you get a plugin or theme from another source, make sure to <a href=\"%3$s\">ask them if it&#8217;s GPL</a> first. If they do not respect the WordPress license, it is not recommended to use them."
 msgstr "Every plugin and theme in WordPress.org&#8217;s directory is 100%% GPL or a similarly free and compatible licence, so you can feel safe finding <a href=\"%1$s\">plugins</a> and <a href=\"%2$s\">themes</a> there. If you get a plugin or theme from another source, make sure to <a href=\"%3$s\">ask them if it&#8217;s GPL</a> first. If they do not respect the WordPress licence, it is not recommended to use them."
+
+#. translators: %s: https://wordpressfoundation.org/trademark-policy
+#: wp-admin/freedoms.php:88
+msgid "WordPress grows when people like you tell their friends about it, and the thousands of businesses and services that are built on and around WordPress share that fact with their users. The WordPress community is flattered every time someone spreads the good word, just make sure to <a href=\"%s\">check out the WordPress Foundation trademark guidelines</a> first."
+msgstr "WordPress grows when people like you tell their friends about it, and the thousands of businesses and services that are built on and around WordPress share that fact with their users. The WordPress community is flattered every time someone spreads the good word, just make sure to <a href=\"%s\">check out the WordPress Foundation trademark guidelines</a> first."
 
 #: wp-admin/menu.php:112
 msgid "All Comments"
@@ -11873,6 +12228,10 @@ msgstr "If you do not want to upload your own image, you can use one of these co
 #: wp-admin/includes/class-custom-image-header.php:701
 msgid "You can choose one of your previously uploaded headers, or show a random one."
 msgstr "You can choose one of your previously uploaded headers, or show a random one."
+
+#: wp-admin/menu-header.php:287
+msgid "Collapse Menu"
+msgstr "Collapse Menu"
 
 #: wp-admin/includes/class-custom-image-header.php:699
 msgid "Uploaded Images"
@@ -12318,6 +12677,10 @@ msgstr "If you pick an option other than Plain, your general URL path with struc
 #: wp-admin/widgets-form.php:54
 msgid "If you want to remove the widget but save its setting for possible future use, just drag it into the Inactive Widgets area. You can add them back anytime from there. This is especially helpful when you switch to a theme with fewer or different widget areas."
 msgstr "If you want to remove the widget but save its setting for possible future use, just drag it into the Inactive Widgets area. You can add them back anytime from there. This is especially helpful when you switch to a theme with fewer or different widget areas."
+
+#: wp-admin/users.php:36
+msgid "To add a new user for your site, click the Add User button at the top of the screen or Add User in the Users menu section."
+msgstr "To add a new user for your site, click the Add User button at the top of the screen or Add User in the Users menu section."
 
 #: wp-admin/options-media.php:20
 msgid "You can set maximum sizes for images inserted into your written content; you can also insert an image as Full Size."
@@ -15706,6 +16069,11 @@ msgstr "Example: Nifty blogging software"
 #: wp-admin/edit-link-form.php:97
 msgid "Link added."
 msgstr "Link added."
+
+#. translators: %s: URL to Links screen.
+#: wp-admin/edit-link-form.php:22
+msgid "<a href=\"%s\">Links</a> / Add Link"
+msgstr "<a href=\"%s\">Links</a> / Add Link"
 
 #: wp-admin/edit-link-form.php:17 wp-admin/includes/meta-boxes.php:1149
 msgid "Update Link"

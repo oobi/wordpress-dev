@@ -1,12 +1,10 @@
 <?php
 namespace FakerPress\Module;
+
 use function FakerPress\make;
 use function FakerPress\get;
-use function FakerPress\get_request_var;
-use FakerPress\Plugin;
-use FakerPress\Utils;
-use FakerPress\ThirdParty\Faker;
 use FakerPress;
+use WP_Error;
 
 class Term extends Abstract_Module {
 	/**
@@ -34,16 +32,13 @@ class Term extends Abstract_Module {
 	 * @inheritDoc
 	 */
 	public function hook(): void {
-
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public static function fetch( array $args = [] ): array {
-		$terms = get_option( 'fakerpress.module_flag.term', [] );
-
-		return $terms;
+		return get_option( 'fakerpress.module_flag.term', [] );
 	}
 
 	/**
@@ -51,10 +46,10 @@ class Term extends Abstract_Module {
 	 */
 	public static function delete( $items ) {
 		$deleted = [];
-		foreach ( $items as $taxonomy => $terms ){
+		foreach ( $items as $taxonomy => $terms ) {
 			$deleted[ $taxonomy ] = [];
 
-			foreach ( $terms as $term ){
+			foreach ( $terms as $term ) {
 				$deleted[ $taxonomy ][ $term ] = wp_delete_term( $term, $taxonomy );
 			}
 		}
@@ -70,7 +65,7 @@ class Term extends Abstract_Module {
 	public function filter_save_response( $response, array $data, Abstract_Module $module ) {
 		$args = [
 			'description' => $data['description'],
-			'parent' => $data['parent_term'],
+			'parent'      => $data['parent_term'],
 		];
 
 		$term_object = wp_insert_term( $data['name'], $data['taxonomy'], $args );
@@ -80,12 +75,12 @@ class Term extends Abstract_Module {
 
 		$flagged = get_option( 'fakerpress.module_flag.' . $this::get_slug(), [] );
 
-		// Ensure that this option is an Array by reseting the variable.
-		if ( ! is_array( $flagged ) ){
+		// Ensure that this option is an Array by resetting the variable.
+		if ( ! is_array( $flagged ) ) {
 			$flagged = [];
 		}
 
-		if ( ! isset( $flagged[ $data['taxonomy'] ] ) || ! is_array( $flagged[ $data['taxonomy'] ] ) ){
+		if ( ! isset( $flagged[ $data['taxonomy'] ] ) || ! is_array( $flagged[ $data['taxonomy'] ] ) ) {
 			$flagged[ $data['taxonomy'] ] = [];
 		}
 		$flagged[ $data['taxonomy'] ] = array_merge( $flagged[ $data['taxonomy'] ], (array) $term_object['term_id'] );
@@ -96,38 +91,46 @@ class Term extends Abstract_Module {
 		return $term_object['term_id'];
 	}
 
-	public function parse_request( $qty, $request = [] ) {
-		if ( is_null( $qty ) ) {
-			$qty = make( Utils::class )->get_qty_from_range( get_request_var( [ Plugin::$slug, 'qty' ] ) );
+
+	/**
+	 * Parse the request data and generate the terms.
+	 *
+	 * @since 0.6.4
+	 *
+	 * @throws \Exception
+	 *
+	 * @param int   $qty      The quantity of terms to generate.
+	 * @param array $request  The request data.
+	 *
+	 * @return array|WP_Error
+	 */
+	public function parse_request( int $qty, array $request = [] ) {
+		if ( 0 === $qty || ! is_numeric( $qty ) || $qty < 1 ) {
+			return new WP_Error( 'fakerpress_zero_terms', __( 'Zero is not a good number of terms to fake...', 'fakerpress' ) );
 		}
 
-		if ( 0 === $qty ){
-			return esc_attr__( 'Zero is not a good number of terms to fake...', 'fakerpress' );
-		}
-
-		$name_size = get_request_var( [ Plugin::$slug, 'size' ] );
+		$name_size = get( $request, 'size' );
 
 		// Fetch taxonomies
 		$taxonomies = get( $request, 'taxonomies' );
 		$taxonomies = array_map( 'trim', explode( ',', $taxonomies ) );
 		$taxonomies = array_intersect( get_taxonomies( [ 'public' => true ] ), $taxonomies );
 
-		// Only has meta after 4.4-beta
-		$has_metas = version_compare( $GLOBALS['wp_version'], '4.4-beta', '>=' );
-
-		if ( $has_metas ) {
-			$metas = get( $request, 'meta' );
-		}
+		$metas = get( $request, 'meta', [] );
 
 		for ( $i = 0; $i < $qty; $i++ ) {
 			$this->set( 'taxonomy', $taxonomies );
-			$this->set( 'name', $name_size );
+			if ( null !== $name_size ) {
+				$this->set( 'name', $name_size );
+			} else {
+				$this->set( 'name' );
+			}
 			$this->set( 'description' );
 			$this->set( 'parent_term' );
 
 			$term_id = $this->generate()->save();
 
-			if ( $has_metas && $term_id && is_numeric( $term_id ) ){
+			if ( $term_id && is_numeric( $term_id ) ) {
 				foreach ( $metas as $meta_index => $meta ) {
 					if ( ! isset( $meta['type'], $meta['name'] ) ) {
 						continue;

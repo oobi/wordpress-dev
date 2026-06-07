@@ -27,7 +27,6 @@ function register_block_patterns() {
 		'posts_per_page'         => -1,
 		'no_found_rows'          => true,
 	] );
-	wp_reset_postdata();
 
 	// デフォルトのビューポートサイズ
 	$viewport = apply_filters( 'loos_cbp_default_viewport_width', 1200 );
@@ -64,4 +63,5 @@ function register_block_patterns() {
 
 		register_block_pattern( "loos-cbp/pattern-$pid", $options );
 	}
+	wp_reset_postdata();
 }

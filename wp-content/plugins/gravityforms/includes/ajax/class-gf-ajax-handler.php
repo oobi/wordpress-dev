@@ -6,6 +6,8 @@
  */
 namespace Gravity_Forms\Gravity_Forms\Ajax;
 
+use GFCommon;
+
 /**
  * Class GF_Ajax_Handler
  *
@@ -15,12 +17,18 @@ namespace Gravity_Forms\Gravity_Forms\Ajax;
  */
 class GF_Ajax_Handler {
 
+
 	/**
 	 * Handles the form validation AJAX requests. Uses the global $_POST array and sends the form validation result as a JSON response.
 	 *
 	 * @since 2.9.0
+	 *
+	 * @deprecated 2.9.9 Use GFAPI::validate_form() instead.
+	 * @remove-in 4.0
 	 */
 	public function validate_form() {
+
+		_deprecated_function( __METHOD__, '2.9.9', 'GFAPI::validate_form()' );
 
 		// Check nonce.
 		$nonce_result = check_ajax_referer( 'gform_ajax_submission', 'gform_ajax_nonce', false );
@@ -62,6 +70,7 @@ class GF_Ajax_Handler {
 		wp_send_json_success( $result );
 	}
 
+
 	/**
 	 * Handles the form submission AJAX requests. Uses the global $_POST array and sends the form submission result as a JSON response.
 	 *
@@ -73,7 +82,7 @@ class GF_Ajax_Handler {
 		$nonce_result = check_ajax_referer( 'gform_ajax_submission', 'gform_ajax_nonce', false );
 
 		if ( ! $nonce_result ) {
-			wp_send_json_error( $this->nonce_validation_message() );
+			GFCommon::send_json_error( $this->nonce_validation_message() );
 		}
 
 		$this->hydrate_get_from_current_page_url();
@@ -108,7 +117,13 @@ class GF_Ajax_Handler {
 		$result = \GFAPI::submit_form( $form_id, array(), $field_values, $target_page, $source_page, \GFFormDisplay::SUBMISSION_INITIATED_BY_WEBFORM );
 
 		if ( is_wp_error( $result ) ) {
-			wp_send_json_error( $result->get_error_message() );
+			if ( $result->get_error_code() === 'button_logic_error' ) {
+				$message = esc_html__( 'There was a problem with your submission.', 'gravityforms' ) . ' ' . $result->get_error_message();
+			} else {
+				$message = $result->get_error_message();
+			}
+
+			GFCommon::send_json_error( $message );
 		}
 
 		$form = $result['form'];
@@ -121,7 +136,7 @@ class GF_Ajax_Handler {
 			$result = $this->add_validation_summary( $form, $result );
 
 			// Refresh the form markup if single page or multipage forms have validation errors.
-			$result['form_markup'] = \GFFormDisplay::get_form( $form_id, false, false, false, $field_values, false, 0, $theme, $style );
+			$result['form_markup'] = \GFFormDisplay::get_form( $form_id, (bool) rgpost( 'display_title' ), (bool) rgpost( 'display_description' ), false, $field_values, false, 0, $theme, $style );
 		} elseif ( $target_page > 0 ) {
 			// Getting the target page number taking page conditional logic into account.
 			$page_number = \GFFormDisplay::get_target_page( $form, $source_page, $field_values );
@@ -130,6 +145,9 @@ class GF_Ajax_Handler {
 
 			// Getting the field markup for the target page if the form is a multipage form.
 			$result['page_markup'] = \GFFormDisplay::get_page( $form_id, $page_number, $field_values, $theme, $style, $submission_method );
+
+			// Ensure the form UUID is maintained on page changes.
+			$result['form_unique_id'] = \GFFormsModel::get_form_unique_id( $form_id );
 		}
 
 		$result['submission_type'] = $this->get_submission_type( $target_page, $source_page );
@@ -148,7 +166,7 @@ class GF_Ajax_Handler {
 		// Remove form from result.
 		unset( $result['form'] );
 
-		wp_send_json_success( $result );
+		GFCommon::send_json_success( $result );
 	}
 
 	/**
@@ -162,7 +180,7 @@ class GF_Ajax_Handler {
 	 * @return string The submission type. Possible values are SUBMISSION_TYPE_SUBMIT, SUBMISSION_TYPE_NEXT, SUBMISSION_TYPE_PREVIOUS, and SUBMISSION_TYPE_SAVE_AND_CONTINUE.
 	 */
 	public function get_submission_type( $target_page, $source_page ) {
-		if ( isset( $_POST['gform_send_resume_link'] ) ) {
+		if ( isset( $_POST['gform_send_resume_link'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 			return \GFFormDisplay::SUBMISSION_TYPE_SEND_LINK;
 		} elseif ( rgpost( 'gform_save') ) {
 			return \GFFormDisplay::SUBMISSION_TYPE_SAVE_AND_CONTINUE;
@@ -189,7 +207,7 @@ class GF_Ajax_Handler {
 
 		$confirmation = \GFFormDisplay::get_form( $form_id, false, false, false, rgpost( 'gform_field_values' ) );
 
-		wp_send_json_success(
+		GFCommon::send_json_success(
 			array(
 				'is_valid'             => true,
 				'confirmation_type'    => 'message',
@@ -278,7 +296,7 @@ class GF_Ajax_Handler {
 
 		parse_str( $query_string, $query );
 		unset( $query['gf_page'] ); // Removing so it doesn't conflict with gf_ajax_page=preview.
-		$_GET = array_merge( $_GET, $query );
+		$_GET = array_merge( $_GET, $query ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 }

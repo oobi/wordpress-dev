@@ -62,6 +62,10 @@ class GenerateBlocks_Dynamic_Tag_Callbacks extends GenerateBlocks_Singleton {
 
 				break;
 			case 'author_email':
+				if ( defined( 'REST_REQUEST' ) && REST_REQUEST && ! current_user_can( 'list_users' ) ) {
+					break;
+				}
+
 				$user_id = get_post_field( 'post_author', $id );
 				$url     = 'mailto:' . get_the_author_meta( 'user_email', $user_id );
 				break;
@@ -662,7 +666,7 @@ class GenerateBlocks_Dynamic_Tag_Callbacks extends GenerateBlocks_Singleton {
 						esc_url( get_permalink( get_the_ID() ) ),
 						sprintf(
 							/* translators: Aria-label describing the read more button */
-							_x( 'More on %s', 'more on post title', 'gp-premium' ),
+							_x( 'More on %s', 'more on post title', 'generateblocks' ),
 							the_title_attribute( 'echo=0' )
 						),
 						wp_kses_post( $read_more )
