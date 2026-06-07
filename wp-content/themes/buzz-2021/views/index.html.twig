@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block content %}
+
+	<div class="content-area row">
+		<main class="main-content col" role="main">
+
+			<article class="post-content">
+
+				{% if posts %}
+					<div class="row">
+						{% for post in posts %}
+							{% include 'partials/article-tease.html.twig' %}
+						{% endfor %}
+					</div>
+					{% include 'partials/pagination.html.twig' %}
+				{% else %}
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="alert alert-danger d-flex">
+								Sorry, there is nothing to display. Please try searching.
+							</div>
+						</div>
+						<div class="col-sm-12">
+							{% include 'partials/search-form.html.twig' %}
+						</div>
+					</div>
+				{% endif %}
+
+			</article>
+
+		</main>
+	</div>
+
+{% endblock %}

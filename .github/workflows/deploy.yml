@@ -1,0 +1,33 @@
+# Per-repo deploy workflow stub.
+#
+# Copy this file into every site repo as `.github/workflows/deploy.yml`.
+# It defers all logic to the reusable workflow in the central tools repo,
+# so updating the deployment system is a single-repo change.
+#
+# Setup:
+#   1. Add or remove branches below to match your environments.
+#      Each branch name maps to an environment of the same name
+#      (e.g. deploy-production → environment: deploy-production).
+#
+# The dashboard URL is baked into the reusable workflow as a default, so there
+# is nothing else to configure here. Override it only for a non-default
+# installation by adding `with: { dashboard_url: https://... }`.
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - deploy-staging
+      - deploy-production
+
+permissions:
+  id-token: write    # required to mint OIDC tokens
+  contents: read
+
+jobs:
+  deploy:
+    uses: concise-dot-digital/git-deployment-tools/.github/workflows/deploy.yml@main
+    # with:
+    #   dashboard_url: https://deploy.example.com/webhook   # override default
+    #   audience: deploy-dashboard                          # override default

@@ -1,0 +1,16 @@
+.search-dropdown {
+	&-button {
+		&-icon {
+			line-height: 24px;
+		}
+	}
+
+	.search-form {
+		min-width: 250px;
+
+		.search-form-input {
+			background: $white;
+			border: none;
+		}
+	}
+}

@@ -1,0 +1,62 @@
+@import 'header';
+@import 'footer';
+@import 'hero-image';
+@import 'primary-navigation';
+@import 'toolbar';
+
+body,
+#app {
+    min-height: 100vh;
+}
+
+body {
+	background: var(--bz-body-bg);
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+	max-width: 2000px;
+	margin: 0 auto;
+	background: var(--bz-app-bg);
+}
+
+#main {
+	padding: .5rem 0;
+}
+
+.site-footer {
+    margin-top: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+* Fixed header
+*/
+.site-header.scroll {
+	.fixed-element {
+		z-index: 100;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	& + * {
+		margin-top: 100px;
+
+		@include media-breakpoint-up (lg) {
+			margin-top: 103px;
+		}
+	}
+}
+
+#primary-navigation {
+	.dropdown-menu {
+		box-shadow: 0px 20px 30px rgb(83 88 93 / 5%), 0px 0px 30px rgb(83 88 93 / 20%);
+	}
+}

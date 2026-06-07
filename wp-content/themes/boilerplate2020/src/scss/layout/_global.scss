@@ -1,0 +1,39 @@
+body,
+#app {
+    min-height: 100vh;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer {
+    margin-top: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+* Fixed header
+*/
+// .site-header.scroll {
+// 	.fixed-element {
+// 		z-index: 100;
+// 		position: fixed;
+// 		top: 0;
+// 		left: 0;
+// 		right: 0;
+// 	}
+
+// 	& + * {
+// 		margin-top: 100px;
+
+// 		@include media-breakpoint-up (lg) {
+// 			margin-top: 103px;
+// 		}
+// 	}
+// }

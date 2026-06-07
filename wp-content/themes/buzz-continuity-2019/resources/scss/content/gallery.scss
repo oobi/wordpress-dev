@@ -1,0 +1,111 @@
+
+// We will define what a gallery looks like on browsers
+// that do not have grid support. This doesn't support all columns choices
+.gallery {
+    display: flex; flex-wrap: wrap;
+    margin: 0 -20px;
+
+    .gallery-item {
+        position: relative; margin-bottom: 20px; padding: 0 20px; width: 100%;
+        overflow: hidden; text-align:center;
+
+        @include media-breakpoint-up(xs) {
+            width: 50%;
+        }
+
+        @include media-breakpoint-up(sm) {
+            width: (100% / 3);
+        }
+
+        @include media-breakpoint-up(sm) {
+            width: (100% / 4);
+		}
+
+        .gallery-caption {
+            // position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 1em;
+            background-color: transparent;
+			color: inherit;
+			// text-shadow: 2px 2px #000;
+			z-index: 1;
+			// pointer-events: none;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+			overflow:hidden;
+			width:100%;
+		}
+
+		&:not(.link-none) {
+
+			.gallery-item__overlay {
+				display:none;
+				opacity:0;
+
+				position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+				height: 100%;
+				background-color: rgba( black, .25 );
+				transition: opacity 500ms ease;
+				pointer-events: none;
+
+				.fa-plus {
+					color: $white;
+					opacity:0;
+				}
+			}
+
+			&:hover {
+				.gallery-item__overlay {
+					&::before {
+						transform: translate( -50%, -50% ) scale(1);
+					}
+
+					.fa-plus {
+						opacity:1;
+					}
+				}
+			}
+
+		}
+
+		// disable overlay for link none items
+		&.link-none {
+			.gallery-item__overlay 		{ display:none !important; }
+		}
+	}
+
+	// align center if gallery image size "full"
+	&.gallery-size-full .gallery-icon {
+		display:flex; height:100%;
+		align-items:center; justify-content:center;
+	}
+}
+
+// If a browser supports grid, we create a
+@supports (display:grid) {
+
+    .gallery {
+        display: grid;
+        grid-gap: 20px;
+        margin: 0 0 20px;
+
+        @for $i from 1 through 9 {
+            &.gallery-columns-#{ $i } {
+                grid-template-columns: repeat(2, 1fr);
+
+                @include media-breakpoint-up(sm) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                @include media-breakpoint-up(md) {
+                    grid-template-columns: repeat(#{$i}, 1fr);
+                }
+            }
+        }
+
+        // reset fallback styles
+        .gallery-item {
+            width: 100% !important;
+            margin-bottom: 0;
+            padding: 0;
+        }
+    }
+}

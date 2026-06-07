@@ -1,0 +1,20 @@
+body.debug-home {
+    background: url(../images/layouts/home.png) top center no-repeat !important;
+    min-height: 5820px !important;
+}
+
+body.debug-content {
+    background: url(../images/layouts/content.png) top center no-repeat !important;
+    min-height: 12120px !important;
+}
+
+body.debug-landing {
+    background: url(../images/layouts/landing.png) top center no-repeat !important;
+    min-height: 4720px !important;
+}
+
+body[class*="debug"] #app {
+
+	// opacity of underlay
+    opacity: 0.55;
+}

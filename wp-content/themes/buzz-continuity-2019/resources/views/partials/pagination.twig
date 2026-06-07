@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if pagination.prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ pagination.prev.link }}" aria-label="Previous">
+                        <span aria-hidden="true" class="fa fa-angle-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+            {% endif %}
+    
+            {% for page in pagination.pages %}
+                {% if page.link %}
+                    <li class="page-item {{ page.class }}">
+                        <a href="{{ page.link }}" class="{{ page.class }} page-link">{{ page.title }}</a>
+                    </li>
+                
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">{{ page.title }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+    
+            {% if pagination.next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ pagination.next.link }}" aria-label="Next">
+                        <span aria-hidden="true" class="fa fa-angle-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>

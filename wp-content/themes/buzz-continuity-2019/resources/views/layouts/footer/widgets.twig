@@ -1,0 +1,10 @@
+{% if widgets.footer %}
+	<section class="widgets container {{ footer.widget_class | default('p-4') }}">
+
+		<div class="row">
+			{# Widgets automatically get "col" class #}
+			{{widgets.footer}}
+		</div>
+
+	</section>
+{% endif %}

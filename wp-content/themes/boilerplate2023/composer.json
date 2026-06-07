@@ -1,0 +1,27 @@
+{
+    "name": "firefly/firefly-education2023",
+    "description": "Theme by Firefly Interactive",
+    "type":"wordpress-theme",
+    "minimum-stability" : "stable",
+    "authors": [
+        {
+            "name": "Chris",
+            "email": "ccarey@fi.net.au"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.1",
+        "htmlburger/carbon-fields": "^3.6.8",
+        "htmlburger/carbon-field-icon": "^3.0",
+        "timber/timber": "^1.24"
+    },
+    "autoload": {
+        "psr-4": { "Firefly\\": "./theme" },
+        "files": [ "./theme/helpers.php" ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

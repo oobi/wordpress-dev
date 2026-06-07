@@ -1,0 +1,508 @@
+/*################################################################################################*/
+/* GLOBALS */
+/*################################################################################################*/
+
+HTML,BODY 						{ margin:0; }
+#wrapper 						{  }
+#wrapper > .container			{ padding-left:0; padding-right:0;
+								  background:#FFF; }
+
+HR 								{ margin:25px 15px; border:0; border-top:1px solid #d6d6d6; }
+
+/* clearfix */
+.clear:before,
+.clear:after 					{ content:" "; display: table; }
+.clear:after 					{ clear: both; }
+
+/* bootstrap overrides */
+.row 							{ margin:0; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#wrapper > .container {
+		-webkit-box-shadow: 0px 0px 7px 5px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0px 0px 7px 5px rgba(0,0,0,0.15);
+		box-shadow: 0px 0px 7px 5px rgba(0,0,0,0.15);
+	}
+}
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px to 991px) */
+@media ( max-width:991px ) {
+	/* lets the container fill the whole frame on iPad portrait */
+	.container 						{ width:auto; }
+}
+
+
+
+
+/*################################################################################################*/
+/* TYPEFACES */
+/*################################################################################################*/
+
+/* see content.css */
+
+
+
+
+
+
+/*################################################################################################*/
+/* HEADER */
+/*################################################################################################*/
+
+/* banner */
+#banner 						{ position:relative; overflow:hidden; height:120px; }
+#banner A 						{ display:block; }
+#banner .header-content			{ position:absolute; width:100%; height:100%; padding-left:15px; display:table; }
+
+#banner .site-logo,
+#banner .site-text				{ display:table-cell; vertical-align:middle; }
+#banner .site-logo 				{ height:100%; width:120px;
+								  text-align:center; }
+#banner .site-text 				{ padding-left:10px; }
+#banner .site-text H1 			{ margin:0; font-size:20px; }
+#banner .site-text P 			{ margin:0; display:none;
+								  text-transform:uppercase; }
+#banner .site-logo IMG 			{ max-height:110px; width:auto; }
+
+/* using an image banner */
+#banner.image-banner 			{ height:auto; }
+#banner.image-banner .custom-header
+								{ display:none; }
+#banner.image-banner IMG.mobile-header
+								{ width:100%; height:auto; max-width:auto; }
+
+/* featured image */
+#featured-image					{ position:relative; }
+#featured-image IMG 			{ width:100%; height:auto; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#banner 					{  }
+	#banner .header-content		{ padding-left:20px; }
+	#banner .site-text			{ margin:15px 0 0 10px; }
+	#banner .site-text H1 		{ font-size:28px; }
+	#banner .site-text P 		{ font-size:12px; display:block; }
+
+	/* using an image banner */
+	#banner.image-banner IMG.custom-header
+								{ display:block; width:100%; height:auto; }
+
+	/* using an image banner - mobile */
+	#banner.image-banner .mobile-header
+								{ display:none; }
+
+}
+
+
+
+
+
+
+/*################################################################################################*/
+/* MAIN NAV */
+/*################################################################################################*/
+
+#nav 							{ border-radius:0; margin:0; border:0; }
+#nav > DIV 						{ color:#FFF; text-transform:uppercase; }
+#nav A 							{ display:block;
+								  text-decoration:none; }
+
+#nav .date 						{ opacity:0.7; text-transform:none; padding:0 0 0 15px; }
+
+#nav .nav > LI 					{ border-top:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(0,0,0,0.2); }
+#nav .dropdown-menu > LI > A	{ white-space:normal; }
+
+
+#nav .nav .article-item A		{ text-transform:none; position:relative; padding-right:20px; }
+#nav .nav .article-item .icon	{ position:absolute; top:0; right:0; height:100%;  padding:10px; }
+
+#nav .current-issue 			{ font-weight:bold; }
+
+/* toggle */
+#nav .navbar-toggle				{ border:1px solid #ccc;
+								  background:#FFF; }
+#nav .navbar-toggle .icon-bar	{ background:#999; }
+#nav .navbar-toggle[aria-expanded=true]
+								{ opacity:0.5; }
+
+/* form */
+#nav #searchform 				{ margin:0; }
+#nav #searchform INPUT,
+#nav #searchform BUTTON			{ height:50px; border-radius:0; border:0; }
+#nav #searchform INPUT			{ width:180px;
+								  color:#FFF; }
+#nav #searchform BUTTON			{ width:50px;
+								  background:none; }
+#nav #searchsubmit 				{ margin-top:-1px; }
+
+/* appears above navigation in handset view */
+#nav .handset-nav-top 			{ text-align:center; }
+#nav .handset-nav-top #social 	{ padding:10px 0 10px 0; border-bottom:1px solid; border-bottom:1px solid rgba(0,0,0,0.2); }
+#nav .handset-nav-top #searchform{ padding:15px 0; border-top:none; box-shadow:none; border-top:1px solid rgba(255,255,255,0.1); }
+#nav .handset-nav-top #searchform INPUT,
+#nav .handset-nav-top #searchform BUTTON
+								{ height:auto; }
+#nav .handset-nav-top #s 		{ width:75%; }
+#nav .handset-nav-top #searchsubmit
+								{ width:15%; }
+
+/* drop down */
+#nav .dropdown-menu				{ border:0; border-radius:0; box-shadow:none; }
+#nav .open > A,
+#nav .open > A:focus,
+#nav .open > A:hover 			{ background:none; }
+
+ /* bootstrap override */
+.form-control::-moz-placeholder	{ color:inherit; opacity:0.6; }
+.form-control:focus 			{ box-shadow:none; }
+
+#nav .navbar-toggle 			{ background:none; border-radius:0; }
+#nav .navbar-toggle .icon-bar	{ border-radius:0; }
+
+
+/* alternate date view (tablet only) */
+.alt-issue-date					{ padding:5px 15px; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.navbar-collapse 					{ padding:0; }
+	#nav .container-fluid,
+	#nav #searchform					{ padding-right:0; }
+
+	#nav .nav > LI 						{ border-top:none; border-bottom:none; }
+	#nav .nav .article-item,
+	#nav .nav .category-item			{ display:none; }
+
+	#nav #searchform INPUT				{ width:150px; }
+}
+
+
+/*################################################################################################*/
+/* PAGES */
+/*################################################################################################*/
+
+.page #main 							{ padding:20px; }
+
+
+/*################################################################################################*/
+/* NEWSLETTER VIEW */
+/*################################################################################################*/
+
+#main		 									{ padding:20px 0; }
+#main IMG 										{ max-width:100%; height:auto; }
+
+/* featured articles */
+#featured-articles .col-sm-6					{  }
+#featured-articles .col-sm-6:nth-of-type(2n)	{  }
+#featured-articles .excerpt 					{ margin-bottom:0; }
+
+/* index articles */
+#index-articles									{ margin-top:20px; }
+#index-articles .col-sm-3 						{  }
+#index-articles .col-sm-3:nth-of-type(4n) 		{  }
+
+.article-container 								{ padding-bottom:15px; }
+.article-container .article-thumb,				
+.article-container .article-text				{ padding:0; }
+.article-container .article-text H3				{ margin-top:0;
+												  font-size:16px; }
+
+/* tags */
+#main .tags 									{ color:#666; font-size:12px; }
+#main .tags SPAN 								{ padding-right:5px; }
+#main .tags A 									{ color:#666; }
+
+
+/*================================================================================================*/
+/* Mobile devices (767px and under) */
+@media (max-width: 767px) {
+	.article-container .article-text.has-img 	{ margin-bottom:8px; display:block; text-overflow:ellipsis; overflow:hidden;
+												  display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; }
+	.article-container .article-text.has-img P 	{ margin-bottom:0; }
+}
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#main		 							{ padding:40px 25px; }
+
+	/* index articles */
+	#index-articles							{ margin-top:0; }
+	.feature-container,
+	.article-container 						{ padding-bottom:30px; }
+	.article-container .article-text H3		{ margin:10px 0 0; 
+											  font-size:16px; }
+
+	/* flex grid */
+	#index-articles .even-height,
+	#index-articles .even-height .article-container,
+	#index-articles .even-height .article-wrapper 			
+											{ display:-webkit-box; display:-webkit-flex; display:-ms-flexbox; display:flex; flex-direction:row; }
+	#index-articles .even-height .article-container.has-img
+											{ display:block; }
+	#index-articles .even-height .article-container .article-text.has-img 
+											{ width:100%; }
+
+	/* tags */
+	#main .tags 							{ padding:5px 0 0; }
+}
+
+
+
+
+
+/*################################################################################################*/
+/* ARTICLE VIEW */
+/*################################################################################################*/
+
+/* general */
+#content 										{ }
+#content .post-title							{ display:block; }
+
+/* featured image */
+#featured-image .post-title 					{ display:none; }
+
+/* sidebar */
+#sidebar .featured SPAN 						{ padding-right:5px;
+												  font-size:12px; }
+#sidebar UL 									{ margin:0; padding:0; list-style:none; }
+#sidebar UL LI 									{ padding:0; }
+
+#sidebar #social 								{ padding-bottom:15px; }
+
+/* in this issue */
+#sidebar .this-issue							{ font-size:13px; }
+#sidebar .this-issue > UL 						{ padding:15px 0; }
+#sidebar .this-issue .category					{ margin-bottom:5px; }
+#sidebar .this-issue > UL > LI					{ padding:3px 0; }
+#sidebar .this-issue .category-name				{ display:block;
+												  font-size:16px; font-weight:bold; }
+#sidebar .this-issue H3 						{ font-size:14px; padding:10px 10px 10px 0; margin:0;
+												  font-weight:normal; color:#7f7e7e; text-transform:uppercase; }
+#sidebar .this-issue H4 						{ margin:0; }
+#sidebar .this-issue UL UL 						{ padding:6px 0; }
+#sidebar .this-issue LI 						{ padding:5px 0; }
+#sidebar .this-issue A 							{ display:block; padding-left:0; position:relative; padding-left:20px;
+												  font-weight:bold; }
+#sidebar .this-issue A .icon 					{ position:absolute; top:0px; left:0; width:20px; height:20px; line-height:20px;
+												  text-align:center; font-size:11px; }
+
+/* navigation */
+#article-prevnext								{ margin:30px 0; padding:15px 0 0 0; border-top:1px solid #d6d6d6; }
+#article-prevnext .prev,
+#article-prevnext .next							{ position:relative; display:block; padding:0;
+												  overflow:hidden; }
+#article-prevnext .prev  						{ padding-left:25px; }
+#article-prevnext .next							{ padding-right:25px;
+												  text-align:right; }
+
+#article-prevnext A 							{ display:block; }
+#content #article-prevnext A 					{ text-decoration:none; } /* duplicate definition to work with customiser */
+#article-prevnext .direction 					{ display:block;
+												  font-size:14px; color:#333; }
+#article-prevnext .direction I 					{ position:absolute; top:0;
+												  font-size:40px; }
+#article-prevnext .prev .direction I 			{ left:0; }
+#article-prevnext .next .direction I 			{ right:0; }
+
+#article-prevnext .title 						{ display:block;
+												  font-size:13px; font-weight:bold; }
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#sidebar 								{  }
+
+	/*#content .post-title					{ display:none; }*/
+	#featured-image 						{ min-height:90px; }
+	#featured-image .post-title 			{ display:block; position:absolute; bottom:0px; padding:10px 30px 0px 20px;
+											  color:#FFF; font-size:18px; line-height:20px; min-height:55px;
+											  background:rgba(0,0,0,0.6); }
+	#featured-image .post-title #social 	{ position:absolute; left:100%; bottom:0; top:auto; width:230px; }
+	#featured-image .post-title #social .social-link
+											{ float:left; margin:0 0 0 1px; }
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	#featured-image .post-title 			{ display:block; position:absolute; bottom:35px; width:auto; padding:10px 30px 8px 30px;
+											  color:#FFF; font-size:26px; line-height:30px; min-height:55px;
+											  background:rgba(0,0,0,0.6); }
+}
+
+
+
+
+
+/*################################################################################################*/
+/* PAGINATION */
+/*################################################################################################*/
+
+/* pagination */
+.paging-navigation							{ text-align:center; }
+.pagination 								{ padding:20px 0; height:40px;
+											  text-align:center; }
+.pagination .page-numbers 					{ padding:0 8px; }
+.pagination A								{  }
+.pagination .current 						{ font-weight:bold; }
+
+
+
+
+
+/*################################################################################################*/
+/* SEARCH FORM AND ARCHIVES */
+/*################################################################################################*/
+
+
+#searchform #searchsubmit 					{ width:34px; height:34px; margin-top:-1px; }
+
+#searchform .form-control 					{ display:inline-block; width:80%; }
+
+/* override form styles in main */
+#main .navbar-form 							{ padding:0; }
+
+/* query results */
+#query-results .post-container 				{ padding-bottom:20px; }
+#query-results .post-thumb 					{ padding-right:0; }
+#query-results .post-text 					{ padding:0; }
+#query-results .post-text H3				{ margin-top:0; 
+											  font-size:18px; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#searchform #searchsubmit 				{ margin:0; }
+	.search-wrapper 						{ padding:0; }
+}
+
+
+
+
+
+
+/*################################################################################################*/
+/* SOCIAL MEDIA LINKS */
+/*################################################################################################*/
+
+#social 										{ font-size:28px; }
+#social .social-link							{ display:inline-block; width:45px; height:45px; position:relative; margin:0 0 1px 0; padding:6px 0 0 0;
+												  text-align:center; color:#FFF; line-height:0px; text-decoration:none !important; }
+#social .social-link .share-text 				{ text-transform:uppercase; font-size:10px; font-weight:bold; }
+#social .social-link .fa 						{ margin:0; display:block; font-size:0.8em; }
+#social .social-link:hover,
+#social.brand .social-link:hover 				{ background:#333;
+												  color:#fff; text-decoration:none; }
+
+#content #social .social-link,
+#sidebar #social .social-link 					{ margin-left:1px; }
+
+/* print link */
+#social .social-print							{ background-color:#333 !important;
+												  color:#FFF !important; }
+
+/* icons in featured image */
+#featured-image #social 						{ position:absolute; right:0; top:20%; }
+#featured-image #social .social-link 			{ display:block; }
+
+/* display social icons in brand colours */
+#social.brand .social-twitter					{ background-color:#55ACEE; }
+#social.brand .social-linkedin					{ background-color:#0177B5; }
+#social.brand .social-facebook					{ background-color:#4867AA; }
+#social.brand .social-link .fa					{ color:#FFF; }
+
+
+/*================================================================================================*/
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	#social .social-link						{ width:55px; height:55px; padding-top:8px; } 
+	#social .social-link .fa 					{ font-size:1em; }
+}
+
+
+/*################################################################################################*/
+/* QUICK LINKS */
+/*################################################################################################*/
+
+#widgets 						{ padding:15px 0;
+								  background:#DDD;
+								  line-height:20px; }
+#widgets H3 					{ margin:5px 0 8px;
+								  text-transform:none; font-size:20px; }
+#widgets UL 					{ padding:0; margin:0; list-style:none; }
+#widgets UL LI 					{ padding:0; }
+#widgets UL LI A 				{ display:block; }
+
+#widgets IMG 					{ margin:0 10px 10px 0; }
+
+#widgets .widget 				{ margin-bottom:20px; padding:0; overflow:hidden; }
+#widgets P						{ padding-left:10px; }
+#widgets H3 + .menu,
+#widgets H3 + P					{ margin-top:0; }
+
+/* OLD IE STYLE */
+#widgets .menu 					{ padding-left:10px;
+							      /* CSS3 browser only */
+							      -webkit-column-gap: 20px; /* Chrome, Safari, Opera */
+								  -moz-column-gap: 20px; /* Firefox */
+								  column-gap: 20px;
+								  -webkit-column-rule: 1px solid rgba(0, 0, 0, 0.3); /* Chrome, Safari, Opera */
+							      -moz-column-rule: 1px solid rgba(0, 0, 0, 0.3); /* Firefox */
+							      column-rule: 1px solid rgba(0, 0, 0, 0.3);
+								  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+								  -moz-column-count: 2; /* Firefox */
+								  column-count: 2; }
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#widgets .menu				{ border-right:1px solid rgba(0,0,0,0.3); border-left:1px solid rgba(0,0,0,0.3); }
+	#widgets .widget 			{ margin-bottom:0; overflow:visible; }
+	#widgets H3 				{ padding-bottom:10px; }
+
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	#widgets .menu				{  /* CSS3 browser only */
+								  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+								  -moz-column-count: 3; /* Firefox */
+								  column-count: 3; }
+}
+
+
+
+
+/*################################################################################################*/
+/* FOOTER */
+/*################################################################################################*/
+
+#footer 						{ padding:10px 0 10px 0; background:#CCC;
+								  font-size:12px; }
+#footer .credit,
+#footer .copyright				{ text-align:center; line-height:20px; }
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#footer 					{ padding:0; }
+	#footer .credit				{ text-align:right; }
+	#footer .copyright			{ text-align:left;  }
+	#footer .inner DIV 			{ line-height:40px; }
+}
+
+
+
+

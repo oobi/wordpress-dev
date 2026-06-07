@@ -1,0 +1,18 @@
+{% extends 'layouts/base.twig' %}
+
+{% block header %}
+	{% include 'layouts/header.twig' %}
+	{% if hero.show and hero.position == 'above' %}{% include 'layouts/header/hero-newsletter.twig' %}{% endif %}
+	{% include 'layouts/navbar/navbar.twig' %}
+	{% if hero.show and hero.position == 'below' %}{% include 'layouts/header/hero-newsletter.twig' %}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <main class="content-area row newsletter-index {{main_classes}}" role="main">
+
+			<buzz-articles site="{{ site.link }}" :newsletter="{{ newsletter.id }}"></buzz-articles>
+
+    </main>
+
+{% endblock %}

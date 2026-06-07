@@ -1,0 +1,27 @@
+{% if newsletter %}
+
+	{# newsletter title and link #}
+	{% set show_date = show_nav_date and date_position == 'left' %}
+	{% if show_nav_title or show_date %}
+		<div class="nav-item menu-item newsletter-info">
+			<a class="nav-link" href="{{newsletter.link}}">
+				<div>{# block element added as hack to get text-overflow to work #}
+
+					{% if show_nav_title %}
+						{{newsletter.title}}
+					{% endif %}
+
+					{% if show_nav_title and show_date %}
+						&nbsp;&ndash;&nbsp;
+					{% endif %}
+
+					{% if show_date %}
+						{{newsletter.post_date | strftime(date_format)}}
+					{% endif %}
+
+				</div>
+			</a>
+		</div>
+	{% endif %}
+
+{% endif %}

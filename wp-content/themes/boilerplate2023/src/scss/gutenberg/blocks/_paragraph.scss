@@ -1,0 +1,46 @@
+p {
+	&.is-style-highlight {
+		@include block-margins(.5);
+		color: var(--bs-primary);
+		font-size: 120%;
+	}
+
+	&.is-style-citation {
+		display: flex;
+		align-items: center;
+		font-size: .75rem;
+		text-transform: uppercase;
+		font-weight: $font-weight-bold;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			flex: 1;
+			height: 3px;
+			background: var(--bs-secondary);
+		}
+
+		&::after {
+			margin-left: .5rem;
+		}
+
+		&::before {
+			margin-right: .5rem;
+			display: none;
+		}
+
+		&.has-text-align-right {
+			&::after {
+				display: none;
+			}
+		}
+
+		&.has-text-align-center {
+			&::before,
+			&::after {
+				display: block;
+			}
+		}
+	}
+}

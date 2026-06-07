@@ -1,0 +1,49 @@
+.child-pages {
+	&-card {
+		@include box-shadow-hover();
+
+		&.has-thumbnail {
+			&::before {
+				@include background-gradient();
+				content: '';
+				z-index: 1;
+			}
+		}
+
+		text-decoration: none;
+		aspect-ratio: 4/3;
+
+		position: relative;
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		transition: all 0.25s ease-in-out;
+		justify-content: flex-end;
+
+		background: var(--bs-primary);
+		padding: 1rem;
+
+		&-image {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+
+		&-title {
+			color: $white;
+			font-size: 1rem;
+			text-transform: uppercase;
+			font-weight: $font-weight-semibold;
+			line-height: 1.25;
+			margin-bottom: 0;
+			z-index: 2;
+
+			@include media-breakpoint-up(lg) {
+				font-size: 1.25rem;
+			}
+		}
+	}
+}

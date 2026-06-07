@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% block html_head_container %}
+			<meta charset="{{site.charset}}" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			{# iOS App Icon #}
+			{% if home_screen_logo_url %}
+				<link rel="apple-touch-icon" href="{{ home_screen_logo_url }}">
+			{% endif %}
+
+			{# Favicon and Android App Icon #}
+			{% if site_logo_url %}
+				<link rel="icon" type="image/png" href="{{ site_logo_url }}">
+			{% endif %}
+
+			{% block head %}{% endblock %}
+
+			{{function('wp_head')}}
+		{% endblock %}
+
+		{# Kirki Styles #}
+		<style>
+			:root {
+				--bs-body-font-family: {{ fonts.body.font_family }};
+				--bs-body-font-line-height: {{ fonts.body.line_height }};
+				--bs-body-font-size: {{ fonts.body.font_size }};
+
+				--bz-heading-font-family: {{ fonts.heading.font_family }};
+				--bz-heading-font-line-height: {{ fonts.heading.line_height }};
+			}
+
+			body {
+				font-family: {{ fonts.body.font_family }};
+				font-weight: {{ fonts.body.font_weight }};
+				font-size: {{ fonts.body.size }};
+				line-height: {{ fonts.body.line_height }};
+				letter-spacing: {{ fonts.body.letter_spacing }};
+			}
+
+			.site-header {
+				font-family: {{ fonts.header.font_family }};
+				font-weight: {{ fonts.header.font_weight }};
+				letter-spacing: {{ fonts.header.letter_spacing }};
+				text-transform: {{ fonts.header.text_transform }};
+			}
+
+			#primary-navigation, #primary-navigation a, #primary-navigation input {
+				font-family: {{ fonts.navbar.font_family }};
+				font-weight: {{ fonts.navbar.font_weight }};
+				font-size: {{ fonts.navbar.font_size }};
+				letter-spacing: {{ fonts.navbar.letter_spacing }};
+				text-transform: {{ fonts.navbar.text_transform }};
+			}
+
+			#email h1, #email h2, #email h3, #email h4, #email h5, #email h6, h1, h2, h3, h4, h5, h6 {
+            	font-family: {{ fonts.heading.font_family }};
+            	line-height: {{ fonts.heading.line_height }};
+        	}
+
+			.content-area .highlight {
+				font-family: {{ fonts.highlight.font_family }};
+				font-weight: {{ fonts.highlight.font_weight }};
+				letter-spacing: {{ fonts.highlight.letter_spacing }};
+				text-align: {{ fonts.highlight.text_align }};
+			}
+
+			.content-area .pullquote {
+				font-family: {{ fonts.highlight.font_family }};
+				font-weight: {{ fonts.highlight.font_weight }};
+				font-size: {{ fonts.highlight.font_size }};
+				line-height: {{ fonts.highlight.line_height }};
+				letter-spacing: {{ fonts.highlight.letter_spacing}};
+				text-align: {{ fonts.highlight.text_align }};
+			}
+		</style>
+	</head>
+
+    <body class="{{ body_class }} {% block body_class %}{% endblock %}" data-template="base.html.twig" role="document">
+		{{ function('wp_body_open') }}
+
+		<div id="app">
+			{# Include the Header and Navbar #}
+			{% block header %}
+				{% include 'layouts/header/header.html.twig' %}
+				{% include 'layouts/navbar/navbar.html.twig' %}
+			{% endblock %}
+
+            {# Include the content block #}
+			<main id="main" role="main">
+				<div class="container position-relative">
+					{# scroll to top link #}
+					{% include 'partials/scroll-to-top.html.twig' %}
+
+					{% block content %}
+						<div class="row">
+							<div class="col-12">
+								{% if title %}<h1>{{title}}</h1>{% endif %}
+								Sorry, no content
+							</div>
+						</div>
+					{% endblock %}
+				</div>
+			</main>
+
+            {% block footer %}
+				{# Include the footer #}
+				{% include 'layouts/footer/footer.html.twig' %}
+				{% include 'layouts/offcanvas.html.twig' %}
+
+                {{ function('wp_footer') }}
+            {% endblock %}
+
+        </div>
+    </body>
+</html>

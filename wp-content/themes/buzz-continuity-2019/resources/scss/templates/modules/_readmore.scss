@@ -1,0 +1,23 @@
+.readmore {
+	// font-size: $small-font-size;
+	line-height:1.5; font-size:0.9rem;
+
+	display: inline-flex;
+	justify-content:center;
+	align-items:center;
+	margin-top:auto; // align to bottom of container
+
+	.text {
+		padding-right:spacer(2);
+	}
+
+	&.icon-left {
+		flex-direction:row-reverse;
+
+		.text 			{
+			padding-right:0;
+			padding-left:spacer(2);
+		}
+	}
+
+}

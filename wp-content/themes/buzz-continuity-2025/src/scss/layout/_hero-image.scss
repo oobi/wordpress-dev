@@ -1,0 +1,20 @@
+.hero-image {
+	picture,
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: var(--bz-newsletter-hero-height);
+
+		@include media-breakpoint-up(lg) {
+			height: var(--bz-newsletter-hero-height-lg);
+		}
+
+		@include media-breakpoint-up(xl) {
+			height: var(--bz-newsletter-hero-height-xl);
+		}
+	}
+
+	&-below {
+		margin-bottom: 1rem;
+	}
+}

@@ -1,0 +1,42 @@
+.wp-block-table {
+	table {
+		border: 1px solid $gray-400;
+	}
+
+	td,
+	th {
+		padding: .5rem .75rem;
+		font-size: 1rem;
+	}
+
+	th {
+		background: $green;
+		color: $white;
+		vertical-align: bottom;
+		font-weight: normal;
+	}
+
+
+
+	&.is-style-regular {
+
+	}
+
+	&.is-style-stripes {
+		border-bottom: none;
+
+		tbody tr:nth-child(odd) {
+			background-color: $gray-200;
+		}
+	}
+
+	figcaption {
+        color: var(--bz-caption);
+        background: var(--bz-caption-bg);
+		font-size: var(--bz-caption-font-size);
+		text-align: var(--bz-caption-alignment);
+
+		margin-top: 0;
+		padding: 1.25rem;
+    }
+}

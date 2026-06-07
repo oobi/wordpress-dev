@@ -1,0 +1,50 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+
+{% include "partials/breadcrumb.html.twig" %}
+
+<main class="entry py-20 {{ post.class }}">
+
+
+
+		{# Begin Page Header #}
+		{% include 'partials/simple-header.html.twig' %}
+		{# End Page Header #}
+
+		{# Begin Post Entries #}
+		<section class="entries">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<p class="text-center">
+							<em class="font-weight-bold">Searching for:</em>
+							{{ query }}</p>
+					</div>
+					<div style="max-width:400px" class="px-8 my-12 mx-auto">
+						{% include 'searchform.html.twig' %}
+					</div>
+					<div class="col-12 entry-content">
+
+						{% if posts is not empty %}
+							{% for post in posts %}
+								{% include "partials/tease.html.twig" %}
+							{% endfor %}
+						{% else %}
+							{% include "partials/no-results.html.twig" %}
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+		</section>
+		{# End Post Entries #}
+
+		{# Begin Pagination #}
+		{% if pagination.pages and pagination.pages|length > 1 %}
+			{% include 'partials/pagination.html.twig' %}
+		{% endif %}
+		{# End Pagination #}
+
+    </main>
+{% endblock %}

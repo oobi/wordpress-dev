@@ -1,0 +1,9 @@
+<div class="d-flex align-items-center">
+	<span class="news-entry-date">{{ post.date|date('d M Y') }}</span>
+</div>
+
+<div class="news-entry-title">{{ post.title }}</div>
+
+{% if post.preview | length %}
+	<div class="news-entry-excerpt">{{ post.preview.read_more(false).length(excerpt_length | default(20)) }}</div>
+{% endif %}

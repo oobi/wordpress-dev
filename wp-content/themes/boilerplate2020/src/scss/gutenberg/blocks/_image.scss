@@ -1,0 +1,13 @@
+.wp-block-image {
+    figcaption {
+        color: $white;
+        background: $gray-800;
+        font-size: 0.875rem;
+        margin-top: 0;
+        padding: 1.25rem;
+    }
+
+    img {
+        width: 100%;
+    }
+}

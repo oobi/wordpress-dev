@@ -1,0 +1,126 @@
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/article-nav/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-buzz-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  /**
+   * Vertical alignment
+   */
+}
+.wp-block-buzz-article-nav .bz-article-nav-item {
+  text-decoration: none;
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item:hover {
+  text-decoration: underline;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item-title {
+  margin-bottom: auto;
+  font-style: italic;
+  text-decoration: underline;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item-next {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item-next .bz-article-nav-item-text {
+  align-items: flex-end;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item-text {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item-label {
+  padding: 5px 12px;
+  border-radius: 4px;
+  background-color: #dff1f8;
+  display: inline-flex;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.wp-block-buzz-article-nav .bz-article-nav-item-label:hover {
+  text-decoration: none;
+}
+.wp-block-buzz-article-nav .bz-article-nav-read-icon {
+  width: 6px;
+  height: 13px;
+}
+.wp-block-buzz-article-nav.is-style-default .bz-article-nav-item {
+  display: flex;
+  gap: 1rem;
+}
+.wp-block-buzz-article-nav.is-style-default .bz-article-nav-item-title {
+  margin-top: 0;
+}
+.wp-block-buzz-article-nav.is-style-default .bz-article-nav-thumbnail {
+  width: 112px;
+  height: 112px;
+}
+.wp-block-buzz-article-nav.is-style-default .bz-article-nav-read {
+  background: var(--wp--preset--color--secondary);
+  padding: 0.5rem 1rem;
+  color: var(--wp--preset--color--contrast);
+  border-radius: 15px;
+}
+.wp-block-buzz-article-nav.is-style-centred {
+  gap: 0;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-link {
+  font-style: italic;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-previous, .wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-next {
+  display: flex;
+  justify-content: flex-end;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-previous {
+  text-align: right;
+  padding-right: 3rem;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-previous .bz-article-nav-item-thumbnail {
+  margin-right: auto;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-label {
+  display: block;
+  font-size: 80%;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-text {
+  display: block;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-next {
+  text-align: left;
+  padding-left: 3rem;
+  border-left: 1px solid #999;
+}
+.wp-block-buzz-article-nav.is-style-centred .bz-article-nav-item-next .bz-article-nav-item-thumbnail {
+  margin-left: auto;
+}
+.wp-block-buzz-article-nav.is-vertically-aligned-top .bz-article-nav-item {
+  align-items: flex-start;
+}
+.wp-block-buzz-article-nav.is-vertically-aligned-center .bz-article-nav-item {
+  align-items: center;
+}
+.wp-block-buzz-article-nav.is-vertically-aligned-bottom .bz-article-nav-item {
+  align-items: flex-end;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

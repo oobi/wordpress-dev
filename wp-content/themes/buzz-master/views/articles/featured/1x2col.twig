@@ -1,0 +1,12 @@
+{######################################################################
+ # 1 Featured article in 2 columns
+ # Extends the featured article base template
+ ######################################################################}
+
+{% extends "articles/featured/base.twig" %}
+
+{% block thumb_class %}col-sm-6{% endblock thumb_class %}
+
+{% block text_class %}col-sm-6{% endblock text_class %}
+
+{% block excerpt_class %}hidden-xs{% endblock excerpt_class %}

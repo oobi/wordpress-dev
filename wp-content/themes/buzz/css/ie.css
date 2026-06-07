@@ -1,0 +1,38 @@
+
+
+/*******************************************************************
+ * BOOTSTRAP OVERRIDES
+ *******************************************************************/
+
+/* newsletter index */
+.feature-container 								{ padding:0 !important; }
+.feature-container .feature-thumb,
+.feature-container .feature-text 				{ padding:0 15px; }
+
+.article-container 								{ padding:0 !important; }
+.article-container .article-thumb,
+.article-container .article-text				{ padding:0 15px; }
+
+/* article view */
+#main #content 									{ width:720px; }
+#sidebar 										{ width:150px; }
+
+/*#widgets */
+#widgets .col-sm-6								{ padding:0; }
+#widgets .inner 								{ padding:0 15px; }
+
+/*#footer */
+#footer .col-sm-6								{ padding:0; }
+#footer .inner 									{ padding:0 15px; }
+
+/*******************************************************************
+ * SEARCH FORM
+ *******************************************************************/
+
+#nav #searchform INPUT 							{ height:auto; }
+
+.form-control 									{ padding:0 0 0 0 !important; border:none;  }
+
+/* override form styles in main */
+#main .navbar-form 								{ padding:0; }
+#main .navbar-right 							{ float:none !important; }

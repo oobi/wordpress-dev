@@ -1,0 +1,30 @@
+.wp-block-quote {
+	@include block-margins(.5);
+
+    color: $gray-600;
+    margin: 4rem 0;
+    padding: 0.5rem 0 0.5rem 2rem;
+
+    border-color: var(--bs-secondary);
+	border-style: solid;
+	border-width: 0 0 0 0.2rem;
+
+    &.is-style-plain {
+        border-left: none;
+    }
+
+    cite {
+		font-size: 0.75rem;
+		font-weight: $font-weight-bold;
+		text-transform: uppercase;
+		font-family: $font-family-sans-serif;
+		line-height: 1.22;
+		font-style: normal;
+		margin-top: 1rem;
+		display: block;
+
+		@include media-breakpoint-up(md) {
+			margin-top: 2.875rem;
+		}
+	}
+}

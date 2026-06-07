@@ -1,0 +1,11 @@
+{% if social %}
+	<ul class="navbar-nav navbar-social">
+		{% for s in social %}
+			<li class="nav-item menu-item {{s.icon}}">
+				<a class="nav-link" href="{{s.url}}">
+					<i class="fab fa-{{s.icon}}"></i>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

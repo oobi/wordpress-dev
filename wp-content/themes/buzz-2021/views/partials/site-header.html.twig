@@ -1,0 +1,39 @@
+<div class="site-header__content d-flex position-relative align-items-center">
+
+    {% if header_type == 'image' %}
+        <a href="{{ fn( 'get_home_url' ) }}" class="homelink">
+            <picture>
+                <source srcset="{{ header_image_timber_small.src('banner') }}"
+                    media="(max-width: 768px)">
+
+                <source srcset="{{ header_image_timber_large.src('banner') }}"
+                    media="(max-width: 1200px)">
+
+                <source srcset="{{ header_image_timber_xl.src('banner') }}"
+                    media="(max-width: 1400px)">
+                <img class="img-responsive header-image" src="{{ header_image_timber_xl.src('banner') }}" alt="" />
+            </picture>
+        </a>
+    {% else %}
+
+        {# Buzz (default) branding #}
+        {% if header_type == 'buzz' %}
+            {% set header_logo = '<img src="' ~ theme.link ~ '/assets/images/buzz-icon.svg">' %}
+        {% endif %}
+
+
+        {% if header_logo %}
+            <div class="site-header__logo">
+                <a href="{{ fn( 'get_home_url' ) }}" class="homelink">
+                    {{ header_logo }}
+                </a>
+            </div>
+        {% endif %}
+
+        <div class="site-header__text">
+            <span class="title">{{header_text_title}}</span>
+            <span class="subtitle">{{header_text_subtitle}}</span>
+        </div>
+
+    {% endif %}
+</div>

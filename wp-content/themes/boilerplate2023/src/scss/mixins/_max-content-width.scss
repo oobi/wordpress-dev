@@ -1,0 +1,10 @@
+/**
+ * maximum width of content
+ */
+@mixin max-content-width() {
+	@include media-breakpoint-up(lg) {
+		max-width: var(--ff-max-content-width-lg);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

@@ -1,0 +1,39 @@
+@import 'base/index';
+@import 'layout/index';
+@import 'templates/index';
+@import 'content/index';
+
+body {
+    min-height: 100vh !important;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.sticky {
+    position: sticky;
+    z-index: 1000;
+}
+
+.sticky--top {
+    top: 0;
+}
+
+.card-header {
+    background-color: $gray-500;
+
+    &.category-one {
+        background-color: pink;
+    }
+    &.category-two {
+        background-color: blueviolet;
+    }
+}
+

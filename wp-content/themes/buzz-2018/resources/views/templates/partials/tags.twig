@@ -1,0 +1,17 @@
+{% if static_var.tag %}
+	{% set tags = post.terms(static_var.tag) %}
+	{% set button_class = taxonomies.tag.type %}
+	{% if tags %}
+		<div class="tags">
+			<i class="tags__icon fal fa-tags" aria-hidden="true"></i>
+			<ul class="tags__list">
+				{% for tag in tags %}
+					<li>
+						{# markup must be on same line to avoid space between link and divider #}
+						<a class="{{button_class}} {{post.tax_class(tag, true)}}" href="{{tag.link}}">{{tag.name}}</a>{% if not loop.last and button_class == 'text' %}<span class="tags__divider">,</span>{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+{% endif %}

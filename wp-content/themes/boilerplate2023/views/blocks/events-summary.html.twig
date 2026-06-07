@@ -1,0 +1,14 @@
+<section id="events-summary" class="latest-news posts-summary alignwide">
+	<div class="row">
+		<div class="col-12 mb-7">
+			<div class="posts-summary-title-wrapper">
+				<span class="posts-summary-title">Events</span>
+
+				<a class="posts-summary-link" href="{{ fields.events_link }}">Browse All Events</a>
+			</div>
+		</div>
+		{% for index, post in posts %}
+			{% include 'partials/event-partial.html.twig' %}
+		{% endfor %}
+	</div>
+</section>

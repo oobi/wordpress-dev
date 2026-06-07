@@ -1,0 +1,27 @@
+
+<div class="row">
+
+	<nav id="primary-navigation" class="navbar navbar-expand-lg col
+		{% if show_nav_search %} pr-lg-0 pr-xl-0 {% endif %}">
+
+		{# Get the primary navigation #}
+		{% include 'layouts/navbar/navigation.twig' %}
+
+		{# Social media icons #}
+		{% include "partials/social-links.twig" %}
+
+		{# Search form #}
+		{% if show_nav_search %}
+			<div class="navbar-search">
+				{% include 'partials/search-form.twig' %}
+			</div>
+		{% endif %}
+
+		{# The toggler for the mobile or offcanvas menu #}
+		<button class="navbar-toggler" type="button">
+			<span class="navbar-toggler-icon fa fa-bars"></span>
+		</button>
+
+	</nav>
+
+</div>

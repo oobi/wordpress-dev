@@ -1,0 +1,62 @@
+{% block html_head_container %}
+	<!DOCTYPE html>
+	<head>
+		<meta charset="{{site.charset}}" />
+		<title>
+			{% if wp_title %}
+				{{ wp_title }} - {{ site.name }}
+			{% else %}
+				{{ site.name }}
+			{% endif %}
+		</title>
+		<meta name="description" content="{{site.description}}">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="pingback" href="{{site.pingback_url}}" />
+
+		{# iOS App Icon #}
+		{% if home_screen_logo_url %}
+			<link rel="apple-touch-icon" href="{{ home_screen_logo_url }}">
+		{% endif %}
+
+		{# Favicon and Android App Icon #}
+		{% if site_logo_url %}
+			<link rel="icon" type="image/png" href="{{ site_logo_url }}">
+		{% endif %}
+
+		{% block head %}{% endblock %}
+
+		{{function('wp_head')}}
+	</head>
+{% endblock %}
+
+    <body class="{{ body_class }} {% block body_class %}{% endblock %}" data-template="base.twig" role="document">
+
+		{% block pre_site %}{% endblock %}
+
+        <div id="app" class="container">
+
+			{# Include the Header and Navbar #}
+			{% block header %}
+				{% include 'layouts/header.twig' %}
+				{% include 'layouts/navbar/navbar.twig' %}
+			{% endblock %}
+
+            {# Include the content block #}
+            {% block content %}
+                {% if title %}<h1>{{title}}</h1>{% endif %}
+                Sorry, no content
+            {% endblock %}
+
+			{# Include the footer #}
+            {% block footer %}
+				{% include 'layouts/footer.twig' %}               
+            {% endblock %}
+
+        </div>
+
+		{{ function('wp_footer') }}
+		
+    </body>
+</html>

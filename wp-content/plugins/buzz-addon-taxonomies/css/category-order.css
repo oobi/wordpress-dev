@@ -1,0 +1,21 @@
+.buzz-order-category-placeholder {
+	min-height: 57px;
+	height: 100%;
+}
+
+#the-list tr:hover {
+	cursor: move;
+}
+
+#the-list tr.ui-sortable-helper:hover {
+	display: table;
+	cursor: move;
+}
+
+#the-list tr.no-items:hover {
+	cursor: default;
+}
+
+.buzz-order-category-preloader {
+	margin: 0 0 0 8px;
+}

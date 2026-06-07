@@ -1,0 +1,24 @@
+/*******************************************************************
+ * DASHBOARD
+ *******************************************************************/
+
+/* "right now" icons */
+#dashboard_right_now A.newsletter-count:before,
+#dashboard_right_now SPAN.newsletter-count:before 			{ content: "\f330"; }
+#dashboard_right_now A.article-count:before,
+#dashboard_right_now SPAN.article-count:before 				{ content: "\f491"; }
+
+/*******************************************************************
+ * CUSTOMIZER
+ *******************************************************************/
+
+/* Header Logo */
+#customize-control-ff_newsletter_logo IMG 					{ width:auto; }
+
+/* Radio Image settings field */
+#customize-controls .customize-control-radioimage .customize-control-title 		{ padding-bottom:5px; }
+#customize-controls .customize-control-radioimage LABEL,
+#customize-controls .customize-control-radioimage IMG,
+#customize-controls .customize-control-radioimage input[type="radio"] 			{ display:inline-block; vertical-align:middle; }
+#customize-controls .customize-control-radioimage LABEL 						{ margin-bottom:10px; }
+#customize-controls .customize-control-radioimage IMG							{ max-width:80%; }

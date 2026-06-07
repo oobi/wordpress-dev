@@ -1,0 +1,24 @@
+API method calls
+
+API 3 reference:
+http://developer.mailchimp.com/documentation/mailchimp/reference/overview/
+
+BUZZ METHOD				API 2 ENDPOINT			VERB:   API 3 ENDPOINT
+----------------------------------------------------------------------------------
+get_campaigns 			campaigns/list			GET:    /campaigns
+get_unsent_campaigns	campaigns/list			GET:    /campaigns
+get_campaign			campaigns/list			GET:    /campaigns/{campaign_id}
+create_campaign			campaigns/create		POST:   /campaigns
+update_campaign			campaigns/update		PATCH:  /campaigns/{campaign_id}
+delete_campaign			campaigns/delete		DELETE: /campaigns/{campaign_id}
+send_test_campaign		campaigns/send-test		POST:   /campaigns/{campaign_id}/actions/test
+send_campaign			campaigns/send			POST:   /campaigns/{campaign_id}/actions/send
+
+get_lists				lists/list				GET:    /lists
+get_list				lists/list				GET:    /lists/{list_id}
+get_list_name			lists/list				GET:    /lists/{list_id}
+get_segments			lists/segments			GET:    /lists/{list_id}/segments
+get_send_total			lists/members			GET: 	/lists/{list_id}/members
+
+api_key_is_valid		helper/ping				GET:    /?fields=account_name
+(https://blog.wturrell.co.uk/how-to-ping-the-mailchimp-v3-api/)

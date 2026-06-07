@@ -1,0 +1,38 @@
+.logical-meta-fields {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.logical-meta-field.column {
+	width:30%;
+}
+
+.logical-meta-field.wide {
+	width:100%;
+}
+
+.logical-meta-field.range .input {
+	display:flex;
+	flex-direction:row;
+}
+
+.logical-meta-field SELECT,
+.logical-meta-field INPUT,
+.logical-meta-field TEXTAREA {
+	width:100% !important;
+	max-width:100% !important;
+}
+
+@media screen and (max-width:1200px) {
+	.logical-meta-field.column {
+		width:45%;
+	}
+}
+
+@media screen and (max-width:850px) {
+	.logical-meta-field.column {
+		width:100%;
+	}
+}

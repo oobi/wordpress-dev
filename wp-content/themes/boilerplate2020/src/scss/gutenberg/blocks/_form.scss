@@ -1,0 +1,71 @@
+.gform_wrapper {
+    // progress bar
+    .percentbar_blue {
+        background: $primary !important;
+    }
+
+    select,
+    textarea,
+    input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]) {
+        border: 1px solid $gray-500;
+        padding: 0.5rem;
+    }
+
+    input[type="button"],
+    input[type="submit"],
+    button[type="button"],
+    button[type="submit"] {
+        @extend .wp-block-button__link;
+        border: none;
+        background: $black;
+        color: $white;
+
+        &:hover {
+            background: $red;
+            color: $white;
+        }
+    }
+
+    .gfield_label {
+        font-family: $font-family-sans-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+
+    &.gravity-theme .gform_fields.left_label .gfield_label {
+        text-align: right;
+        padding-right: 1.5rem;
+    }
+
+    // fix for left-aligned label with complex field
+    &.gravity-theme .gform_fields.left_label fieldset,
+    &.gravity-theme .gform_fields.right_label fieldset {
+        display: flex;
+    }
+
+    // nested entries
+    .gpnf-nested-entries {
+        width: 100%;
+
+        .gpnf-row-actions {
+            button {
+				@extend .wp-block-button__link;
+
+				padding: .25rem 1rem;
+				text-decoration: none;
+				border: 1px inset transparent;
+
+                &.edit-button {
+                    background: $white;
+                    color: $black;
+					border: 1px inset $black;
+                }
+
+                &.delete-button {
+                    background: $red;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

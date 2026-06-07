@@ -1,0 +1,39 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "variables";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/root";
+
+// 4. Include any optional Bootstrap CSS as needed
+// Layout & components
+@import "bootstrap-components";
+
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "~bootstrap/scss/utilities/api";
+
+// 6. Add additional custom code here
+@import 'css-vars';
+@import "functions";
+@import "typography";
+@import "partials/index";
+@import "layout/index";
+@import "print";
+
+// Vendor and Libraries
+@import 'baguettebox.js/dist/baguetteBox.min.css';
+// @import '~lightcase/src/scss/lightcase';
+// @import '~owl.carousel/src/scss/owl.carousel';
+// @import '~owl.carousel/src/scss/owl.theme.default';
+
+// Gutenberg Blocks
+@import "gutenberg/index";

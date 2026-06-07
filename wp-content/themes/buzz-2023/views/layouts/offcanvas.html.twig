@@ -1,0 +1,28 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobile-nav">
+	<div class="offcanvas-header">
+		<h2 class="m-0 offcanvas-header-title">{{ fn('do_shortcode', '[newsletter_title]') }}</h2>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<h2 class="offcanvas-issue-title">{{ issue_title }}</h2>
+
+		{% include 'partials/search-form.html.twig' %}
+		{% include 'partials/social-links.html.twig' %}
+	
+		{% if articles %}
+		<a class="offcanvas-articles-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#offcanvas-articles" aria-expanded="false" aria-controls="offcanvas-articles">
+			In this issue
+		</a>
+
+		<div class="collapse" id="offcanvas-articles" data-bs-parent="#mobile-nav">
+			<ul class="offcanvas-articles">
+				{% include 'partials/navbar-article-list.html.twig' with {group_by_category: true} %}
+			</ul>
+		</div>
+		{% endif %}
+
+		<ul class="navbar-nav offcanvas-nav">
+			{% include 'layouts/offcanvas-nav.html.twig' with { menu: menu.items } %}
+		</ul>
+	</div>
+</div>

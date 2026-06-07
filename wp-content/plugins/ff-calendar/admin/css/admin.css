@@ -1,0 +1,30 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+CODE 											{ font-style:normal; }
+.ff-calendar-widget-form SELECT.small			{ margin-top:-5px; }
+.ff-calendar-widget-form INPUT[type='number'] 	{ width:80px; }
+
+
+/* Settings Page */
+#shortcode-output 								{ border:1px solid #999; padding:20px 30px;
+												  background:#FFF;
+												  font-size:20px; }
+
+#ff-cal-shortcode-version 						{ float:right; border-radius:5px; padding:5px 10px;
+												  background:#D4D4D4; }
+#ff-cal-shortcode-version .current-version		{ font-weight:bold; }
+
+.ff-calendar-feeds TD,
+.ff-calendar-feeds TH							{ padding:8px 10px; }
+
+.ff-calendar-feeds TH.id 						{ width:15%; }
+.ff-calendar-feeds TH.name 						{ width:20%; }
+.ff-calendar-feeds TH.url 						{ width:40%; }
+.ff-calendar-feeds TH.cat-key					{ width:20%; }
+.ff-calendar-feeds TH.view						{ width:2%; }
+.ff-calendar-feeds TH.delete					{ width:2%; }
+
+.ff-calendar-feeds .ff-calendar-delete  		{ color:#dc3232; }

@@ -1,0 +1,58 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+
+	<div class="content-area row">
+		<main class="main-content col" role="main">
+
+			<article class="post-content">
+
+				<h1>{{title}}</h1>
+
+				{% if posts %}
+					<div class="row">
+						{% for post in posts %}
+
+						<article class="archive-tease archive-tease--column mb-5 col-md-3">
+
+							{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+							{% if has_thumb %}
+								{% set image = post.thumbnail %}
+								<div class="archive-tease__image">
+									<a href="{{ post.link }}">
+										<picture>
+											<img src="{{ image.src('article') }}"
+												class="slide__image"
+												alt="{{ image.alt | default(post.title) | escape }}"
+												title="{{ image.title | default(post.title) | escape  }}"
+												description="{{ image.description | escape }}"
+												style="width:100%;">
+										</picture>
+									</a>
+								</div>
+
+							{% endif %}
+
+							<div class="archive-tease__content {% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+								<div class="inner">
+									<h3 class="title">
+										<a href="{{ post.link }}" class="title__link">{{ post.title }}</a>
+									</h3>
+									<p class="date">{{post.post_date | strftime(date_format)}}</p>
+									<a class="btn" href="{{ post.link }}">View Issue</a>
+								</div>
+							</div>
+
+						</article>
+
+						{% endfor %}
+					</div>
+					{% include 'partials/pagination.twig' %}
+				{% endif %}
+
+			</article>
+
+		</main>
+	</div>
+
+{% endblock %}

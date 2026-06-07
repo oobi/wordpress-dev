@@ -1,0 +1,11 @@
+{% block searchform %}
+    <form role="search" method="get" class="search-form form d-flex w-100 mb-8" action="{{ site.url }}/">
+        <label class="w-100">
+            <span class="sr-only">{{ __(search_placeholder, 'firefly') }}</span>
+            <input type="search" id="primary-search-field" class="form-control" placeholder="{{ __( search_placeholder, 'firefly' ) }}" value="" name="s" title="{{ __('Search for:', 'firefly') }}" />
+        </label>
+        <button type="submit" class="btn btn-link text-tertiary">
+            <span class="far fa-search"></span>
+        </button>
+    </form>
+{% endblock %}

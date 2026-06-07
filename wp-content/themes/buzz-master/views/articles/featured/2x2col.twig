@@ -1,0 +1,22 @@
+{######################################################################
+ # 2 Featured articles in 2 columns
+ # Extends the featured article base template
+ ######################################################################}
+
+{% extends "articles/featured/base.twig" %}
+
+{% block container_class %}col-sm-6{% endblock container_class %}
+
+{% block article_thumb %}
+	{% if article.has_thumb and show_featured_image %}
+		<div class="feature-thumb">
+			<a href="{{ article.permalink }}">
+				{{ function( 'get_the_post_thumbnail', article.id, image_size ) }}
+			</a>
+		</div>
+	{% endif %}
+{% endblock article_thumb %}
+
+{% block excerpt_class %}
+	{{ show_featured_image ? 'hidden-xs' }}
+{% endblock excerpt_class %}

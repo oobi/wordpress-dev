@@ -1,0 +1,14 @@
+{% if static_var.tag %}
+	{% set tags = post.terms(static_var.tag) %}
+	{% set button_class = taxonomies.tag.type == 'text' ? 'fancy-link' : 'badge' %}
+
+	{% if tags %}
+		<div class="article-tags">
+			<i class="article-tags-icon fal fa-tags" aria-hidden="true"></i>
+			{% for tag in tags %}
+				<a class="{{button_class}} {{post.tax_class(tag, true)}} article-tags-item mb-2" href="{{tag.link}}">
+					{{tag.name}}</a>{% if not loop.last and button_class == 'fancy-link' %}<span class="article-tags-divider">,</span>{% endif %}
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endif %}

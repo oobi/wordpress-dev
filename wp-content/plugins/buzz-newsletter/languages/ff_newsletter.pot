@@ -1,0 +1,242 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Firefly Newsletter\n"
+"POT-Creation-Date: 2015-06-29 15:41+1000\n"
+"PO-Revision-Date: 2015-06-29 15:41+1000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: ff-newsletter.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/ff-newsletter-toolbar.php:20
+msgid "Generate Email View for "
+msgstr ""
+
+#: admin/ff-newsletter-toolbar.php:30
+msgid "Back to Browser View"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:54
+msgid "Attached Articles"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:68 admin/ff-newsletter-ui.php:122
+#: admin/ff-newsletter-ui.php:179 admin/ff-newsletter-ui.php:437
+msgid "Featured Article"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:69
+msgid "Displayed in Email"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:125 admin/ff-newsletter-ui.php:438
+msgid "Included in Email"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:144
+msgid "Articles"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:154
+msgid "Article Options"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:184
+msgid "Included in Email View"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:294
+msgid "OK"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:295
+msgid "Cancel"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:300
+msgid "View Newsletter"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:339
+msgid "This Newsletter has no Articles yet"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:423
+msgid "No Featured Image"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:429
+msgid "Draft"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:430
+msgid "no title"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:443
+msgid "Edit"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:444
+msgid "View"
+msgstr ""
+
+#: admin/ff-newsletter-ui.php:445
+msgid "Trash"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:22
+#: includes/ff-newsletter-custom-types.php:33
+msgctxt "ff_newsletter"
+msgid "Newsletters"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:23
+msgctxt "ff_newsletter"
+msgid "Newsletter"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:24
+#: includes/ff-newsletter-custom-types.php:60
+msgctxt "ff_newsletter"
+msgid "Add New"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:25
+msgctxt "ff_newsletter"
+msgid "Add New Newsletter"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:26
+msgctxt "ff_newsletter"
+msgid "Edit Newsletter"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:27
+msgctxt "ff_newsletter"
+msgid "New Newsletter"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:28
+msgctxt "ff_newsletter"
+msgid "View Newsletter"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:29
+msgctxt "ff_newsletter"
+msgid "Search Newsletters"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:30
+msgctxt "ff_newsletter"
+msgid "No newsletters found"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:31
+msgctxt "ff_newsletter"
+msgid "No newsletters found in Trash"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:32
+msgctxt "ff_newsletter"
+msgid "Parent Newsletter:"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:58
+#: includes/ff-newsletter-custom-types.php:69
+msgctxt "ff_newsletter"
+msgid "Articles"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:59
+msgctxt "ff_newsletter"
+msgid "Article"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:61
+msgctxt "ff_newsletter"
+msgid "Add New Article"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:62
+msgctxt "ff_newsletter"
+msgid "Edit Article"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:63
+msgctxt "ff_newsletter"
+msgid "New Article"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:64
+msgctxt "ff_newsletter"
+msgid "View Article"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:65
+msgctxt "ff_newsletter"
+msgid "Search Articles"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:66
+msgctxt "ff_newsletter"
+msgid "No articles found"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:67
+msgctxt "ff_newsletter"
+msgid "No articles found in Trash"
+msgstr ""
+
+#: includes/ff-newsletter-custom-types.php:68
+msgctxt "ff_newsletter"
+msgid "Newsletter:"
+msgstr ""
+
+#: node_modules/grunt-pot/test/fixtures/some-file.php:3
+msgid "I'm a translatable string."
+msgstr ""
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:4
+msgid "Me too"
+msgstr ""
+
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:7
+#, php-format
+msgid "I have %d apple"
+msgid_plural "I have %d apples"
+msgstr[0] ""
+msgstr[1] ""
+
+#. TRANSLATORS: This should be translated as a shorthand for YEAR-MONTH-DAY using 4, 2 and 2 digits.
+#: node_modules/grunt-pot/test/fixtures/some-other-file.php:16
+msgid "yyyy-mm-dd"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Firefly Newsletter"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://www.fireflyinteractive.net"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Firefly newsletter system"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Firefly Interactive"
+msgstr ""

@@ -1,0 +1,11 @@
+{% if post.thumbnail %}
+	<section class="hero-image hero-image-{{hero.position}}">
+		{% set image = post.thumbnail %}
+		<picture>
+			<source media="(max-width: 767px)" srcset="{{ image.src('email_hero') }}">
+			<img src="{{ image.src('article_hero') }}"
+					alt="{{ image.alt | default(post.title) | escape }}"
+					description="{{ image.description | escape  }}">
+		</picture>
+	</section>
+{% endif %}

@@ -1,0 +1,103 @@
+.site-footer {
+	background: var(--bz-footer-bg);
+	color: var(--bz-footer-color);
+
+	A {
+		color: var(--bz-footer-link);
+
+		&:hover {
+			color: var(--bz-footer-link-hover);
+		}
+	}
+
+	// site credit
+	.site-credit {
+		color: var(--bz-site-credit-color);
+
+		&__logo {
+			display: inline-block;
+			width: 1.5rem;
+			margin-left: .5rem;
+
+			path {
+				fill: var(--bz-site-credit-logo-color);
+			}
+		}
+	}
+
+	// menus / lists
+	.menu, .nav {
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+
+		&-item {
+			padding-bottom: .25rem;
+
+			// apply fancy link style
+			A {
+				@extend .fancy-link;
+				@include fancy-link-hover();
+			}
+		}
+	}
+
+	// colophon
+	.colophon {
+		background: var(--bz-colophon-bg);
+		color: var(--bz-colophon-color);
+
+		.nav-link {
+			@extend .fancy-link;
+			@include fancy-link-hover();
+
+			color: var(--bz-colophon-link);
+
+			&:hover {
+				color: var(--bz-colophon-link-hover)
+			}
+
+			transition-property: color, background-color, border-color, background-size;
+			margin: 0 1rem;
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+	// widgets
+	////////////////////////////////////////////////////////////
+
+	.widgets {
+
+		.widget {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			display: flex;
+			flex-direction: column;
+
+			&.inline {
+				@include media-breakpoint-up(lg) {
+					flex-direction: row;
+
+					.widget-title {
+						padding-right: 1rem;
+						margin-bottom: 0;
+						text-align: right;
+						width: 50%;
+						flex: 0 0 auto;
+					}
+				}
+			}
+		}
+
+		.widget-title {
+			color: var(--bz-footer-widget-title);
+			font-size: 1.25rem;
+			margin-bottom: 1.25rem;
+		}
+
+		// fontawesome (social) lists
+		.fa-ul {
+			margin-left: 2em; // align properly
+		}
+	}
+}

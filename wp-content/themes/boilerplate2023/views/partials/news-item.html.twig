@@ -1,0 +1,15 @@
+{% import "macros/macros.html.twig" as macros %}
+{% set image_size = image_size ?? 'cropped_square_thumbnail' %}
+
+<div class="news-entry  {% if post.thumbnail %} has-thumbnail {% endif %} {{ class }}">
+	<a class="news-entry-link" href="{{ post.link }}">
+		{% if post.thumbnail %}
+			<div class="news-entry-thumbnail">
+				<img class="news-entry-thumbnail-image" src="{{ post.thumbnail.src(image_size) }}" alt="{{post.title}}">
+			</div>
+		{% endif %}
+
+		{% include 'partials/news-entry-content.html.twig' %}
+	</a>
+	{{ macros.badges(post) }}
+</div>

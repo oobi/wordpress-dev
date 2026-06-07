@@ -1,0 +1,10 @@
+// links inherit color
+[class^="has"][class$="-color"] {
+    a {
+		color: inherit;
+	}
+}
+
+[class^="has"][class$="-background-color"] {
+
+}

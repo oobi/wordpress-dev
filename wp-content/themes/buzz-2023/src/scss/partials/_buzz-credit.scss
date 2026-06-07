@@ -1,0 +1,15 @@
+.buzz-credit {
+	display: inline-flex;
+	align-items: center;
+	gap: 1rem;
+
+	&::after {
+		content: '';
+		width: 3rem;
+		height: 3rem;
+		mask-image: url(../images/buzz-icon.svg);
+		mask-size: contain;
+		mask-repeat: no-repeat;
+		background-color: currentColor;
+	}
+}

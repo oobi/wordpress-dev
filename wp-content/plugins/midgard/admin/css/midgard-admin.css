@@ -1,0 +1,10 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.feed-section, 								
+.midgard-map-mode 				{ display:none; }
+
+TEXTAREA.midgard-mapping-twig 	{ font-family:monospace; tab-size:4; -moz-tab-size:4; -o-tab-size: 4; 
+								  white-space: pre; overflow-wrap: normal; overflow-x: scroll; }

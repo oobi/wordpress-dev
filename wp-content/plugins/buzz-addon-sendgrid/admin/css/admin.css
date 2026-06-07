@@ -1,0 +1,76 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+/*********************************************************
+ * Globals
+ *********************************************************/
+
+/* show spinner while segments loading on create/update pages */
+.loading .spinner 						{ float:left;
+										  visibility:visible; }
+
+/* api validity check on settings page */
+.invalid 								{ color:red; }
+.valid 									{ color:green; }
+.invalid .dashicons,
+.valid .dashicons 						{ line-height:30px; }
+
+/*********************************************************
+ * Current Campaigns tab
+ *********************************************************/
+
+.wp-list-table .column-id,
+.wp-list-table .column-emails_sent 		{ width:9%; }
+.wp-list-table .column-status 			{ width:10%; }
+.wp-list-table .column-name				{ width:30%; }
+
+/* segments */
+#contact-list .segments 				{ padding-left:25px; }
+
+@media (max-width:850px) {
+	/* expand tab width for mobile */
+	H2.nav-tab-wrapper 					{ padding-left:0; padding-right:0; }
+	.nav-tab-wrapper A 					{ display:block; }
+
+	/* hide unimportant columns for mobile */
+	.wp-list-table .column-id,
+	.wp-list-table .column-emails_sent,
+	.wp-list-table .column-list_name,
+	.wp-list-table .column-send_time	{ display:none; }
+	.wp-list-table .column-status 		{ width:auto; }
+}
+
+/*********************************************************
+ * Delete tab
+ *********************************************************/
+
+#delete-warning,
+#delete-warning H2						{ color:#dd3d36; }
+
+/*********************************************************
+ * Create and Update tab
+ *********************************************************/
+
+.segment								{ padding-bottom:8px; }
+LEGEND									{ font-weight:bold; }
+
+#segments 								{ display:none; }
+
+/*********************************************************
+ * Send tab
+ *********************************************************/
+
+#campaign-summary TH.row-title			{ width:25%; }
+#campaign-summary DL .parent-list		{ font-style:italic; }
+
+/*********************************************************
+ * subject tag list
+ *********************************************************/
+
+ .subject-tags {
+
+ }
+
+ .subject-tags .tag { margin-right:5px; }

@@ -1,0 +1,23 @@
+.wp-block-gallery {
+	@include figcaption();
+	@include block-margins();
+
+	&.has-nested-images {
+		figure.wp-block-image {
+			figcaption {
+				text-transform: none;
+				font-size: .875rem;
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				text-align: left;
+				padding: 1rem;
+			}
+
+			&:hover {
+				figcaption {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

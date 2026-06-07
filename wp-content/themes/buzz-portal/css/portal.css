@@ -1,0 +1,95 @@
+/* portal page styles */
+
+/*################################################################################################*/
+/* GLOBALS */
+/*################################################################################################*/
+
+UL 														{ margin:0; padding:10px 0 0; list-style:none; }
+LI														{ padding:0; }
+
+/*################################################################################################*/
+/* POST SECTIONS */
+/*################################################################################################*/
+
+/*  */
+#urgent-messages 										{ padding:30px 60px; border-radius:0; margin: -40px 0 40px 0;
+														  background:#ef4c4c;
+														  color:#FFF;
+														  -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.3);
+  													  		 -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.3);
+  													  			box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.3);}
+#urgent-messages H2 									{ margin:0; padding-bottom:10px; border-bottom:1px solid #FFF;
+														  color:#FFF; text-transform:uppercase; font-size:22px; }
+#urgent-messages A 										{ display:block;
+														  color:#FFF; }
+
+/* category and all messages */
+#category-messages,
+#all-messages											{ border:0; overflow:hidden; margin-bottom:40px; background: #FFF;
+															-webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.3);
+															   -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.3);
+																  box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.3);}
+#category-messages H2,
+#all-messages H2 										{ margin:0; padding:15px 20px;
+														  background:#ef4c4c;
+														  color:#FFF; text-transform:uppercase; font-size:22px; }
+#category-messages UL,
+#all-messages UL 										{ padding:20px 0; border-top: none;}
+#category-messages LI,
+#all-messages LI  										{ padding:0 20px 2px; }
+#category-messages A,
+#all-messages A 										{ display:block;
+														  color:#333; }
+#category-messages A .fa,
+#all-messages A .fa 									{ color:#ef4c4c; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#urgent-messages UL 								{ column-count:2; -webkit-column-count:2; -moz-column-count:2; }
+}
+
+/*################################################################################################*/
+/* TABLE */
+/*################################################################################################*/
+
+
+#portal-links 											{ display: flex; flex-wrap: wrap; margin: 0 15px 40px; }
+
+#portal-links .portal-link 								{ display: inline-block; width: 100%; margin-bottom: 3%;
+														  text-decoration: none;
+															-webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+														  -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+														  box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);}
+#portal-links .portal-link.no-image 					{ padding-left: 10px; }
+
+#portal-links .portal-link IMG 							{ float: left; margin-right: 10px; }
+
+#portal-links .portal-link H3 							{ font-size: 18px;}
+#portal-links .portal-link .description					{ margin-right: 10px; color: #666; }
+
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+
+}
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 990px) {
+
+	#portal-links .portal-link 							{ float: left; width: 49%; margin-right: 1%; margin-bottom: 2%; }
+	#portal-links .portal-link:nth-child(2n+2)			{ margin-right: 0; }
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 1200px) {
+
+	#portal-links .portal-link 							{ float: left; width: 32.66%; margin-right: 1%; }
+	#portal-links .portal-link:nth-child(2n+2)			{ margin-right: 1%; }
+	#portal-links .portal-link:nth-child(3n+3)				{ margin-right: 0; }
+}

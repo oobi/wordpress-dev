@@ -1,0 +1,16 @@
+<section class="child-pages alignwide {{attributes.className}}">
+
+	<div class="row justify-content-center">
+		{% for item in post.children('parent') %}
+			<div class="col-12 col-md-6 col-lg-3 d-flex mb-4">
+				<a class="child-pages-card {% if item.thumbnail %} has-thumbnail {% endif %}" href="{{ item.link }}">
+					{% if item.thumbnail %}
+						<img class="child-pages-card-image" src="{{ item.thumbnail.src('cropped_4x3') }}">
+					{% endif %}
+					<p class="child-pages-card-title">{{ item.title }}</p>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+
+</section>

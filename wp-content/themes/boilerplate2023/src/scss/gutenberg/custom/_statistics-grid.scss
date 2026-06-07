@@ -1,0 +1,40 @@
+.statistics-grid {
+	color: var(--bs-primary);
+
+	&-icon {
+		background: $white;
+		width: 140px;
+  		height: 140px;
+		border-radius: 9999px;
+		font-size: 78px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&-data {
+		font-size: 3.75rem;
+  		line-height: 1;
+		margin-bottom:.25rem;
+
+		&-wrapper {
+			margin-left: 1rem;
+		}
+	}
+
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		
+
+		@include media-breakpoint-down(md) {
+			padding-left: 1.5rem;
+		}
+	}
+
+	&-label {
+		font-size: 1rem;
+		max-width: 150px;
+		margin-bottom: 0;
+	}
+}

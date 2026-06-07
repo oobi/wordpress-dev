@@ -1,0 +1,24 @@
+.wp-block-buttons {
+	margin-bottom: 1rem;
+}
+
+.wp-block-button {
+	&__link {
+		//border-radius: 0 !important;
+		font-size: 1rem;
+		padding: .5rem 2rem;
+		// font-weight: $font-weight-bold;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.is-style-outline .wp-block-button__link {
+		border-width: 1px;
+
+		&:hover {
+			background: $gray-200;
+		}
+	}
+}

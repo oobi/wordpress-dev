@@ -1,0 +1,24 @@
+{% if pages %}
+	<section id="related-pages" class="related-content container">
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<div class="related-content-heading-wrapper">
+					<h2 class="related-content-heading">Discover More</h2>
+				</div>
+			</div>
+			{% for item in pages %}
+				<div class="col-12 col-lg-4">
+					<a class="featured-pages-link" href="{{ item.link }}">
+						<div class="featured-pages">
+							{% if item.thumbnail %}
+								<img class="featured-pages-image" src="{{item.thumbnail.src('cropped_wide')}}" alt="{{item.title}}">
+							{% endif %}
+							<p class="featured-pages-title">{{ item.title }}</p>
+							<p class="featured-pages-readmore">Discover More</p>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

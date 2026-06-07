@@ -1,0 +1,23 @@
+.site-toolbar {
+	border-bottom: var(--bz-toolbar-border-bottom);
+	background: var(--bz-toolbar-bg);
+	font-size: var(--bz-toolbar-font-size);
+
+	A {
+		color: var(--bz-toolbar-link);
+		&:hover {
+			color: var(--bz-toolbar-link-hover);
+		}
+	}
+
+	.navbar-social {
+		& + * {
+			margin-left: 2rem;
+		}
+
+        .nav-link {
+            padding: 0 spacer(2);
+            font-size: 120%;
+        }
+    }
+}

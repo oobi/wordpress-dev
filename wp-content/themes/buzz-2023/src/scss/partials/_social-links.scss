@@ -1,0 +1,19 @@
+.social {
+	&-links {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+
+		list-style: none;
+		padding: 0;
+
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	&-link {
+		font-size: 1.5rem;
+
+		color: var(--bz-offcanvas-social-links);
+	}
+}

@@ -1,0 +1,122 @@
+/*
+ * Scripts loaded by the WordPress editor either TinyMCE or Gutenberg
+ * This file should be limited to typography and media styling
+ */
+
+// @see https://getbootstrap.com/docs/5.0/customize/sass/
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "variables";
+
+// include the rest of Bootstrap
+
+@import 'css-vars';
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+@import 'blocks/index';
+
+.editor-styles-wrapper {
+    // make it so we can see white text
+    .has-white-color {
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    & > * {
+        font-family: $font-family-base;
+    }
+
+    // make spacer visible
+    .wp-block-spacer {
+        .block-library-spacer__resize-container {
+            background: $gray-100;
+            border: 2px dotted $gray-200;
+        }
+    }
+
+    // outline carbon fields
+    .wp-block[data-type^="carbon-fields"] {
+        position: relative;
+        padding: 1rem;
+        background: $gray-100;
+        border: 2px solid $gray-500;
+
+        font-size: .5rem;
+
+        label {
+            font-size: .5rem !important;
+        }
+
+        min-height: 18px;
+
+        p {
+            padding: 0;
+        }
+
+        // &::before {
+        //     content: attr(data-title);
+        //     position: absolute;
+        //     top: 0;
+        //     left: 1rem;
+        //     background: $white;
+        //     text-transform: uppercase;
+        //     font-size: 0.75rem;
+        //     transform: translateY(-50%);
+        //     color: $gray-500;
+        //     padding: 0.25rem 1rem;
+        //     border: 2px solid $gray-500;
+        // }
+    }
+
+    .wp-block-separator.is-style-pagebreak,
+    .wp-block-separator.is-style-columnbreak {
+        display: block;
+        position: relative;
+        border: none;
+        border-top: 2px dotted $gray-600;
+        background: none;
+        opacity: 1;
+        overflow: visible;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+
+        &::before {
+            content: "Break After";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            background: $white;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transform: translateY(-50%);
+            color: $gray-500;
+            padding: 0.25rem 1rem;
+            border: 2px solid $gray-500;
+        }
+    }
+}
+
+// /* Main column width */
+// .wp-block {
+//     max-width: 768px;
+
+//     &:not([data-align="wide"]):not([data-align="full"]) {
+//         .is-style-container-medium {
+//             width: 960px;
+//             transform: translateX(-96px);
+//         }
+//     }
+// }
+
+// /* Width of "wide" blocks */
+// .wp-block[data-align="wide"] {
+//     max-width: 1170px;
+// }
+
+// /* Width of "full-wide" blocks */
+// .wp-block[data-align="full"] {
+//     max-width: none;
+// }

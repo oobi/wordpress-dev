@@ -1,0 +1,17 @@
+<section class="statistics-grid" style="color:{{fields.text_color}}">
+	<div class="container">
+		<div class="row">
+			{% for item in fields.statistic %}
+			<div class="col-12 col-md-6 mb-5">
+				<div class="statistics-grid-wrapper">
+					<span class="statistics-grid-icon {{ item.icon }}" style="color:{{fields.icon_color}}; background:{{fields.icon_background}}"></span>
+					<div class="statistics-grid-data-wrapper">
+						<p class="statistics-grid-data">{{ item.data }}</p>
+						<p class="statistics-grid-label">{{ item.label }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,24 @@
+<section id="posts-summary" class="latest-news posts-summary alignwide">
+	<div class="row">
+		<div class="col-12">
+			<div class="posts-summary-title-wrapper">
+				<span class="posts-summary-title">News</span>
+
+				<a class="posts-summary-link" href="{{ fields.news_link }}">Browse All News</a>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		{% for index, post in posts %}
+			{% if index == 0 %}
+				<div class="col-12 col-md-6 mt-8">
+					{% include 'partials/news-item.html.twig' with { image_size: 'cropped_wide', class: 'wide-feature'}  %}
+				</div>
+			{% else %}
+				<div class="col-12 col-md-6 col-lg-3 mt-8">
+					{% include 'partials/news-item.html.twig' %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>

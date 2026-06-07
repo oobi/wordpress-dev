@@ -1,0 +1,2 @@
+wp.domReady((function(){wp.blocks&&(wp.blocks.unregisterBlockStyle("core/button",["default","squared","fill"]),wp.blocks.registerBlockStyle("core/separator",[{name:"pagebreak",label:"Page Break"}]))}));
+//# sourceMappingURL=editor-firefly.js.map

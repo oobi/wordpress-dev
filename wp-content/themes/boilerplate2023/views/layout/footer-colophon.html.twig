@@ -1,0 +1,43 @@
+<nav class="navbar d-flex navbar-expand colophon">
+	<div
+		class="container-fluid px-xl-12 flex-row flex-wrap align-items-start align-items-md-center justify-content-md-start justify-content-center">
+		{# BEGIN Copyright #}
+		<span class="copyright">
+			&copy;
+			{{ "now" | date('Y') }}
+			{{ site.name }}
+		</span>
+		{# END Copyright #}
+
+		{# BEGIN Credit #}
+		<div class="ms-md-auto order-lg-last site-credit">
+			<a target="_blank" href="https://fireflydigital.net.au" title="Website design by Firefly Digital">
+				Site by Firefly
+			</a>
+		</div>
+		{# END Credit #}
+
+		{# BEGIN Footer Menu #}
+		<div class="order-first order-lg-2 footer-menu">
+			<ul
+				class="navbar-nav flex-column flex-md-row me-auto">
+				{# BEGIN colophon text #}
+				{% for item in colophon_text %}
+					<li class="nav-item">
+						<span class="nav-link">{{item.text}}</span>
+					</li>
+				{% endfor %}
+				{# END colophon text#}
+
+				{% for item in menus.footer.get_items %}
+					<li class="nav-item active {{ item.classes | join(' ') }}">
+						<a class="nav-link" href="{{ item.link }}" target="{{ item.target }}">{{ item.title }}
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{# END Footer Menu #}
+	</div>
+</nav>

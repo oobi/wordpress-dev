@@ -1,0 +1,19 @@
+
+{% include 'layouts/navbar/newsletter-info.twig' %}
+
+<div class="collapse navbar-collapse">
+	{# {% import 'layouts/navbar/menu-newsletter.twig' as nav %}
+	{{ nav.menu(menus.primary.get_items, 100, 0, false, 'navbar-nav') }} #}
+
+	<ul class="navbar-nav">
+		{% set menu = menus.primary.get_items %}
+		{% include 'layouts/navbar/menu-items.twig' %}
+	</ul>
+</div>
+
+{# date shown on right #}
+{% if show_nav_date and date_position == 'right' %}
+	<div class="navbar-text navbar-date-right">
+		{{newsletter.post_date | strftime(date_format)}}
+	</div>
+{% endif %}

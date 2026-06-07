@@ -1,0 +1,40 @@
+<section class="in-this-issue mb-12">
+
+	{% if sidebar.title %}
+		<h3 class="section-title">{{ sidebar.title }}</h3>
+	{% endif %}
+
+	<ul class="in-this-issue__list">
+
+		{# Featured Articles #}
+		{% for article in sidebar.articles.featured %}
+			{% set current = article.id == post.id ? 'current' : '' %}
+			<li class="article-item {{article.is_featured}} {{current}}">
+				<a href="{{article.link}}">{{article.title}}</a>
+			</li>
+		{% endfor %}
+
+		{# Index Articles #}
+		{% for category in sidebar.articles.index %}
+			{% if category.posts %}
+				{# Don't show section title if only one or fewer categories #}
+				{% if loop.length > 1 %}
+					<li><h4 class="category-title">{{ category.name }}</h4></li>
+				{% endif %}
+
+				{% for article in category.posts %}
+					{% set current = article.id == post.id ? 'current' : '' %}
+					<li class="article-item {{article.is_featured}} {{current}}">
+						<a href="{{article.link}}">{{article.title}}</a>
+					</li>
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+
+	</ul>
+</section>
+
+{# Widget area between featured and index articles #}
+{% if widgets.sidebar %}
+	{{widgets.sidebar}}
+{% endif %}

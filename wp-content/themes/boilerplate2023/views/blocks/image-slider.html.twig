@@ -1,0 +1,28 @@
+{% set image_size = fields.size == 'default' ? 'cropped_wide' : fields.size %}
+<section class="slider slider-standard {{fields.alignment}} {{attributes.className}}" id="slider-{{id}}"
+	data-random="{{ fields.random_start }}"
+	data-delay="{{ fields.delay | default(8000) }}">
+	<div class="owl-carousel">
+		{% for slide in fields.slides %}
+			<div class="slide">
+				<img src="{{ Image(slide.image).src(image_size) }}">
+				<div class="slide-content">
+					{% if slide.title %}
+						<div class="slide-title">{{ slide.title }}</div>
+					{% endif %}
+					{% if slide.text %}
+						<div class="slide-text">{{ slide.text }}</div>
+					{% endif %}
+					{% if slide.citation %}
+						<div class="slide-citation">{{ slide.citation }}</div>
+					{% endif %}
+					{% if slide.link_text and slide.link_url %}
+						<a href="{{ slide.link_url }}" class="text-white slide-link link-arrow" {% if slide.link_new_tab == 'yes' %} target="_blank" {% endif %}>
+							{{ slide.link_text }}
+						</a>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>

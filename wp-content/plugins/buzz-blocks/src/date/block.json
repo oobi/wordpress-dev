@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "buzz/date",
+	"version": "0.1.0",
+	"title": "Date Block",
+	"category": "buzz",
+	"icon": "smiley",
+	"description": "Used to display the date in the Dates for your diary block.",
+	"supports": {
+		"html": false,
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		}
+	},
+	"parent": ["buzz/dates"],
+	"attributes": {
+		"date_description": {
+			"type": "string"
+		},
+		"link_url": {
+			"type": "string"
+		},
+		"link_label": {
+			"type": "string",
+			"default": "learn more"
+		},
+		"link_external": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "buzz",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"keywords": ["buzz"]
+}

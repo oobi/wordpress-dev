@@ -1,0 +1,15 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+	<article class="entry {{ post.class }}">
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 entry-content">
+					{{ post.content }}
+				</div>
+			</div>
+		</div>
+
+	</article>
+{% endblock %}

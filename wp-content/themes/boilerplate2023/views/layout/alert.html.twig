@@ -1,0 +1,23 @@
+{% if alert.enabled %}
+	<div class="global-alert alert alert-dismissible fade show mb-0" role="alert">
+		<div class="global-alert-content">
+			<strong class="global-alert-title text-danger">
+				<span class="fa-stack" style="vertical-align: top;">
+					<span class="fad fa-circle-exclamation fa-stack-2x"></span>
+					<span class="fa-regular fa-circle fa-stack-2x"></span>
+				</span>
+				<span>ALERT</span>
+			</strong>
+
+			<span class="global-alert-divider">|</span>
+			<span class="global-alert-text">{{alert.text}}</span>
+		</div>
+
+		{% if alert.link %}
+			{% set target = alert.target ? 'target="' ~ alert.target ~ '"' : '' %}
+			<a href="{{alert.link}}" {{target}} class="global-alert-button btn btn-outline-dark ms-lg-8 bg-white-hover text-dark-hover">{{alert.button_text | default('learn more')}}</a>
+		{% endif %}
+
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+{% endif %}

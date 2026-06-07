@@ -1,0 +1,23 @@
+<section class="article-nav w-100 d-flex">
+
+	{% if prev_article %}
+		<a class="prev col-6" href="{{prev_article.link}}">
+			<button class="btn"><i class="fal fa-chevron-left"></i> Prev</button>
+			<!-- <h6 class="label">Previous Article</h6> -->
+			<p class="title">{{prev_article.title}}</p>
+		</a>
+
+	{# If no previous article, add a buffer #}
+	{% else %}
+		<div class="prev col-6"></div>
+	{% endif %}
+
+	{% if next_article %}
+		<a class="next col-6" href="{{next_article.link}}">
+			<button class="btn">Next <i class="fal fa-chevron-right"></i></button>
+			<!-- <h6 class="label">Next Article</h6> -->
+			<p class="title">{{next_article.title}}</p>
+		</a>
+	{% endif %}
+
+</section>

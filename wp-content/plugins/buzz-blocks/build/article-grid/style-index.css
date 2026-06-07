@@ -1,0 +1,166 @@
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/article-grid/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-buzz-article-grid {
+  /**
+   * Columns
+   */
+  /**
+   * Media placement
+   */
+  /**
+   * Vertical alignment
+   */
+}
+.wp-block-buzz-article-grid.is-collapsible .bz-grid-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.wp-block-buzz-article-grid.is-collapsible .bz-grid-title::after {
+  content: "";
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMjk5LjMgMjQ0LjdjNi4yIDYuMiA2LjIgMTYuNCAwIDIyLjZsLTE5MiAxOTJjLTYuMiA2LjItMTYuNCA2LjItMjIuNiAwcy02LjItMTYuNCAwLTIyLjZMMjY1LjQgMjU2IDg0LjcgNzUuM2MtNi4yLTYuMi02LjItMTYuNCAwLTIyLjZzMTYuNC02LjIgMjIuNiAwbDE5MiAxOTJ6Ii8+PC9zdmc+);
+          mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMjk5LjMgMjQ0LjdjNi4yIDYuMiA2LjIgMTYuNCAwIDIyLjZsLTE5MiAxOTJjLTYuMiA2LjItMTYuNCA2LjItMjIuNiAwcy02LjItMTYuNCAwLTIyLjZMMjY1LjQgMjU2IDg0LjcgNzUuM2MtNi4yLTYuMi02LjItMTYuNCAwLTIyLjZzMTYuNC02LjIgMjIuNiAwbDE5MiAxOTJ6Ii8+PC9zdmc+);
+  -webkit-mask-position: center center;
+          mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  background-color: currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.5s;
+}
+.wp-block-buzz-article-grid.is-collapsible .bz-grid-articles {
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.wp-block-buzz-article-grid.is-collapsible .bz-grid-checkbox:checked + .bz-grid-title::after {
+  transform: rotate(90deg);
+}
+.wp-block-buzz-article-grid .bz-grid-checkbox {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+.wp-block-buzz-article-grid .bz-grid-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.wp-block-buzz-article-grid .bz-grid-articles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media all and (min-width: 768px) {
+  .wp-block-buzz-article-grid .bz-grid-articles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+  }
+}
+.wp-block-buzz-article-grid .bz-grid-article-tag {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.36;
+}
+.wp-block-buzz-article-grid .bz-grid-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media all and (max-width: 768px) {
+  .wp-block-buzz-article-grid .bz-grid-article {
+    margin-bottom: 2rem;
+  }
+}
+.wp-block-buzz-article-grid .bz-grid-article-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-buzz-article-grid .bz-grid-article-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.wp-block-buzz-article-grid .bz-grid-article-excerpt {
+  margin: 1rem 0 0 0;
+}
+.wp-block-buzz-article-grid .bz-grid-article-thumbnail {
+  display: block;
+}
+.wp-block-buzz-article-grid .bz-grid-article-thumbnail-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wp-block-buzz-article-grid.has-cols-1 .bz-grid-articles {
+  grid-template-columns: repeat(1, 1fr);
+}
+.wp-block-buzz-article-grid.has-cols-2 .bz-grid-articles {
+  grid-template-columns: repeat(2, 1fr);
+}
+.wp-block-buzz-article-grid.has-cols-3 .bz-grid-articles {
+  grid-template-columns: repeat(3, 1fr);
+}
+.wp-block-buzz-article-grid.has-cols-4 .bz-grid-articles {
+  grid-template-columns: repeat(4, 1fr);
+}
+.wp-block-buzz-article-grid.has-cols-5 .bz-grid-articles {
+  grid-template-columns: repeat(5, 1fr);
+}
+.wp-block-buzz-article-grid.has-cols-6 .bz-grid-articles {
+  grid-template-columns: repeat(6, 1fr);
+}
+@media all and (max-width: 768px) {
+  .wp-block-buzz-article-grid.has-media-on-left .bz-grid-article-thumbnail, .wp-block-buzz-article-grid.has-media-on-right .bz-grid-article-thumbnail {
+    width: 100%;
+  }
+}
+@media all and (min-width: 768px) {
+  .wp-block-buzz-article-grid.has-media-on-left .bz-grid-article-thumbnail, .wp-block-buzz-article-grid.has-media-on-right .bz-grid-article-thumbnail {
+    width: 50%;
+  }
+  .wp-block-buzz-article-grid.has-media-on-left .bz-grid-article-content, .wp-block-buzz-article-grid.has-media-on-right .bz-grid-article-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .wp-block-buzz-article-grid.has-media-on-left .bz-grid-article, .wp-block-buzz-article-grid.has-media-on-right .bz-grid-article {
+    gap: 0;
+  }
+}
+@media all and (min-width: 768px) {
+  .wp-block-buzz-article-grid.has-media-on-left .bz-grid-article {
+    flex-direction: row;
+  }
+}
+@media all and (min-width: 768px) {
+  .wp-block-buzz-article-grid.has-media-on-right .bz-grid-article {
+    flex-direction: row-reverse;
+  }
+}
+.wp-block-buzz-article-grid.is-vertically-aligned-top .bz-grid-article-content {
+  justify-content: flex-start;
+}
+.wp-block-buzz-article-grid.is-vertically-aligned-center .bz-grid-article-content {
+  justify-content: center;
+}
+.wp-block-buzz-article-grid.is-vertically-aligned-bottom .bz-grid-article-content {
+  justify-content: flex-end;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

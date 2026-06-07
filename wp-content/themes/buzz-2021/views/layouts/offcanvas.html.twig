@@ -1,0 +1,42 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="app-menu" aria-labelledby="offCanvasLabel">
+
+	<div class="offcanvas-header">
+		{# <h5 class="offcanvas-title">
+			{{header_text_title}}
+		</h5> #}
+		<span href="#" class="offcanvas-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+			<i class="fal fa-lg fa-times"></i>
+		</span>
+	</div>
+
+	<div class="offcanvas-body">
+
+		{# Newsletter Info #}
+		{% include 'layouts/offcanvas/offcanvas-newsletter-info.html.twig' %}
+
+		{# Social Links #}
+		{% include 'partials/social-links.html.twig' %}
+
+		{# Search  #}
+		{% if show_nav_search %}
+			<div class="offcanvas__block shaded">
+				<div class="navbar-search">
+					{% include 'partials/search-form.html.twig' %}
+				</div>
+			</div>
+		{% endif %}
+
+		<ul class="navbar-nav offcanvas-nav mt-5">
+
+			<li class="nav-item menu-item">
+				<a class="nav-link" href="{{site.link}}">Latest Issue</a>
+			</li>
+
+			{% include 'layouts/offcanvas/offcanvas-menu-items.html.twig' with {
+				menu: menus.primary.get_items,
+				newsletter_nav: true
+			} %}
+			{% include 'layouts/offcanvas/offcanvas-article-list.html.twig' %}
+		</ul>
+	</div>
+</div>

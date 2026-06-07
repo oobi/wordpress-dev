@@ -1,0 +1,41 @@
+{% for post in articles %}
+
+	{% if config.show_thumb %}
+		{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+	{% endif %}
+
+	<article class="article-list-item container {{config.article_class}}
+		{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}
+		{{post.classes}}">
+
+		<div class="row">
+
+			{# Image #}
+			{% if has_thumb %}
+
+				<div class="article-list-image-column col {{ config.thumbnail_list_class }}">
+					<a href="{{ post.link }}">
+						{% include 'partials/thumb.html.twig' %}
+					</a>
+				</div>
+
+			{% endif %}
+
+			{# Text #}
+			<div class="article-list-excerpt-column col {{config.excerpt_class}}
+				{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+
+				<h4 class="title">
+					<a href="{{ post.link }}" class="fancy-link text-reset fw-bold">{{ post.title }}</a>
+				</h4>
+
+				{% include 'partials/excerpt.html.twig' with { length: config.excerpt.list } %}
+				{% include 'partials/tags.html.twig' %}
+
+			</div>
+
+		</div>
+
+	</article>
+
+{% endfor %}

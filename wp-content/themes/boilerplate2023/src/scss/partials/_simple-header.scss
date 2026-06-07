@@ -1,0 +1,19 @@
+.entry-heading {
+    text-align: center;
+    font-family: var(--ff-serif-font-family);
+    font-size: 2rem;
+
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        font-size: 3.75rem;
+    }
+
+    &-subtitle {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 0.688rem;
+        color: $gray-600;
+        font-weight: bold;
+    }
+}

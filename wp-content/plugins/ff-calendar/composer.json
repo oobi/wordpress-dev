@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpfastcache/phpfastcache": "^9.2",
+        "kigkonsult/icalcreator": "^2.41"
+    }
+}

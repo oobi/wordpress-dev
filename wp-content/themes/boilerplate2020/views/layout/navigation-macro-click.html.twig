@@ -1,0 +1,51 @@
+{# Begin rendering the menu items #}
+{% macro render(menu) %}
+    {% import _self as nav %}
+
+    {% for item in menu %}
+        {{ nav.item(item) }}
+    {% endfor %}
+{% endmacro %}
+
+{# Render the LI element #}
+{% macro item(item) %}
+    {% import _self as nav %}
+
+    <li class="nav-item {{ item.class }}{% if item.get_children %} dropdown{% endif %}{% if item.current %} active{% endif %}">
+        {{ nav.link(item) }}
+        
+        {% if item.get_children %}
+            {{ nav.dropdown(item) }}
+        {% endif %}
+    </li>
+{% endmacro %}
+
+{# Render the A element #}
+{% macro link(item) %}
+    {% import _self as nav %}
+    
+    <a class="nav-link{% if item.get_children %} dropdown-toggle{% endif %}" href="{{ item.link }}" target="{{ item.target }}" {% if item.get_children %}id="dropdown-{{ item.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>
+        <span>{{ item.title }}</span>
+        {% if item.current %}
+            <span class="sr-only">(current)</span>    
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{# Recursively render the dropdown menu #}
+{% macro dropdown(menu) %}
+    {% import _self as nav %}
+    <div class="dropdown-menu" aria-labelledby="dropdown-{{ menu.id }}">        
+        {% for item in menu.get_children %}
+            <a class="dropdown-item{% if item.get_children %} dropdown-toggle{% endif %}" href="{{ item.link }}" target="{{ item.target }}" {% if item.get_children %}id="dropdown-{{ item.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>
+                <span>{{ item.title }}</span>
+                {% if item.current %}
+                    <span class="sr-only">(current)</span>    
+                {% endif %}
+            </a>
+            {% if item.get_children %}
+                {{ nav.dropdown(item) }}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}

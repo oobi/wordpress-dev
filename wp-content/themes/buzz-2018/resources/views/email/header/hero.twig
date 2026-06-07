@@ -1,0 +1,7 @@
+{% if newsletter.thumbnail %}
+	<tr>
+		<td>
+			<img src="{{ newsletter.thumbnail.src('email-hero') }}" alt="{{ site.title | escape }} {{ newsletter.title | escape }}">
+		</td>
+	</tr>
+{% endif %}

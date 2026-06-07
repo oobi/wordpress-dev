@@ -1,0 +1,26 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000000;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--bz-scroll-to-top-bg);
+    color: var(--bz-scroll-to-top-color);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: var(--bz-scroll-to-top-bg-hover);
+        color: var(--bz-scroll-to-top-color-hover);
+    }
+}

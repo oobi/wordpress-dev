@@ -1,0 +1,68 @@
+{% set menu = menus.primary.get_items %}
+<div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="mobileNavigation">
+	<div class="offcanvas-header">
+		<a class="navbar-brand" href="{{ site.link }}">
+			<div class="offcanvas-logo"></div>
+		</a>
+		<button type="button" class="btn-close-menu" data-bs-dismiss="offcanvas" aria-label="Close">
+			<i class="fal fa-times me-2"></i>
+		</button>
+	</div>
+	<div class="offcanvas-body">
+
+		<ul class="navbar-nav offcanvas-nav-secondary">
+			{% for item in menus.secondary.get_items %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{item.link}}">
+						{{ item.title }}
+					</a>
+				</li>
+			{% endfor %}
+			{% for item in menus.header_cta.get_items %}
+				<li class="nav-item">
+					<a class="nav-link nav-link-cta" href="{{item.link}}">
+						{{ item.title }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+
+		{# BEGIN Search #}
+		<div class="offcanvas-search mobile-nav-controls align-items-center">
+			<form role="search" method="get" class="search-form form d-flex w-100" action="{{ site.url }}/">
+				<label class="w-100">
+					<span class="sr-only">{{ __(search_placeholder, 'firefly') }}</span>
+					<input type="search" id="primary-search-field" class="form-control offcanvas-search-input" placeholder="{{ __( search_placeholder, 'firefly' ) }}" value="" name="s" title="{{ __('Search for:', 'firefly') }}"/>
+				</label>
+				<button type="submit" class="btn btn-link">
+					<span class="far fa-search"></span>
+				</button>
+			</form>
+		</div>
+		{# END Search #}
+
+		{# BEGIN Quick Links #}
+		<ul class="navbar-nav offcanvas-nav offcanvas-nav-quicklinks">
+			{% if menus.quick_links.items | length > 0 %}
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between" id="offcanvas-quick-links" data-bs-toggle="collapse" aria-expanded="false" aria-controls="offcanvas-quick-links-collapse" role="button" href="#offcanvas-quick-links-collapse" href="{{ item.link }}">
+						Quick Links
+					</a>
+
+					<ul class="collapse multi-collapse navbar-nav" id="offcanvas-quick-links-collapse">
+						{% for item in menus.quick_links.items %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endif %}
+		</ul>
+		{# END Quick Links #}
+
+		<ul class="navbar-nav offcanvas-nav">
+			{% include 'layout/offcanvas-nav.html.twig' %}
+		</ul>
+	</div>
+</div>

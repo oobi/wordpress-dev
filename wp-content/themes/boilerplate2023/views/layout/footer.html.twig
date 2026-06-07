@@ -1,0 +1,13 @@
+<footer class="site-footer">
+	{% if not hide_cta %}
+		{% include 'layout/footer-cta.html.twig' %}
+	{% endif %}
+
+	<div class="position-relative">
+		{% include 'layout/footer-widgets.html.twig' %}
+		{% include 'layout/footer-colophon.html.twig' %}
+		<a href="#top" class="top-link" title="back to top">
+			<span class="fal fa-arrow-up"></span>
+		</a>
+	</div>
+</footer>

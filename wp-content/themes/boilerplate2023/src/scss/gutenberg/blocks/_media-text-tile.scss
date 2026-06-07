@@ -1,0 +1,36 @@
+/**
+* Tile variant
+*/
+.wp-block-media-text.is-style-tile {
+    grid-template-columns: 100% !important;
+    background-color: var(--bs-primary);
+    color: $white;
+    transition: all 0.3s ease-in-out;
+
+    margin-top: unset;
+    margin-bottom: unset;
+    // for gutenberg editor
+    margin-block-start: unset !important;
+    margin-block-end: unset !important;
+
+    // if the block is a link
+    text-decoration: none;
+
+    .wp-block-media-text__media {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .wp-block-media-text__content {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        padding: 1rem !important;
+    }
+
+    &.has-link {
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 25%);
+        }
+    }
+}

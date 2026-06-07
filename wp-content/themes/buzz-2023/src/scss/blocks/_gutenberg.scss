@@ -1,0 +1,21 @@
+.wp-block-button .is-style-link-button {
+	.wp-block-button__link {
+		background: none;
+	}
+}
+
+.wp-block-button { 
+	&.is-style-button-link {
+		.wp-block-button__link {
+			background: none !important;
+
+			&::after {
+				content: "\f054";
+				font-family: $icon-font-family;
+				margin-left: .5em;
+
+				transition: all linear .1s;
+			}
+		}
+	}
+}

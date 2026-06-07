@@ -1,0 +1,71 @@
+{% if data %}
+	<div class="widget buzz-dates template-{{template}} {{class}}">
+		{% if title %}<h2 class="widget-title">{{title}}</h2>{% endif %}
+
+		<div class="row">
+			{% for key,collection in data %}
+				<div class="date-wrapper col {{ column_class }}">
+					<div class="date-inner">
+						{% for date in collection.items %}
+							<div class="date-item">
+
+								{% if loop.first and show_dates and date.date %}
+									<div class="date">{{ date.date | strftime(format)}}</div>
+								{% endif %}
+
+								<div class="title">
+									{% if show_icons and date.icon %}<img class="icon" src="{{Image(date.icon).src('thumbnail')}}">{% endif %}
+									{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+									{{date.title}}
+									{% if date.url %}
+										{% if link_icon %}
+											<i class="icon {{link_icon}}"></i>
+										{% endif %}
+										</a>
+									{% endif %}
+								</div>
+
+								{% if date.description %}
+									<div class="description">{{date.description | nl2br}}</div>
+								{% endif %}
+
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+				{# fixed columns #}
+				{% if columns %}
+					{% if loop.index is divisible by(columns) %}
+						<div class="w-100 d-block"></div>
+					{% endif %}
+
+				{# responsive columns #}
+				{% else %}
+					{# X-small size - 2 cols #}
+					{% if loop.index is divisible by(2) %}
+						<div class="w-100 d-block d-sm-none"></div>
+					{% endif %}
+					{# small size - 3 cols #}
+					{% if loop.index is divisible by(3) %}
+						<div class="w-100 d-none d-sm-block d-md-none"></div>
+					{% endif %}
+					{# medium size - 4 cols #}
+					{% if loop.index is divisible by(4) %}
+						<div class="w-100 d-none d-md-block d-lg-none"></div>
+					{% endif %}
+					{# large size - 5 cols #}
+					{% if loop.index is divisible by(5) %}
+						<div class="w-100 d-none d-lg-block d-xl-none"></div>
+					{% endif %}
+					{# X-large size - 6 cols #}
+					{% if loop.index is divisible by(6) %}
+						<div class="w-100 d-none d-xl-block"></div>
+					{% endif %}
+
+				{% endif %}
+			{% endfor %}
+		</div>
+
+	</div>
+{% endif %}

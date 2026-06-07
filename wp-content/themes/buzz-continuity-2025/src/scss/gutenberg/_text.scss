@@ -1,0 +1,7 @@
+@each $name, $size in $text_sizes {
+    .has-#{$name}-font-size {
+        font-size: #{$size}px;
+		// @since WP 6.6.1
+		--wp--preset--font-size--#{$name}: #{$size}px;
+	}
+}

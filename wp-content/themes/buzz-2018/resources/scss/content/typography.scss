@@ -1,0 +1,32 @@
+// WordPress Alignment
+.alignright     		{ float:right; }
+.alignleft      		{ float:left; }
+.aligncenter    		{ display:block; margin-left:auto; margin-right:auto; }
+
+H1, H2, H3,
+H4, H5, H6 				{ color:$primary; text-transform:uppercase; line-height:1.5; text-align:left; font-weight:normal; }
+
+.highlight {
+	font-weight:300; font-size:1.4rem; line-height:1.5;
+}
+
+.pullquote {
+	position:relative; padding:spacer(4) spacer(8) spacer(4) spacer(16);
+
+    p 					{ margin-bottom:0; }
+
+	&::before			{ position:absolute; top:0;
+        				  font-size:5rem; }
+    &::before 			{ content:'\201C'; left:spacer(6); }
+}
+
+// Any specific styles that should only be applied to the content area of a page or post
+// The main article on a page should have this class
+.main-content {
+
+}
+
+.post-status {
+	font-size:60%;
+	color:$gray-600;
+}

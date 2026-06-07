@@ -1,0 +1,10 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+/* Wordpress Toolbar */
+#wpadminbar #wp-admin-bar-email_view > .ab-item::before 	{ top:2px; content:"\f466"; }
+#wpadminbar #wp-admin-bar-browser_view > .ab-item::before 	{ top:3px; content:"\f472"; }
+
+#wpadminbar #wp-admin-bar-buzz_info IMG						{ margin-top:-3px; }

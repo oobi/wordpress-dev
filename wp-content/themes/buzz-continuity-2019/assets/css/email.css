@@ -1,0 +1,279 @@
+/**********************************************************************
+ * imports and variables
+ **********************************************************************/
+/**
+ * Lightcase settings
+ *
+ * Note: Override default settings for your project without touching this source code by simply
+ * defining those variables within a SASS map called '$lightcase-custom'.
+ *
+ * // Example usage
+ * $lightcase-custom: (
+ *   'breakpoint': 768px
+ * );
+ */
+/**********************************************************************
+ * email view
+ **********************************************************************/
+HTML {
+  margin-top: 0 !important;
+}
+
+#email-view {
+  padding: 0;
+  margin: 0;
+  background-color: #e6e6e6;
+  background-image: initial !important;
+  background-position: initial !important;
+  background-repeat: initial !important;
+  background-attachment: initial !important;
+  background-size: initial !important;
+  font-size: 15px;
+  color: #000;
+  /************************************************************************
+	 * VIEW IN BROWSER
+	 ************************************************************************/
+  /************************************************************************
+	 * HEADER
+	 ************************************************************************/
+  /************************************************************************
+	 * NAVBAR
+	 ************************************************************************/
+  /************************************************************************
+	 * BODY
+	 ************************************************************************/
+  /************************************************************************
+	 * FEATURED ARTICLES
+	 ************************************************************************/
+  /************************************************************************
+	 * INDEX ARTICLES
+	 ************************************************************************/
+  /************************************************************************
+	 * DATES
+	 ************************************************************************/
+  /************************************************************************
+	 * FOOTER
+	 ************************************************************************/
+}
+
+#email-view IMG {
+  display: block;
+  margin: 0;
+}
+
+#email-view A {
+  text-decoration: none;
+  color: #777a7e;
+}
+
+#email-view H2 {
+  margin: 5px 0 0;
+  line-height: normal;
+}
+
+#email-view .btn {
+  background-color: #3b3b3b;
+  font-weight: bold;
+}
+
+#email-view .btn, #email-view .btn A {
+  color: #ffffff;
+}
+
+#email-view .btn A {
+  display: block;
+}
+
+#email-view .btn__link {
+  padding: 5px 20px;
+  font-size: 12px;
+}
+
+#email-view .section-title {
+  text-align: center;
+  font-size: 24px;
+}
+
+#email-view #view-in-browser {
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+}
+
+#email-view #view-in-browser A {
+  color: #000;
+  text-decoration: underline;
+}
+
+#email-view #header.text-header .title {
+  font-size: 26px;
+}
+
+#email-view #header.text-header .subtitle {
+  font-size: 16px;
+}
+
+#email-view #navbar {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+#email-view #navbar .view-full {
+  font-weight: bold;
+}
+
+#email-view #navbar A {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+#email-view #email-body {
+  background-color: #ffffff;
+}
+
+#email-view #email-body .read-more {
+  text-decoration: underline;
+}
+
+#email-view .featured-wrapper .featured + .featured > TD {
+  padding-top: 20px;
+}
+
+#email-view .featured-wrapper .text.text-padding {
+  padding: 10px 20px;
+}
+
+#email-view .featured-wrapper .template-image-right {
+  padding: 20px;
+}
+
+#email-view .featured-wrapper .template-image-right .text {
+  padding-right: 20px;
+}
+
+#email-view .featured-wrapper .template-image-left {
+  padding: 20px;
+}
+
+#email-view .featured-wrapper .template-image-left .text {
+  padding-left: 20px;
+}
+
+#email-view .featured-wrapper .template-image-above {
+  padding: 20px;
+}
+
+#email-view .featured-wrapper .template-image-above .text {
+  padding-top: 10px;
+}
+
+#email-view .index-wrapper__article {
+  font-size: 14px;
+}
+
+#email-view .index-wrapper .post-title {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+#email-view .index-wrapper .title,
+#email-view .index-wrapper .excerpt {
+  padding-bottom: 0;
+}
+
+#email-view .index-wrapper .excerpt P {
+  margin-top: 5px;
+}
+
+#email-view .index-wrapper .image {
+  padding: 0;
+}
+
+#email-view .index-wrapper .no-image {
+  border-top: 5px solid #3b3b3b;
+}
+
+#email-view .index-wrapper .template-list .has-thumb .title,
+#email-view .index-wrapper .template-list .has-thumb .excerpt,
+#email-view .index-wrapper .template-list .has-thumb .link {
+  padding-left: 15px;
+}
+
+#email-view .index-wrapper .template-list .text-padding .title {
+  padding: 15px 20px;
+}
+
+#email-view .index-wrapper .template-list .text-padding .excerpt {
+  padding: 0 20px 15px;
+}
+
+#email-view .index-wrapper .template-grid .has-thumb .title {
+  padding-top: 15px;
+}
+
+#email-view .index-wrapper .template-grid .text-padding .title {
+  padding: 15px 20px;
+}
+
+#email-view .index-wrapper .template-grid .text-padding .excerpt {
+  padding: 0 20px 15px;
+}
+
+#email-view .dates-wrapper .date {
+  margin-bottom: 5px;
+}
+
+#email-view .dates-wrapper .title,
+#email-view .dates-wrapper .description {
+  margin: 0 0 5px;
+}
+
+#email-view .dates-wrapper .description {
+  padding-bottom: 8px;
+  font-size: 12px;
+}
+
+#email-view .dates-wrapper .template-list-2col .title,
+#email-view .dates-wrapper .template-list-2col .description {
+  padding-left: 20px;
+}
+
+#email-view .dates-wrapper .template-list-2col .date__month {
+  padding: 3px 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+}
+
+#email-view .dates-wrapper .template-list-2col .date__day {
+  padding: 5px 0;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+}
+
+#email-view .dates-wrapper .template-row .date {
+  border-top: 5px solid #000;
+}
+
+#email-view #email-footer {
+  background-color: #000;
+}
+
+#email-view #email-footer TABLE {
+  text-align: center;
+  font-size: 12px;
+}
+
+#email-view #email-footer UL {
+  display: inline;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#email-view #email-footer .unsubscribe,
+#email-view #email-footer .credit .image {
+  padding-left: 10px;
+}

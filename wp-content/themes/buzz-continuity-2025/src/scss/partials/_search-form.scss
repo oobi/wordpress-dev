@@ -1,0 +1,24 @@
+// navbar search
+.navbar-search {
+	.search-form-input {
+		border-color: var(--bz-search-field-border);
+		color: var(--bz-search-field-color);
+		background: var(--bz-search-field-bg);
+	}
+
+	.search-form-btn {
+		background: var(--bz-search-btn-bg);
+		border-color: var(--bz-search-btn-border);
+		color: var(--bz-search-btn-color);
+	}
+
+	.nav-link.dropdown-toggle {
+		padding: 0 0.5rem;
+		font-size: 120%;
+	}
+
+	.dropdown-menu {
+		background: var(--bz-search-bg);
+		width: 300px;
+	}
+}

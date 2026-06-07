@@ -1,0 +1,40 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-buzz-share-links {
+	font-size: 12px;
+
+	.bz-social-link {
+		display: inline-block;
+	}
+
+	.bz-social-icons {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.bz-social-icon {
+		fill: currentColor;
+		width: 1rem;
+		height: 1rem;
+		object-fit: contain;
+	}
+
+	.bz-social-label {
+		display: inline-flex;
+		align-items: center;
+
+		&::after {
+			content: "";
+			background-color: currentColor;
+			display: inline-block;
+			height: 8px;
+			width: 33px;
+			mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMS42IDcuNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzEuNiA3LjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZCIgZD0iTTMxLjYgMy41IDI3LjggMHYzLjJIMHYxaDI3Ljh2My4yeiIvPjwvc3ZnPg==);
+		}
+	}
+}

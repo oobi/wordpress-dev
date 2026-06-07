@@ -1,0 +1,88 @@
+/**
+ * All of the CSS for your dashboard-specific functionality should be
+ * included in this file.
+ */
+
+/*****************************************************************
+ * Global
+ *****************************************************************/
+
+SPAN.article-attribute								{ border:1px solid #999; padding:0 2px; margin-right:3px;
+													  font-size:10px; color:#999; text-transform:uppercase; }
+
+/* admin bar */
+#wp-toolbar .buzz-info IMG							{ padding-top:6px; }
+
+/* featured/email icons */
+SPAN.tick	 										{ opacity:0.3; cursor:pointer; }
+SPAN.tick:hover:before 								{ color:#0073aa; }
+SPAN.tick.active 									{ opacity:1;   }
+SPAN.tick:before 									{ font:400 26px/1 dashicons; color:#888; }
+SPAN.icon-featured:before							{ content:"\f155"; }
+SPAN.icon-email:before								{ content:"\f466"; }
+
+/*****************************************************************
+ * Newsletter Post Type
+ *****************************************************************/
+
+#newsletter-child-meta-box							{ }
+#newsletter-child-meta-box .article-controls		{ text-align:right; }
+.buzz-no-articles 									{ display:none; }
+
+
+.buzz-article-sortable-list 						{ min-height:20px; }
+.buzz-article-sortable-list LI						{ display:inline-block; margin:0 10px 10px 0; width:150px; height:185px; border:1px solid #e5e5e5; padding:10px; border-radius:3px;
+													  background:#FFF;
+													  box-shadow:0 1px 1px rgba(0, 0, 0, 0.04); overflow:hidden; box-sizing:content-box; }
+.buzz-article-sortable-list LI.sort-placeholder		{ border:1px dashed #000; background:#FFFBCC; }
+.buzz-article-sortable-list .thumbnail,
+.buzz-article-sortable-list .thumbnail IMG,
+.buzz-article-sortable-list .thumbnail .placeholder { width:150px; height:100px; object-fit:cover;
+													   cursor:move; }
+
+.buzz-article-sortable-list H4 	 					{ width:150px; margin:5px 0;
+													  text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+
+.buzz-article-sortable-list A.button				{ margin-right:5px; }
+.buzz-article-sortable-list A.delete 				{ color:#a00; text-decoration:none; }
+.buzz-article-sortable-list A.delete:hover 			{ color:#FF0000; }
+
+.buzz-article-sortable-list .attributes				{ margin-bottom:5px; height:23px; }
+.buzz-article-sortable-list .attributes.busy .tick	{ display:none; }
+.buzz-article-sortable-list .attributes .spinner	{ vertical-align:top; float:none; margin:0; }
+
+/* featured/email icons */
+.buzz-article-sortable-list SPAN.tick				{ margin-right:4px; }
+.buzz-article-sortable-list SPAN.tick:before		{ font:400 20px/1 dashicons; }
+
+/* post status */
+.buzz-article-sortable-list H4 .draft 				{ border-radius:5px; padding:1px 4px; margin-right:3px;
+													  background-color:#444;
+													  text-transform:uppercase; font-size:80%; color:#FFF; }
+.buzz-article-sortable-list .status_draft 			{ background-color:#EEE; border-color:#c7c7c7; }
+
+
+/* article list */
+.column-newsletter_articles							{ width:200px; }
+
+
+/*****************************************************************
+ * Article Post Type
+ *****************************************************************/
+
+/* article list */
+.column-featured_article,
+.column-in_email									{ width:120px;
+													  text-align:center; }
+
+/* featured/email icons */
+.column-featured_article SPAN.tick:before,
+.column-in_email SPAN.tick:before					{ position:relative; top:8px;
+													  font:400 26px/1 dashicons; }
+
+/* publish metabox */
+.misc-pub-parent-id 								{ margin: 1em 0; }
+.misc-pub-parent-id > * 							{ vertical-align:bottom; }
+.misc-pub-parent-id label[for="ff-parent-id"]:before{ display:inline-block; position:relative; top:0; left:-1px; padding:0 5px 0 0;
+													  font:400 20px/1 dashicons; content:"\f330"; text-decoration:none !important; vertical-align:top; color:#888; }
+.misc-pub-parent-id #parent-id-display 				{ font-weight:bold; }

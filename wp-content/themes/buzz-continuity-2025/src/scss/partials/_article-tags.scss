@@ -1,0 +1,21 @@
+.article-tags {
+	color: var(--bz-article-tag-icon-color);
+	font-size: var(--bz-article-tag-font-size);
+
+	&-divider {
+		color: var(--bz-article-tag-link);
+	}
+
+	&-item {
+		color: var(--bz-article-tag-link);
+
+		&:hover {
+			color: var(--bz-article-tag-link-hover);
+		}
+
+		&.badge {
+			color: var(--bz-article-tag-badge);
+			background: var(--bz-article-tag-badge-bg);
+		}
+	}
+}

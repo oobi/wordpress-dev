@@ -1,0 +1,45 @@
+{% for post in articles %}
+
+	{% if config.show_thumb %}
+		{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+	{% endif %}
+
+	<article class="article-tease col-md-6
+		{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}
+		{{post.classes}}">
+
+		<div class="article-inner">
+
+			{# Image #}
+			{% if has_thumb %}
+
+				<div class="article-tease__image">
+					{% include 'templates/partials/thumb.twig' with {
+						'post'		: post,
+						'size'		: {
+							'default'	: 'article',
+							'large'		: 'article',
+						}
+					} only %}
+				</div>
+
+			{% endif %}
+
+			{# Text #}
+			<div class="article-tease__content {{config.excerpt_class}}">
+				<h3 class="title">
+					<a href="{{ post.link }}" class="title__link">
+						{{ post.title }}
+					</a>
+				</h3>
+
+				{% include 'templates/partials/excerpt.twig' %}
+				{% include 'templates/partials/tags.twig' %}
+				{% include 'templates/partials/readmore.twig' %}
+			</div>
+
+		</div>
+
+	</article>
+
+{% endfor %}

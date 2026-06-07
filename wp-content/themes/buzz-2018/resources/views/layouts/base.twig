@@ -1,0 +1,104 @@
+{% block html_head_container %}
+	<!DOCTYPE html>
+	<head>
+		<meta charset="{{site.charset}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		{# iOS App Icon #}
+		{% if home_screen_logo_url %}
+			<link rel="apple-touch-icon" href="{{ home_screen_logo_url }}">
+		{% endif %}
+
+		{# Favicon and Android App Icon #}
+		{% if site_logo_url %}
+			<link rel="icon" type="image/png" href="{{ site_logo_url }}">
+		{% endif %}
+
+		{% block head %}{% endblock %}
+
+		{{function('wp_head')}}
+	</head>
+{% endblock %}
+
+	<style>
+		body {
+			font-family: {{ fonts.body.font_family }};
+			font-weight: {{ fonts.body.variant }};
+			font-size: {{ fonts.body.font_size }};
+			line-height: {{ fonts.body.line_height }};
+			letter-spacing: {{ fonts.body.letter_spacing }};
+		}
+
+		.site-header {
+			font-family: {{ fonts.header.font_family }};
+			font-weight: {{ fonts.header.font_weight }};
+			letter-spacing: {{ fonts.header.letter_spacing }};
+			text-transform: {{ fonts.header.text_transform }};
+		}
+
+		#primary-navigation, #primary-navigation .navbar-search input {
+			font-family: {{ fonts.navbar.font_family }};
+			font-size: {{ fonts.navbar.font_size }};
+			font-weight: {{ fonts.navbar.font_weight }};
+			letter-spacing: {{ fonts.navbar.letter_spacing }};
+			text-transform: {{ fonts.navbar.text_transform }};
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: {{ fonts.heading.font_family }};
+			line-height: {{ fonts.heading.line_height }};
+			letter-spacing: {{ fonts.heading.letter_spacing }};
+			font-weight: {{ fonts.heading.font_weight }};
+			text-align: {{ fonts.heading.text_align }};
+			text-transform: {{ fonts.heading.text_transform }};
+		}
+
+		.content-area .highlight {
+			font-family: {{ fonts.highlight.font_family }};
+			font-weight: {{ fonts.highlight.font_weight }};
+			font-size: {{ fonts.highlight.font_size }};
+			line-height: {{ fonts.highlight.line_height }};
+			letter-spacing: {{ fonts.highlight.letter_spacing}};
+			text-align: {{ fonts.highlight.text_align}};
+		}
+
+		.content-area .pullquote, .content-area .wp-block-quote, .content-area .wp-block-pullquote {
+			font-family: {{ fonts.pullquote.font_family }};
+			font-weight: {{ fonts.pullquote.font_weight }};
+			font-size: {{ fonts.pullquote.font_size }};
+			line-height: {{ fonts.pullquote.line_height }};
+			letter-spacing: {{ fonts.pullquote.letter_spacing}};
+			text-align: {{ fonts.pullquote.text_align}};
+		}
+	</style>
+
+    <body class="{{ body_class }} {% block body_class %}{% endblock %}" data-template="base.twig" role="document">
+
+		{% block pre_site %}{% endblock %}
+
+        <div id="site" class="container">
+
+			{# Include the Header and Navbar #}
+			{% block header %}
+				{% include 'layouts/header.twig' %}
+				{% include 'layouts/navbar/navbar.twig' %}
+			{% endblock %}
+
+            {# Include the content block #}
+            {% block content %}
+                {% if title %}<h1>{{title}}</h1>{% endif %}
+                Sorry, no content
+            {% endblock %}
+
+            {% block footer %}
+				{# Include the footer #}
+				{% include 'layouts/footer.twig' %}
+
+                {# get the offcanvas and scrolling menus #}
+                {% include 'layouts/offcanvas.twig' %}
+
+                {{ function('wp_footer') }}
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+@mixin max-content-width() {
+	@include media-breakpoint-up(lg) {
+		max-width: $standard-layout-width;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

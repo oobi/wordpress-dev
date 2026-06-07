@@ -1,0 +1,176 @@
+:root {
+	// page background
+	--ff-page-bg: #{$dark};
+	--ff-page-content-bg: #{$white};
+
+	// globals
+	--ff-base-font-size: 1.125rem;
+	--ff-max-content-width-lg: 47.375rem;
+	--ff-alignwide-width: 958px;
+	--ff-alignfull-width: 100%;
+
+	// fonts
+	--ff-headings-font-family: #{$font-family-base};
+	--ff-serif-font-family: #{$font-family-serif};
+
+	// spacing between blocks
+	--ff-block-margin: 50px;		// mobile
+	--ff-block-margin-lg: 100px;	// desktop
+
+	// Header
+	--ff-header-logo: url(../images/logo-color.svg);
+	--ff-header-logo-width: 10rem;
+	--ff-header-logo-height: 4rem;
+
+	--ff-header-logo-lg: url(../images/logo-color-stacked.svg);
+	--ff-header-logo-width-lg: 6rem;
+	--ff-header-logo-height-lg: 8rem;
+
+	--ff-header-logo-headroom: url(../images/logo-color.svg);
+	--ff-header-logo-width-headroom: 8rem;
+	--ff-header-logo-height-headroom: 4rem;
+
+	// Secondary Navigation
+	--ff-secondary-nav-background: var(--bs-primary);
+	--ff-secondary-nav-height: 50px;
+	--ff-secondary-nav-link: #{$white};
+	--ff-secondary-nav-link-hover: var(--bs-secondary);
+	--ff-secondary-nav-link-font-size: 0.875rem;
+	--ff-secondary-nav-link-decoration: none;
+	--ff-secondary-nav-cta: var(--bs-secondary);
+	--ff-secondary-nav-cta-hover: var(--bs-secondary);
+	--ff-secondary-nav-cta-font-size: 0.875rem;
+	--ff-secondary-nav-cta-decoration: none;
+	--ff-secondary-nav-text-transform: uppercase;
+
+	--ff-secondary-nav-dropdown-box-shadow: var(--ff-nav-submenu-boxshadow);
+
+	// Primary Navigation
+	--ff-nav-background: #{$white};
+	--ff-nav-links-border-bottom: 1px inset #{$gray-300};
+	--ff-nav-links-padding: 1rem 0.5rem 0 0;
+	--ff-nav-item-padding: 0.25rem .25rem 1rem;
+	--ff-nav-item-padding-xl: 0.5rem .875rem 1rem;
+
+	--ff-nav-link: #{$black};
+	--ff-nav-link-hover: #{$link-hover-color};
+	--ff-nav-link-font-weight: 800;
+	--ff-nav-link-text-transform: none;
+	--ff-nav-link-font-size: 1.281rem;
+	--ff-nav-link-headroom-font-size: 1rem;
+
+	--ff-nav-submenu-background: #{$white};
+	--ff-nav-submenu-max-width: 400px;
+	--ff-nav-submenu-min-width: 200px;
+	--ff-nav-submenu-padding: 1.5rem;
+	--ff-nav-submenu-boxshadow: 0px 10px 20px #{rgba($black, 0.1)};
+	--ff-nav-submenu-active-link: #{$link-hover-color};
+	--ff-nav-submenu-collapse-icon: '\f078';
+	--ff-nav-submenu-open-icon: '\f077';
+
+	--ff-nav-submenu-toggle: #{$gray-400};
+	--ff-nav-submenu-toggle-font-size: .875rem;
+	--ff-nav-submenu-toggle-hover: #{$link-hover-color};
+	--ff-nav-submenu-toggle-expanded: #{$link-hover-color};
+	--ff-nav-submenu-toggle-icon: '\f106';
+
+	--ff-nav-submenu-link: #{$dark};
+	--ff-nav-submenu-link-hover: #{$link-hover-color};
+	--ff-nav-submenu-link-font-weight: #{$font-weight-bold};
+	--ff-nav-submenu-link-font-size: 0.875rem;
+	--ff-nav-submenu-link-padding: .25rem 0;
+	--ff-nav-submenu-link-text-transform: uppercase;
+
+	--ff-nav-submenu-list-3-border-bottom: 1px solid #{$gray-300};
+	--ff-nav-submenu-list-3: #{$gray-600};
+	--ff-nav-submenu-list-3-text-transform: normal;
+	--ff-nav-submenu-list-3-font-family: #{$font-family-base};
+	--ff-nav-submenu-list-3-font-weight: normal;
+	--ff-nav-submenu-list-3-font-size: 0.875rem;
+
+	--ff-nav-submenu-list-3-padding: 0 0 .75rem 0;
+	--ff-nav-submenu-list-3-margin: 0 0 .75rem 0;
+
+	// Offcanvas
+	--ff-offcanvas-background: #{$white};
+	--ff-offcanvas-link: #{$black};
+	--ff-offcanvas-link-padding: 1rem .75rem;
+	--ff-offcanvas-dropdown-background: #{$gray-200};
+	--ff-offcanvas-border: 1px solid #{$gray-300};
+	--ff-offcanvas-secondary-border: 1px solid #{rgba($white, .5)};
+
+	--ff-offcanvas-header-background: var(--bs-primary);
+	--ff-offcanvas-header-link: #{$white};
+	--ff-offcanvas-header-dropdown-background: #{$gray-700};
+	--ff-offcanvas-close: #{$white};
+	--ff-offcanvas-utility: var(--bs-primary);
+
+	// Footer
+	--ff-footer-bg: #{$black};
+	--ff-footer-color: #{$gray-500};
+	--ff-footer-widget-heading: #{$gray-300};
+	--ff-footer-link: inherit;
+	--ff-footer-link-hover: #{$white};
+	--ff-footer-link-decoration: none;
+	--ff-footer-link-decoration-hover: underline;
+
+	// Footer branding
+	--ff-footer-logo-width: 225px;
+	--ff-footer-logo-height: 90px;
+
+	// Footer CTA
+	--ff-footer-cta-background: var(--bs-tertiary);
+	--ff-footer-cta-button-color: var(--bs-primary);
+	--ff-footer-cta-button-background: transparent;
+	--ff-footer-cta-button-border: 2px solid #{rgba($primary, .3)};
+
+	--ff-footer-cta-button-hover-color: var(--bs-primary);
+	--ff-footer-cta-button-hover-background: #{rgba($white, .5)};
+	--ff-footer-cta-button-hover-border: 2px solid var(--bs-primary);
+
+	// Colophon
+	--ff-colophon-bg: #{$black};
+	--ff-colophon-color: #{$gray-600};
+	--ff-colophon-link: inherit;
+	--ff-colophon-link-hover: #{$white};
+	--ff-colophon-link-decoration: none;
+	--ff-colophon-link-decoration-hover: none;
+
+	// Partials
+
+	// News
+	--ff-news-partial-y-spacing: 1rem;
+	--ff-news-partial-y-spacing-mobile: 1rem;
+	--ff-news-partial-title: #{$black};
+	--ff-news-partial-title-hover: var(--bs-primary);
+
+	// Events
+	--ff-events-partial-y-spacing: 1rem;
+	--ff-events-partial-title: #{$black};
+	--ff-events-partial-title-hover: var(--bs-primary);
+
+	// Category Nav
+	--ff-category-nav: #{$black};
+	--ff-category-nav-active: var(--bs-primary);
+	--ff-category-nav-label: #{$gray-600};
+
+	// Entry header
+	--ff-entry-header-max-width: 763px;
+	--ff-entry-header-shadow: 0px 10px 20px 0 #{rgba($black, 0.1)};
+	--ff-entry-header-display: none;
+	--ff-entry-header-display-lg: block;
+
+	// Mobile entry header
+	--ff-entry-header-mobile-max-width: 763px;
+	--ff-entry-header-mobile-display: block;
+	--ff-entry-header-mobile-display-lg: none;
+
+
+	//==================================
+	// WP STYLE OVERRIDES
+	//==================================
+
+	// Gallery Block - gap between images
+	--wp--style--gallery-gap-default: .5rem;
+	--gallery-block--gutter-size: 0.5rem;
+}

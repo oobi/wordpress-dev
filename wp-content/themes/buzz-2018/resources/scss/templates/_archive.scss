@@ -1,0 +1,24 @@
+.archive {
+	.archive-tease {
+
+		&__image {
+			// &, A, IMG { object-fit:cover; height:100%; }
+		}
+
+		&__content {
+			// position:absolute; top:0; bottom:0; left:0; right:0; padding:inherit; min-height:184px;
+			// background-color:transparentize($black, 0.7); background-clip:content-box;
+			// text-align:center;
+			// display:flex; flex-direction:column; justify-content:center;
+
+			// .title {
+			// 	text-align:center;
+
+			// 	&__link 	{ color:$white; }
+			// }
+			// .date 			{ color:$white; }
+			// .btn 			{ display:inline-block; width:auto; }
+		}
+
+	}
+}

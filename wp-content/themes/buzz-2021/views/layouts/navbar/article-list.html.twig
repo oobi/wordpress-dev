@@ -1,0 +1,24 @@
+{% if navbar.articles %}
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" id="navbar-article-menu" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ navbar.articles.title }}</a>
+		<ul class="dropdown-menu" aria-labelledby="navbar-article-menu">
+			{% for category in navbar.articles %}
+				{% if category.posts|length > 0 %}
+					{% if category.name %}
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<h2 class="dropdown-header">
+								{{ category.name }}
+							</h2>
+						</li>		
+					{% endif %}
+					{% for item in category.posts %}
+						<li class="dropdown-item">
+							<a class="dropdown-item" href="{{ item.link }}">{{ item.name }}</a>
+						</li>
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</li>
+{% endif %}

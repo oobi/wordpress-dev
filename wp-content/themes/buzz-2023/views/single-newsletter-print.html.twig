@@ -1,0 +1,44 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block header %}
+	{% include 'layouts/header/header-print.html.twig' %}
+	<div class="issue-title">
+		{{newsletter.title}} <span class="issue-date">- {{newsletter.date | strftime(date_format)}}</span>
+	</div>
+{% endblock %}
+
+{% block body_class %}page-newsletter-print{% endblock %}
+
+{% block footer %}
+	{{ function('wp_footer') }}
+{% endblock %}
+
+{% block content %}
+	<div class="content-area">
+
+		<!-- Dates -->
+		{# {% if dates and dates.show %}
+			<div class="dates row template-{{dates.template}} {{dates.class}}">
+				{% include "templates/dates/#{dates.template}.html.twig" with { 'columns' : '4' } %}
+			</div>
+		{% endif %} #}
+
+		{% if articles %}
+
+			{# show the set of posts retrieved for this page #}
+			{% for post in articles %}
+				{% include 'partials/article-print.html.twig' %}
+			{% endfor %}
+
+		{% else %}
+			{# Show an alert when there are no posts #}
+			<div class="alert alert-danger d-flex my-5">
+				There are currently no published articles.
+			</div>
+		{% endif %}
+	</div>
+
+	<script>
+		window.print();
+	</script>
+{% endblock %}

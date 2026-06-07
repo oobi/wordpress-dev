@@ -1,0 +1,119 @@
+// Hover Nav specific styles, can still be imported if using Click and Stick.
+@import "_nav-hover";
+
+.site-header {
+	background: var(--bz-header-bg);
+	color: var(--bz-header-color);
+
+	.skip-to-content {
+		padding: .5rem;
+	}
+
+    &.headroom {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        will-change: transform;
+        transition: transform 200ms linear;
+
+        // Offset correctly if the admin bar is showing
+        .admin-bar & {
+            top: 32px;
+        }
+
+        &--pinned {
+            transform: translateY(0%);
+        }
+
+        &--unpinned {
+            transform: translateY(-100%);
+        }
+    }
+
+    &__content {
+        padding: 1rem 0;
+    }
+
+    &__text {
+        .title {
+			display: block;
+			font-size: var(--bz-header-title-size-sm);
+			color: var(--bz-header-title);
+
+            @include media-breakpoint-up (md) {
+                font-size: var(--bz-header-title-size-lg);
+            }
+        }
+
+        .subtitle {
+            display: none;
+			font-size: var(--bz-header-subtitle-size-sm);
+			color: var(--bz-header-subtitle);
+
+            @include media-breakpoint-up (md) {
+				display: block;
+                font-size: var(--bz-header-subtitle-size-lg);
+            }
+        }
+    }
+
+    &__logo {
+        margin-right: 2rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    // default branding
+    &-buzz {
+        .site-header__logo {
+            width: 30px;
+			margin-right: 1rem;
+
+            @include media-breakpoint-up(md) {
+                width: 80px;
+				margin-right: 2rem;
+            }
+        }
+    }
+
+    // Header
+
+    // Image
+
+    .homelink {
+        width: 100%;
+
+        .header-image {
+            width: 100%;
+        }
+    }
+
+    // Image with Text
+
+    &-text {
+        .site-header__logo {
+            width: var(--bz-header-tl-image-lg-width);
+            height: var(--bz-header-tl-image-lg-height);
+			margin-right: var(--bz-header-tl-image-lg-margin-right);
+
+            @include media-breakpoint-up(md) {
+                width: var(--bz-header-tl-image-sm-width);
+                height: var(--bz-header-tl-image-sm-height);
+			    margin-right: var(--bz-header-tl-image-sm-margin-right);
+            }
+        }
+    }
+
+    &-buzz, &-text {
+        .site-header__content {
+            display: flex;
+            justify-content: var(--bz-header-justify-logo);
+        }
+    }
+}

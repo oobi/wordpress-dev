@@ -1,0 +1,19 @@
+ul {
+	&.is-style-fancy {
+		list-style: none;
+		padding-left: .75rem;
+
+		& > li {
+			position: relative;
+			padding-left: 1.75rem;
+
+			&::before {
+				content: "\f061";
+				position: absolute;
+				left: 0;
+				font-weight: 300;
+				font-family: $icon-font-family;
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+@mixin fancy-link-hover {
+	&:hover {
+		background-size: 100% 6%;
+	}
+ }
+
+// fancy transition underline on text link
+.fancy-link {
+    text-decoration: none;
+    background: linear-gradient(to right, currentColor 0%, currentColor 100%);
+	background-size: 0 6%;
+	background-repeat: no-repeat;
+	background-position: left 100%;
+	transition-duration: .5s;
+	font-weight: inherit;
+	padding: 0;
+
+	@include fancy-link-hover();
+}
+
+// make a whole block linked
+// usage: block needs position relative, link goes inside block
+.stretched-link {
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		content: "";
+	}
+}
+
+[class *= 'btn-'],
+[class *= 'text-'] {
+	> A,
+	> .nav-link {
+		color: inherit !important;
+	}
+}

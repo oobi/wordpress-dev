@@ -1,0 +1,39 @@
+{######################################################################
+ # Index articles in x columns with an alternate style between rows
+ # Extends the index article base template
+ ######################################################################}
+
+{% extends "articles/index/base.twig" %}
+
+{% block alt_row %}
+	<div class="row alt even-height">
+		<div class="article-container">
+
+			{% if show_featured_image and article.has_thumb %}
+
+				<div class="article-thumb col-sm-6">
+					<a href="{{ article.permalink }}">
+						{{ function( 'get_the_post_thumbnail', article.id, image_size_alt ) }}
+					</a>
+				</div>
+				<div class="article-text col-sm-6">
+					<h3><a href="{{ article.permalink }}">{{ article.title }}</a></h3>
+					<p class="hidden-xs">{{ function( 'ff_the_excerpt', 80, article.id ) }}</p>
+					<p class="visible-xs">{{ function( 'ff_the_excerpt', 20, article.id ) }}</p>
+					{{ function( 'ff_the_tags', article.id ) }}
+				</div>
+
+			{% else %}
+
+				<div class="article-text col-sm-12">
+					<h3><a href="{{ article.permalink }}">{{ article.title }}</a></h3>
+					<p class="hidden-xs">{{ function( 'ff_the_excerpt', 80, article.id ) }}</p>
+					<p class="visible-xs">{{ function( 'ff_the_excerpt', 20, article.id ) }}</p>
+					{{ function( 'ff_the_tags', article.id ) }}
+				</div>
+
+			{% endif %}
+
+		</div>
+	</div>
+{% endblock alt_row %}

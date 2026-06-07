@@ -1,0 +1,38 @@
+<tr id="email-footer">
+    <td align="center" valign="top">
+        <table cellpadding="0" cellspacing="0" width="640">
+
+			<tr align="center" valign="top">
+				<td id="footer-menu">
+
+					<table cellpadding="0" cellspacing="15" width="640">
+						<tr>
+							<td align="left">
+								<table cellpadding="0" cellspacing="0">
+									<tr>
+										<td class="copyright">&copy; {{ "now"|date('Y') }} {{ footer.copyright }}</td>
+										<td class="unsubscribe">{{ fn('Buzz_Addon_Email_View::the_unsubscribe_link') }}</td>
+									</tr>
+								</table>
+							</td>
+							<td align="right">
+								<table class="credit" cellspacing="0" cellpadding="0">
+									<tr>
+										<td class="text"><a href="https://www.thebuzz.net.au" target="_blank" rel="link">Powered by</a></td>
+										<td class="image">
+											<a href="https://www.thebuzz.net.au" target="_blank" rel="link">
+												<img src="{{theme.link}}/assets/images/credit-{{footer.credit}}.png" width="38" height="45" alt="The Buzz" title="The Buzz">
+											</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+
+				</td>
+			</tr>
+
+		</table>
+    </td>
+</tr>

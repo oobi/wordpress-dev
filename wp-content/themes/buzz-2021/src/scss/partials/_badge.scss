@@ -1,0 +1,11 @@
+.badge {
+
+}
+
+A.badge {
+	text-decoration: none;
+
+	&:hover {
+		color: inherit;
+	}
+}

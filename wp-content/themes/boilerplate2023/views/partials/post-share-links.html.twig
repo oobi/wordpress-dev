@@ -1,0 +1,13 @@
+<div class="entry-share-wrapper">
+    <span class="entry-share-label">Share</span>
+
+    <div class="entry-share">
+        <ul class="entry-share-list">
+            {% for link in share_links %}
+            <li class="entry-share-list-item">
+                <a target="_BLANK" class="entry-share-list-link" href="{{ link.link }}"><i class="{{ link.icon }} me-6"></i></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

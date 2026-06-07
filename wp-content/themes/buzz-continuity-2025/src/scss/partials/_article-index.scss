@@ -1,0 +1,103 @@
+.article-index {
+    &-title {
+        color: var(--bz-article-index-title);
+        font-size: var(--bz-article-index-title-font-size);
+        font-weight: var(--bz-article-index-title-font-weight);
+
+        A {
+            color: inherit;
+        }
+    }
+
+    &-image {
+        .article-img {
+            width: 100%;
+            height: auto;
+        }
+
+		&.has-overlay {
+			position: relative;
+		}
+    }
+
+	.article-tags {
+        margin-top: -0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+	&-image-overlay {
+		position: absolute;
+		bottom: 0;
+		left: calc(var(--bs-gutter-x) * 0.5);
+		right: calc(var(--bs-gutter-x) * 0.5);
+
+
+		padding: 1.5rem;
+
+		background: var(--bz-article-index-image-overlay-bg);
+
+		.article-index-title {
+			color: var(--bz-article-index-image-overlay-title);
+			font-size: var(--bz-article-index-image-overlay-title-font-size);
+			font-weight: var(--bz-article-index-image-overlay-title-font-weight);
+		}
+
+		.article-tags {
+			margin-bottom: 0;
+		}
+	}
+
+	&-item {
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			max-width: 100px;
+			height: 6px;
+			background: var(--bz-accent);
+			margin: 0 auto 4rem auto;
+
+			@include media-breakpoint-up(sm) {
+				max-width: 300px;
+			}
+		}
+	}
+
+    .excerpt {
+        color: var(--bz-article-index-excerpt);
+    }
+
+    .section-title {
+        border-top: var(--bz-article-index-section-border);
+        color: var(--bz-article-index-section-title);
+        font-size: var(--bz-article-index-section-title-font-size);
+        background: var(--bz-article-index-section-title-bg);
+        justify-content: var(--bz-article-index-section-title-justify);
+        align-items: var(--bz-article-index-section-title-align);
+        padding: var(--bz-article-index-section-title-padding);
+        margin: var(--bz-article-index-section-title-margin);
+
+        display: flex;
+
+        &.collapsible {
+            &::after {
+                font-family: $icon-font-family;
+                font-size: var(--bz-article-index-section-title-icon-font-size);
+                content: "\f078";
+                font-weight: 300;
+                margin-left: 1rem;
+                transition: transform 0.2s ease-in-out;
+            }
+        }
+
+        &.collapsed {
+            &::after {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    &-edit-link {
+        font-size: 0.875rem;
+    }
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.6.7">
+	<form labelPlacement="left_label" useCurrentUserAsAuthor="1">
+		<title><![CDATA[Form Demo]]></title>
+		<description><![CDATA[We would love to hear from you! Please fill out this form and we will get in touch with you shortly.]]></description>
+		<confirmation type="message">
+			<message><![CDATA[Thanks for contacting us! We will get in touch with you shortly.]]></message>
+		</confirmation>
+		<button type="text">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field id="1" size="medium" type="text">
+				<label><![CDATA[Single Line Text]]></label>
+			</field>
+			<field id="2" size="medium" type="textarea">
+				<label><![CDATA[Paragraph Text]]></label>
+			</field>
+			<field id="3" size="medium" type="select">
+				<label><![CDATA[Drop Down]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[First Choice]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Second Choice]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Third Choice]]></text>
+					</choice>
+				</choices>
+			</field>
+			<field id="4" size="medium" type="multiselect">
+				<label><![CDATA[Multi Select]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[First Choice]]></text>
+						<value><![CDATA[First Choice]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Second Choice]]></text>
+						<value><![CDATA[Second Choice]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Third Choice]]></text>
+						<value><![CDATA[Third Choice]]></value>
+					</choice>
+				</choices>
+			</field>
+			<field id="5" size="medium" type="number" numberFormat="decimal_dot">
+				<label><![CDATA[Number]]></label>
+			</field>
+			<field id="6" size="medium" type="checkbox">
+				<label><![CDATA[Checkboxes]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[First Choice]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Second Choice]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Third Choice]]></text>
+					</choice>
+				</choices>
+			</field>
+			<field id="7" size="medium" type="radio">
+				<label><![CDATA[Radio Buttons]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[First Choice]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Second Choice]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Third Choice]]></text>
+					</choice>
+				</choices>
+			</field>
+		</fields>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<notification>
+			<to><![CDATA[{admin_email}]]></to>
+			<subject><![CDATA[New submission from {form_title}]]></subject>
+			<message><![CDATA[{all_fields}]]></message>
+		</notification>
+	</form>
+</forms>

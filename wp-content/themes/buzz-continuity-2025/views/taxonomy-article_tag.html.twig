@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block content %}
+
+	<div class="content-area row">
+		<main class="main-content col" role="main">
+
+			<article class="post-content">
+
+				<h1 class="post-title mb-5">{{term.name}}</h1>
+
+				{% if posts %}
+					<div class="row">
+						{% for post in posts %}
+							<article class="article-tease article-tease--column mb-5 col-md-3 {{post.classes}}">
+								{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+								{% set newsletter_link = "<p class=\"newsletter-link\"><a href=\"#{post.newsletter.link}\">#{post.newsletter.title}</a></p>" %}
+
+								{% include 'partials/article-card.html.twig' with {
+									'hide_thumb': not has_thumb,
+									'hide_excerpt' : false,
+									'config' : config.index,
+									'pre_excerpt' : newsletter_link
+								} %}
+							</article>
+						{% endfor %}
+					</div>
+					{% include 'partials/pagination.html.twig' %}
+				{% endif %}
+
+			</article>
+
+		</main>
+	</div>
+
+{% endblock %}

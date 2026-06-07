@@ -1,0 +1,26 @@
+{
+    "name": "firefly/buzz-2023",
+    "description": "A block theme for the Buzz Newsletter",
+    "authors": [
+        {
+            "name": "Firefly",
+            "email": "info@fi.net.au"
+        }
+    ],
+    "require": {
+        "htmlburger/carbon-fields": "^3.6.8",
+        "filp/whoops": "^2.15",
+        "timber/timber": "1.24.1",
+        "djboris88/timber-commented-include": "^2.0",
+        "php81_bc/strftime": "^0.7.6"
+    },
+    "autoload": {
+        "psr-4": { "Firefly\\": "./theme" },
+        "files": [ "./theme/helpers.php" ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

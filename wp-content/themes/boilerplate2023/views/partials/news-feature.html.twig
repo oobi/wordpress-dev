@@ -1,0 +1,26 @@
+{% import "macros/macros.html.twig" as macros %}
+
+<div class="col-12 news-feature {% if post.thumbnail %} has-thumbnail {% endif %}">
+	<div class="row">
+		{% if post.thumbnail %}
+			<div class="col-md-6 col-lg-7 col-xl-8 pe-lg-12">
+				<a class="news-feature-image-link" href="{{ post.link }}">
+					<img class="news-feature-image" src="{{ post.thumbnail.src('cropped_4x3') }}" alt="{{post.title}}">
+				</a>
+			</div>
+		{% endif %}
+		<div class="col py-8 py-md-0">
+			<a href="{{ post.link }}" class="news-entry-link">
+				{% include 'partials/news-entry-content.html.twig' with { excerpt_length: 40 } %}
+			</a>
+
+			{{ macros.badges(post) }}
+
+			<div class="wp-block-button is-style-arrow slide-button mt-8 d-none d-lg-block">
+				<a href="{{ post.link }}" class="wp-block-button__link wp-element-button">
+					Read more
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+{% if newsletter.thumbnail %}
+	<div class="hero row">
+		{% set image = newsletter.thumbnail %}
+		<picture>
+			<source media="(max-width: 767px)" srcset="{{ image.src('email-hero') }}">
+			<img src="{{ image.src('newsletter-hero') }}"
+					class="slide__image"
+					alt="{{ image.alt | default(post.title) | escape }}"
+					description="{{ image.description | escape  }}"
+					style="width:100%;">
+		</picture>
+	</div>
+{% endif %}

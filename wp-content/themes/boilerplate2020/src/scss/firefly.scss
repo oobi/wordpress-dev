@@ -1,0 +1,17 @@
+@import "variables";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import '~bootstrap/scss/bootstrap';
+
+@import 'layout/index';
+@import 'partials/index';
+
+// Vendor and Libraries
+@import '~lightcase/src/scss/lightcase';
+@import '~owl.carousel/src/scss/owl.carousel';
+@import '~owl.carousel/src/scss/owl.theme.default';
+
+// Gutenberg Blocks
+@import 'gutenberg/index';

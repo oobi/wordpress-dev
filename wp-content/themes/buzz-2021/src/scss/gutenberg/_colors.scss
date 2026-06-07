@@ -1,0 +1,21 @@
+// colour styles from bootstrap colors array
+
+@each $name, $hex in $colors {
+    .has-#{$name}-color {
+        color: $hex;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $hex;
+		border-color: $hex !important;// button outlines
+
+
+		&.wp-block-button__link:hover {
+			background-color: darken($hex, 5);
+		}
+    }
+}

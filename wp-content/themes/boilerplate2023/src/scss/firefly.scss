@@ -1,0 +1,36 @@
+
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "variables";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "css-vars";
+@import 'bootstrap-config';  // bootstrap stuff per getbootstrap.com
+@import 'mixins/index';
+
+
+// ------------------------------------------------------------------------
+// CUSTOM CODE BELOW HERE
+
+@import 'mixins/index';
+@import 'utilities';
+@import 'typography';
+@import 'layout/index';
+@import 'partials/index';
+
+// Vendor and Libraries
+@import '~owl.carousel/src/scss/owl.carousel';
+@import '~owl.carousel/src/scss/owl.theme.default';
+
+// Gutenberg Blocks
+@import 'gutenberg/index';
+
+// AOS
+@include media-breakpoint-up(lg) {
+	@import "~aos/src/sass/aos";
+}

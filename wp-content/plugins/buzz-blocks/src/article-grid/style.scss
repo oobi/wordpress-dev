@@ -1,0 +1,195 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-buzz-article-grid {
+
+	&.is-collapsible {
+		.bz-grid-title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+
+			&::after {
+				content: '';
+				mask-image: url(../../images/chevron-right-light.svg);
+				mask-position: center center;
+				mask-repeat: no-repeat;
+				mask-size: contain;
+				background-color: currentColor;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 1em;
+				height: 1em;
+				text-align: center;
+				transition: all .5s;
+			}
+		}
+
+		.bz-grid-articles {
+			transition: all .5s;
+			// max-height: 0;
+			overflow: hidden;
+		}
+
+		.bz-grid-checkbox {
+			&:checked {
+				+ .bz-grid-title {
+					&::after {
+						transform: rotate(90deg);
+					}
+				}
+
+				// ~ .bz-grid-articles {
+				// 	max-height: 100vh;
+				// }
+			}
+		}
+	}
+
+	.bz-grid-checkbox {
+		opacity: 0;
+		z-index: -1;
+		position: absolute;
+	}
+
+	.bz-grid-title {
+		display: block;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin-bottom: 1rem;
+	}
+
+	.bz-grid-articles {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@media all and (min-width: 768px) {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 1.5rem;
+		}
+	}
+
+	.bz-grid-article-tag {
+		text-transform: uppercase;
+		font-size: 0.875rem;
+		line-height: 1.36;
+	}
+
+	.bz-grid-article {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+
+		@media all and (max-width: 768px) {
+			margin-bottom: 2rem;
+		}
+
+		&-content {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-title {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+
+		&-excerpt {
+			margin: 1rem 0 0 0;
+		}
+
+		&-thumbnail {
+			display: block;
+		}
+
+		&-thumbnail-image {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	/**
+	 * Columns
+	 */
+	@for $i from 1 through 6 {
+		&.has-cols-#{$i} {
+			.bz-grid-articles {
+				grid-template-columns: repeat(#{$i}, 1fr);
+			}
+		}
+	}
+
+	/**
+	 * Media placement
+	 */
+	&.has-media-on-left,
+	&.has-media-on-right {
+		@media all and (max-width: 768px) {
+			.bz-grid-article-thumbnail {
+				width: 100%;
+			}
+		}
+
+		@media all and (min-width: 768px) {
+			.bz-grid-article-thumbnail {
+				width: 50%;
+			}
+
+			.bz-grid-article-content {
+				padding-left: 1.5rem;
+				padding-right: 1.5rem;
+			}
+
+			.bz-grid-article {
+				gap: 0;
+			}
+		}
+	}
+
+	&.has-media-on-left {
+		@media all and (min-width: 768px) {
+			.bz-grid-article {
+				flex-direction: row;
+			}
+		}
+	}
+
+	&.has-media-on-right {
+		@media all and (min-width: 768px) {
+			.bz-grid-article {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+
+	/**
+	 * Vertical alignment
+	 */
+	&.is-vertically-aligned-top {
+		.bz-grid-article-content {
+			justify-content: flex-start;
+		}
+	}
+
+	&.is-vertically-aligned-center {
+		.bz-grid-article-content {
+			justify-content: center;
+		}
+	}
+
+	&.is-vertically-aligned-bottom {
+		.bz-grid-article-content {
+			justify-content: flex-end;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+.sidebar {
+	&-left {
+		order: -1;
+	}
+
+	background: var(--bz-article-sidebar-bg);
+
+	&-nav {
+		margin-bottom: 1.5rem;
+
+		&-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			&-item {
+				padding: .5rem 0;
+				line-height: 1.25rem;
+
+				color: var(--bz-article-sidebar-link);
+
+				&.current {
+					font-weight: bold;
+					color: var(--bz-article-sidebar-current);
+				}
+
+				&.featured {
+					display: flex;
+					flex-direction: column;
+
+					&::before {
+						color: var(--bz-article-sidebar-featured-icon);
+						content: "FEATURED";
+						line-height: 1.25rem;
+						padding-right: .25rem;
+						//font-family: $icon-font-family;
+						font-size: .75rem;
+					}
+				}
+			}
+
+			&-category {
+				margin-top: 1rem;
+			}
+
+			&-title {
+				color: var(--bz-article-sidebar-title);
+			}
+
+			&-link {
+				color: inherit;
+			}
+		}
+	}
+}

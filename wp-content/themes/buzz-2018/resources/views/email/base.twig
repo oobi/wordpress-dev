@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="{{site.charset}}" />
+    <meta name="description" content="{{site.description}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+			font-family: {{ fonts.body.font_family }};
+			font-weight: {{ fonts.body.variant }};
+			font-size: {{ fonts.body.font_size }};
+			line-height: {{ fonts.body.line_height }};
+			letter-spacing: {{ fonts.body.letter_spacing }};
+		}
+
+        h1, h2, h3, h4, h5, h6 {
+			font-family: {{ fonts.heading.font_family }};
+			line-height: {{ fonts.heading.line_height }};
+			font-weight: {{ fonts.heading.font_weight }};
+			letter-spacing: {{ fonts.heading.letter_spacing }};
+			text-align: {{ fonts.heading.text_align }};
+			text-transform: {{ fonts.heading.text_transform }};
+		}
+
+        #navbar {
+			font-family: {{ fonts.navbar.font_family }};
+			font-size: {{ fonts.navbar.font_size }};
+			font-weight: {{ fonts.navbar.font_weight }};
+			letter-spacing: {{ fonts.navbar.letter_spacing }};
+			text-transform: {{ fonts.navbar.text_transform }};
+		}
+    </style>
+
+    {{function('wp_head')}}
+</head>
+<body id="email-view">
+	<table id="email-container" border="0" cellpadding="0" cellspacing="0" align="center" width="640">
+
+        {# Include the header #}
+        {% include 'email/header.twig' %}
+
+        {% include 'email/body.twig' %}
+
+        {% include 'email/footer.twig' %}
+
+	</table><!-- #wrapper -->
+</body>
+</html>

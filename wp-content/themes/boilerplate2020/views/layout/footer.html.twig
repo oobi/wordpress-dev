@@ -1,0 +1,75 @@
+<footer class="site-footer">
+
+	{# BEGIN Footer Widgets #}
+	<section class="py-8 border-top">
+		<div class="container">
+			<div class="row">
+				<header class="col-12">
+					<h2>Footer Widgets</h2>
+					<ul>
+						<li>Set up your widgets in <code>./theme/setup/Widgets.php</code></li>
+						<li>Register the widgets on the global context</li>
+						<li>Change the number of columns to suit the design</li>
+						<li>Output widgets <code>&#123;&#123; widget_name &#125;&#125;</code></li>
+					</ul>
+					<p></p>
+				</header>
+				<div class="col-12 col-md-6 col-lg-3">
+					<h3 class="h6">Column 1</h3>
+					{{ widget_footer_column_one }}
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<h3 class="h6">Column 2</h3>
+					{{ widget_footer_column_two }}
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<h3 class="h6">Column 3</h3>
+					{{ widget_footer_column_three }}
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<h3 class="h6">Column 4</h3>
+					{{ widget_footer_column_four }}
+				</div>
+			</div>
+		</div>
+	</section>
+	{# END Footer Widgets #}
+
+	{# BEGIN Colophon #}
+	<nav class="navbar d-flex navbar-expand navbar-light bg-light">
+		<div class="container flex-column flex-md-row align-items-start align-items-md-center justify-content-start">
+			{# BEGIN Copyright #}
+			<span class="navbar-text copyright">
+				&copy; {{ "now" | date('Y') }} {{ site.name }}
+			</span>
+			{# END Copyright #}
+
+			{# BEGIN Credit #}
+			<div class="ms-md-auto order-md-last">
+				<span class="navbar-text">Website by</span>
+				<a class="navbar-text ms-auto" href="https://fireflydigital.net.au">
+					<span class="d-md-none">Firefly Digital</span>
+					<img class="" style="width:2rem;" src="{{ site.theme.link }}/assets/images/logo.svg" alt="Firefly Digital logo">
+				</a>
+			</div>
+			{# END Credit #}
+
+			{# BEGIN Footer Menu #}
+			{% if menus.footer.get_items %}
+			<div class="order-first order-md-2">
+				<ul class="navbar-nav flex-column flex-md-row me-auto">
+					{% for item in menus.footer.get_items %}
+						<li class="nav-item active {{ item.classes | join(' ') }}">
+							<a class="nav-link" href="{{ item.link }}" target="{{ item.target }}">{{ item.title }} <span class="sr-only">(current)</span></a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% else %}
+				<span class="nav-text ms-4">Please set up the footer menu</span>
+			{% endif %}
+			{# END Footer Menu #}
+		</div>
+	</nav>
+	{# END Colophon #}
+</footer>

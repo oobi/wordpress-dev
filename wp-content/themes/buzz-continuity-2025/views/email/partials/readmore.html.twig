@@ -1,0 +1,8 @@
+{% if config.more.type == 'button' %}
+
+	{% include 'email/partials/button.html.twig' with {
+		link : post.link,
+		label: config.more.label
+	} %}
+
+{% endif %}

@@ -1,0 +1,58 @@
+{% set columns = 2 %}
+{% set column_width = 100 / columns %}
+
+{% if data %}
+
+	<table class="buzz-dates template-{{template}} {{class}}" cellpadding="0" cellspacing="20" width="640">
+
+		{% if heading %}
+			<tr>
+				<td colspan="{{columns}}">
+					<h2 class="widget-title">{{heading}}</h2>
+				</td>
+			</tr>
+		{% endif %}
+
+		{% for col in data | batch(columns) %}
+			<tr>
+				{% for key, date in col %}
+					<td class="date-wrapper" valign="top" width="{{column_width}}%">
+
+						<table cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+
+								<td class="date" width="50" valign="top">
+									<table class="date__frame" width="50" cellspacing="0" cellpadding="0" align="center">
+										<tr>
+											<td class="date__month">{{date.date}}</td>
+										</tr>
+									</table>
+								</td>
+
+								<td class="date" width="10" valign="top">
+									&nbsp;
+								</td>
+
+								<td valign="top">
+									<table cellspacing="0" cellpadding="0">
+										<tr>
+											<td class="description" valign="top">
+												{{date.description | nl2br}}
+												{% if date.link_url|length > 0 %}
+													<p><a href="{{date.link_url}}" class="button" {{ date.external ? 'target="_blank"'}}>{{date.link_text}}</a></p>
+												{% endif %}
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endif %}

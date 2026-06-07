@@ -1,0 +1,90 @@
+.page-newsletter-print {
+	background: $white;
+	color: $black;
+
+	#app {
+		display:block;
+		background: $white;
+		width:760px !important;
+		max-width:760px !important;
+
+		overflow:visible !important;
+		margin-left: auto;
+		margin-right: auto;
+
+		box-shadow:none;
+		padding-left:0;
+		padding-right:0;
+
+		img {
+			max-width:760px !important;
+		}
+	}
+
+	header {
+		display:block !important;
+
+		&.buzz-header,
+		&.text-header {
+			padding-top: 1rem;
+
+			.logo {
+				img {
+					min-width: 50px;
+					height: auto;
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+
+	.issue-title {
+		padding: spacer(4) 0;
+		text-align:right;
+	}
+
+	.article {
+		&__image {
+			margin-bottom:2rem;
+		}
+
+		&.page-break-after {
+			page-break-after: always;
+		}
+
+		&.page-break-before {
+			page-break-before: always;
+		}
+
+		@media only screen {
+			padding-bottom:5rem;
+		}
+	}
+
+	.row {
+		margin-left:0 !important;
+		margin-right:0 !important;
+	}
+
+	IFRAME,
+	VIDEO {
+		display:none !important;
+	}
+
+	.wp-block-separator {
+		&.is-style-pagebreak {
+			display: block;
+			page-break-after: always;
+			break-after: page;
+			height: 0;
+			margin: 0;
+			overflow: hidden;
+			opacity: 0;
+			overflow: hidden;
+		}
+	}
+
+	.gform_wrapper {
+		display: none !important;
+	}
+}

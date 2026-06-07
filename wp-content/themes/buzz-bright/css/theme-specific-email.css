@@ -1,0 +1,45 @@
+/* EMAIL THEME SPECIFIC OVERRIDES */
+
+
+/*******************************************************************
+ * ARTICLES
+ *******************************************************************/
+
+#main 								{ padding:0; }
+
+#main .feature.excerpt 				{ padding:15px 15px 0; }
+
+#main .divider TD					{ padding:0 15px; }
+
+TD.image 							{ text-align:center; }
+
+
+/*******************************************************************
+ * RESPONSIVE
+ *******************************************************************/
+
+@media only screen and (min-device-width:411px) and (max-device-width:640px) {
+
+	#main IMG,
+	#main TABLE[class=article-table-alt]	{ width:415px !important; }
+
+
+
+	#main TABLE[class=article-table] IMG 	{ width:183px !important; }
+
+	TABLE[class=article-table],
+	#main TABLE[class=article-table-alt] IMG{ width:385px !important; }
+
+}
+
+@media only screen and (max-device-width:410px) {
+
+	#main IMG								{ width:320px !important; }
+
+	#main TABLE[class=article-table] IMG 	{ width:183px !important; }
+
+	#main TABLE[class=article-table-alt] IMG{ width:290px !important; }
+
+
+}
+

@@ -1,0 +1,21 @@
+.post-badges {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+
+    a {
+        &.badge {
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                @extend .bg-primary, .text-white;
+            }
+        }
+    }
+
+    .badge {
+        margin-bottom: 0.5rem;
+        background: $gray-200;
+        margin-right: 0.5rem;
+    }
+}

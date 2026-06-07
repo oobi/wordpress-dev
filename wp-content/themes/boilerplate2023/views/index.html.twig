@@ -1,0 +1,29 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+	<main
+		class="entry pb-20 {{ post.class }} index">
+		{# Begin Page Header #}
+		{% include 'partials/news-header.html.twig' %}
+		{# End Page Header #}
+
+
+		{# Begin Post Entries #}
+		<section class="entries">
+			<div class="container-fluid entry-content">
+				{% if posts is not empty %}
+					{% include 'blocks/latest-news.html.twig' with { alignment: 'container' } %}
+				{% else %}
+					{% include "partials/no-results.html.twig" %}
+				{% endif %}
+			</div>
+		</section>
+		{# End Post Entries #}
+
+		{# Begin Pagination #}
+		{% if pagination.pages and pagination.pages | length > 1 %}
+			{% include 'partials/pagination.html.twig' %}
+		{% endif %}
+		{# End Pagination #}
+	</main>
+{% endblock %}

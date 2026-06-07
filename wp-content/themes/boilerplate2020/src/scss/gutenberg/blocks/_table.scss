@@ -1,0 +1,38 @@
+.wp-block-table {
+	table {
+		border: 1px solid $gray-400;
+	}
+
+	td,
+	th {
+		padding: .5rem .75rem;
+		font-size: 1rem;
+	}
+
+	th {
+		background: $green;
+		color: $white;
+		vertical-align: bottom;
+		font-weight: normal;
+	}
+
+
+
+	&.is-style-regular {
+
+	}
+
+	&.is-style-stripes {
+		tbody tr:nth-child(odd) {
+			background-color: $gray-200;
+		}
+	}
+
+	figcaption {
+        color: $white;
+        background: $gray-800;
+		font-size: 0.875rem;
+		margin-top: 0;
+		padding: 1.25rem;
+    }
+}

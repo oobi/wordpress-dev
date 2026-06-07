@@ -1,0 +1,20 @@
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		{% if has_thumb %}
+			<td class="image" valign="top">
+				{% set image = post.thumbnail %}
+				{% set width = newsletter.thumbnail.sizes['email-article'].width %}
+				{% set height = newsletter.thumbnail.sizes['email-article'].height %}
+
+				<a href="{{ post.link }}">
+					<img src="{{ image.src( 'email-article-large' ) }}" width="{{width}}" height="{{height}}" alt="{{ image.alt | default( post.title ) | escape }}" style="max-width:{{width}}px">
+				</a>
+			</td>
+		{% endif %}
+
+		<td class="text {% if config.text_padding %} text-padding {% endif %}" valign="top">
+			<h2 class="post-title"><a href="{{ post.link }}" class="title__link"><span>{{ post.title }}</span></a></h2>
+			{% include 'email/partials/excerpt.html.twig' %}
+		</td>
+	</tr>
+</table>

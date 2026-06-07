@@ -1,0 +1,15 @@
+{% set hideFeature = post.get_field('_buzz_print_view_suppress_feature') %}
+
+<article class="article {{function('get_print_classes', post.id)}}">
+	{% if post.thumbnail and hideFeature != 'yes' %}
+	<div class="article__image">
+		<img src="{{ post.thumbnail.src('article_hero') }}"
+				 alt="{{ post.title | escape  }}">
+	</div>
+	{% endif %}
+	<div class="article__content">
+		<h1 class="page-title">{{ post.title }}</h1>
+		{# <p class="dateline">{{post.post_date|date('F jS, Y')}}</p> #}
+		{{ post.content }}
+	</div>
+</article>

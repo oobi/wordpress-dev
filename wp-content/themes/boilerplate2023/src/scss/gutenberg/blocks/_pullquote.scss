@@ -1,0 +1,117 @@
+.wp-block-pullquote {
+	@include block-margins();
+
+	color: var(--bs-primary);
+
+	padding: 0;
+	position: relative;
+
+	// decoration
+	&::before {
+		content: "";
+		background: currentColor;
+		mask-image: url(../images/quotes.png);
+		mask-size: contain;
+		mask-repeat: no-repeat;
+		background-size: contain;
+		display: block;
+		font-size: 6.2rem;
+		font-weight: 500;
+		line-height: 1.2;
+		margin: 0 auto 1rem auto;
+		text-align: center;
+		height: 32px;
+		width: 32px;
+
+
+		@include media-breakpoint-up(md) {
+			height: 42px;
+			width: 48px;
+			margin-bottom: 2.625rem;
+		}
+	}
+
+	&.has-background {
+		padding: 2rem;
+	}
+
+	blockquote {
+		border: none;
+		margin: 0;
+		padding: 0;
+		max-width: 800px;
+		margin: 0 auto;
+
+		.editor-styles-wrapper & {
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+
+		p {
+			font-family: var(--ff-serif-font-family);
+			font-weight: $font-weight-semibold;
+
+			font-size: 1.25rem;
+			line-height: 1.09;
+			letter-spacing: 1.1px;
+			max-width: 100%;
+
+			@include media-breakpoint-up(md) {
+				font-size: 1.5rem;
+			}
+
+			@include media-breakpoint-up(lg) {
+				font-size: 2rem;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	cite {
+		font-size: 0.75rem;
+		font-weight: $font-weight-bold;
+		text-transform: uppercase;
+		font-family: $font-family-sans-serif;
+		line-height: 1.22;
+		font-style: normal;
+		margin-top: 1rem;
+		display: block;
+
+		@include media-breakpoint-up(md) {
+			margin-top: 2.875rem;
+		}
+	}
+
+	&.alignleft,
+	&.alignright {
+		max-width: calc(100% - 4rem);
+
+		blockquote {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		p {
+			font-size: 1.375rem;
+		}
+	}
+
+	&.alignleft {
+		text-align: left;
+
+		&::before {
+			margin-left: 0;
+		}
+	}
+
+	&.alignright {
+		text-align: right;
+
+		&::before {
+			margin-right: 0;
+		}
+	}
+}

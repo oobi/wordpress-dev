@@ -1,0 +1,32 @@
+.slider.slider-block {
+    position: relative;
+
+    .owl-dots {
+        text-align: center;
+        margin-top: .5rem;
+        width: 100%;
+
+		&.disabled {
+			display: none;
+		}
+
+        .owl-dot {
+            padding: 0.25rem !important;
+            margin: 0 2px;
+
+            span {
+                width: 8px;
+                height: 8px;
+                border: 1px solid rgba($black, 0.5);
+                border-radius: 100%;
+                display: block;
+            }
+
+            &.active {
+                span {
+                    background: rgba($black, 0.5);
+                }
+            }
+        }
+    }
+}

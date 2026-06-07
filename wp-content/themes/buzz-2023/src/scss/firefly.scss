@@ -1,0 +1,43 @@
+// @see https://getbootstrap.com/docs/5.0/customize/sass/
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "variables";
+
+// include the rest of Bootstrap
+
+@import 'css-vars';
+@import 'bootstrap-config';
+@import 'mixins';
+
+// CUSTOM CODE BELOW HERE
+@import "print";
+@import "layout/primary-navigation";
+@import "layout/offcanvas";
+
+@import "partials/index";
+
+@import "blocks/index";
+
+// vendor code
+@import "~baguettebox.js/src/baguetteBox";
+
+.gb-container {
+}
+
+body {
+	background: var(--bz-body-bg);
+	color: var(--bz-body-color);
+}
+
+.wp-site-blocks {
+	max-width: var(--bz-content-max-width); 
+	margin: 0 auto; 
+	background: var(--bz-content-bg);
+}
+
+#sbi_images {
+	padding: 1px !important;
+}

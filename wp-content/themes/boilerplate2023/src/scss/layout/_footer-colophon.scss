@@ -1,0 +1,46 @@
+.colophon {
+	text-transform: uppercase;
+	font-size: .75rem;
+	background: var(--ff-colophon-bg);
+	color: var(--ff-colophon-color);
+	border-top: 1px solid rgba($white, .2);
+
+	a {
+		color: var(--ff-colophon-link);
+		text-decoration: var(--colophon-link-decoration);
+
+		&:hover {
+			color: var(--ff-colophon-link-hover);
+			text-decoration: var(--ff-colophon-link-decoration-hover);
+		}
+	}
+
+	.nav-link {
+		color: var(--ff-colophon-link);
+	}
+
+	.site-credit {
+		a {
+			padding: 0 .5rem;
+		}
+	}
+
+	.navbar-text {
+		padding: 0 .5rem;
+	}
+
+	.footer-menu {
+		@include media-breakpoint-down(lg) {
+			width: 100%;
+			margin-bottom: 1rem;
+
+			.navbar-nav {
+				justify-content: center;
+			}
+
+			.nav-item {
+				text-align: center;
+			}
+		}
+	}
+}

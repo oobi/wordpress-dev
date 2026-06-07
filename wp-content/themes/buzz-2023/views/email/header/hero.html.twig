@@ -1,0 +1,9 @@
+{% if newsletter.thumbnail %}
+	<tr>
+		<td>
+			{% set width = newsletter.thumbnail.sizes['email-hero'].width %}
+			{% set height = newsletter.thumbnail.sizes['email-hero'].height %}
+			<img src="{{ newsletter.thumbnail.src('email-hero') }}" width="{{width}}" height="{{height}}" alt="{{ site.title | escape }} {{ newsletter.title | escape }}">
+		</td>
+	</tr>
+{% endif %}

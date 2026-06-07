@@ -1,0 +1,43 @@
+{% macro dropdown(item) %}
+{% if item.children %}
+	{% set is_ancestor = item.current or item.current_item_ancestor %}
+	{% set show = is_ancestor ? 'show' : '' %}
+
+	<ul class="collapse multi-collapse navbar-nav {{show}}" id="collapse-{{ item.id }}">
+		{% for child in item.children %}
+			<li class="nav-item {{ child.classes | join(' ') }}">
+				<div class="d-flex align-childs-center justify-content-between offcanvas-nav-link-wrapper">
+					<a href="{{ child.link }}" class="offcanvas-nav-link-child nav-link">{{ child.title }}</a>
+					{% if child.children %}
+						<a class="nav-link offcanvas-nav-link-dropdown {% if child.children %}dropdown-toggle{% endif %}" id="page-{{ child.id }}" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-{{ child.id }}" role="button" {% if child.children %} href="#collapse-{{ child.id }}" {% else %} href="{{ child.link }}" {% endif %} {% if child.target %} target="{{child.target}}" {% endif %}>
+							{% if child.current %}
+								<span class="sr-only">(current)</span>
+							{% endif %}
+						</a>
+					{% endif %}
+				</div>
+
+				{{ _self.dropdown(child) }}
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+{% endmacro %}
+{% if menu %}
+	{% for item in menu %}
+		<li class="nav-item {{ item.classes | join(' ') }}">
+			<div class="d-flex align-items-center justify-content-between offcanvas-nav-link-wrapper">
+				<a href="{{ item.link }}" class="offcanvas-nav-link-item nav-link">{{ item.title }}</a>
+				{% if item.children %}
+					<a class="nav-link offcanvas-nav-link-dropdown {% if item.children %}dropdown-toggle{% endif %}" id="page-{{ item.id }}" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-{{ item.id }}" role="button" {% if item.children %} href="#collapse-{{ item.id }}" {% else %} href="{{ item.link }}" {% endif %} {% if item.target %} target="{{item.target}}" {% endif %}>
+						{% if item.current %}
+							<span class="sr-only">(current)</span>
+						{% endif %}
+					</a>
+				{% endif %}
+			</div>
+
+			{{ _self.dropdown(item) }}
+		</li>
+	{% endfor %}
+{% endif %}

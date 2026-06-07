@@ -1,0 +1,21 @@
+{% if related %}
+<section id="related-posts" class="related-content latest-news container">
+	<div class="row justify-content-center">
+		<div class="col-12">
+			<div class="related-content-heading-wrapper">
+				<h2 class="related-content-heading">You might also like</h2>
+			</div>
+		</div>
+		{% for item in related %}
+
+			{% if post.post_type == 'event' %}
+				{% include 'partials/event-partial.html.twig' with {'post': item} %}
+			{% else %}
+				<div class="col-12 col-md-6 col-lg-3 news-item">
+					{% include 'partials/news-item.html.twig' with {'post': item, 'image_size': 'cropped_square_thumbnail'} %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>
+{% endif %}

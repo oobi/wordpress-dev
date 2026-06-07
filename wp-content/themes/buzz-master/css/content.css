@@ -1,0 +1,203 @@
+/*################################################################################################*/
+/* GLOBALS */
+/*################################################################################################*/
+
+.highlight						{ font-size:18px; font-weight:bold; }
+
+#content .comment-edit-link,
+#content .post-edit-link		{ display:block; position:absolute; right:5px; top:5px; padding:3px 10px; font-size:13px;
+								  background:#FFF; border:1px solid #DDD; color:#777; text-decoration:none; }
+#content .comment-edit-link:hover,
+#content .post-edit-link:hover	{ background:#AAA; color:#FFF; text-decoration:none; }
+
+/* add icon to PDF links */
+#content A[href$=".pdf"] 		{ padding-left:20px;
+								  background:url(../images/default/pdf.png) no-repeat left center; }
+
+A.more 							{ white-space:nowrap; }
+
+.pullquote 						{ margin:30px 0; padding:30px 50px; position:relative; border-left:none;
+								  background:#f1f1f1;
+								  font-size:18px; font-style:normal; color:#333; line-height:20px; }
+.pullquote P:before 			{ position:absolute; top:25px; left:10px;
+								  content:"\201C"; font-size:60px; color:#CCC; }
+.pullquote P:after 				{ position:absolute; bottom:-5px; right:10px;
+								  content:"\201D"; font-size:60px; color:#CCC; }
+
+.wp-caption-text				{ padding:5px; color:#999; }
+
+.aligncenter 					{ display:block; margin-left:auto; margin-right:auto; }
+
+
+
+/*================================================================================================*/
+/* small devices (desktops, 768px and up) */
+@media (min-width: 768px) {
+	.pullquote 					{ margin:30px 60px; }
+}
+
+/*################################################################################################*/
+/* IMAGES AND ALIGNMENT */
+/*################################################################################################*/
+
+.content-txt IMG,
+.content-txt .wp-caption		{ max-width:100%; }
+
+.content-txt IMG 				{ border:1px solid #cdcdcd; padding:8px;
+								  background:#f0f0f0; }
+
+/* handset only */
+@media (max-width: 767px) {
+	.alignleft,
+	.alignright 				{ margin:0; float:none; display:block; }
+}
+
+/*================================================================================================*/
+/* small devices (desktops, 768px and up) */
+@media (min-width: 768px) {
+	#main .alignleft 				{ float:left; margin:5px 20px 20px 0; }
+	#main .alignright 				{ float:right; margin:5px 0 20px 20px; }
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	#main .alignright 				{ max-width:60%; }
+	#main .wp-caption.alignnone > IMG
+									{ display:block; }
+	#main IMG.size-large			{ width:100%; }
+}
+
+/*################################################################################################*/
+/* TYPEFACES */
+/*################################################################################################*/
+
+/* Defaults (bootstrap) */
+#social A,
+body,td 						{ font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+/* raleway */
+H1,H2,H3,H4,H5,H6 				{ font-family:'Raleway', sans-serif; }
+
+/* arial */
+.pullquote P:before,
+.pullquote P:after 				{ font-family:arial, sans-serif; }
+
+/*################################################################################################*/
+/* HEADERS */
+/*################################################################################################*/
+
+#featured-image H1 				{ margin:0; }
+#main H1 						{ margin:10px 0 20px; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	#featured-image H1,
+	#main H1 					{ font-size:26px; }
+
+}
+
+/*################################################################################################*/
+/* BLOG */
+/*################################################################################################*/
+
+#content .post-item 					{ position:relative; }
+#content .post-item H3 A 				{ text-decoration:none; }
+#content .post-item A 					{ }
+#content .post-thumb 					{ }
+#content .post-main 					{ }
+
+#content .post-item .post-edit-link		{ position:absolute; top:0; right:0; }
+
+/* pagination */
+#content .paging-navigation				{ text-align:center; }
+#content .pagination 					{ padding:20px 0; height:40px;
+										  text-align:center; }
+#content .pagination .page-numbers 		{ padding:0 8px; }
+#content .pagination A					{  }
+#content .pagination .current 			{  }
+
+
+
+
+
+
+/*################################################################################################*/
+/* GALLERIES */
+/*################################################################################################*/
+
+.gallery									{ margin:20px 0; padding:0; }
+.gallery:after								{ display:block; content:" "; overflow:hidden; height:0; clear:both; float:none; }
+.gallery .gallery-item 						{ margin:0 3% 3% 0; margin-top:0 !important; width:30% !important; position:relative; }
+.gallery .gallery-item:nth-of-type(3) 		{ margin-right:0; }
+.gallery .gallery-icon						{ width:100%; height:auto; padding:0; }
+.gallery IMG								{ width:100%; height:auto; border:0 !important; }
+.gallery A:hover IMG						{ opacity:0.5; }
+.gallery DL.gallery-item + BR 				{ display:none; }
+
+.gallery .gallery-caption 					{ position:absolute; bottom:0; left:0; width:100%; padding:3px 5px;
+											  background:rgba(0,0,0,0.7);
+											  text-align:left; color:#FFF; font-size:12px; }
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.gallery .gallery-item 					{ margin:0 1% 1% 0; width:24% !important; }
+	.gallery .gallery-item:nth-of-type(3) 	{ margin-right:1%; }
+	.gallery .gallery-item:nth-of-type(4) 	{ margin-right:0; }
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.gallery .gallery-item 					{ margin:0 1% 1% 0; width:19% !important; }
+	.gallery .gallery-item:nth-of-type(3),
+	.gallery .gallery-item:nth-of-type(4) 	{ margin-right:1%; }
+	.gallery .gallery-item:nth-of-type(5) 	{ margin-right:0; }
+}
+
+
+
+/*################################################################################################*/
+/* TABLES */
+/*################################################################################################*/
+
+.table-banded,
+.table-standard							{ border-collapse:collapse; width:100%; border:5px solid; }
+.table-banded TD,
+.table-standard TD						{ border:1px solid; padding:8px 12px;
+										  font-size:12px; color:#333; }
+.table-banded THEAD TD,
+.table-standard THEAD TD,
+.table-banded TH,
+.table-standard TH						{ border:0;
+										  font-size:16px; font-weight:bold; background:#CCC; }
+
+.table-banded TD						{ border:0; border-right:1px solid; }
+.table-banded TR.table-row-header TD	{ border:0; }
+
+.table-banded TR:nth-of-type(even) TD	{ }
+
+/* responsive tables */
+.table-responsive						{ border:0; }
+
+
+
+
+
+
+/*################################################################################################*/
+/* GRAVITY FORMS */
+/*################################################################################################*/
+
+.gform_footer INPUT[type='submit'] 		{ margin-bottom:5px; border:0; border-radius:0;
+										  color:#FFF; }
+.gform_footer INPUT[type='submit']:hover{ background-color:#333; }

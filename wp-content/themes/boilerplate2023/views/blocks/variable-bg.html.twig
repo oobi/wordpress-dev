@@ -1,0 +1,10 @@
+<div class="variable-bg-block {{fields.alignment}} {{attributes.className}}"
+	style="background-image:url({{backgrounds[0]}})"
+	data-bg='{{backgrounds | json_encode }}'
+	data-random="{{ fields.random_start }}"
+	data-delay="{{ fields.delay | default(8000) }}">
+
+	<div class="content">
+		{{ content}}
+	</div>
+</div>

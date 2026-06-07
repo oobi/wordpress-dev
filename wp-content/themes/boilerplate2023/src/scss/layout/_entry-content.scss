@@ -1,0 +1,21 @@
+.entry-content {
+	font-size: var(--ff-base-font-size);
+}
+
+.article-hero {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+
+	@include media-breakpoint-up(lg) {
+		height: 450px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		height: 600px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		height: 770px;
+	}
+}

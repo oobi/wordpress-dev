@@ -1,0 +1,48 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/article-sidebar/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-buzz-article-sidebar .bz-article-sidebar-category {
+  padding: 1.5rem 0 0.75rem 0;
+  font-size: 110%;
+  text-transform: uppercase;
+  border-top: 1px solid #CCC;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-title {
+  border-bottom: 1px solid #CCC;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-list + * {
+  margin-top: 1.5rem;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-list-item {
+  line-height: 1.1;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-list-item a {
+  text-decoration: none;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-list-item a:hover {
+  text-decoration: underline;
+}
+.wp-block-buzz-article-sidebar .bz-article-sidebar-list-item .post-status {
+  font-size: 11px;
+  color: #666;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

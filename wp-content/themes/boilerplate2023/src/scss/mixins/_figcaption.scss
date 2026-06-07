@@ -1,0 +1,11 @@
+@mixin figcaption() {
+    figcaption {
+        color: $gray-500;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        margin-top: 0;
+        padding: 1.25rem 0;
+        letter-spacing: 0.58px;
+		text-align: center;
+    }
+}

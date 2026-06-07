@@ -1,0 +1,216 @@
+/**********************************************************************
+ * imports and variables
+ **********************************************************************/
+
+@import "base/bootstrap/functions";
+@import "base/bootstrap/mixins";
+
+// Custom variables to override Bootstrap defaults
+@import 'base/variables';
+
+
+/**********************************************************************
+ * email view
+ **********************************************************************/
+
+HTML 	{ margin-top:0 !important; } // remove admin bar padding
+
+#email-view {
+	padding:0; margin:0;
+
+	// Strip fancy background styling from Customizer (leaving just color and default fonts)
+	background-color:$body-bg; background-image:initial !important; background-position:initial !important;
+	background-repeat:initial !important; background-attachment:initial !important; background-size:initial !important;
+	font-size:15px; color:$black;
+
+	IMG 		{ display:block; margin:0; }
+	A 			{ text-decoration:none; color:$primary; }
+	H2 			{ margin:5px 0 0; line-height:normal; }
+
+	.btn {
+		background-color:$gray-800;
+		font-weight:bold;
+
+		&, A 		{ color:$white; }
+		A 			{ display:block; }
+		&__link 	{ padding:5px 20px; font-size:12px; }
+		// &__link A 	{ border-top:5px solid $black; border-bottom:5px solid $black;
+		// 			  border-left:15px solid $black; border-right:15px solid $black; }
+	}
+
+	.section-title 		{
+		text-align:center;
+		font-size: 24px;
+	}
+
+	/************************************************************************
+	 * VIEW IN BROWSER
+	 ************************************************************************/
+
+	 #view-in-browser {
+		font-size:12px; color:$black; text-align:center;
+
+		A 			{ color:$black; text-decoration:underline; }
+	}
+
+	/************************************************************************
+	 * HEADER
+	 ************************************************************************/
+
+	 #header {
+		&.text-header {
+			.title 		{ font-size:26px; }
+			.subtitle 	{ font-size:16px; }
+		}
+	}
+
+	/************************************************************************
+	 * NAVBAR
+	 ************************************************************************/
+
+	 #navbar {
+		font-size:14px; color:$white;
+
+		.view-full 	{ font-weight:bold; }
+		A 			{ color:$white; text-transform:uppercase; }
+	}
+
+	/************************************************************************
+	 * BODY
+	 ************************************************************************/
+
+	#email-body {
+		background-color:$white;
+
+		.read-more {
+			text-decoration:underline;
+		}
+	}
+
+
+	/************************************************************************
+	 * FEATURED ARTICLES
+	 ************************************************************************/
+
+	 .featured-wrapper {
+
+		.featured + .featured {
+			> TD {
+				padding-top:20px;
+			}
+		}
+
+		.text.text-padding {
+			padding:10px 20px;
+		}
+
+		// IMAGE RIGHT TEMPLATE
+		.template-image-right {
+			padding:20px;
+
+			.text 			{
+				padding-right:20px;
+			}
+		}
+
+		// IMAGE LEFT TEMPLATE
+		.template-image-left {
+			padding:20px;
+
+			.text 			{ padding-left:20px; }
+		}
+
+		// IMAGE ABOVE TEMPLATE
+		.template-image-above {
+			padding:20px;
+
+			.text 			{ padding-top:10px; }
+		}
+	}
+
+	/************************************************************************
+	 * INDEX ARTICLES
+	 ************************************************************************/
+
+	 .index-wrapper {
+
+		&__article 			{ font-size:14px; }
+		.post-title			{ margin:0; padding:0;
+							  font-size:18px; }
+		.title,
+		.excerpt 			{ padding-bottom:0; }
+		.excerpt P 			{ margin-top:5px; }
+		.image 				{ padding:0; }
+		.no-image 			{ border-top:5px solid $gray-800; }
+
+		// LIST TEMPLATE
+		.template-list {
+			.has-thumb {
+				.title,
+				.excerpt,
+				.link 				{ padding-left:15px; }
+			}
+			.text-padding {
+				.title			{ padding:15px 20px; }
+				.excerpt 		{ padding:0 20px 15px; }
+			}
+		}
+
+		// GRID TEMPLATE
+		.template-grid {
+			.has-thumb {
+				.title 			{ padding-top:15px; }
+			}
+			.text-padding {
+				.title			{ padding:15px 20px; }
+				.excerpt 		{ padding:0 20px 15px; }
+			}
+		}
+	}
+
+	/************************************************************************
+	 * DATES
+	 ************************************************************************/
+
+	.dates-wrapper {
+		.date 				{ margin-bottom:5px; }
+		.title,
+		.description		{ margin:0 0 5px; }
+		.description 		{ padding-bottom:8px;
+							  font-size:12px; }
+
+		// LIST 2 COLUMN TEMPLATE
+		.template-list-2col {
+			.title,
+			.description 	{ padding-left:20px; }
+
+			.date {
+				&__month	{ padding:3px 0;
+							  text-transform:uppercase; text-align:center; font-size:12px; }
+				&__day 		{ padding:5px 0;
+							  background-color:$white; text-align:center; font-size:20px; }
+			}
+		}
+
+		// ROW 3 COLUMN TEMPLATE
+		.template-row {
+			.date {
+				border-top: 5px solid #000;
+			}
+		}
+	}
+
+	/************************************************************************
+	 * FOOTER
+	 ************************************************************************/
+
+	 #email-footer {
+		background-color:$black;
+
+		TABLE 			{ text-align:center; font-size:12px; }
+		UL 				{ display:inline; list-style:none; padding:0; margin:0; }
+
+		.unsubscribe,
+		.credit .image 	{ padding-left:10px; }
+	}
+}

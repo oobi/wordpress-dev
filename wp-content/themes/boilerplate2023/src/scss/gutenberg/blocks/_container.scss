@@ -1,0 +1,27 @@
+.gb-container {
+	// force square offset ratio
+	&.is-style-square {
+		position: relative;
+
+		&::before {
+			content: '';
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding-top: 100%;
+			position: static !important; //for the editor
+		}
+
+		& > .gb-inside-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+}

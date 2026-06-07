@@ -1,0 +1,22 @@
+<table cellpadding="0" cellspacing="0" width="100%">
+
+	{% if has_thumb %}
+		<tr>
+			<td class="image" valign="top">
+				{% set image = post.thumbnail %}
+				<a href="{{ post.link }}">
+					<img src="{{ image.src( 'email-article-large' ) }}" alt="{{ image.alt | default( post.title ) | escape }}">
+				</a>
+			</td>
+		</tr>
+	{% endif %}
+
+	<tr>
+		<td class="text {% if config.text_padding %} text-padding {% endif %}" valign="top">
+			<h2 class="post-title"><a href="{{ post.link }}" class="title__link">{{ post.title }}</a></h2>
+			{% include 'email/partials/excerpt.twig' %}
+			{% include 'email/partials/readmore.twig' %}
+		</td>
+	</tr>
+
+</table>

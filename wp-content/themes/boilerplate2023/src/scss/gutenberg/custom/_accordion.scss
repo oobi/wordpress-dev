@@ -1,0 +1,81 @@
+.accordion {
+    border-bottom: 1px solid $gray-200;
+    border-top: 1px solid $gray-200;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+
+	@include max-content-width();
+
+    & + .accordion {
+        margin-top: calc(-3rem - 2px);
+        border-top: none;
+    }
+
+    &-item {
+        background: none;
+		border-left: none;
+		border-right: none;
+    }
+
+    &-collapse {
+        padding: 1rem;
+        background: $gray-100;
+    }
+
+    &-header {
+        background: none;
+    }
+
+    &-content {
+        padding: 0.5rem 0 3.25rem 0;
+    }
+
+    &-button {
+        color: var(--bs-primary);
+        margin-bottom: 0;
+        padding: 1rem;
+        font-size: 1.25rem;
+        box-shadow: none !important;
+
+        &:focus {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        &::after {
+            background: none !important;
+			color: var(--bs-primary);
+            content: "\2b";
+            font-weight: $font-weight-light;
+            font-family: $icon-font-family;
+			font-size: 1.5rem;
+			line-height: 0;
+            width: unset;
+            height: unset;
+        }
+
+        &:not(.collapsed) {
+            background: $gray-100;
+            color: var(--bs-primary);
+
+            &::after {
+                content: "\f068";
+            }
+        }
+    }
+
+	&-body {
+		padding: 0;
+	}
+}
+
+/**
+ * make the accordion bounds show in the editor a little easier
+ */
+.editor-styles-wrapper {
+    [data-type="carbon-fields/accordion"] {
+        border: 1px dotted $gray-600;
+        padding: 1rem;
+    }
+}

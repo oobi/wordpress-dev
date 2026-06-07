@@ -1,0 +1,123 @@
+/* THEME SPECIFIC OVERRIDES */
+
+.home #main,
+.single-newsletter #main 						{ padding-top:0; }
+
+
+/*******************************************************************
+ * NEWSLETTER VIEW
+ *******************************************************************/
+
+.home #main 									{ padding:0; }
+.home #main IMG				 					{ width:100%; }
+
+#main #featured-articles						{ padding-bottom:0; }
+#main .feature-thumb 							{ padding:0; overflow:hidden; position:relative; }
+.home .feature-thumb #social 					{ display:none; }
+#main .feature-text								{ padding:30px 40px; overflow:hidden; }
+#main .feature-text	H3 							{ margin-top:0; margin-bottom:15px; }
+
+.home #main .feature-text H3,
+.single-newsletter #main .feature-text H3,
+#main .feature-text A							{ color:#333; }
+#main .feature-text H3 A						{ text-transform:none; }
+
+#main #index-articles 							{ padding:0 15px; }
+
+/* index articles */
+.article-container .article-text 				{ padding-left:0; }
+.article-container .article-text H3 			{ font-size:16px; }
+
+/* index articles - no featured image */
+.article-container .article-container,
+.article-container .article-wrapper 			{ padding:0; }
+.article-container .article-text.no-img 		{ margin-bottom:0; }
+.article-container .article-text.no-img H3		{ margin:0; }
+.article-container .article-text.no-img P		{ margin:0; padding-top:10px; }
+.article-container .article-text.no-img SPAN 	{ font-size:11px; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.feature-container 								{ height:360px; overflow:hidden; position:relative; }
+	#main .feature-thumb 							{ height:100%; }
+	#main .feature-thumb IMG						{ width:100%; height:100%; object-fit: cover; }
+	#main .feature-text								{ height:100%; padding:25px 25px 0 25px; }
+	#main .feature-text	H3 							{ font-size:20px; }
+
+	#main .tags										{ margin-top:10px; }
+
+	.home .feature-thumb #social 					{ display:block; position:absolute; top:20%; left:0; }
+	.home .feature-thumb #social .social-link		{ display:block; }
+	
+	
+	/* homepage articles - no featured image */
+	.article-container .article-wrapper 			{ border:1px solid #cdcdcd; padding:8px;
+												  	  background:#f0f0f0; }
+	.article-container .article-text.no-img 		{ background:#FFF; }
+	.article-container .article-text.no-img H3		{ font-size:18px; }
+	.article-container .article-text.no-img 		{ padding:30px 20px; }
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 922px) {
+	#main .feature-text				{ padding:30px 40px 0 40px; }
+	#main .feature-text	H3 			{ font-size:24px; }
+}
+
+/*================================================================================================*/
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px ) {
+	#main .feature-text				{ padding:50px 40px 0 40px; }
+	.feature-container 				{  }
+}
+
+
+/*******************************************************************
+ * ARTICLE VIEW
+ *******************************************************************/
+
+#featured-image .post-title 		{ padding:0;
+									  background:none; }
+
+#content .post-title 				{ font-size:32px; }
+
+#content H2 						{ font-size:22px; font-weight:bold; color:#747474; }
+#content H3 						{ font-size:18px; font-weight:bold; color:#747474; }
+
+/* sidebar */
+#sidebar .this-issue H3 			{ position:relative; padding:0; height:34px; line-height:34px;
+									  font-size:14px; font-weight:bold; color:#010101; text-align:center; }
+#sidebar .this-issue H3:before		{ content:""; position:absolute; bottom:0; left:0; width:0; height:0;
+									  border-top:17px solid; border-bottom:17px solid; border-left:8px solid #FFF !important; }
+#sidebar .this-issue H3:after		{ content:""; position:absolute; bottom:0; right:0; width:0; height:0;
+									  border-top:17px solid; border-bottom:17px solid; border-right:8px solid #FFF !important; }
+#sidebar .this-issue H4 			{ color:#747474; }
+#sidebar .this-issue UL UL LI		{ border-bottom:1px dashed #bfbfbf; }
+#sidebar .this-issue A				{ padding:8px 0; }
+#sidebar .this-issue .featured SPAN { display:block; padding:0;
+									  text-transform:uppercase; font-weight:bold; }
+
+/* quotes */
+.pullquote							{ margin:30px 0; border-top:1px dashed #bfbfbf; border-bottom:1px dashed #bfbfbf;
+									  background:none;
+									  text-transform:uppercase; }
+
+/* pagination */
+#article-prevnext .prev 			{ border-right:1px solid #d6d6d6; }
+#article-prevnext .direction 		{ text-transform:uppercase; }
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.single-article #featured-image		{ margin-bottom:15px; }
+}
+
+
+/*******************************************************************
+ * CATEGORY VIEW
+ *******************************************************************/
+
+#content .article-container H3 				{ font-weight:normal; }
+#content .article-container .no-img H3		{ font-weight:bold; }

@@ -1,0 +1,29 @@
+{
+    "name": "firefly/firefly-boilerplate",
+    "description": "Theme by Firefly Interactive",
+    "type":"wordpress-theme",
+    "minimum-stability" : "stable",
+    "authors": [
+        {
+            "name": "Chris Carey",
+            "email": "ccarey@fi.net.au"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.1",
+        "htmlburger/carbon-fields": "^3.6.8",
+        "timber/timber": "1.24.1",
+        "kirki-framework/kirki": "3.1.9",
+        "djboris88/timber-commented-include": "^2.0",
+        "php81_bc/strftime": "^0.7.6"
+    },
+    "autoload": {
+        "psr-4": { "Firefly\\": "./theme" },
+        "files": [ "./theme/helpers.php" ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

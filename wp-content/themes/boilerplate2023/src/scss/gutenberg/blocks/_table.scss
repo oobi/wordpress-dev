@@ -1,0 +1,51 @@
+.wp-block-table {
+    @include figcaption();
+	@include block-margins();
+
+    table {
+        border: 1px solid $gray-500;
+    }
+
+    td,
+    th {
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+    }
+
+    th {
+        background: var(--bs-primary);
+        color: $white;
+        vertical-align: bottom;
+        font-weight: normal;
+    }
+
+    td,
+    th {
+		border-width: 1px;
+        border-color: $gray-500;
+    }
+
+    &.is-style-regular {
+    }
+
+    &.is-style-stripes {
+        tbody tr:nth-child(odd) {
+            background-color: rgba($primary, 0.1);
+        }
+
+		border-bottom: none;
+
+		td,
+        th {
+            border-color: $gray-500;
+        }
+    }
+
+	// bootstrap overrides our borders in edutor
+	.editor-styles-wrapper & {
+		td,
+		th {
+			border-width: 1px;
+		}
+	}
+}

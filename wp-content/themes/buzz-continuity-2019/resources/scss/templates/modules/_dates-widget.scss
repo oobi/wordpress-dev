@@ -1,0 +1,76 @@
+.widget.buzz-dates {
+	.widget-title {
+		margin-top:0;
+	}
+
+    .date-wrapper {
+        //padding: spacer(8);
+		margin-bottom: spacer(4);
+
+        .date-inner {
+            margin-bottom: 0.7rem;
+		}
+
+        .date,
+        .description {
+            margin-bottom: 0;
+		}
+
+        .title {
+			margin: 0.2rem 0;
+		}
+
+        .description {
+            font-size: 0.8rem;
+            line-height: 0.9rem;
+        }
+	}
+
+    .sidebar & {
+        .date-wrapper {
+			margin-bottom: 1.5rem;
+
+            & .date {
+                font-size: 1.1rem;
+            }
+        }
+	}
+
+	// TEMPLATES
+    &.template-row {
+		.date-inner {
+			border-top: 5px solid $black;
+		}
+
+		.icon {
+			height:2rem; width:auto;
+		}
+
+        .date {
+            position: relative;
+            padding-top: 5px;
+            font-size: 1.2rem;
+        }
+	}
+
+    &.template-list-2col {
+        // date frame
+        .date {
+            &__frame {
+                text-align: center;
+            }
+            &__month {
+                background: $primary;
+                color: white;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+            }
+            &__day {
+                background: white;
+                color: #333;
+                font-size: 1.4rem;
+            }
+        }
+	}
+
+}

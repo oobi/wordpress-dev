@@ -1,0 +1,48 @@
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+// stylelint-disable
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge((
+	0: 0,
+	1: ($spacer * .25),
+	2: ($spacer * .5),
+	3: ($spacer * .75),
+	4: ($spacer * 1),
+	5: ($spacer * 1.25),
+	6: ($spacer * 1.5),
+	7: ($spacer * 1.75),
+	8: ($spacer * 2),
+	9: ($spacer * 2.25),
+	10: ($spacer * 2.5),
+	11: ($spacer * 2.75),
+	12: ($spacer * 3),
+	13: ($spacer * 3.24),
+	14: ($spacer * 3.5),
+	15: ($spacer * 3.75),
+	16: ($spacer * 4),
+	17: ($spacer * 4.25),
+	18: ($spacer * 4.5),
+	19: ($spacer * 4.75),
+	20: ($spacer * 5),
+), $spacers);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+$sizes: map-merge((
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+), $sizes);
+// stylelint-enable
+
+// Get multiple of spacer
+@function spacer( $size : 4 ) {
+	@return 0.25rem * $size;
+	// @return if( map_has_key( $spacers, $key ), map_get( $spacers, $key ), $spacer );
+}

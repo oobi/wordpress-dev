@@ -1,0 +1,67 @@
+{% set columns = data|length / 2 %}
+
+{% if data %}
+	<div class="widget buzz-dates template-{{template}} {{class}}">
+		{% if title %}<h2 class="widget-title">{{title}}</h2>{% endif %}
+
+		<div class="row">
+			{% for col in data | batch(columns) %}
+
+				<div class="col-md-6">
+					{% for key, collection in col %}
+
+						<div class="date-wrapper container">
+							<div class="row">
+
+								{% if show_dates %}
+									<div class="col-3 col-sm-2 col-md-4 col-lg-3 col-xl-2">
+										<div class="date__frame">
+											<div class="date__month">{{collection.date | date("M")}}</div>
+											<div class="date__day">{{collection.date | date("j")}}</div>
+										</div>
+									</div>
+								{% endif %}
+
+								<div class="col">
+
+									{% for date in collection.items %}
+										<div class="row">
+
+											{% if show_icons and date.icon %}
+												<div class="col-3 col-sm-2 col-md-3 col-lg-2 px-2">
+													<img class="icon" src="{{Image(date.icon).src('thumbnail')}}">
+												</div>
+											{% endif %}
+
+											<div class="date-inner col">
+
+												<p class="title">
+
+													{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+													{{date.title}}
+													{% if date.url %}
+														{% if link_icon %}
+															<i class="icon {{link_icon}}"></i>
+														{% endif %}
+														</a>
+													{% endif %}
+												</p>
+
+												{% if date.description %}
+													<div class="description">{{date.description | nl2br}}</div>
+												{% endif %}
+											</div>
+
+										</div> <!-- row -->
+									{% endfor %}
+
+								</div>
+							</div>
+						</div>
+
+					{% endfor %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}

@@ -1,0 +1,277 @@
+.gform_wrapper {
+
+}
+
+.gform_heading {
+    margin-bottom: $spacer;
+}
+
+// Show an alert when the form has invalids
+.validation_error {
+    @extend .alert;
+    @extend .alert-danger;
+}
+
+.gform_body {
+
+}
+
+.gform_fields {
+    padding-left: 0;
+    list-style: none;
+}
+
+// Input label
+.gfield_label {
+
+    .gfield_required {
+        margin-left: ($spacer * .25);
+        color: theme-color('danger');
+    }
+
+    // style the label when the input in invalid
+    .gfield_error & {
+        color: theme-color('danger');
+    }
+}
+
+// Field description
+.gfield_description {
+    margin-top: ($spacer * .5);
+    font-size: ($font-size-base * .75);
+
+    .gfield_error & {
+        color: theme-color('danger');
+    }
+}
+
+// section title from section break
+.gsection_title {
+    padding-top: $spacer;
+    border-top: 1px solid gray('200');
+    color: theme-color('primary');
+}
+
+.gf_progressbar_wrapper {
+    margin-bottom: $spacer;
+}
+
+.gf_progressbar_title {
+    font-size: $h5-font-size;
+}
+
+.gf_progressbar {
+    @extend .progress;
+}
+
+.gf_progressbar_percentage {
+    @extend .progress-bar;
+    @extend .progress-bar-striped;
+    @extend .progress-bar-animated;
+}
+
+// Standard inputs
+.gfield {
+    margin-bottom: $spacer;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+        @extend %form-control;
+    }
+
+    select {
+        @extend select;
+        @extend .form-control;
+        @extend .custom-select;
+    }
+
+    // Show the validation error colors
+    &.gfield_error input {
+        border-color: theme-color('danger');
+        color: theme-color('danger');
+    }
+}
+
+// Style checkboxes and radios
+.gfield_checkbox,
+.gfield_radio {
+    padding-left: 0;
+    list-style: none;
+
+    input {
+        margin-right: ($spacer * .25);
+    }
+}
+
+.gform_page_footer {
+
+    .gform_button {
+        @extend .btn;
+        @extend .btn-outline-success;
+    }
+
+    .gform_next_button {
+        @extend .btn;
+        @extend .btn-outline-primary;
+    }
+
+    .gform_previous_button {
+        @extend .btn;
+        @extend .btn-outline-secondary;
+    }
+}
+
+// Style the footer and submit button
+.gform_footer {
+    input[type="submit"],
+    input[type="button"] {
+        @extend .btn;
+        @extend .btn-outline-primary;
+    }
+}
+
+// Complex pre built gravity fields collections eg name, address
+.ginput_complex {
+    display: flex;
+    flex-wrap: wrap;
+
+    span[class*="name_"] {
+        flex: 1;
+        &:not(:last-of-type) {
+            margin-right: $spacer;
+        }
+        label {
+            margin-top: ($spacer * .5);
+            font-size: ($font-size-base * .75);
+
+            .gfield_error & {
+                color: theme-color('danger');
+            }
+        }
+    }
+
+    span[class*="address_"] {
+        margin-bottom: $spacer;
+
+        label {
+            margin-top: ($spacer * .5);
+            font-size: ($font-size-base * .75);
+
+            .gfield_error & {
+                color: theme-color('danger');
+            }
+        }
+    }
+
+    .address_line_1,
+    .address_line_2 {
+        width: 100%;
+    }
+
+    .address_city,
+    .address_state,
+    .address_zip,
+    .address_country {
+        width: 50%;
+    }
+
+    .address_city,
+    .address_zip {
+        padding-right: ($spacer * .5);
+    }
+
+    .address_state,
+    .address_country {
+        padding-left: ($spacer * .5);
+    }
+}
+
+// Style the time prebuilt fields
+.clear-multi {
+    display: flex;
+
+    .ginput_container_time {
+        flex: 1;
+        &:not(:last-of-type) {
+            margin-right: $spacer;
+        }
+
+        label {
+            margin-top: ($spacer * .5);
+            font-size: ($font-size-base * .75);
+
+            .gfield_error & {
+                color: theme-color('danger');
+            }
+        }
+    }
+}
+
+// Style the date picker - this acts like a modal and is not part of the form
+.ui-datepicker {
+    display: none;
+    @extend .dropdown-menu;
+    padding: $spacer;
+
+    thead th span {
+        font-weight: normal;
+    }
+
+    .ui-datepicker-header {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: $spacer;
+    }
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+        display: block;
+        width: 50%;
+        margin-bottom: $spacer * .5;
+        cursor: pointer;
+        color: $primary !important;
+        font-weight: bold;
+
+        &:hover {
+            color: darken($primary, 10%) !important;
+        }
+    }
+
+    .ui-datepicker-next {
+        text-align: right;
+    }
+
+    .ui-datepicker-title {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .ui-datepicker-calendar {
+        width: 100%;
+
+        th span {
+            font-weight: 700;
+        }
+
+        th,
+        tr td {
+            text-align: center;
+        }
+    }
+
+    .ui-datepicker-month,
+    .ui-datepicker-year {
+        @extend select;
+        @extend .form-control;
+        @extend .custom-select;
+        width: 47.5%;
+        background-color: $white;
+    }
+}

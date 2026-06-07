@@ -1,0 +1,50 @@
+{% for post in articles %}
+
+	{% if config.show_thumb %}
+		{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+	{% endif %}
+
+	{% if has_thumb %}
+		{% set overlay_title = config.overlay_title %}
+		{% set overlay_title_css = 'has-overlay' %}
+	{% endif %}
+
+	<article id="{{ post.slug }}" class="article-index-item container {{config.article_css}}
+					{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}
+					{{post.classes}}">
+
+		<div class="row">
+
+			{# Image #}
+			{% if has_thumb %}
+				<div class="article-index-image {{ config.thumbnail_css }} {{ overlay_title_css }}">
+					{% include 'partials/thumb.html.twig' with { size: config.thumbnail_size } %}
+
+					{% if overlay_title %}
+						<div class="article-index-image-overlay">
+								{% include 'partials/article-index-title.html.twig' with { post: post, config: config } %}
+								{% include 'partials/tags.html.twig' %}
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+
+			{# Text #}
+			<div class="article-index-text {{config.text_css}}
+									{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+
+				{% if not overlay_title %}
+					{% include 'partials/article-index-title.html.twig' with { post: post, config: config } %}
+					{% include 'partials/tags.html.twig' %}
+				{% endif %}
+
+				<div class="article-index-content">
+					{{ post.content }}
+				</div>
+			</div>
+
+		</div>
+
+	</article>
+
+{% endfor %}

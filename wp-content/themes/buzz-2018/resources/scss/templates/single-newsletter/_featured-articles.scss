@@ -1,0 +1,118 @@
+.featured-articles {
+	padding: spacer(4);
+
+    @include media-breakpoint-up(sm) {
+        padding: spacer(8);
+	}
+
+    .article-tease {
+        background-color: $gray-400;
+		background-clip: content-box;
+
+        &__content {
+            .excerpt {
+                font-size: 1.05rem;
+			}
+
+			.read-more {
+				white-space:nowrap;
+			}
+		}
+
+        &__image {
+            IMG {
+                object-fit: cover;
+                height: 100%;
+            }
+		}
+
+	}
+
+    /**
+	 * TEMPLATE: One article per row, image on left
+	 */
+    &.template-single-2col {
+        .article-tease {
+
+			// items after first
+			&:nth-of-type(n+2) {
+				margin-top: spacer(4);
+				@include media-breakpoint-up(sm) {
+					margin-top: spacer(8);
+				}
+			}
+
+            &__content {
+				padding-top:0;
+				padding-bottom:0;
+
+				&.text-padding {
+					padding-top:spacer(4);
+					padding-bottom:spacer(4);
+				}
+			}
+
+			&.no-thumb .article-tease__content {
+				&.text-padding {
+					@include media-breakpoint-up(sm) {
+						padding-left: spacer(12);
+						padding-right: spacer(12);
+					}
+				}
+			}
+
+			&.has-thumb .article-tease__content {
+				&.text-padding {
+					@include media-breakpoint-up(sm) {
+						padding-left: spacer(4);
+						padding-right: spacer(12);
+					}
+				}
+			}
+        }
+	}
+
+    /**
+	 * TEMPLATE: Two articles per row, image on top
+	 */
+    &.template-double-2col {
+		.article-tease {
+			// items after first row
+
+			@include media-breakpoint-down(xs) {
+				&:nth-of-type(n+2) {
+					margin-top: spacer(4);
+				}
+			}
+
+			@include media-breakpoint-up(sm) {
+				&:nth-of-type(n+3) {
+					margin-top: spacer(8);
+				}
+			}
+
+			&__content {
+				padding-top: spacer(4);
+				padding-bottom: spacer(4);
+
+				@include media-breakpoint-up(sm) {
+					padding-top: spacer(8);
+					padding-bottom: spacer(8);
+				}
+
+
+				&.text-padding {
+					padding-left: spacer(4);
+					padding-right: spacer(4);
+
+					@include media-breakpoint-up(sm) {
+						padding-left: spacer(8);
+						padding-right: spacer(8);
+					}
+				}
+			}
+
+		}
+	}
+
+}

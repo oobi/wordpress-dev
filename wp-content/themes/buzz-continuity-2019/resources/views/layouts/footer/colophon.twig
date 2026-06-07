@@ -1,0 +1,35 @@
+<section class="colophon container {{ footer.colophon_class | default('py-2 px-8')}}">
+	<div class="row">
+		<nav class="navbar navbar-expand col">
+			<div class="collapse navbar-collapse flex-column flex-md-row">
+
+				{# COPYRIGHT #}
+				<span class="navbar-text copyright">
+					&copy; {{ "now"|date('Y') }} {{ footer.copyright }}
+				</span>
+
+				{# Footer menu #}
+				{% if menus.footer.get_items %}
+					<ul class="navbar-nav flex-column flex-sm-row">
+						{% for item in menus.footer.get_items %}
+							<li class="{{ item.classes | join(' ') }} nav-item">
+								<a class="nav-link"
+									target="{{ item.target }}"
+									href="{{ item.link }}">
+									{{ item.title }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+
+				{# CREDIT #}
+				<span class="navbar-text credit ml-md-auto">
+					<a href="http://www.thebuzz.net.au" target="_blank" rel="link">
+						Powered by Buzz
+					</a>
+				</span>
+			</div>
+		</nav>
+	</div>
+</section>

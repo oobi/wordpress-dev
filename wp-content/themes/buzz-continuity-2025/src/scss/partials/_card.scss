@@ -1,0 +1,102 @@
+.card {
+	--bs-card-bg: var(--bs-white);
+
+	border-radius: var(--bz-border-radius-card);
+
+	&-img-overlay {
+		padding: .75rem;
+		z-index: 2;
+		background-image: var(--bz-card-overlay-bg);
+		border-radius: var(--bz-border-radius-card);
+	}
+
+	.card-meta {
+		&-content {
+			z-index: 2;
+		}
+	}
+
+	&.has-thumb:not(.scale-to-fit) {
+		.card-meta {
+			padding-top: var(--bz-article-index-thumbnail-ratio);
+			height:0;
+		}
+	}
+
+	&.has-thumb {
+		.card-img {
+			position: absolute;
+			top: 0;
+			border-radius: var(--bz-border-radius-card);
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+
+		.article-tags {
+			color: var(--bz-article-tag-icon-color-alt);
+
+			&-divider {
+				color: var(--bz-article-tag-link-alt);
+			}
+
+			&-item {
+				color: var(--bz-article-tag-link-alt);
+
+				&:hover {
+					color: var(--bz-article-tag-link-hover-alt);
+				}
+			}
+		}
+	}
+
+	&.no-thumb {
+		border-top: var(--bz-article-index-no-icon-border);
+		border-radius: 0;
+
+		.card-meta {
+			order: 1;
+		}
+	}
+
+	&.scale-to-fit {
+		height: 100%;
+		width: 100%;
+
+		.card-meta {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&.card-overlay {
+		&::before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-image: var(--bz-card-overlay-bg);
+			border-radius: var(--bz-border-radius-card);
+			z-index: 1;
+		}
+
+		&.has-thumb {
+			color: var(--bz-card-overlay-text);
+			.card-title {
+				color: white;
+			}
+		}
+
+		.article-tags {
+			position:relative;
+			z-index:2;
+		}
+	}
+
+	&-title {
+		line-height: var(--bz-card-title-line-height);
+	}
+}

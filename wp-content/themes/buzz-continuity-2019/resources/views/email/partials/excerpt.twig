@@ -1,0 +1,4 @@
+{# 'has_thumb' should be set at the start of the loop in all article template twigs #}
+{% set length = has_thumb ? config.excerpt.image : config.excerpt.no_image %}
+{% set more_text = config.more.type == 'text' ? config.more.label : false %} {# excerpt doesn't show readmore if more_text is false #}
+{{ post.preview.length(length).read_more(more_text) | wpautop }}

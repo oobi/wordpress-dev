@@ -1,0 +1,66 @@
+{% set columns = 2 %}
+{% set column_width = 100 / columns %}
+
+{% if data %}
+
+	<table class="buzz-dates template-{{template}} {{class}}" cellpadding="0" cellspacing="20" width="640">
+
+		{% if title %}
+			<tr>
+				<td colspan="{{columns}}"><h2 class="widget-title">{{title}}</h2></td>
+			</tr>
+		{% endif %}
+
+		{% for col in data | batch(columns) %}
+			<tr>
+				{% for key, collection in col %}
+					<td class="date-wrapper" valign="top" width="{{column_width}}%">
+
+						<table cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								{% if show_dates %}
+									<td class="date" width="50" valign="top">
+										<table class="date__frame" width="50" cellspacing="0" cellpadding="0" align="center">
+											<tr>
+												<td class="date__month">{{collection.date | date("M")}}</td>
+											</tr>
+											<tr>
+												<td class="date__day">{{collection.date | date("j")}}</td>
+											</tr>
+										</table>
+									</td>
+								{% endif %}
+								<td valign="top">
+									<table cellspacing="0" cellpadding="0">
+										{% for date in collection.items %}
+											<tr class="date-item {% if date.description %} has-description {% endif %}">
+												<td class="title" valign="top">
+													{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+													{{date.title}}
+													{% if date.url %}
+														{% if link_icon %}
+															<i class="icon {{link_icon}}"></i>
+														{% endif %}
+														</a>
+													{% endif %}
+												</td>
+											</tr>
+											{% if date.description %}
+												<tr>
+													<td class="description" valign="top">{{date.description | nl2br}}</td>
+												</tr>
+											{% endif %}
+										{% endfor %}
+									</table>
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endif %}

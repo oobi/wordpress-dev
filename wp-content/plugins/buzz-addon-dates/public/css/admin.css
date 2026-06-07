@@ -1,0 +1,36 @@
+.buzz-dates-delete 						{ padding:5px 5px 5px 0;
+										  color:#a00; }
+.buzz-dates-delete:hover				{ color:red; }
+
+
+.buzz-dates-row-container 					{ min-height: 30px; }
+.buzz-dates-row-container .ui-sortable-helper
+											{ background: #FFF; border:2px solid #000; }
+.buzz-dates-row-container .ui-sortable-helper .buzz-dates-btn{ display:none; }
+
+.buzz-dates-row 							{ display:flex; padding:0.5rem;
+											  border-bottom: 1px solid rgb(229, 229, 229);
+											  background: #FFF; }
+.buzz-dates-row:nth-of-type(2n)				{ background: #f9f9f9; }
+
+.buzz-dates-row .buzz-dates-btn 			{ width: 2rem; }
+
+.buzz-dates-record 							{ flex:1; display:flex; flex-wrap:wrap; }
+.buzz-dates-record LABEL,
+.buzz-dates-record BR 						{ display:none; }
+.buzz-dates-record .dates-meta-field 		{ padding: 0 2% 0 0;  margin:0; width:48%; }
+.buzz-dates-record .dates-meta-field INPUT,
+.buzz-dates-record .dates-meta-field SELECT,
+.buzz-dates-record .dates-meta-field TEXTAREA
+											{ width: 100%; }
+.buzz-dates-record .dates-meta-field.date 	{ width: 12rem; }
+.buzz-dates-record .dates-meta-field.select { width: 12rem; }
+
+.buzz-dates-row .drag-handle				{ display:block; color: #CCC; cursor:ns-resize; }
+.buzz-dates-row .drag-handle:hover 			{ color:#666; }
+
+@media all and (min-width: 1200px ) {
+	.buzz-dates-record						{ flex-wrap: nowrap; }
+}
+
+.buzz-dates-sortable-placeholder 		{ height: 6em; line-height: 1.2em; background:#FFFBCC !important; }

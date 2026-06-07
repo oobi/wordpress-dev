@@ -1,0 +1,73 @@
+/* THEME SPECIFIC OVERRIDES */
+
+/*******************************************************************
+ * NEWSLETTER VIEW
+ *******************************************************************/
+
+/* featured text/caption overlays featured image on index */
+.home .feature-container + .feature-container 		{ padding-top:15px; }
+
+/* homepage articles - no featured image */
+.article-container .article-wrapper 				{ padding-left:0; padding-right:0; }
+.article-container .article-text.no-img .more 		{ display:none; }
+
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+	#featured-image 								{ min-height:130px; }
+
+	/* featured text/caption overlays featured image on index */
+	.home .feature-container 						{ position:relative; padding-bottom:15px; margin-bottom:15px; }
+	.home .feature-container + .feature-container
+													{ padding-top:0; }
+	.home .feature-text 							{ position:absolute; bottom:15px; left:0; right:15px; left:15px; padding:15px 15px 0 15px;
+													  background:rgba(0,0,0,0.6); }
+	.home .feature-text H3 							{ margin:0 0 5px 0;
+													  font-size:20px; }
+	.home .feature-text H3 A,
+	.home #main .feature-text H3 A,
+	.home #main .feature-text .excerpt A.more		{ color:#FFF !important; }
+
+	.home #main .feature-text .tags,
+	.home #main .feature-text .tags A 				{ color:#CCC; }
+	.home #main .feature-text .excerpt				{ display:none; }
+
+	/* homepage articles */
+	.article-container .article-text				{ padding-left:0; }
+
+	/* homepage articles - no featured image */
+	.article-container .article-text.no-img 		{ padding:15px 25px; border-top:7px solid; 
+													  background:#f9f9f9; }
+	.article-container .article-text.no-img H3		{ font-size:16px; }
+	#main .article-container .article-text.no-img H3 A 	
+													{ color:#333; }
+	.article-container .article-text.no-img .more	{ display:block; padding-top:20px; }
+	.article-container .article-text.no-img SPAN 	{ font-size:11px; }
+
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	/* homepage articles - no featured image */
+	.article-container .article-text.no-img H3		{ font-size:24px; }
+}
+
+/*================================================================================================*/
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.home .feature-container 					{ margin-bottom:15px; padding-bottom:15px; }
+	.home .feature-text 						{ bottom:15px;  }
+	.home #main .feature-text .excerpt			{ display:block; position:static; color:#FFF; padding:5px 0; height:auto; }
+}
+
+
+/*******************************************************************
+ * ARTICLE VIEW
+ *******************************************************************/
+
+#sidebar .this-issue H3,
+#sidebar .this-issue .category					{ border-bottom:1px solid #e2e2e2; }
+

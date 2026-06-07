@@ -1,0 +1,13 @@
+/* home page styles */
+.home-content								{ margin-bottom: 40px; }
+.portal-link								{ position:relative; margin-bottom:15px; overflow:hidden; }
+.portal-link IMG							{ object-fit:cover; max-height:295px; width:100%; }
+.portal-link .inner							{ position: relative; border-bottom: 7px solid #fda701; }
+.portal-link .inner H2				 		{ position:absolute; bottom: 0; margin-bottom: 0; width: 100%; padding: 1em;
+											  background-color: rgba(0, 0, 0, .4);
+										  	  color: #FFF;
+										  	transition: padding .3s; }
+
+
+
+.portal-link:hover .inner H2				{ padding: 1em 1em 1.5em 1em; }

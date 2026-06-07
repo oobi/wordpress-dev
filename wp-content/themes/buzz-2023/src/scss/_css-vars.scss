@@ -1,0 +1,23 @@
+// CSS vars
+:root {
+	--bz-body-bg: var(--bs-white); 
+	--bz-body-color: var(--bs-black); 
+	--bz-content-bg: var(--bs-white);
+	--bz-content-max-width: 1800px;
+	--bz-navbar-link: var(--bs-white);
+	--bz-navbar-link-hover: var(--bs-blue);
+	--bz-navbar-dropdown-link: var(--bz-black);
+	--bz-navbar-dropdown-link-hover: var(--bz-navbar-link-hover);
+	--bz-navbar-dropdown-category: var(--bs-gray-600);
+	--bz-navbar-dropdown-bg: var(--bs-white);
+	--bz-navbar-hamburger: var(--bs-dark);
+	--bz-navbar-submenu-bg: var(--bs-light);
+	--bz-navbar-submenu-expanded-border-top: 1px solid var(--bs-gray-300);
+	--bz-navbar-submenu-expanded-border-bottom: 1px solid var(--bs-gray-300);
+
+	--bz-offcanvas-bg: var(--bs-white);
+	--bz-offcanvas-color: var(--bs-black);
+	--bz-offcanvas-social-links: var(--bs-blue);
+	--bz-navbar-dropdown-font-size: 1rem;
+	--bz-navbar-dropdown-y-spacing: 5px;
+}

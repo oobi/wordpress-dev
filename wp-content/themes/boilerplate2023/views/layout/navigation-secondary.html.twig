@@ -1,0 +1,46 @@
+<ul class="secondary-navigation-nav">
+	<li class="secondary-navigation-nav-item">
+		<div class="btn-group search-dropdown">
+			<a class="secondary-navigation-nav-link" title="Search" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+				<span class="fal fa-search"></span>
+			</a>
+			<ul class="dropdown-menu search-dropdown-menu">
+				<form action="{{ site.url }}/">
+					<div class="input-group">
+						<input type="search" class="form-control" placeholder="{{ __( search_placeholder, 'firefly' ) }}"
+							value="" name="s" title="{{ __(search_placeholder, 'firefly') }}">
+						<button class="btn btn-link" type="submit">
+							Search
+						</button>
+					</div>
+				</form>
+			</ul>
+		</div>
+	</li>
+	{% for item in menus.secondary.get_items %}
+	<li class="secondary-navigation-nav-item">
+		<a href="{{ item.link }}" class="secondary-navigation-nav-link">{{ item.title }}</a>
+	</li>
+	{% endfor %}
+	<li class="secondary-navigation-nav-item">
+		<div class="btn-group">
+			<a class="secondary-navigation-nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">Quick
+				Links</a>
+			<ul class="dropdown-menu">
+				{% for item in menus.quick_links.get_items %}
+				<li>
+					<a class="dropdown-item" href="{{ item.link }}">{{ item.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</li>
+	{% for item in menus.header_cta.get_items %}
+	<li class="secondary-navigation-nav-item">
+		<a href="{{ item.link }}" class="secondary-navigation-cta">{{ item.title }}</a>
+	</li>
+	{% endfor %}
+
+	{# social media links #}
+	{% include "layout/social-links.html.twig" %}
+</ul>

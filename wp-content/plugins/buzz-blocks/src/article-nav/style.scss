@@ -1,0 +1,170 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-buzz-article-nav {
+	// Default styles
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+
+	.bz-article-nav-item {
+		text-decoration: none;
+		flex: 1;
+		display: flex;
+		gap: 1rem;
+
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&-title {
+			margin-bottom: auto;
+			font-style: italic;
+    		text-decoration: underline;
+		}
+
+		// next item
+		&-next {
+			flex-direction: row-reverse;
+			text-align: right;
+
+			.bz-article-nav-item-text {
+				align-items: flex-end;
+			}
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+		&-label {
+			padding: 5px 12px;
+			border-radius: 4px;
+			background-color: #dff1f8;
+			display: inline-flex;
+			color: #000;
+			font-size: 12px;
+			font-weight: 600;
+			margin-top: 1rem;
+
+			text-transform: uppercase;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.bz-article-nav-read {
+		&-icon {
+			width: 6px;
+			height: 13px;
+		}
+	}
+
+	// Default block style
+	&.is-style-default {
+		.bz-article-nav-item {
+			display: flex;
+			gap: 1rem;
+			&-title {
+				margin-top: 0;
+			}
+		}
+
+		.bz-article-nav-thumbnail {
+			width: 112px;
+			height: 112px;
+		}
+
+		.bz-article-nav-read {
+			background: var(--wp--preset--color--secondary);
+			padding: 0.5rem 1rem;
+			color: var(--wp--preset--color--contrast);
+			border-radius: 15px;
+		}
+	}
+
+	// Centre aligned block style
+	&.is-style-centred {
+		gap: 0;
+
+		.bz-article-nav-item {
+
+			&-link {
+				font-style: italic;
+			}
+
+			&-previous,
+			&-next {
+				display: flex;
+				justify-content: flex-end;
+			}
+
+			// previous item
+			&-previous {
+				text-align: right;
+				padding-right: 3rem;
+
+				.bz-article-nav-item-thumbnail {
+					margin-right: auto;
+				}
+			}
+
+			&-label {
+				display: block;
+				font-size: 80%;
+				background: none;
+				padding: 0;
+				margin-top: 0;
+			}
+
+			&-text {
+				display: block;
+			}
+
+			// next item
+			&-next {
+				text-align: left;
+				padding-left: 3rem;
+				border-left: 1px solid #999;
+
+				.bz-article-nav-item-thumbnail {
+					margin-left: auto;
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * Vertical alignment
+	 */
+	 &.is-vertically-aligned-top {
+		.bz-article-nav-item {
+			align-items: flex-start;
+		}
+	}
+
+	&.is-vertically-aligned-center {
+		.bz-article-nav-item {
+			align-items: center;
+		}
+	}
+
+	&.is-vertically-aligned-bottom {
+		.bz-article-nav-item {
+			align-items: flex-end;
+		}
+	}
+
+
+}

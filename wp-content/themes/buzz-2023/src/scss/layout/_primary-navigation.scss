@@ -1,0 +1,125 @@
+@include media-breakpoint-down(md) {
+	// fix for text-overflow of flex children
+	.newsletter-info {
+		flex: 1;
+		overflow: hidden;
+
+		.nav-link DIV {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+
+	.wp-block-buzz-buzz-nav, .newsletter-articles-dropdown, .search-dropdown-wrapper {
+		display: none;
+	}
+}
+
+.nav-link {
+	display: flex;
+	padding: 0 1rem;
+	align-items: center;
+	color: var(--bz-navbar-link);
+	transition: background-color 0.5s ease;
+
+	&:hover {
+		color: var(--bz-navbar-link-hover);
+	}
+}
+
+.dropdown {
+	&::marker {
+		content: none;
+	}
+}
+
+.mobile-nav-link {
+	display: none;
+	@include media-breakpoint-down(lg) {
+		display: block;
+	}
+}
+
+// dropdowns
+.dropdown-menu {
+	top: 120%;
+	visibility: hidden;
+	opacity: 0;
+	display: block;
+	transition: all 0.1s ease-in-out;
+
+	margin: 0;
+	border: none;
+	background-color: var(--bz-navbar-dropdown-bg);
+
+	.nav-link {
+		color: var(--bz-navbar-dropdown-link);
+		min-width: 15rem;
+		font-size: var(--bz-navbar-dropdown-font-size);
+		padding-top: var(--bz-navbar-dropdown-y-spacing);
+		padding-bottom: var(--bz-navbar-dropdown-y-spacing);
+
+		&:hover {
+			color: var(--bz-navbar-dropdown-link-hover);
+		}
+	}
+}
+
+.dropdown-item {
+	.current {
+		font-weight: bold;
+	}
+}
+
+.dropdown-header {
+	color: var(--bz-navbar-dropdown-category);
+
+	a {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--bz-navbar-dropdown-link-hover);
+		}
+	}
+}
+
+.dropdown:hover > .dropdown-menu {
+	top: 100%;
+	visibility: visible;
+	opacity: 1;
+	transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler {
+	&-text {
+		font-size: 1rem;
+		color: var(--bz-navbar-hamburger);
+	}
+
+	&-icon {
+		color: var(--bz-navbar-hamburger);
+		width: auto;
+		height: auto;
+	}
+}
+
+.nav-category-title {
+	@include caret(down);
+	display: flex;
+	justify-content: space-between;
+}
+
+[data-bs-toggle="collapse"][aria-expanded="true"] {
+	background: var(--bz-navbar-submenu-bg);
+	border-top: var(--bz-navbar-submenu-expanded-border-top);
+}
+
+.collapse {
+	&.show {
+		background: var(--bz-navbar-submenu-bg);
+		border-bottom: var(--bz-navbar-submenu-expanded-border-bottom);
+	}
+}

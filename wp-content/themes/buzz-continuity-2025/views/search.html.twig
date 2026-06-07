@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block content %}
+
+	<div class="content-area row">
+		<main class="main-content col" role="main">
+
+			<article class="post-content">
+				<h2 class="search-title">{{title}}</h2>
+
+				{% if posts %}
+
+					<div class="row">
+						{% for post in posts %}
+							{% include 'partials/search-results.html.twig' %}
+						{% endfor %}
+					</div>
+					{% include 'partials/pagination.html.twig' %}
+
+				{% else %}
+
+					<div class="row">
+						<div class="col">
+							<div class="alert alert-danger d-flex">
+								Sorry, there were no results for your search.
+							</div>
+							{% include 'partials/search-form.html.twig' %}
+						</div>
+					</div>
+
+				{% endif %}
+
+			</article>
+
+		</main>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+<section class="slider alignfull" id="slider-{{id}}">
+	<div class="owl-carousel">
+		{% for slide in fields.slides %}
+			<div style="background-color:{{slide.bg}}">
+				<div class="container">
+					<img src="{{ Image(slide.image).src('cropped_hero') }}">
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>

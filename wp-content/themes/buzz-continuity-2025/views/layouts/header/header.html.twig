@@ -1,0 +1,40 @@
+<div class="site-toolbar d-none d-lg-block" role="navigation">
+	<div class="container d-flex align-items-center">
+		<a href="#main" class="skip-to-content fancy-link">Skip to content</a>
+
+		<nav id="secondary-navigation" class="navbar-expand-lg d-lg-flex align-items-center ms-auto">
+			{# Search form #}
+			{% if show_nav_search %}
+				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search navbar-search">
+					<a class="nav-link dropdown-toggle" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="far fa-search"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
+						{% include 'partials/search-form.html.twig' %}
+					</div>
+				</div>
+			{% endif %}
+
+			{# Social media icons #}
+			{% include "partials/social-links.html.twig" %}
+
+			{% if menus.secondary.get_items %}
+				<ul class="navbar-nav">
+					{% set menu = menus.secondary.get_items %}
+					{% include 'layouts/navbar/menu-items.html.twig' %}
+				</ul>
+			{% endif %}
+		</nav>
+
+	</div>
+</div>
+
+<header id="masthead" class="site-header site-header-{{header_type}}" role="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% include 'partials/site-header.html.twig' %}
+			</div>
+		</div>
+	</div>
+</header>

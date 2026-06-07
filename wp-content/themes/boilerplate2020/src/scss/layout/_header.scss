@@ -1,0 +1,27 @@
+// Hover Nav specific styles, can still be imported if using Click and Stick.
+@import '_nav-hover';
+
+.site-header {
+	&.headroom {
+		z-index:1000;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		will-change: transform;
+		transition: transform 200ms linear;
+
+		// Offset correctly if the admin bar is showing
+		.admin-bar & {
+			top: 32px;
+		}
+
+		&--pinned {
+			transform: translateY(0%);
+		}
+
+		&--unpinned {
+			transform: translateY(-100%);
+		}
+	}
+}

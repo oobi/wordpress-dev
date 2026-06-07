@@ -1,0 +1,48 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+
+    {% include "partials/breadcrumb.html.twig" %}
+
+    <article class="entry {{ post.class }}">
+        {# Begin Page Header #}
+            <section class="entry-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="entry-heading">{{ title | default(post.title) }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {# End Page Header #}
+
+        {# Check if post is password protected #}
+        {% if not function( 'post_password_required', post.ID ) %}
+            <section class="entry-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+
+							{% if post.thumbnail %}
+                            	<img src="{{ post.thumbnail }}" alt="{{ post.thumbnail.alt | default(post.title) }}">
+							{% endif %}
+
+                            {{ post.content }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% else %}
+            {# Begin Password Protected Form #}
+            <div class="password-form">
+
+                {# Include the password form #}
+                {% include 'partials/password-form.html.twig' %}
+
+            </div>
+            {# End Password Protected Form #}
+        {% endif %}
+
+    </article>
+{% endblock %}

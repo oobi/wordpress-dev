@@ -1,0 +1,14 @@
+.wp-block-separator {
+	opacity: 1;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+
+	&.is-style-narrow {
+		max-width: 50px !important;
+		width: 50px;
+		margin-left: 0 !important;
+		height: 0;
+		border-bottom: none;
+	}
+}

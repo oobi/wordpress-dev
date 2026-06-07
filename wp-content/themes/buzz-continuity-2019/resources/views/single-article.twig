@@ -1,0 +1,35 @@
+{% extends 'layouts/base.twig' %}
+
+{% block header %}
+	{% include 'layouts/header.twig' %}
+	{% if hero.show and hero.position == 'above' %}{% include 'layouts/header/hero-article.twig' %}{% endif %}
+	{% include 'layouts/navbar/navbar.twig' %}
+	{% if hero.show and hero.position == 'below' %}{% include 'layouts/header/hero-article.twig' %}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="content-area row">
+
+		<main class="main-content col" role="main">
+
+			<article class="post-content">
+				{% if hero.show and hero.position == 'content' %}
+					{% include 'partials/article-hero.twig' %}
+				{% endif %}
+
+				<h1 class="page-title">{{ post.title }}</h1>
+				{{ post.content }}
+			</article>
+		</main>
+
+		<aside class="sidebar {{sidebar.class}}
+			{% if sidebar.position == 'left' %} position-left {% else %} position-right {% endif %}" role="complementary">
+			{% include 'partials/article-sidebar.twig' %}
+		</aside>
+
+		{% include 'partials/article-nav.twig' %}
+
+	</div>
+
+{% endblock %}

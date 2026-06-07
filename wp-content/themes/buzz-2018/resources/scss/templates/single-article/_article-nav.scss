@@ -1,0 +1,36 @@
+.article-nav {
+	position:relative; padding:spacer(4);
+
+	@include media-breakpoint-up(sm) {
+		padding:spacer(8);
+	}
+
+	.label		{ margin:0;
+				  font-size:0.7rem; color:$secondary; }
+	.title {
+		margin:spacer(2) 0 0;
+		font-size:0.8rem; text-decoration:none;
+
+		@include media-breakpoint-up(md) {
+			font-size:1rem;
+		}
+	}
+
+	.prev {
+		padding:spacer(4) spacer(4) spacer(4) 0;
+
+		@include media-breakpoint-up(sm) {
+			padding:spacer(8) spacer(8) spacer(8) 0;
+		}
+	}
+
+	.next {
+		padding:spacer(4) 0 spacer(4) spacer(4);
+		text-align:right;
+
+		@include media-breakpoint-up(sm) {
+			padding:spacer(8) 0 spacer(8) spacer(8);
+		}
+	}
+
+}

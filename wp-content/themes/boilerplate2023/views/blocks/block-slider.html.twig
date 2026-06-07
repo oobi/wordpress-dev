@@ -1,0 +1,7 @@
+<section class="slider slider-block {{fields.alignment}} {{attributes.className}}" id="blockslider-{{id}}"
+	data-random="{{ fields.random_start }}"
+	data-delay="{{ fields.delay | default(8000) }}">
+	<div class="owl-carousel">
+		{{ inner_blocks }}
+	</div>
+</section>

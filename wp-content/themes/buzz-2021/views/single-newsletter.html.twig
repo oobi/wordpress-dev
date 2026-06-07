@@ -1,0 +1,100 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block header %}
+	{% include 'layouts/header/header.html.twig' %}
+	{% if hero.show and hero.position == 'above' %}
+		{% include 'layouts/header/hero-newsletter.html.twig' %}
+	{% endif %}
+	{% include 'layouts/navbar/navbar.html.twig' %}
+	{% if hero.show and hero.position == 'below' %}
+		{% include 'layouts/header/hero-newsletter.html.twig' %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	{# Widget area before featured articles #}
+	{% if widgets.before_featured %}
+		<div class="widget-area widget-before-featured">
+			{{widgets.before_featured}}
+		</div>
+	{% endif %}
+
+	{# Featured articles #}
+	{% if articles.featured %}
+		<div class="article-features article-features-{{config.featured.template}} {{config.featured.class}}">
+			<div class="row">
+				{% include "layouts/article-feature/#{config.featured.template}.html.twig" with {
+					'articles' 	: articles.featured,
+					'config'	: config.featured
+				} %}
+			</div>
+		</div>
+	{% endif %}
+
+	{# Widget area between featured and index articles #}
+	{% if widgets.between_featured_index %}
+		<div class="widget-area widget-between-featured-index">
+			{{widgets.between_featured_index}}
+		</div>
+	{% endif %}
+
+	{# Index articles #}
+	{% if articles.index %}
+		<div class="article-index
+					article-index-{{config.index.template}}
+					{{config.index.class}}
+					{% if config.index.categorized %} categorized {% endif %}">
+
+			{% for category in articles.index %}
+				{% if category.posts %}
+					{% if category.name %}
+						{# start category wrapper#}
+						<div class="section_{{category.slug}}">
+					{% endif %}
+
+					{% if category.name %}
+						<h2 id="{{category.slug}}"
+							class="section-title collapsible"
+							data-bs-toggle="collapse"
+							data-bs-target="#section{{loop.index}}"
+							role="button"
+							aria-expanded="true"
+							aria-controls="section{{loop.index}}">
+								<span>{{category.name}}</span>
+						</h2>
+					{% endif %}
+
+					<div class="row collapse show" id="section{{loop.index}}">
+						{% include "layouts/article-index/#{config.index.template}.html.twig" with {
+							'articles' 	: category.posts,
+							'config'	: config.index
+						} %}
+					</div>
+
+					{% if category.name %}
+						{# end category wrapper#}
+						</div>
+					{% endif %}
+					
+				{% endif %}
+			{% endfor %}
+
+		</div>
+	{% else %}
+		<div class="article-index">
+			<div class="alert alert-danger d-flex my-5">There are currently no published articles.</div>
+		</div>
+	{% endif %}
+
+
+	{# Widget area after index articles #}
+	{% if widgets.after_index %}
+		<div class="widget-area widget-after-index">
+			{{widgets.after_index}}
+		</div>
+	{% endif %}
+
+
+
+{% endblock %}

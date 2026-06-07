@@ -1,0 +1,111 @@
+# --- WordPress core (keep tracked if you manage core in repo) ---
+# Uncomment if you DON'T want to track WordPress core files
+# /*
+# !/wp-content/
+
+# --- Server stuff ---
+.htaccess
+.htpasswd
+web.config
+htusers
+htpasswd
+.well-known
+cgi-bin
+
+# --- Config files (sensitive) ---
+wp-config.php
+wp-config-*.php.*
+wp-config.php.*
+.env
+.env.*
+
+# --- Uploads (user-generated content) ---
+/wp-content/uploads/
+/wp-content/blogs.dir/
+
+# --- Cache directories ---
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+
+# --- plugin-specific directories and files ---
+/wp-content/wflogs/
+/wp-content/litespeed/
+/wp-content/maintenance/
+/wp-content/mu-plugins/mu-iwp-client.php
+
+# --- environment-specific or single use plugins ---
+# prod only
+/wp-content/plugins/akismet/
+/wp-content/plugins/iwp-client/
+/wp-content/plugins/litespeed-cache/
+/wp-content/plugins/wordfence/
+/wp-content/plugins/simple-cloudflare-turnstile/
+# dev only
+/wp-content/plugins/force-regenerate-thumbnails/
+
+
+
+# --- Temp files ---
+/wp-content/temp-*
+/wp-content/temp/
+/wp-content/maintenance.php
+/tmp/
+/temp/
+~*
+*~
+
+# --- Logs ---
+*.log
+debug.log
+error_log
+
+# --- Backup files ---
+*.bak
+*.backup
+*.old
+*.orig
+
+# --- SVN / Git ---
+**/.svn/
+**/.git/
+.svn
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Node / frontend tooling ---
+node_modules/
+**/node_modules/
+
+# --- Build artifacts ---
+**/mix-manifest.json
+
+# --- Package managers ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Misc ---
+*.zip
+*.tar.gz
+*.bak
+*.tmp
+*.sql
+*.sqlite

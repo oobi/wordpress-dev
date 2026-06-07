@@ -1,0 +1,172 @@
+/*################################################################################################*/
+/* TYPEFACES */
+/*################################################################################################*/
+
+/* Arial */
+body,td 										{ font-family:Arial, sans-serif; color:#333; }
+
+/* Source Sans */
+H1,H2,H3,H4,H5,H6,
+A.btn-cta,
+.login-link,
+.table-banded THEAD TD,
+.table-standard THEAD TD,
+.table-banded TH,
+.table-standard TH,
+#sidebar										{ font-family: 'Source Sans Pro', sans-serif; }
+
+/* Source Sans Semi Bold */
+#portal-links .portal-link,
+#portal-links .portal-link H3					{ font-family:'Source Sans Pro', sans-serif; font-weight:600; }
+
+/*################################################################################################*/
+/* HEADINGS and text colours */
+/*################################################################################################*/
+
+#content 										{ color:#464646; }
+
+H1,H2,H3 										{ color:#333333; }
+H1,H2 											{ letter-spacing:0.05em; }
+H3												{ letter-spacing:0.05em; }
+H4,H5,H6 										{ color:#000; letter-spacing:0.05em; font-weight:bold; }
+
+H1 												{ font-size:28px; }
+H2 												{ font-size:24px; }
+H3 												{ font-size:18px; }
+H4 												{ font-size:16px; }
+H5 												{ font-size:14px; }
+H6 												{ font-size:13px; }
+
+A 												{ color:#227ac7; }
+
+/*################################################################################################*/
+/* GLOBALS */
+/*################################################################################################*/
+
+.aligncenter 									{ display:block; margin-left:auto; margin-right:auto; }
+
+/* pull quote */
+.pullquote 										{ margin:30px 0; padding:25px 60px; position:relative; border-left:none; width: 100%; float: none;
+												  font-size:24px; color:#666; line-height:30px; }
+
+/* call to action button */
+A.btn-cta	 									{ border:0; border-radius:0; padding:14px 20px; margin-top:10px;
+												  background:#c50440; /* For browsers that do not support gradients */
+												  background:-webkit-linear-gradient(#c50440, #931c40); /* For Safari 5.1 to 6.0 */
+												  background:-o-linear-gradient(#c50440, #931c40); /* For Opera 11.1 to 12.0 */
+												  background:-moz-linear-gradient(#c50440, #931c40); /* For Firefox 3.6 to 15 */
+												  background:linear-gradient(#c50440, #931c40); /* Standard syntax */
+												  color:#FFF; font-size:12px; text-transform:uppercase; }
+A.btn-cta:hover,
+A.btn-cta:active,
+A.btn-cta:focus,
+A.btn-cta-alt:hover,
+A.btn-cta-alt:active,
+A.btn-cta-alt:focus 							{ color:#FFF; }
+
+.subdued 										{ color:#999; }
+.highlight 										{ font-size:130%; }
+
+/* responsive images */
+#content IMG 									{ max-width:100%; height:auto; }
+
+/*================================================================================================*/
+/* small devices (desktops, 768px and up) */
+@media (min-width: 992px) {
+
+	#content 									{ padding-right: 0; }
+	.pullquote 									{ float: left; width: 50%; }
+}
+
+/*################################################################################################*/
+/* IMAGES AND ALIGNMENT */
+/*################################################################################################*/
+
+#content IMG,
+#content .wp-caption							{ max-width:100%; }
+
+#content .wp-caption-text 						{ color:#999; font-size:12px; padding-top:4px; }
+
+/* handset only */
+@media (max-width: 767px) {
+	.alignleft,
+	.alignright 								{ margin:0; float:none; display:block; }
+}
+
+/*================================================================================================*/
+/* small devices (desktops, 768px and up) */
+@media (min-width: 768px) {
+	#main .alignleft 							{ float:left; margin:5px 20px 20px 0; }
+	#main .alignright 							{ float:right; margin:5px 0 20px 20px; }
+}
+
+/*================================================================================================*/
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	#main .alignnone.size-large					{ display:block; margin:20px 0; }
+	#main .alignleft,
+	#main .alignright 							{ max-width:60%;  }
+	#main .wp-caption.alignnone 				{ max-width:100%; }
+	#main .wp-caption.alignnone > IMG			{ display:block; }
+	#main IMG.size-large						{ max-width:100%; display:block; margin:0 auto; }
+	#main .wp-caption.alignnone > IMG.size-large{ padding-right:0; }
+}
+
+/*################################################################################################*/
+/* GALLERIES */
+/*################################################################################################*/
+
+.gallery										{ margin:20px 0; }
+.gallery IMG 									{ border:none !important; }
+
+/*################################################################################################*/
+/* TABLES */
+/*################################################################################################*/
+
+.table-banded,
+.table-standard									{ border-collapse:collapse; width:100%; border:0; }
+.table-banded TD,
+.table-standard TD								{ border:1px solid #ebebeb; padding:8px 12px;
+												  background:#FFF;
+												  font-size:14px; color:#333; }
+.table-banded THEAD TD,
+.table-standard THEAD TD,
+.table-banded TH,
+.table-standard TH								{ border:1px solid #FFF;
+												  background:#666; /* For browsers that do not support gradients */
+												  background:-webkit-linear-gradient(#999, #666); /* For Safari 5.1 to 6.0 */
+												  background:-o-linear-gradient(#999, #666); /* For Opera 11.1 to 12.0 */
+												  background:-moz-linear-gradient(#999, #666); /* For Firefox 3.6 to 15 */
+												  background:linear-gradient(#999, #666); /* Standard syntax */
+												  font-size:14px; font-weight:normal; color:#FFF; text-transform:uppercase; }
+
+.table-banded TR:nth-of-type(even) TD			{ background:#ebebeb; }
+
+/* responsive tables */
+.table-responsive								{ border:0; }
+
+/*================================================================================================*/
+/* HANDSET / TABLET COMMON */
+@media screen and (max-width: 959px) {
+	TABLE.table-standard,
+	TABLE.table-standard 					{ min-width:100%; width:auto !important; }
+	TABLE.table-standard TH,
+	TABLE.table-standard TH,
+	TABLE.table-standard TD,
+	TABLE.table-standard TD					{ min-width:100px; }
+	.table-wrapper 							{ width:100%; position:relative; overflow:auto; }
+}
+
+/*################################################################################################*/
+/* GRAVITY FORMS */
+/*################################################################################################*/
+
+.gform_wrapper 									{ max-width:100% !important; margin:20px 0 !important; padding:15px;}
+
+/* submit button */
+.gform_footer INPUT[type='submit'],
+.gform_footer INPUT[type='submit']:hover,
+.gform_footer INPUT[type='submit']:active,
+.gform_footer INPUT[type='submit']:focus 		{ width:auto; border:0; padding:14px 20px; margin-top:10px; border-radius:0;
+												  background:#333;
+												  color:#FFF; font-size:12px; text-transform:uppercase; }

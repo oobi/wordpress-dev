@@ -1,0 +1,16 @@
+<section id="latest-news" class="latest-news py-8 {{ fields.alignment | default(alignment) }} {{attributes.className}}">
+	<div class="row justify-content-center">
+		<div class="col-12">
+			{% include 'partials/category-nav.html.twig' %}
+		</div>
+		{% for post in posts %}
+			{% if loop.index == 1 %}
+				{% include 'partials/news-feature.html.twig' with { excerpt_length: 40 } %}
+			{% else %}
+				<div class="col-12 col-md-6 col-lg-3 mt-8">
+					{% include 'partials/news-item.html.twig' %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>

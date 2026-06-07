@@ -1,0 +1,9 @@
+{% set image = post.thumbnail %}
+{% if not size %}
+	{% set size = 'article_index' %}
+{% endif %}
+
+<img class="article-img {{class}}" src="{{ image.src( size ) }}"
+	alt="{{ image.alt | default( post.title ) | escape }}"
+	title="{{ image.title | default( post.title ) | escape }}"
+	description="{{ image.description | escape }}">

@@ -1,0 +1,20 @@
+.wp-block-image {
+	border-radius: var(--bz-border-radius-card);
+	overflow: hidden;
+
+    figcaption {
+        color: var(--bz-caption);
+        background: var(--bz-caption-bg);
+		font-size: var(--bz-caption-font-size);
+		text-align: var(--bz-caption-alignment);
+
+        font-size: 0.875rem;
+        margin-top: 0;
+        padding: 1.25rem;
+		border-radius: 0 0 var(--bz-border-radius-card) var(--bz-border-radius-card);
+    }
+
+    img {
+        width: 100%;
+    }
+}

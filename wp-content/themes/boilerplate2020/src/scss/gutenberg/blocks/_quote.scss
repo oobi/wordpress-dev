@@ -1,0 +1,29 @@
+.wp-block-quote {
+    color: inherit;
+    font-size: 1em;
+    margin: 4rem 0;
+    padding: 0.5rem 0 0.5rem 2rem;
+
+    &:not(.is-style-large) {
+        border-color: #cd2653;
+        border-style: solid;
+        border-width: 0 0 0 0.2rem;
+    }
+
+    &.is-style-large {
+        font-family: inherit;
+        font-size: 2.4rem;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.285;
+    }
+
+    cite {
+        margin: 2rem 0 0 0;
+        color: #6d6d6d;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+}

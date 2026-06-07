@@ -1,0 +1,13 @@
+.search {
+	&-partial {
+		&-title {
+			margin-bottom: .15rem;
+		}
+
+		&-url {
+			font-size: .90rem;
+			color: $gray-500;
+			margin-bottom: .5rem;
+		}
+	}
+}

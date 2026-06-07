@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "buzz/categories",
+  "version": "0.1.0",
+  "title": "Buzz Categories",
+  "category": "buzz",
+  "icon": "smiley",
+  "description": "Display one or more newsletter categories",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "collapsible": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "buzz",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "keywords": [
+    "buzz"
+  ]
+}

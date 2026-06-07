@@ -1,0 +1,41 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+<article class="entry pb-20 {{ post.class }}">
+    {# Begin Page Header #}
+	{% if post.thumbnail %}
+		<section class="entry-header mb-lg-20" style="background-image: url({{ post.thumbnail.src('cropped_hero') }})">
+            <div class="entry-header-wrapper">
+                {% include "partials/breadcrumb.html.twig" %}
+                <h1 class="entry-heading">{{ title | default(post.id ? post.title : '') }}</h1>
+                {% if post.post_excerpt %}
+                    <p class="entry-excerpt">{{ post.post_excerpt }}</p>
+                {% endif %}
+            </div>
+		</section>
+	{% else %}
+		{% include 'partials/simple-header.html.twig' with {'hide_nav': true} %}
+	{% endif %}
+	{# End Page Header #}
+
+    <section class="pt-8 {{ post.thumbnail ? 'pt-md-20' : '' }}">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 entry-content">
+                    {% if post.thumbnail %}
+						<div class="entry-header-wrapper-mobile mb-20 mx-auto">
+							{% include "partials/breadcrumb.html.twig" %}
+							<h1 class="entry-heading">{{ title | default(post.id ? post.title : '') }}</h1>
+							{% if post.post_excerpt %}
+								<p class="entry-excerpt">{{ post.post_excerpt }}</p>
+							{% endif %}
+						</div>
+                    {% endif %}
+                    {{ post.content }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</article>
+{% endblock %}

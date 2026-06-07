@@ -1,0 +1,250 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gecka Sub-Menu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-10 14:23+1100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Laurent Dinclaux <laurent@gecka.nc>\n"
+"Language-Team: Gecka <contact@gecka.nc>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../views/Nav-Menu-Fields.php:6
+msgid "Automaticaly populate child items "
+msgstr "Remplir automatiquement"
+
+#: ../views/Nav-Menu-Fields.php:15
+msgid "Automatically populate with child pages"
+msgstr "Afficher automatiquement les sous pages"
+
+#: ../views/Nav-Menu-Fields.php:19
+msgid "Automatically populate with a custom post type"
+msgstr "Afficher automatique des posts ou des taxonomies"
+
+#: ../views/Nav-Menu-Fields.php:26
+msgid "Parameters"
+msgstr "Paramètres"
+
+#: ../views/Nav-Menu-Fields.php:29
+msgid "Post type"
+msgstr "Type de post"
+
+#: ../views/Nav-Menu-Fields.php:50
+msgid "Populate using posts"
+msgstr "Remplir avec des articles"
+
+#: ../views/Nav-Menu-Fields.php:57
+#: ../views/Nav-Menu-Fields.php:107
+msgid "Sort by"
+msgstr "Trier par"
+
+#: ../views/Nav-Menu-Fields.php:61
+msgid "Date created"
+msgstr "Date de création"
+
+#: ../views/Nav-Menu-Fields.php:62
+msgid "Date modifed"
+msgstr "Date de modification"
+
+#: ../views/Nav-Menu-Fields.php:63
+msgid "Title"
+msgstr "Titre:"
+
+#: ../views/Nav-Menu-Fields.php:64
+msgid "Menu order"
+msgstr "Ordre du menu"
+
+#: ../views/Nav-Menu-Fields.php:70
+#: ../views/Nav-Menu-Fields.php:119
+msgid "Sort order"
+msgstr "Sens du tri"
+
+#: ../views/Nav-Menu-Fields.php:74
+#: ../views/Nav-Menu-Fields.php:123
+msgid "Ascendent"
+msgstr "Ascendant"
+
+#: ../views/Nav-Menu-Fields.php:75
+#: ../views/Nav-Menu-Fields.php:124
+msgid "Descendent"
+msgstr "Descendant"
+
+#: ../views/Nav-Menu-Fields.php:81
+msgid "Number of posts"
+msgstr "Nombre d'acticles"
+
+#: ../views/Nav-Menu-Fields.php:95
+msgid "Populate using a taxonomy"
+msgstr "Remplir avec une taxonomie"
+
+#: ../views/Nav-Menu-Fields.php:111
+msgid "None"
+msgstr "Aucun"
+
+#: ../views/Nav-Menu-Fields.php:112
+msgid "Name"
+msgstr "Nom"
+
+#: ../views/Nav-Menu-Fields.php:113
+msgid "Count"
+msgstr "Nombre"
+
+#: ../views/Nav-Menu-Fields.php:130
+msgid "Number of terms"
+msgstr "Nombre de termes"
+
+#: ../views/Nav-Menu-Fields.php:141
+msgid "Hide empty"
+msgstr "Cacher si vide"
+
+#: ../views/Nav-Menu-Fields.php:153
+msgid "Depth"
+msgstr "Profondeur:"
+
+#: ../models/NavMenuHacks.php:512
+#, php-format
+msgid "%s (Pending)"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:551
+#: ../models/NavMenuHacks.php:553
+msgid "Edit Menu Item"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:562
+msgid "URL"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:569
+msgid "Navigation Label"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:575
+msgid "Title Attribute"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:581
+msgid "Link Target"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:583
+msgid "Same window or tab"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:584
+msgid "New window or tab"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:590
+msgid "CSS Classes (optional)"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:596
+msgid "Link Relationship (XFN)"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:602
+msgid "Description"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:604
+msgid "The description will be displayed in the menu if the current theme supports it."
+msgstr ""
+
+#: ../models/NavMenuHacks.php:613
+#, php-format
+msgid "Original: %s"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:626
+msgid "Remove"
+msgstr ""
+
+#: ../models/NavMenuHacks.php:627
+msgid "Cancel"
+msgstr ""
+
+#: ../widgets/Custom-menu.php:12
+msgid "Use this widget to add one of your custom menus as a widget."
+msgstr ""
+
+#: ../widgets/Custom-menu.php:13
+msgid "Custom Menu"
+msgstr ""
+
+#: ../widgets/Custom-menu.php:13
+msgid "[advanced]"
+msgstr "[avancé]"
+
+#: ../widgets/Custom-menu.php:76
+#, php-format
+msgid "No menus have been created yet. <a href=\"%s\">Create some</a>."
+msgstr "Aucun menu n'a encore été créét. <a href=\"%s\">An créer un</a>."
+
+#: ../widgets/Custom-menu.php:82
+msgid "Title:"
+msgstr "Titre:"
+
+#: ../widgets/Custom-menu.php:87
+msgid "Use top parent item title"
+msgstr "Utiliser le titre du parent le plus haut"
+
+#: ../widgets/Custom-menu.php:90
+msgid "Select Menu:"
+msgstr "Sélectionnez un menu:"
+
+#: ../widgets/Custom-menu.php:93
+msgid "Select"
+msgstr "Sélectionnez"
+
+#: ../widgets/Custom-menu.php:104
+msgid "Start menu from:"
+msgstr "Commencer le menu à partir"
+
+#: ../widgets/Custom-menu.php:107
+msgid "Click save first"
+msgstr "Veuillez d'abord sauvegarder"
+
+#: ../widgets/Custom-menu.php:113
+msgid "Depth:"
+msgstr "Profondeur:"
+
+#: ../widgets/Custom-menu.php:119
+msgid "Show parent item"
+msgstr "Afficher l'élément parent"
+
+#: ../widgets/Custom-menu.php:122
+msgid "Show description"
+msgstr "Afficher la description"
+
+#: ../widgets/Custom-menu.php:141
+#: ../widgets/Custom-menu.php:150
+msgid "First select a nav menu"
+msgstr "Sélectionnez d'abord un menu"
+
+#: ../widgets/Custom-menu.php:157
+msgid "Error: Unknow menu."
+msgstr "Erreur: menu inconnu."
+
+#: ../widgets/Custom-menu.php:163
+msgid "Nav menu root"
+msgstr "Racine du menu"
+
+#: ../widgets/Custom-menu.php:164
+msgid "Current page"
+msgstr "Page actuelle"
+
+#: ../widgets/Custom-menu.php:165
+msgid "Current page's parent"
+msgstr "La page parente"
+
+#: ../widgets/Custom-menu.php:166
+msgid "Current page's top parent"
+msgstr "Le parent le plus haut"
+

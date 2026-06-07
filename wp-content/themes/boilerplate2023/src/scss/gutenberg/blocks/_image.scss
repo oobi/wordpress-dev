@@ -1,0 +1,24 @@
+.wp-block-image {
+	@include figcaption();
+
+    img {
+        max-width: 100%;
+    }
+
+	& + * {
+		margin-top: 1.5rem;
+	}
+
+	&.is-style-dropshadow {
+		img {
+			box-shadow: 8.2px 5.7px 20px 0 rgba(0, 0, 0, 0.15);
+		}
+	}
+
+	&.alignfull {
+		img {
+			max-height: 100vh;
+			object-fit: cover;
+		}
+	}
+}

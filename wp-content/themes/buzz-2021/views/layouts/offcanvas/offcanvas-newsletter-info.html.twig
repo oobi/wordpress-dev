@@ -1,0 +1,25 @@
+{% if newsletter %}
+
+	{# newsletter title and link #}
+	{% set show_date = show_nav_date %}
+	{% if show_nav_title or show_date %}
+
+	{% if show_nav_title or show_date %}
+		<div class="newsletter-info">
+			{% if show_nav_title %}
+				<h3 class="newsletter-info-title">
+					<a href="{{newsletter.link}}">{{newsletter.title}}</a>
+				</h3>
+			{% endif %}
+
+			{% if show_date %}
+				<div class="newsletter-info-date">
+					{{newsletter.post_date | strftime(date_format)}}
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	{% endif %}
+
+{% endif %}

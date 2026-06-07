@@ -1,0 +1,19 @@
+.widget-area {
+	padding:spacer(4);
+
+	@include media-breakpoint-up(sm) {
+		padding:spacer(8);
+	}
+}
+
+.widget-before-featured {
+
+}
+
+.widget-between-featured-index {
+
+}
+
+.widget-after-index {
+
+}

@@ -1,0 +1,8 @@
+<div class="social-links">
+	{% for link in social_links %}
+		<a class="social-link" href="{{ link.url }}">
+			<i class="fa fa-fw {{ link.icon }}"></i>
+			<span class="d-none">{{ link.title }}</a>
+		</a>
+	{% endfor %}
+</div>

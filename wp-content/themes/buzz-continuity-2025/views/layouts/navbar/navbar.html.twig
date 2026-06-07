@@ -1,0 +1,34 @@
+<nav id="primary-navigation" class="navbar navbar-expand-lg">
+
+	<div
+		class="container px-0">
+
+		{# newsletter issue name/date #}
+		{% include 'layouts/navbar/newsletter-info.html.twig' %}
+
+		{# navigation links #}
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav">
+				{% set menu = menus.primary.get_items %}
+				{% include 'layouts/navbar/menu-items.html.twig' with { newslettter_nav: true } %}
+
+				{% if show_nav_articles %}
+					{% include 'layouts/navbar/navbar-article-list.html.twig' %}
+				{% endif %}
+			</ul>
+		</div>
+
+		{# date shown on right #}
+		{% if newsletter and show_nav_date and date_position == 'right' %}
+			<div class="navbar-text px-4">
+				{{newsletter.post_date | strftime(date_format)}}
+			</div>
+		{% endif %}
+
+		{# The toggler for the mobile or offcanvas menu #}
+		<button class="navbar-toggler ms-auto d-flex d-lg-none align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#app-menu" aria-controls="app-menu" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-text d-none d-sm-inline-block me-2">Menu</span>
+			<span class="navbar-toggler-icon fal fa-bars"></span>
+		</button>
+	</div>
+</nav>

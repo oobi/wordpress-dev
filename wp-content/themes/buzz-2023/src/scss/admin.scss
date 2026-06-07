@@ -1,0 +1,55 @@
+/** CUSTOMIZER **/
+#accordion-panel-buzz_theme_options {
+    .accordion-section-title,
+    .accordion-section-title:hover {
+        padding-left: 55px;
+        background-image: url("../images/buzz-logo.svg") !important;
+        background-repeat: no-repeat !important;
+        background-position: 14px 0 !important;
+        background-size: 30px 42px !important;
+    }
+}
+
+.wp-customizer {
+    .customize-control-kirki-custom .customize-control-title {
+        margin: 20px -12px 5px;
+        padding: 5px 14px;
+        background: #333;
+        font-weight: normal;
+        color: #fff;
+    }
+
+    /* separate colors/fonts */
+    #accordion-section-buzz_font {
+        margin-bottom: 15px;
+    }
+
+    /* separate add ons */
+    #accordion-section-buzz_social {
+        margin-bottom: 15px;
+    }
+
+    /* separate custom CSS */
+    #accordion-section-buzz_custom_css_website {
+        margin-bottom: 15px;
+    }
+
+    /* separate page specific settings */
+    #accordion-section-buzz_article_page {
+        margin-bottom: 15px;
+    }
+
+    /* make code editor fields full height/width */
+    #customize-control-buzz_custom_css_website_code,
+    #customize-control-buzz_custom_css_email_code {
+        margin-left: -12px;
+        margin-bottom: -12px;
+        width: calc(100% + 24px);
+    }
+
+    #customize-control-buzz_custom_css_website_code .CodeMirror,
+    #customize-control-buzz_custom_css_print_code .CodeMirror,
+    #customize-control-buzz_custom_css_email_code .CodeMirror {
+        height: calc(100vh - 185px);
+    }
+}

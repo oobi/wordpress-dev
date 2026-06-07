@@ -1,0 +1,23 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-buzz-article-grid {
+	&.is-collapsible {
+		.bz-grid-articles {
+			max-height: unset !important;
+			display: none;
+		}
+	}
+
+	.bz-grid-checkbox {
+		&:checked {
+			~ .bz-grid-articles {
+				max-height: unset !important;
+				display: grid;
+			}
+		}
+	}
+}

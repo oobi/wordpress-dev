@@ -1,0 +1,47 @@
+{% set columns = 3 %}
+{% set column_width = 100 / columns %}
+{% if data %}
+
+	<table class="buzz-dates template-{{template}} {{class}}" cellpadding="0" cellspacing="20" width="640">
+
+		{% if heading %}
+			<tr>
+				<td colspan="{{columns}}"><h2 class="widget-title">{{heading}}</h2></td>
+			</tr>
+		{% endif %}
+
+		{% for col in data | batch(columns) %}
+			<tr>
+				{% for key, collection in col %}
+					<td class="date-wrapper" valign="top" width="{{column_width}}%">
+
+						<table cellspacing="0" cellpadding="0" width="100%">
+							{% if show_dates %}
+								<tr>
+									<td class="date">{{collection.date | strftime(format) }}</td>
+								</tr>
+							{% endif %}
+							{% for date in collection.items %}
+								<tr class="date-item {% if date.description %} has-description {% endif %}">
+									<td class="title">
+										{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+										{{date.title}}
+										{% if date.url %}</a>{% endif %}
+									</td>
+								</tr>
+								{% if date.description %}
+									<tr>
+										<td class="description">{{date.description | nl2br}}</td>
+									</tr>
+								{% endif %}
+							{% endfor %}
+						</table>
+
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endif %}

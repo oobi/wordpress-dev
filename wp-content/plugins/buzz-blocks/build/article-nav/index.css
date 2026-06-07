@@ -1,0 +1,19 @@
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/article-nav/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-buzz-article-nav .bz-article-nav-item-thumbnail {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 preserveAspectRatio=%27none%27 viewBox=%270 0 100 100%27 width=%27100%25%27 height=%27100%25%27%3E%3Cline x1=%270%27 y1=%270%27 x2=%27100%27 y2=%27100%27 stroke=%27%23BBBBBB%27 stroke-width=%271%27 /%3E%3Cline x1=%270%27 y1=%27100%27 x2=%27100%27 y2=%270%27 stroke=%27%23BBBBBB%27 stroke-width=%271%27 /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: #E5E5E5;
+  border: 1px solid #BBBBBB;
+  position: relative;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=index.css.map*/

@@ -1,0 +1,31 @@
+{% set image = post.thumbnail %}
+{% set has_image = image and not hide_thumb %}
+
+<div
+	class="card card-overlay {{ has_image ? 'has-thumb' : 'no-thumb'}} {{class}}">
+	<!-- Card img -->
+	<div class="position-relative card-meta">
+
+		{% if has_image %}
+			{% include 'partials/thumb.html.twig' with {class: 'card-img article-feature-thumb'} %}
+		{% endif %}
+
+		<div class="card-img-overlay d-flex align-items-start flex-column">
+			<div class="w-100 mt-auto card-meta-content">
+				<h3 class="card-title article-title {{title_class}}">
+					<a href="{{ post.link }}" class="stretched-link fancy-link text-reset">{{ post.title }}</a>
+				</h3>
+
+				{# excerpt #}
+				{% if not hide_excerpt %}
+					{% include 'partials/excerpt.html.twig' with {
+						'css_class' : 'card-text'
+					} %}
+				{% endif %}
+
+				{# tags #}
+				{% include 'partials/tags.html.twig' %}
+			</div>
+		</div>
+	</div>
+</div>

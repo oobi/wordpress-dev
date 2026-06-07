@@ -1,0 +1,18 @@
+{% if not hide_nav and (categories | length) > 1 %}
+<div class="category-navigation">
+	<div class="category-navigation-label">
+		Filter By
+	</div>
+	<ul class="category-navigation-items">
+		<li class="category-navigation-item">
+			{% set post_type = fn('get_post_type') %}
+			<a class="category-navigation-link {{ cat_slug is not defined ? 'current' }}" href="{{ fn('get_post_type_archive_link', post_type) }}">All</a>
+		</li>
+		{% for cat in categories %}
+		<li class="category-navigation-item">
+			<a class="category-navigation-link {{ cat_slug == cat.slug ? 'current' }}" href="{{ fn('get_category_link', cat) }}">{{ cat.name }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}

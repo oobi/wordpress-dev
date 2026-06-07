@@ -1,0 +1,28 @@
+.alignwide {
+	// emulate bootstrap container width/behaviour without the padding
+    margin-right: auto;
+  	margin-left: auto;
+
+    // Responsive containers that are 100% wide until a breakpoint
+    @each $breakpoint, $container-max-width in $container-max-widths {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+.alignfull {
+    width: var(--ff-alignfull-width);
+    max-width: 100vw;
+    position: relative;
+
+    [class^="container"] & {
+        width: calc(var(--ff-alignfull-width) + $grid-gutter-width);
+        margin-left: calc($grid-gutter-width * -0.5);
+        margin-right: calc($grid-gutter-width * -0.5);
+    }
+
+    @media all and (min-width: $max-layout-width) {
+        max-width: $max-layout-width !important;
+    }
+}

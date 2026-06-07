@@ -1,0 +1,140 @@
+// Hover Nav specific styles, can still be imported if using Click and Stick.
+.site-header {
+    // Large Nav
+    .primary-navigation {
+		.navbar-brand {
+			display: inline-flex;
+		}
+
+        .headroom-secondary-nav {
+            display: none;
+        }
+    }
+
+    .offcanvas-toggle {
+        @include media-breakpoint-down(md) {
+            padding: 0;
+        }
+    }
+
+	 // show large logo
+	 .nav-logo {
+		transition: all 0.5s ease-in-out;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-image: var(--ff-header-logo);
+		width: var(--ff-header-logo-width);
+		height: var(--ff-header-logo-height);
+
+		@include media-breakpoint-up(lg) {
+			background-image: var(--ff-header-logo-lg);
+			width: var(--ff-header-logo-width-lg);
+			height: var(--ff-header-logo-height-lg);
+		}
+	}
+
+    &.headroom {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+
+        will-change: transform;
+        transition: transform 200ms linear;
+
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $max-layout-width;
+        width: 100%;
+
+        // Offset correctly if the admin bar is showing
+        .admin-bar & {
+            top: 32px;
+        }
+
+        &--pinned {
+            transform: translateY(0%);
+        }
+
+        &--unpinned {
+            transform: translateY(-100%);
+        }
+    }
+}
+
+// Pinned Nav
+body:not(.nav-open) {
+    .headroom {
+        &--pinned,
+        &--not-top {
+            &:not(.headroom--top) {
+                #primaryNavigation {
+                    flex-direction: column;
+
+                    margin-bottom: auto;
+                }
+
+                .nav-logo {
+                    background-image: var(--ff-header-logo-headroom);
+					width: var(--ff-header-logo-width-headroom);
+					height: var(--ff-header-logo-height-headroom);
+                }
+
+                // hide secondary nav
+
+                .secondary-navigation {
+                    // display: none;
+					max-height: 0; // allow transition
+                }
+
+                // remove border
+                .header-nav-items {
+                    border: none;
+                    padding: 0;
+                }
+
+                // reduce padding
+
+                .primary-navigation {
+                    padding: 0;
+                    box-shadow: 0 0 29.4px 5.6px rgba($black, 0.15);
+
+                    & > .container {
+                        align-items: center;
+                    }
+
+                    .nav-item {
+                        padding: 0.5rem;
+                    }
+
+                    .nav-link {
+                        font-size: var(--ff-nav-link-headroom-font-size);
+                    }
+
+                    .headroom-secondary-nav {
+                        display: flex;
+                        margin-left: auto;
+
+                        .secondary-navigation {
+                            &-nav {
+                                padding-left: 1rem;
+                                &-item {
+                                    font-size: 0.719rem;
+                                    text-transform: uppercase;
+                                }
+                            }
+                            &-cta {
+                                // padding: 0.25rem 2rem;
+                            }
+                        }
+
+                        .btn {
+                            font-size: 0.719rem;
+                            padding: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<header id="masthead" class="site-header {{header_type}}-header" role="banner">
+	<div class="inner">
+
+		{% if header_type == 'image' %}
+
+			<span class="homelink">
+				{{ header_image_print }}
+			</span>
+
+		{% else %}
+
+			<span href="{{ fn( 'get_home_url' ) }}" class="homelink col">
+				{% if header_logo %}
+					<span class="logo">
+						{{ header_logo }}
+					</span>
+				{% endif %}
+				<span class="text">
+					<span class="title">{{header_text_title}}</span>
+					<span class="subtitle">{{header_text_subtitle}}</span>
+				</span>
+			</span>
+
+		{% endif %}
+
+	</div>
+</header>

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "buzz/buzz-nav",
+  "version": "0.1.0",
+  "title": "Buzz Navigation",
+  "category": "buzz",
+  "icon": "smiley",
+  "description": "Display the websites navigation.",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "displayPrint": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayArchive": {
+      "type": "boolean",
+      "default": true
+    },
+    "menuId": {
+      "type": "number"
+    }
+  },
+  "textdomain": "buzz",
+  "viewScript": [
+    "file:./view.js",
+    "bz-buzz-nav"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "keywords": [
+    "buzz"
+  ]
+}

@@ -1,0 +1,37 @@
+/* EMAIL THEME SPECIFIC OVERRIDES */
+
+#main TABLE TD.image 				{ padding-bottom:0; }
+
+/*******************************************************************
+ * ARTICLES
+ *******************************************************************/
+
+#main 								{ padding:0; }
+#main .feature 						{ padding-bottom:0; }
+#main .feature .image IMG 			{ width:auto; }
+
+#main .feature-excerpt TD 			{ padding-bottom:40px; padding:30px 40px 40px; }
+#main .feature-excerpt H3,
+#main .feature-excerpt A.more		{ color:#333 !important; }
+
+#main .regular-articles .no-feature:first-child	TD
+									{ padding-top:30px; }
+
+
+/*******************************************************************
+ * RESPONSIVE
+ *******************************************************************/
+
+@media only screen and (min-device-width:411px) and (max-device-width:640px) {
+
+	/* width on large phones */
+    #main TABLE[class=feature-table] IMG	{ width:415px !important; }
+
+}
+
+@media only screen and (max-device-width:410px) {
+
+	/* width on small phones */
+	#main TABLE[class=feature-table] IMG 	{ width:320px !important; }
+
+}

@@ -1,0 +1,36 @@
+{% if navbar.articles %}
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" id="navbar-article-menu" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ navbar.articles.title }}</a>
+		<ul class="dropdown-menu" aria-labelledby="navbar-article-menu" id="navbar-article-menu-items">
+			{% for category in navbar.articles %}
+
+				{# Expand category if current article is contained #}
+				{% set is_current_cat = post.has_term( category.slug, static_var.category ) %}
+
+				{% if category.posts|length > 0 %}
+					{% if category.name %}
+						<li class="nav-item">
+							<a class="nav-link nav-category-title" data-bs-toggle="collapse" href="#cat-{{category.slug}}" role="button" aria-expanded="{{is_current_cat ? 'true' : 'false'}}">
+								{{ category.name }}
+							</a>
+						</li>
+
+						<div class="collapse {{ is_current_cat ? 'show' : '' }}" id="cat-{{category.slug}}" data-bs-parent="#navbar-article-menu-items">
+							{% for item in category.posts %}
+								<li class="nav-item">
+									<a class="nav-link {{ item.classes | join(' ') }} {{item.id == post.id ? 'current' : ''}}" href="{{ item.link }}">{{ item.name }}</a>
+								</li>
+							{% endfor %}
+						</div>
+					{% else %}
+						{% for item in category.posts %}
+							<li class="nav-item">
+								<a class="nav-link {{ item.classes | join(' ') }} {{item.id == post.id ? 'current' : ''}}" href="{{ item.link }}">{{ item.name }}</a>
+							</li>
+						{% endfor %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</li>
+{% endif %}

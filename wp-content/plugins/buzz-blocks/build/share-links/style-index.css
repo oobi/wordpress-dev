@@ -1,0 +1,41 @@
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/share-links/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-buzz-share-links {
+  font-size: 12px;
+}
+.wp-block-buzz-share-links .bz-social-link {
+  display: inline-block;
+}
+.wp-block-buzz-share-links .bz-social-icons {
+  display: inline-flex;
+  align-items: center;
+}
+.wp-block-buzz-share-links .bz-social-icon {
+  fill: currentColor;
+  width: 1rem;
+  height: 1rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wp-block-buzz-share-links .bz-social-label {
+  display: inline-flex;
+  align-items: center;
+}
+.wp-block-buzz-share-links .bz-social-label::after {
+  content: "";
+  background-color: currentColor;
+  display: inline-block;
+  height: 8px;
+  width: 33px;
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMS42IDcuNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzEuNiA3LjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZCIgZD0iTTMxLjYgMy41IDI3LjggMHYzLjJIMHYxaDI3Ljh2My4yeiIvPjwvc3ZnPg==);
+          mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMS42IDcuNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzEuNiA3LjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZCIgZD0iTTMxLjYgMy41IDI3LjggMHYzLjJIMHYxaDI3Ljh2My4yeiIvPjwvc3ZnPg==);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

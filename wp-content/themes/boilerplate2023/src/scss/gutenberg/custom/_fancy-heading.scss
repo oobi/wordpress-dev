@@ -1,0 +1,6 @@
+.fancy-heading {
+	@include fancy-heading();
+	&-wrapper {
+		@include fancy-heading-wrapper();
+	}
+}

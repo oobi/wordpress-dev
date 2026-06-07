@@ -1,0 +1,39 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+    <main class="entry pb-20 {{ post.class }} archive">
+        {# Begin Page Header #}
+        {% include 'partials/news-header.html.twig' %}
+        {# End Page Header #}
+
+		{# Begin Post Entries #}
+		<section class="entries">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-12">
+						{% include 'partials/category-nav.html.twig' %}
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					{% if posts is not empty %}
+						{% for post in posts %}
+							{% include 'partials/event-partial.html.twig' %}
+						{% endfor %}
+					{% else %}
+						{% include "partials/no-results.html.twig" %}
+					{% endif %}
+				</div>
+			</div>
+		</section>
+		{# End Post Entries #}
+
+		{# Begin Pagination #}
+		{% set pagination = posts.pagination %}
+		{% if pagination.pages and pagination.pages|length > 1 %}
+			{% include 'partials/pagination.html.twig' %}
+		{% endif %}
+		{# End Pagination #}
+    </main>
+{% endblock %}

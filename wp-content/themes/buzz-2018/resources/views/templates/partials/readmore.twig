@@ -1,0 +1,8 @@
+{% if config.more.type == 'button' %}
+	<a class="readmore btn icon-{{config.button_icon_position}}" href="{{ post.link }}">
+		<span class="text">{{config.more.label}}</span>
+		{% if config.button_icon %}
+			<i class="icon {{config.button_icon}}"></i>
+		{% endif %}
+	</a>
+{% endif %}

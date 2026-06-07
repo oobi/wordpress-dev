@@ -1,0 +1,38 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block content %}
+<main class="entry {{ post.class }}">
+    {% include 'partials/breadcrumb.html.twig' %}
+
+    {# header goes here #}
+
+    {# Begin Post Entries #}
+    <section class="entries py-12">
+        <div class="container">
+            <div class="row">
+                {% include 'searchform.html.twig' %}
+                {% if posts is not empty %}
+                    {% for post in posts %}
+                    <div class="col-12 col-lg-8 offset-lg-2">
+                        <a class="search-link" href="{{ post.link }}">
+                            <h2 class="search-title">{{ post.title }}</h2>
+                        </a>
+
+                        <p class="search-preview mb-2">{{ post.preview.read_more(false).length(20) }}</p>
+
+                        <p class="search-date">{{ post.date }}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {# End Post Entries #}
+
+    {# Begin Pagination #}
+    {% if pagination.pages and pagination.pages|length > 1 %}
+        {% include 'partials/pagination.html.twig' %}
+    {% endif %}
+    {# End Pagination #}
+</main>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% set image = post.thumbnail %}
+
+<a href="{{ post.link }}">
+	<picture>
+		<source media="(min-width: 768px)" srcset="{{ image.src( size.large ) }}">
+		<img src="{{ image.src( size.default ) }}"
+			alt="{{ image.alt | default( post.title ) | escape }}"
+			title="{{ image.title | default( post.title ) | escape }}"
+			description="{{ image.description | escape }}"
+			style="width:100%;">
+	</picture>
+</a>

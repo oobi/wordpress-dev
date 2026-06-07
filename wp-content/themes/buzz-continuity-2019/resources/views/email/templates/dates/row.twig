@@ -1,0 +1,45 @@
+{% set columns = 3 %}
+{% set column_width = 100 / columns %}
+{% if dates.data %}
+
+	<table class="dates" cellpadding="0" cellspacing="20" width="640">
+
+		{% if dates.title %}
+			<tr>
+				<td colspan="{{columns}}"><h2 class="section-title">{{dates.title}}</h2></td>
+			</tr>
+		{% endif %}
+
+		{% for row in dates.data | batch(columns) %}
+			<tr>
+				{% for key,value in row %}
+					<td class="date-wrapper" valign="top" width="{{column_width}}%">
+
+						<table cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td class="date">{{key | strftime(dates.format) }}</td>
+							</tr>
+							{% for date in value %}
+								<tr>
+									<td class="title">
+										{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+										{{date.title}}
+										{% if date.url %}</a>{% endif %}
+									</td>
+								</tr>
+								{% if date.description %}
+									<tr>
+										<td class="description">{{date.description | nl2br}}</td>
+									</tr>
+								{% endif %}
+							{% endfor %}
+						</table>
+
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endif %}

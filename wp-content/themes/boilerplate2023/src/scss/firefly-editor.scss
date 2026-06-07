@@ -1,0 +1,100 @@
+/*
+ * Scripts loaded by the WordPress editor either TinyMCE or Gutenberg
+ * This file should be limited to typography and media styling
+ */
+@import "variables";
+@import "css-vars";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/utilities/api";
+
+// utils
+@import "mixins/index";
+
+// Gutenberg Blocks
+@import "gutenberg/index";
+
+.editor-styles-wrapper {
+	// import the rest of the bits of bootstrap we need in here
+	@import "~bootstrap/scss/reboot";
+	@import "~bootstrap/scss/containers";
+	@import "~bootstrap/scss/tables";
+
+    @import "typography";
+    @import "utilities";
+
+	font-size: var(--ff-base-font-size);
+
+    // bootstrap interfering with this
+    .dashicons,
+    .dashicons::after {
+        font-family: "dashicons" !important;
+        font-size: 20px;
+    }
+
+    // make it so we can see white text
+    .has-white-color {
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    & > * {
+        font-family: $font-family-base;
+    }
+
+	a {
+		color: var(--bs-link-color);
+	}
+
+    // make spacer visible
+    .wp-block-spacer {
+        .block-library-spacer__resize-container {
+            background: rgba($gray-100, 0.5);
+            border: 2px dotted $gray-300;
+        }
+    }
+
+    // outline carbon fields
+    .wp-block[data-type^="carbon-fields"] {
+        position: relative;
+        padding: 2rem 1rem;
+        background: $gray-100;
+        border: 2px solid $gray-500;
+
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            background: $white;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transform: translateY(-50%);
+            color: $gray-500;
+            padding: 0.25rem 1rem;
+            border: 2px solid $gray-500;
+        }
+    }
+
+	// make this block full width in the editor
+	.wp-block[data-type="carbon-fields/block-slider"],
+	.wp-block[data-type="carbon-fields/variable-background"] {
+		max-width: 100% !important;
+	}
+
+	.wp-block[data-type="carbon-fields/variable-background"] {
+		.cf-block__inner-blocks {
+			background: #999;
+		}
+	}
+
+	// fix margins when editor is super wide
+	.alignfull {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

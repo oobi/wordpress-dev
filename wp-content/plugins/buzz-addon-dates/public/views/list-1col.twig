@@ -1,0 +1,60 @@
+{% set columns = data|length / 2 %}
+
+{% if data %}
+	<div class="widget buzz-dates template-{{template}} {{class}}">
+		{% if title %}<h2 class="widget-title">{{title}}</h2>{% endif %}
+
+		{% for key,collection in data %}
+
+			<div class="date-wrapper container">
+				<div class="row">
+
+					{% if show_dates %}
+						<div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-1">
+							<div class="date__frame">
+								<div class="date__month">{{collection.date | date("M")}}</div>
+								<div class="date__day">{{collection.date | date("j")}}</div>
+							</div>
+						</div>
+					{% endif %}
+
+					<div class="col">
+						{% for date in collection.items %}
+							<div class="row">
+
+								{% if show_icons and date.icon %}
+									<div class="col-3 col-sm-2 col-md-3 col-lg-2 px-2">
+										<img class="icon" src="{{Image(date.icon).src('thumbnail')}}">
+									</div>
+								{% endif %}
+
+
+
+								<div class="date-inner col">
+
+									<p class="title">
+										{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+										{{date.title}}
+										{% if date.url %}
+											{% if link_icon %}
+												<i class="icon {{link_icon}}"></i>
+											{% endif %}
+											</a>
+										{% endif %}
+									</p>
+
+									{% if date.description %}
+										<div class="description">{{date.description | nl2br}}</div>
+									{% endif %}
+
+								</div>
+
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}
+	</div>
+{% endif %}

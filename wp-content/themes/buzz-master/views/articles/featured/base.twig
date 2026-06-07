@@ -1,0 +1,56 @@
+{######################################################################
+ # Featured Articles Base Template
+ ######################################################################}
+
+{% if layout == 'featured-left' %}
+	<div class="articles-outer col-sm-4">
+{% elseif layout == 'featured-right' %}
+	<div class="articles-outer col-sm-4 col-sm-push-8">
+{% endif %}
+
+<div id="featured-articles" class="clearfix {{ featured_layout }}">
+
+	{% for article in articles %}
+
+		<div class="feature-container {% block container_class %}{% endblock container_class %}">
+
+			{% block article_thumb %}
+			
+				<div class="feature-thumb {% block thumb_class %}{% endblock thumb_class %}">
+					<a href="{{ article.permalink }}">
+						{% if article.has_thumb %}
+							{{ function( 'get_the_post_thumbnail', article.id, image_size ) }}
+						{% endif %}
+					</a>
+
+					{% block share_links %}
+						{% if show_share_links %}
+							{{ function( 'ff_share_links' ) }}
+						{% endif %}
+					{% endblock share_links %}
+
+				</div>
+
+			{% endblock article_thumb %}
+
+			{% block article_text %}
+
+				<div class="feature-text {% block text_class %}{% endblock text_class %}">
+					<h3><a href="{{ article.permalink }}">{{ article.title }}</a></h3>
+					<p class="excerpt {% block excerpt_class %}{% endblock excerpt_class %}">
+						{{ function( 'ff_the_excerpt', excerpt_length, article.id ) }}
+					</p>
+					{{ function( 'ff_the_tags', article.id ) }}
+				</div>
+
+			{% endblock article_text %}
+
+		</div>
+
+	{% endfor %}
+
+</div>
+
+{% if layout == 'featured-left' or layout == 'featured-right' %}
+	</div>
+{% endif %}

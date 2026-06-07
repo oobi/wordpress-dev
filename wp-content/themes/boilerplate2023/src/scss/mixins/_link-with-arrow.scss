@@ -1,0 +1,21 @@
+// link with arrow
+@mixin link-arrow() {
+	display: inline-flex;
+    align-items: center;
+
+	&:hover {
+		color: var(--bs-primary);
+
+		&::after {
+			margin-left: .75rem;
+		}
+	}
+
+    &::after {
+        content: "\f061";
+        font-family: $icon-font-family;
+        line-height: 1.5;
+        padding-left: 0.5rem;
+		transition: margin-left .25s ease-in-out;
+    }
+}

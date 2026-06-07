@@ -1,0 +1,100 @@
+{######################################################################
+ # Index Articles Base Template
+ ######################################################################}
+
+{% if layout == 'featured-left' %}
+	<div class="articles-outer col-sm-8">
+{% elseif layout == 'featured-right' %}
+	<div class="articles-outer col-sm-8 col-sm-pull-4">
+{% endif %}
+
+<div id="index-articles" class="clearfix {{ index_layout }}">
+
+	{% set i = 0 %}
+	{% set highlight_count = 0 %}
+	{% set is_alt_row = false %}
+	{% for article in articles %}
+		{% if is_alt_row == false %}
+
+			{% if i <= 0 %}<div class="row even-height">{% endif %}{# open row #}
+
+			<div class="article-container clearfix 
+						{{ article.has_thumb ? 'has-img' : 'no-img' }} 
+						col-sm-{{ col_width }} 
+						{% block container_class %}{% endblock container_class %}">
+
+				{# If the Customizer option is set to show featured images AND article has one, show it #}
+				{% if show_featured_image and article.has_thumb %}
+
+					{% block article_has_thumb %}
+						<div class="article-thumb col-sm-12 col-xs-3 col-xs-push-9 col-sm-push-0">
+							<a href="{{ article.permalink }}">
+								{{ function( 'get_the_post_thumbnail', article.id, image_size ) }}
+							</a>
+						</div>
+					{% endblock article_has_thumb %}
+					
+				{% endif %}
+
+				{# If the Customizer option is set to show featured images AND article doesn't have one, show special article text #}
+				{% if show_featured_image and article.has_thumb != true %}
+
+					{% block article_no_thumb %}
+						<div class="article-wrapper">
+							<div class="article-text no-img">
+								{% block article_text %}
+									<h3><a href="{{ article.permalink }}">{{ article.title }}</a></h3>
+									{% if show_excerpt %}
+										<p class="excerpt hidden-xs hidden-sm">{{ function( 'ff_the_excerpt', excerpt_length, article.id ) }}</p>
+									{% endif %}
+									{{ function( 'ff_the_tags', article.id ) }}
+								{% endblock article_text %}
+							</div>
+						</div>
+					{% endblock article_no_thumb %}
+
+				{# else just show the regular article text #}
+				{% else %}
+
+					{% block article_text_only %}
+						<div class="article-text col-sm-12 col-xs-9 col-xs-pull-3 col-sm-pull-0">
+							{{ block('article_text') }}{# copies article_text block defined above and any overrides #}
+						</div>
+					{% endblock article_text_only %}
+
+				{% endif %}
+
+			</div>
+
+		{% else %}{# is the alt row #}
+
+			{% block alt_row %}
+				{# no default #}
+			{% endblock alt_row %}
+
+			{% set is_alt_row = false %}{# reset is_alt_row #}
+			{% set i = -1 %}{# needs to be -1 because it is incremented at bottom of WHILE loop = false #}
+
+		{% endif %}
+
+		{# increment i and close row #}
+		{% set i = i + 1 %}{# increment counter #}
+		{% set highlight_count = highlight_count + 1 %}{# increment highlight counter #}
+		{% if i >= ( 12 / col_width ) %}{# divide again to get the number of columns #}
+			</div>
+			{% set i = 0 %}{# reset counter #}
+			{% set is_alt_row = true %}{# after the end of the row, show an alt row #}
+		{% endif %}
+
+	{% endfor %}
+
+	{# if $i is not equal to zero here, it means the loop has ended without closing a row #}
+	{% if i != 0 %}
+		</div>
+	{% endif %}
+
+</div>
+
+{% if layout == 'featured-left' or layout == 'featured-right' %}
+	</div>
+{% endif %}

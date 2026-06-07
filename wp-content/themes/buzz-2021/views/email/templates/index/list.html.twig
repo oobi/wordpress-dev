@@ -1,0 +1,61 @@
+{% if articles %}
+	<table class="index" cellpadding="0" cellspacing="20" width="640">
+		{% if title %}
+			<tr>
+				<td>
+					<h2 class="section-title">{{title}}</h2>
+				</td>
+			</tr>
+		{% endif %}
+
+		{% for post in articles  %}
+			{% set has_thumb = config.show_thumb and post.thumbnail %}
+
+			<tr>
+				<td class="index__article {% if config.text_padding %} text-padding{% endif %} {{post.classes}}" valign="top">
+
+					<table cellpadding="0" cellspacing="0" width="600" class="{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+
+						<tr>
+							{% if has_thumb %}
+
+								{% set image = post.thumbnail %}
+								{% set width = image.sizes['email-thumb'].width %}
+								{% set height = image.sizes['email-thumb'].height %}
+
+								<td class="image" valign="top" width="{{width}}">
+									<a href="{{ post.link }}">
+										<img src="{{ image.src( 'email-thumb' ) }}" width="{{width}}" height="{{height}}" alt="{{ image.alt | default( post.title ) | escape }}">
+									</a>
+								</td>
+
+							{% endif %}
+
+							<td>
+								<table cellpadding="0" cellspacing="" class="">
+									<tr>
+										<td class="title">
+											<h3 class="post-title">
+												<a href="{{ post.link }}" class="title__link"><span>{{ post.title }}</span></a>
+											</h3>
+										</td>
+									</tr>
+
+									<tr>
+										<td class="excerpt">
+											{% include 'email/partials/excerpt.html.twig' %}
+										</td>
+									</tr>
+								</table>
+							</td>
+
+						</tr>
+
+					</table>
+
+				</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+{% endif %}

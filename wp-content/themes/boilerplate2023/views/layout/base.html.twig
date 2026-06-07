@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+	{% block html_head_container %}
+		<meta charset="{{site.charset}}" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="pingback" href="{{site.pingback_url}}" />
+		{{function('wp_head')}}
+		{% block head %}{% endblock %}
+		{% if gtm_id %}
+			<!-- Google Tag Manager -->
+			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','{{ gtm_id }}');</script>
+			<!-- End Google Tag Manager -->
+		{% endif %}
+	{% endblock %}
+</head>
+
+<body class="{{ body_class }}" data-template="base.twig" role="document">
+	{% if gtm_id %}
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm_id }}"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	{% endif %}
+	{{ function('wp_body_open') }}
+
+	<div id="app">
+
+		{% block header %}
+			{% include "layout/header.html.twig" %}
+		{% endblock %}
+
+		{% block sidebarleft %}{% endblock sidebarleft %}
+
+		{# Render the content block #}
+		{% block content %}
+		<main>
+			<header>
+				<h1>{{ post.title }}</h1>
+			</header>
+			<article>
+				{{ post.content }}
+			</article>
+			<footer>
+				Author meta, next posts etc
+			</footer>
+		</main>
+		{% endblock %}
+
+		{% block sidebarright %}{% endblock sidebarright %}
+
+		{% block footer %}
+		{% include "layout/footer.html.twig" %}
+		{% endblock %}
+
+		{{ function('wp_footer') }}
+	</div>
+</body>
+
+</html>

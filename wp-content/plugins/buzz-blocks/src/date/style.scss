@@ -1,0 +1,39 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-buzz-date {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+	height: 100%;
+
+	@media all and (min-width: 768px) {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		padding-bottom: 1.5rem;
+	}
+
+	.bz-date-time {
+		font-size: 1.875rem;
+		line-height: 1.07;
+		margin: 0 0 1rem 0;
+	}
+
+	.bz-date-description {
+		margin-top: .25rem;
+		font-size: 18px;
+		line-height: 1.33;
+	}
+
+	.bz-date-link {
+		display: inline-block;
+		margin-top: 1rem;
+
+		font-size: .875rem;
+  		line-height: 1.43;
+	}
+}

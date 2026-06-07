@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "buzz/article-nav",
+  "version": "0.1.0",
+  "title": "Article Navigation",
+  "category": "buzz",
+  "icon": "share-alt",
+  "description": "Displays the Next / Previous link in the article.",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "showThumbnail": {
+      "type": "boolean",
+      "default": true
+    },
+    "thumbnailSize": {
+      "type": "string",
+      "default": "thumbnail"
+    },
+    "thumbnailWidth": {
+      "type": "number",
+      "default": 150
+    },
+    "thumbnailAspectRatio": {
+      "type": "string",
+      "default": "16/9"
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": true
+    },
+    "verticalAlignment": {
+      "type": "string",
+      "default": "top"
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": {
+      "text": true,
+      "link": true,
+      "background": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "textdomain": "buzz",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "centred",
+      "label": "Centred"
+    }
+  ],
+  "render": "file:./render.php",
+  "keywords": [
+    "buzz"
+  ]
+}

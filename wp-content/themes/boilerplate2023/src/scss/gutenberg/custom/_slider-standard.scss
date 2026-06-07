@@ -1,0 +1,195 @@
+.slider.slider-standard {
+    @include block-margins();
+    position: relative;
+
+	$slide-text-width-narrow: 40%; // narrow view
+
+
+    .slide {
+		// max-height: 100vh;
+		max-height: 580px;
+        position: relative;
+
+        &-content {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+            background: $black;
+            color: $gray-100;
+            font-size: 1rem;
+            padding: 1.5rem 1.5rem 3rem 1.5rem;
+
+            @include media-breakpoint-up(md) {
+				align-items: flex-end;
+                position: absolute;
+                width: $slide-text-width-narrow;
+                bottom: 0;
+				right: 0;
+                background: rgba($black, 0.5);
+            }
+        }
+
+        &-title {
+            font-family: var(--ff-serif-font-family);
+			font-weight: $font-weight-bold;
+			line-height: 1;
+			font-size: 1.25rem;
+			margin-bottom: .75rem;
+        }
+
+        &-text {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        &-citation {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+			margin-right: 2rem;
+
+			&::before {
+				content: '\2014'; //emdash
+				margin-right: .25rem;
+			}
+        }
+
+        &-link {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: $font-weight-bold;
+            margin-left: auto;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    .owl-nav {
+		display: none;  // hide on narrow layouts to make room for caption
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translateY(-50%) translateX(-50%);
+
+        justify-content: space-between;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &.disabled {
+            display: none;
+        }
+
+        .owl-next,
+        .owl-prev {
+            span {
+                display: none;
+            }
+
+            &::before {
+                font-family: $icon-font-family;
+                display: block;
+                padding: 0 1rem;
+                font-size: 2rem;
+                color: $white;
+                text-shadow: 0px 0px 10px rgba($black, 1);
+            }
+
+            &:hover {
+                &::before {
+                    transform: scale(1.1);
+                    // transform-origin: 50% 50%;
+                }
+            }
+        }
+
+        .owl-next::before {
+            content: "\f061";
+        }
+
+        .owl-prev::before {
+            content: "\f060";
+        }
+    }
+
+    .owl-dots {
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        bottom: 1rem;
+
+		@include media-breakpoint-up(md) {
+			width: calc(100% - $slide-text-width-narrow);
+			left: 0;
+		}
+
+        @include media-breakpoint-up(lg) {
+            bottom: 1.5rem;
+        }
+
+        &.disabled {
+            display: none;
+        }
+
+        .owl-dot {
+            padding: 0.25rem;
+            margin: 0 10px;
+
+            span {
+                width: 8px;
+                height: 8px;
+                border: 1px solid rgba($white, 0.5);
+                border-radius: 100%;
+                display: block;
+				box-shadow: 0px 0px 10px rgba($black, 1);
+            }
+
+            &.active {
+                span {
+                    background: rgba($gray-100, .8);
+                }
+            }
+        }
+    }
+
+
+	/**
+	 * Wide variant
+	 */
+	@include media-breakpoint-up(lg) {
+		$text-right-offset: 10%;
+		$text-width: 45%;
+		$text-max-width: 600px;
+
+        &.alignwide,
+        &.alignfull {
+            .slide-content {
+				flex-direction: row;
+				justify-content: flex-start;
+				height: unset;
+                padding: 3rem;
+				width: $text-width;
+				max-width: $text-max-width;
+				right: $text-right-offset;
+            }
+
+			.slide-title {
+				font-size: 2rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.owl-nav {
+				display: flex;
+			}
+
+			.owl-dots {
+				left: 0;
+				width: calc(100% - $text-right-offset - min($text-max-width, $text-width));
+			}
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "firefly/firefly-boilerplate",
+    "description": "Theme by Firefly Interactive",
+    "type":"wordpress-theme",
+    "minimum-stability" : "stable",
+    "authors": [
+        {
+            "name": "Shane",
+            "email": "olivershan@gmail.com"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.1",
+        "htmlburger/carbon-fields": "^3.0",
+        "htmlburger/carbon-field-icon": "^3.0",
+        "timber/timber": "^1.19"
+    },
+    "autoload": {
+        "psr-4": { "Firefly\\": "./theme" },
+        "files": [ "./theme/helpers.php" ]
+    }
+}

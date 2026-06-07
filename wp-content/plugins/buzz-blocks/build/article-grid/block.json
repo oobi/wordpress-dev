@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "buzz/article-grid",
+  "version": "0.1.0",
+  "title": "Buzz Article Grid",
+  "category": "buzz",
+  "icon": "smiley",
+  "description": "Display a grid of newsletter articles",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "color": {
+      "text": true,
+      "link": true,
+      "background": true
+    }
+  },
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "FEATURED_CATEGORY_PLACEHOLDER_ID": {
+      "type": "number",
+      "default": -1
+    },
+    "CURRENT_POST_PLACEHOLDER_ID": {
+      "type": "number",
+      "default": -1
+    },
+    "categoryId": {
+      "type": "number"
+    },
+    "newsletterId": {
+      "type": "number"
+    },
+    "columns": {
+      "type": "number",
+      "default": 4
+    },
+    "displayTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "excerptLength": {
+      "type": "number",
+      "default": 30
+    },
+    "displayThumbnail": {
+      "type": "boolean",
+      "default": true
+    },
+    "thumbnailSize": {
+      "type": "string",
+      "default": "medium"
+    },
+    "mediaPosition": {
+      "type": "string"
+    },
+    "mediaWidth": {
+      "type": "number",
+      "default": 50
+    },
+    "includeFeatured": {
+      "type": "boolean",
+      "default": true
+    },
+    "verticalAlignment": {
+      "type": "string",
+      "default": "top"
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayTags": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "buzz",
+  "viewScript": [
+    "file:./view.js",
+    "bz-article-grid"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "keywords": [
+    "buzz"
+  ]
+}

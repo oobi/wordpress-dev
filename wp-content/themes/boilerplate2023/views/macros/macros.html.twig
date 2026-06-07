@@ -1,0 +1,7 @@
+{% macro badges(post, taxonomy = 'post_tag') %}
+<div class="post-badges">
+	{% for cat in post.terms(taxonomy) %}
+		<a href="{{ cat.link }}" class="badge rounded-pill text-dark">{{ cat.title }}</a>
+	{% endfor %}
+</div>
+{% endmacro %}

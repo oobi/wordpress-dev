@@ -1,0 +1,141 @@
+.wp-block-buttons {
+
+	// spacing for adjacent button sets
+	& + & {
+		margin-top: 2rem;
+	}
+
+    &.is-style-large {
+        gap: 2.1875rem !important;
+    }
+
+	&.is-style-wide {
+        gap: 2.1875rem !important;
+    }
+}
+
+.wp-block-button {
+	font-size: 0.875rem;
+
+    .is-style-large &,
+	.is-style-wide & {
+        min-width: 300px;
+        max-width: 80%;
+    }
+
+    &__link {
+        border-radius: $border-radius !important;
+		font-size: inherit;
+        text-transform: uppercase;
+        font-weight: $font-weight-semibold;
+        line-height: 1.2;
+        padding: 1rem 3rem;
+
+        &:hover {
+            filter: brightness(85%);
+
+			:not(.has-text-color) & {
+				color: $white;
+			}
+
+            .is-style-text & {
+                filter: none;
+                color: $link-hover-color;
+				text-decoration: underline;
+            }
+
+            .is-style-arrow & {
+                filter: none;
+            }
+        }
+
+        .is-style-large & {
+			font-size: 1rem !important;
+            padding-top: 1.25rem !important;
+            padding-bottom: 1.25rem !important;
+			padding-left: 1.25rem;
+			padding-right: 1.25rem;
+            width: 100%;
+        }
+
+		.is-style-wide & {
+			width: 100%;
+		}
+
+		.is-style-text & {
+			padding: 0 !important;
+			text-transform: none;
+		}
+    }
+
+    &.is-style-outline {
+		.wp-block-button__link {
+			color: var(--bs-primary);
+		}
+    }
+
+    &.is-style-text {
+        .wp-block-button__link {
+            border: none;
+            background: none;
+            color: $link-color;
+        }
+    }
+
+    &.is-style-arrow {
+        .wp-block-button__link {
+            @include link-arrow();
+            border: none;
+            background: none !important;
+            color: var(--bs-body-color);
+            padding: 0;
+        }
+    }
+
+	/** App store buttons **/
+	&.is-style-app-apple,
+	&.is-style-app-google {
+		display: flex;
+
+		width: 130px;
+		height: 40px;
+
+		.is-style-large & {
+			width: 200px;
+			height: 60px;
+		}
+
+		.wp-block-button__link {
+			font-size: 0 !important;
+			line-height:0 !important;
+			padding: 0 !important;
+			width: 100%;
+			height: 100%;
+
+
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-color: $black;
+		}
+	}
+
+	&.is-style-app-apple {
+		.wp-block-button__link {
+			background-image: url(../images/icons/app-apple.svg);
+		}
+	}
+
+	&.is-style-app-google {
+		.wp-block-button__link {
+			background-image: url(../images/icons/app-google.svg);
+		}
+	}
+}
+
+.editor-styles-wrapper {
+    .wp-block-button__link,
+    .wp-block-button {
+        border-radius: $border-radius !important;
+    }
+}

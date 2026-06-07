@@ -1,0 +1,4 @@
+// Get multiple of spacer
+@function spacer( $size : 4 ) {
+	@return $spacer / 4 * $size;
+}

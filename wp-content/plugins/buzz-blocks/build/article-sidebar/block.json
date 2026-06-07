@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "buzz/article-sidebar",
+  "version": "0.1.0",
+  "title": "Article Sidebar",
+  "category": "buzz",
+  "icon": "smiley",
+  "description": "Displays a list of articles in the current newsletter.",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "color": {
+      "text": true,
+      "link": true,
+      "background": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "attributes": {
+    "showFeaturedImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCategoryHeadings": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "buzz",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "keywords": [
+    "buzz"
+  ]
+}

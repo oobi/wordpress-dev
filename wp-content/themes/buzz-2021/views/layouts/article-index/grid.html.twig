@@ -1,0 +1,22 @@
+{% for post in articles %}
+
+	{% if config.show_thumb %}
+		{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+	{% endif %}
+
+	<article
+		class="article-card {{config.article_class}}
+					{% if config.col_width >= 2 %} col-sm-6 {% endif %}
+					{% if config.col_width >= 3 %} col-md-4 {% endif %}
+					{% if config.col_width %} col-lg-{{ config.col_width }} {% else %} col-lg-3 {% endif %}
+					{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}
+					{{post.classes}}">
+
+		{% include 'partials/article-card.html.twig' with {
+			'hide_thumb': not has_thumb,
+			'hide_excerpt' : not config.show_excerpt
+		} %}
+
+	</article>
+
+{% endfor %}

@@ -1,0 +1,66 @@
+{% set columns = 2 %}
+{% set column_width = 100 / columns %}
+{% if dates.data %}
+
+	<table class="dates" cellpadding="0" cellspacing="20" width="640">
+
+		{% if dates.title %}
+			<tr>
+				<td colspan="{{columns}}"><h2 class="section-title">{{dates.title}}</h2></td>
+			</tr>
+		{% endif %}
+
+		{% for row in dates.data | batch(columns) %}
+			<tr>
+				{% for key,value in row %}
+					<td class="date-wrapper" valign="top" width="{{column_width}}%">
+
+						<table cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td class="date" width="50" valign="top">
+									<table class="date__frame" width="50" cellspacing="0" cellpadding="0" align="center">
+										<tr>
+											<td class="date__month">{{key | date("M")}}</td>
+										</tr>
+										<tr>
+											<td class="date__day">{{key | date("j")}}</td>
+										</tr>
+									</table>
+								</td>
+								<td valign="top">
+									<table cellspacing="0" cellpadding="0">
+										{% for date in value %}
+											<tr class="
+												{% if date.description %} has-description {% endif %}
+												{% if loop.first %} has-description {% endif %}
+											">
+												<td class="title" valign="top">
+													{% if date.url %}<a class="link" target="_blank" href="{{date.url}}">{% endif %}
+													{{date.title}}
+													{% if date.url %}
+														{% if dates.link_icon %}
+															<i class="icon {{dates.link_icon}}"></i>
+														{% endif %}
+														</a>
+													{% endif %}
+												</td>
+											</tr>
+											{% if date.description %}
+												<tr>
+													<td class="description" valign="top">{{date.description | nl2br}}</td>
+												</tr>
+											{% endif %}
+										{% endfor %}
+									</table>
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+	</table>
+
+{% endif %}

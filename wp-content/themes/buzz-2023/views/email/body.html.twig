@@ -1,0 +1,73 @@
+<tr id="email-body">
+    <td align="center" valign="top">
+        <table border="0" cellpadding="0" cellspacing="0" width="640">
+
+			{# Before Featured Widget #}
+			{% if widgets.email.before_featured %}
+				<tr class="widget-before-featured">
+					<td>
+						{{widgets.email.before_featured}}
+					</td>
+				</tr>
+			{% endif %}
+
+			{# Featured Articles #}
+			{% if articles.featured %}
+				<tr class="featured-wrapper">
+					<td class="template-{{config.featured.template}}">
+						{% if articles.featured %}
+							<table cellpadding="0" cellspacing="0" width="100%">
+							{% for post in articles.featured %}
+								{% set has_thumb = config.featured.show_thumb and post.thumbnail %}
+								<tr class="featured {% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+									<td>
+										{% include "email/templates/featured/#{config.featured.template}.html.twig"  with {
+											'config'	: config.featured,
+											'has_thumb'	: has_thumb
+										} %}
+									</td>
+								</tr>
+							{% endfor %}
+							</table>
+						{% endif %}
+					</td>
+				</tr>
+			{% endif %}
+
+			{# Between Featured/Index Widget #}
+			{% if widgets.email.between_featured_index %}
+				<tr class="widget-between-featured-index">
+					<td>
+						{{widgets.email.between_featured_index}}
+					</td>
+				</tr>
+			{% endif %}
+
+			{# Index Articles #}
+			{% if articles.index %}
+				{% for category in articles.index %}
+					{% if category.posts %}
+						<tr class="index-wrapper">
+							<td class="template-{{config.index.template}}">
+								{% include "email/templates/index/#{config.index.template}.html.twig" with {
+									'articles' 	: category.posts,
+									'title'		: category.name,
+									'config'	: config.index
+								} %}
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+
+			{# After Index Widget #}
+			{% if widgets.email.after_index %}
+				<tr class="widget-after-index">
+					<td>
+						{{widgets.email.after_index}}
+					</td>
+				</tr>
+			{% endif %}
+        </table>
+    </td>
+</tr>

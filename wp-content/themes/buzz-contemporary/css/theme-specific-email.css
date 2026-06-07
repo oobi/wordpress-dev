@@ -1,0 +1,6 @@
+/* EMAIL THEME SPECIFIC OVERRIDES */
+
+HR 									{ margin:0 15px; }
+
+#main TABLE TD.image 				{ padding-bottom:0; }
+

@@ -1,0 +1,84 @@
+{
+    "version": 2,
+    "settings": {
+		"layout": {
+            "contentSize": "758px",
+            "wideSize": "960px"
+        },
+
+		"color": {
+			"defaultPalette": false,
+			"custom": true
+		},
+
+		"spacing": {
+			"blockGap": true
+		},
+
+        "blocks": {
+            "core/button": {
+                "border": {
+                    "color": false,
+                    "radius": false,
+                    "style": false,
+                    "width": false
+                },
+                "color": {
+					"background" : "var(--wp--preset--color--primary)",
+					"text" : "var(--wp--preset--color--white)",
+                    "customDuotone": false,
+                    "customGradient": false,
+                    "defaultDuotone": false,
+                    "defaultGradients": false,
+                    "duotone": [],
+                    "gradients": []
+                },
+                "typography": {
+                    "fontSizes": [],
+                    "fontFamilies": []
+                },
+				"styles": {
+					"outline": {
+						"color": {
+							"text" : "var(--wp--preset--color--primary)"
+						}
+				   }
+			  }
+            },
+			"core/pullquote": {
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				},
+				"typography": {
+                    "fontSizes": [],
+                    "fontFamilies": [],
+					"fontWeight": false,
+					"fontStyle": false,
+					"textTransform": false,
+					"letterSpacing": false,
+					"textDecoration": false
+                }
+			}
+        }
+    },
+	"styles": {
+		"blocks": {
+			"core/gallery": {
+				"spacing": {
+					"blockGap": ".5rem"
+				}
+			}
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background" : "var(--wp--preset--color--primary)",
+            		"text" : "var(--wp--preset--color--white)"
+				}
+			}
+		}
+	}
+}

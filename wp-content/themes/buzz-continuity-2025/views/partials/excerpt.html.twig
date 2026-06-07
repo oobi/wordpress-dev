@@ -1,0 +1,7 @@
+{% if not length %}
+	{% set length = has_thumb ? config.excerpt.image : config.excerpt.no_image %}
+{% endif %}
+
+<div class="{{css_class | default('excerpt')}}">
+	{{ post.preview.length(length).read_more(false) | wpautop }}
+</div>

@@ -1,0 +1,47 @@
+<article class="article-tease article-tease--column mb-5
+	{% if col_width %}col-md-{{ col_width }}{% else %}col-md-3{% endif %}
+	{{post.classes}}">
+
+	{% if show_thumb %}
+		{% set has_thumb = fn('has_post_thumbnail', post.id) %}
+		{% if has_thumb %}
+			{% set image = post.thumbnail %}
+			{% set large_size = col_width == 12 ? 'article-large' : 'article' %}
+
+			<div class="article-tease__image mb-3">
+				<a href="{{ post.link }}">
+					<picture>
+						<source media="(min-width: 768px)" srcset="{{ image.src( large_size ) }}">
+						<img src="{{ image.src('article') }}"
+							class="slide__image"
+							alt="{{ image.alt | default(post.title) | escape  }}"
+							title="{{ image.title | default(post.title) | escape  }}"
+							description="{{ image.description | escape  }}"
+							style="width:100%;">
+					</picture>
+				</a>
+			</div>
+
+		{% endif %}
+	{% endif %}
+
+    <div class="article-tease__content {% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+        <h4 class="title">
+            <a href="{{ post.link }}" class="title__link">
+                {{ post.title }}
+            </a>
+        </h4>
+        {#
+            use the chainable methods on the post preview to show it how we like
+            read_more null to remove the a link
+            length 30 to override the default 50
+        #}
+        <p class="excerpt">
+            {{ post.preview.read_more(null).length(15).end(null) }}
+        </p>
+        <a class="btn" href="{{ post.link }}">
+            Read More
+        </a>
+	</div>
+
+</article>

@@ -1,0 +1,10 @@
+<header class="entry-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% include "partials/breadcrumb.html.twig" %}
+				<h1 class="entry-heading">{{ title | default(post.id ? post.title : '') }}</h1>
+			</div>
+		</div>
+	</div>
+</header>

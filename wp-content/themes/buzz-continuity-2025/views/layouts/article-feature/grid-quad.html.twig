@@ -1,0 +1,22 @@
+<div class="col-12 mb-6">
+	{% for collection in articles | batch(4) %}
+
+		{# array index works oddly inside batch #}
+		{% set index = (loop.index0 * 4) %}
+
+		<div class="feature-grid">
+			<div class="feature-grid-item feature-grid-item-lg">
+				{% include 'partials/article-card-feature.html.twig' with { post: collection[index] } %}
+			</div>
+			<div class="feature-grid-item feature-grid-item-md">
+				{% include 'partials/article-card-feature.html.twig' with { post: collection[index+1], hide_excerpt: true, class: 'scale-to-fit' } %}
+			</div>
+			<div class="feature-grid-item feature-grid-item-sm feature-grid-item-sm1">
+				{% include 'partials/article-card-feature.html.twig' with { post: collection[index+2], hide_excerpt: true, class: 'scale-to-fit', title_class: 'h4' } %}
+			</div>
+			<div class="feature-grid-item feature-grid-item-sm feature-grid-item-sm2">
+				{% include 'partials/article-card-feature.html.twig' with { post: collection[index+3], hide_excerpt: true, class: 'scale-to-fit', title_class: 'h4' } %}
+			</div>
+		</div>
+	{% endfor %}
+</div>

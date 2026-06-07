@@ -1,0 +1,18 @@
+// Alignments
+IMG 					{ max-width:100%; height:auto; }
+IMG.alignright,
+FIGURE.alignright  		{ float:right; margin:0 0 1em 1em; }
+IMG.alignleft,
+FIGURE.alignleft  	 	{ float:left; margin:0 1em 1em 0; }
+IMG.aligncenter,
+FIGURE.aligncenter 		{ display:block; margin-left:auto; margin-right:auto; }
+
+// Style the WordPress HTML5 figure element
+figure.wp-caption,
+figure.gallery-item {
+    position: relative;
+
+    .wp-caption-text 		{ padding:0.5rem 1rem;
+							  background-color:$gray-200;
+							  font-size:0.8rem; }
+}

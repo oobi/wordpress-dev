@@ -1,0 +1,458 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/**********************************************************************************
+ * Wrapper
+ **********************************************************************************/
+
+.ff-calendar-wrapper {
+    position: relative;
+}
+
+/**********************************************************************************
+ * Calendar
+ **********************************************************************************/
+
+BODY .ff-calendar {
+    font-size: 12px;
+}
+.ff-calendar TABLE {
+    margin: 0;
+}
+.ff-calendar .fc-toolbar .fc-center {
+    display: block;
+}
+.ff-calendar .fc-toolbar .fc-left,
+.ff-calendar .fc-toolbar .fc-right {
+    margin-bottom: 10px;
+}
+.ff-calendar .fc-toolbar H2 {
+    margin: 10px 0 0;
+}
+
+/* toolbar */
+.ff-calendar .fc-toolbar H2 {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+.ff-calendar .fc-toolbar .fc-button {
+    border: 0;
+    border-radius: 0;
+    padding: 5px 10px;
+    background: #ccc;
+    text-shadow: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.ff-calendar .fc-toolbar .fc-state-active {
+    background-color: #666;
+    box-shadow: none;
+}
+
+/* Loading */
+.ff-calendar-loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #000;
+    font-size: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*================================================================================================*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .ff-calendar .fc-toolbar .fc-left,
+    .ff-calendar .fc-toolbar .fc-right {
+        margin-bottom: 0;
+    }
+}
+
+/**********************************************************************************
+ * Events
+ **********************************************************************************/
+
+.ff-calendar .fc-event,
+.ff-calendar .fc-list-item-title A {
+    cursor: pointer;
+}
+.ff-calendar .fc-event {
+    border: 0;
+    padding: 2px 3px;
+    background: #fff;
+    color: #333;
+    font-size: 12px;
+    box-shadow: none;
+}
+.ff-calendar .fc-event:hover {
+    border: 0;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Event Details */
+.ff-calendar-details {
+    padding: 0;
+}
+
+/**********************************************************************************
+ * Widget
+ **********************************************************************************/
+.ff-calendar-widget .widget-title {
+    position: relative;
+}
+.ff-calendar-widget .widget-title .widget-url {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.75em;
+    font-weight: normal;
+}
+
+/**********************************************************************************
+ * Modal windows
+ **********************************************************************************/
+
+.ff-calendar-modal {
+    padding: 0;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999999;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+}
+.ff-calendar-modal * {
+    box-sizing: border-box;
+}
+
+.ff-calendar-modal-inner {
+    position: absolute;
+    top: 25vh;
+    left: 20vw;
+    height: 50vh;
+    width: 60vw;
+    background: #fff;
+}
+.ff-calendar-modal-header {
+    position: relative;
+    padding: 15px 50px 15px 30px;
+    min-height: 55px;
+    background: #000;
+    color: #fff;
+}
+.ff-calendar-modal-header H2 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    font-size: 20px;
+    color: #fff;
+}
+.ff-calendar-modal-close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    line-height: 1.8em;
+    font-size: 26px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+}
+
+.ff-calendar-modal-html {
+    background: #fff;
+    font-size: 16px;
+    line-height: normal;
+}
+.ff-calendar-modal-html I + SPAN {
+    padding-left: 20px;
+}
+
+/* content */
+.ff-calendar-modal-content {
+    padding: 20px 30px;
+    max-height: 50vh;
+    overflow: auto;
+}
+.ff-calendar-modal-content > DIV,
+.ff-calendar-modal-content > P {
+    margin-bottom: 10px;
+}
+.ff-calendar-modal-content .date::before,
+.ff-calendar-modal-content .time::before,
+.ff-calendar-modal-content .location::before,
+.ff-calendar-modal-content .categories::before {
+    height: 1em;
+    width: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+    background: center center no-repeat;
+    background-size: contain;
+    content: "";
+}
+.ff-calendar-modal-content .date::before {
+    background-image: url(../images/calendar-alt-regular.svg);
+}
+.ff-calendar-modal-content .time::before {
+    background-image: url(../images/clock-regular.svg);
+}
+.ff-calendar-modal-content .location::before {
+    background-image: url(../images/map-marker-regular.svg);
+}
+.ff-calendar-modal-content .categories::before {
+    background-image: url(../images/tags-regular.svg);
+}
+
+/* categories */
+.ff-calendar-modal-content .ff-category-wrapper {
+    width: 100%;
+    float: left;
+}
+.ff-calendar-modal-content INPUT[type="checkbox"],
+.ff-calendar-modal-content INPUT[type="checkbox"] + LABEL {
+    cursor: pointer;
+}
+.ff-calendar-modal-content INPUT[type="checkbox"] + LABEL {
+    padding-left: 8px;
+}
+
+/* visiblity and transitions */
+.ff-calendar-modal {
+    visibility: hidden;
+}
+.ff-calendar-modal--show {
+    visibility: visible;
+}
+
+.ff-calendar-modal--transition {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    opacity: 0;
+}
+
+.ff-calendar-modal--show .ff-calendar-modal--transition {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    opacity: 1;
+}
+
+@media (min-width: 600px) {
+    .ff-calendar-modal-content .ff-category-wrapper {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media (min-width: 1300px) {
+    .ff-calendar-modal-content .ff-category-wrapper {
+        width: 33%;
+        float: left;
+    }
+}
+
+/*================================================================================================*/
+/* Mobile Modal */
+@media (max-width: 48rem) {
+    .ff-calendar-modal-inner {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+    }
+    .ff-calendar-modal--transition {
+        transform: translateX(-0) translateY(150%);
+        -webkit-transform: translateX(-0) translateY(150%);
+        -moz-transform: translateX(-0) translateY(150%);
+        -ms-transform: translateX(-0) translateY(150%);
+    }
+    .ff-calendar-modal-content {
+        max-height: 85vh;
+    }
+}
+
+/**********************************************************************************
+ * Month view
+ **********************************************************************************/
+
+.fc-month-view .fc-all-day {
+    background: rgba(0, 0, 0, 0.5);
+}
+.fc-month-view .fc-all-day .fc-title {
+	color: #FFF;
+}
+
+.fc-month-view .fc-all-day:hover {
+    background: #000;
+}
+
+.fc-month-view .fc-all-day:hover .fc-title {
+    color: #fff;
+}
+
+/**********************************************************************************
+ * List view
+ **********************************************************************************/
+
+.fc-list-view .fc-list-item {
+    cursor: pointer;
+}
+.fc-list-view .fc-list-item-marker {
+    display: none;
+}
+.fc-listMonth-view .fc-scroller {
+    height: auto !important;
+}
+
+/**********************************************************************************
+ * Upcoming (custom) view
+ **********************************************************************************/
+
+.fc-view-container .fc-upcoming-view *,
+.fc-view-container .fc-upcoming-view *:after,
+.fc-view-container .fc-upcoming-view *::before {
+    box-sizing: border-box;
+}
+
+.fc-upcoming-view {
+    font-size: 14px;
+}
+.fc-upcoming-view .fc-list-table {
+    display: table;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.fc-upcoming-view .fc-upcoming-row {
+    display: table-row;
+    border-bottom: 20px solid transparent;
+}
+.fc-upcoming-view .fc-list-heading {
+    display: table-cell;
+    width: 1px; /* small width to match date boxes */
+}
+.fc-upcoming-view .fc-upcoming-col {
+    display: table-cell;
+    vertical-align: top;
+}
+
+/* date */
+.fc-upcoming-view .fc-list-heading-main {
+    float: none;
+}
+.fc-upcoming-view .fc-upcoming-date {
+    display: table;
+    width: 50px;
+    margin: 0 10px 10px 0;
+    text-align: center;
+}
+.fc-upcoming-view .fc-upcoming-day {
+    border: 1px solid #333;
+    border-top: 0;
+    padding: 4px 0;
+    font-size: 18px;
+    line-height: normal;
+}
+.fc-upcoming-view .fc-upcoming-month {
+    display: table-header-group;
+    background: #f04d4d;
+    color: #fff;
+    font-size: 12px;
+    line-height: normal;
+}
+/*.fc-upcoming-view .fc-upcoming-year				{ font-size:12px; line-height:normal; }*/
+
+/* events */
+.fc-upcoming-view .fc-list-item {
+    padding: 0 5px 5px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+.fc-upcoming-view .fc-list-item:hover {
+    background: #eee;
+}
+.fc-upcoming-view .fc-list-item-time {
+    width: auto;
+}
+.fc-upcoming-view .fc-list-item-time::before {
+    padding-right: 5px;
+    width: 1em;
+    height: 1em;
+    content: "";
+    background: url(../images/clock-regular.svg) center center no-repeat;
+    background-size: contain;
+}
+
+/* FontAwesome */
+/* we don't need the whole shebang */
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+.ff-calendar-wrapper .fa-spin {
+    -webkit-animation: fa-spin 2s linear infinite;
+    animation: fa-spin 2s linear infinite;
+}
+
+.ff-calendar-wrapper .fa-fw {
+    text-align: center;
+    width: 1.25em;
+}
+
+.ff-calendar-wrapper .fa-spinner::before {
+	display: block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    background: url(../images/spinner-duotone.svg) center center no-repeat;
+    background-size: contain;
+}
+
+.ff-calendar-modal .fa-close {
+    color: white;
+}
+
+.ff-calendar-modal .fa-close::before {
+    display: block;
+    width: 1em;
+    height: 1em;
+    content: "";
+    background: url(../images/times-regular.svg) center center no-repeat;
+    background-size: contain;
+}

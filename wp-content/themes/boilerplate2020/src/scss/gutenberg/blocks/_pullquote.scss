@@ -1,0 +1,80 @@
+/* STYLE: DEFAULT */
+
+.wp-block-pullquote {
+	padding: 0;
+	position: relative;
+
+	&.alignleft,
+	&.alignright {
+		max-width: calc(100% - 4rem);
+		
+		p {
+			// font size for the pull quote also needs to go here.
+			font-size: inherit;
+		}
+		
+		&::before {
+			margin-right: 0;
+		}
+	}
+
+	&.alignleft {
+		text-align: left;
+	}
+
+	&.alignright {
+		text-align: right;
+	}
+
+	// quote graphic
+	&::before {
+		content: "";
+		background: currentColor;
+		mask-image: url(../images/quotes.png);
+		mask-size: contain;
+		background-size: contain;
+		display: block;
+		font-size: 6.2rem;
+		font-weight: 500;
+		line-height: 1.2;
+		margin: 0 auto 2.625rem auto;
+		text-align: center;
+		height: 29px;
+		width: 34px;
+
+		.reduced-spacing & {
+			border: 0.1rem solid currentColor;
+			font-size: 5.9rem;
+		}
+	}
+
+	blockquote {
+		border: none;
+		margin: 0;
+		padding: 0;
+		font-size: inherit;
+		font-weight: inherit;
+
+		p {
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			max-width: 100%;
+			line-height: 1.15;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	cite {
+		font-size: 75%;
+		font-weight: 300;
+		line-height: 1.22;
+		font-style: normal;
+		margin-top: 2.875rem;
+		display: block;
+	}
+
+}

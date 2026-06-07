@@ -1,0 +1,20 @@
+<section class="article-nav" role="navigation">
+	<div class="row">
+		<div class="col-6 d-flex justify-content-start">
+			{% if prev_article %}
+				<a class="article-nav-item prev" href="{{prev_article.link}}">
+					<span class="article-nav-item-btn">Prev</span>
+					<span class="article-nav-item-title">{{prev_article.title}}</span>
+				</a>
+			{% endif %}
+		</div>
+		<div class="col-6 d-flex justify-content-end">
+			{% if next_article %}
+				<a class="article-nav-item next" href="{{next_article.link}}">
+					<span class="article-nav-item-btn">Next</span>
+					<span class="article-nav-item-title">{{next_article.title}}</span>
+				</a>
+			{% endif %}
+		</div>
+	</div>
+</section>

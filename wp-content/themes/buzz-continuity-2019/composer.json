@@ -1,0 +1,19 @@
+{
+    "name": "firefly/boilerplate",
+    "description": "Theme by Firefly Interactive",
+    "type":"wordpress-theme",
+    "minimum-stability" : "stable",
+    "authors": [
+        {
+            "name": "Firefly Interactive",
+            "email": "info@fi.net.au"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.1"
+    },
+    "autoload": {
+        "psr-4": { "Firefly\\Buzz\\": "./buzz" },
+        "files": [ "./buzz/helpers.php" ]
+    }
+}

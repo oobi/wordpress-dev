@@ -1,0 +1,15 @@
+{% import "macros/macros.html.twig" as macros %}
+
+<div class="col-12 col-md-6 col-lg-3 event-partial mb-6">
+	<a class="event-partial-link" href="{{ post.link }}">
+		{% if post.thumbnail %}
+			<img class="event-partial-thumbnail" src="{{ post.thumbnail.src('cropped_square_thumbnail') }}" alt="{{ post.title }}">
+		{% endif %}
+		<div class="event-partial-meta-wrapper">
+			<p class="event-partial-meta">{{ post._ff_event_date|date('F j Y') }}{{ post._ff_event_end ? '-' ~ post._ff_event_end|date('F j Y') }}</p>
+			<p class="event-partial-meta">{{ post._ff_event_location }}</p>
+		</div>
+		<h3 class="event-partial-title">{{ post.title }}</h3>
+		{{ macros.badges(post, 'event_tag') }}
+	</a>
+</div>

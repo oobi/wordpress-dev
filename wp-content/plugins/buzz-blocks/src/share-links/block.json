@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "buzz/share-links",
+	"version": "0.1.0",
+	"title": "Share Links",
+	"category": "buzz",
+	"icon": "share-alt",
+	"description": "Social sharing links",
+	"attributes": {
+		"textAlign": {
+			"type": "string"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 24
+		},
+		"iconSpacing": {
+			"type": "number",
+			"default": 10
+		},
+		"content": {
+			"type": "string",
+			"default": "SHARE"
+		},
+		"twitter": {
+			"type": "boolean",
+			"default": true
+		},
+		"facebook": {
+			"type": "boolean",
+			"default": true
+		},
+		"instagram": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkedin": {
+			"type": "boolean",
+			"default": false
+		},
+		"email": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"color": {
+			"text": true,
+			"link": true,
+			"background": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"textdomain": "buzz",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"keywords": ["buzz"]
+}

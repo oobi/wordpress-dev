@@ -1,0 +1,60 @@
+{#
+    For Hover navigation:
+    {% import 'layout/navigation-macro-hover.html.twig' as nav %}
+
+    For Click and Stick navigation:
+    {% import 'layout/navigation-macro-click.html.twig' as nav %}
+#}
+{% include 'layout/offcanvas.html.twig' %}
+{% import 'layout/navigation-macro-hover.html.twig' as nav %}
+
+{# Add the 'hover-nav' class here if you want the dropdown menus to display on hover instead of on click. #}
+<header
+	class="site-header nav-hover">
+
+	{# optional alert #}
+	{% include "layout/alert.html.twig" %}
+
+	{# BEGIN Utilities #}
+	<section class="secondary-navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 d-flex justify-content-end align-items-center">
+					{% include 'layout/navigation-secondary.html.twig' %}
+				</div>
+			</div>
+		</div>
+	</section>
+	{# END Utilities #}
+
+	{# BEGIN Navigation #}
+	<nav class="navbar navbar-expand-lg primary-navigation">
+		<div
+			class="container-xl px-md-8">
+
+			{# BEGIN Logo #}
+			<a class="navbar-brand" href="{{ site.link }}">
+				<div class="nav-logo"></div>
+			</a>
+			{# END Logo #}
+
+			{# BEGIN Hamburber Button #}
+			<a class="btn btn-link nav-button d-block d-lg-none ms-auto my-auto offcanvas-toggle" data-bs-toggle="offcanvas" data-bs-target="#mobileNavigation" role="button" aria-controls="mobileNavigation">
+				<span class="fas fa-bars me-2"></span>
+			</a>
+			{# END Hamburber Button #}
+
+			{# BEGIN Menu #}
+			<div class="collapse navbar-collapse" id="primaryNavigation">
+				<ul
+					class="navbar-nav ms-auto header-nav-items">
+					{# Nav #}
+					{{ nav.render(menus.primary.get_items, 4) }}
+				</ul>
+			</div>
+			{# END Menu #}
+
+		</div>
+	</nav>
+	{# END Navigation #}
+</header>

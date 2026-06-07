@@ -1,0 +1,22 @@
+.tags {
+	margin-bottom:spacer(4);
+	font-size:0.8rem;
+
+	&__list {
+		display:inline-block; margin:0; padding:0 0 0 spacer(1); list-style:none;
+
+		li {
+			display:inline;
+		}
+
+		.button {
+			display:inline-block; padding:0 spacer(2); border-radius:2px;
+			background:$primary;
+			color:$white;
+		}
+	}
+
+	// [class^="tag-"] {
+
+	// }
+}

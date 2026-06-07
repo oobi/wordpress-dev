@@ -1,0 +1,67 @@
+<!-- MENU - The entry point for the macro -->
+{% macro menu(menu, max_depth, depth, mega_menu, classes) -%}
+
+	{% import _self as nav %}
+
+	<!-- Set the default max depth and depth to only loop the necessary amount -->
+	{% set max_depth = max_depth|default(2) %}
+	{% set depth = depth|default(0) %}
+
+	<!-- Set if this is a mega menu -->
+	{% set mega_menu = mega_menu|default(false) %}
+
+	<ul class="{{ classes|default('menu') }}">
+		{% for item in menu %}
+			{{ nav.item(item, max_depth, depth, mega_menu) }}
+		{% endfor %}
+	</ul>
+
+{%- endmacro %}
+
+<!-- ITEM - Create the menu-item and handle creating sub-menus menus -->
+{% macro item(item, max_depth, depth, mega_menu) -%}
+	{% import _self as nav %}
+
+	<li class="{{ item.classes | join(' ') }}">
+
+		{% if item.get_children %}
+			{{ nav.link(item) }}
+
+			<!-- increment the menu depth -->
+			{% set depth = depth + 1 %}
+
+			<!-- If we haven't reached the max depth, output a menu ul -->
+			{% if depth < max_depth %}
+
+				<span class="expander">
+					<span class="fas fa-angle-down"></span>
+				</span>
+
+				<!-- Create a sub-menu if there are children -->
+				{% if mega_menu %}
+					{{ nav.mega_menu(item, max_depth, depth, 'sub-menu sub-menu--mega' ) }}
+				{% else %}
+					{{ nav.menu(item.children, max_depth, depth, false, 'sub-menu' ) }}
+				{% endif %}
+
+			{% endif %}
+
+		{% else %}
+			{{ nav.link(item) }}
+		{% endif %}
+	</li>
+
+{%- endmacro %}
+
+<!-- MEGA MENU - render the mega menu content -->
+{% macro mega_menu(item, max_depth, depth, classes) -%}
+	{# no mega menu #}
+{%- endmacro %}
+
+<!-- LINK - Create the anchor tag for the menu item -->
+{% macro link(item) -%}
+	<a target="{{ item.target }}"
+	   href="{{ item.link }}">
+			   {{ item.title }}
+	</a>
+{%- endmacro %}

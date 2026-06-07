@@ -1,0 +1,148 @@
+/**
+ * custom.css.txt IS USED FOR REFERENCE FOR CHILD THEMES ONLY
+ */
+
+
+/**
+ * 	The default colours for the base theme (without any customizations)
+ * !!token!! is replaced with a colour value at runtime
+ * !!token[0.1]!! will be replaced with a a colour value with opacity 0.1 (rgba)
+ */
+
+/*******************************************************************
+ * GLOBAL
+ *******************************************************************/
+
+/* background */
+BODY							{ background-color:!!background_color!!; }
+
+/*******************************************************************
+ * TYPEFACES
+ *******************************************************************/
+
+/* defaults font */
+body,td 						{ font-family:!!ff_body_font!!; }
+
+/* heading font */
+H1,H2,H3,H4,H5,H6 				{ font-family: !!ff_heading_font!!; }
+
+/* banner font */
+#banner							{ font-family: !!ff_banner_font!!; }
+
+/* nav font */
+#nav							{ font-family: !!ff_nav_font!!; }
+#nav > DIV 						{ text-transform:!!ff_nav_font_transform!!; }
+
+/*******************************************************************
+ * BANNER
+ *******************************************************************/
+
+/* header background */
+#banner 						{ background-color:!!ff_newsletter_header_bgcolor!!; }
+
+/* header text */
+#banner,
+#banner A,
+#banner .site-text H1,
+#banner .site-text P			{ color:!!ff_newsletter_header_txtcolor!!; }
+
+/*******************************************************************
+ * NAV
+ *******************************************************************/
+
+/* menu background */
+#nav,
+#nav .dropdown-menu				{ background-color:!!ff_newsletter_menu_bgcolor!!; }
+.alt-issue-date					{ background-color:!!ff_newsletter_menu_bgcolor[0.3]!!; }
+
+#nav #searchform INPUT,
+#nav A:hover,
+#nav A:focus		 			{ background-color:!!ff_newsletter_menu_bgcolor!!; /* fallback for old IE */ }
+
+/* menu text */
+#nav,
+#nav > DIV,
+#nav BUTTON,
+#nav A,
+#nav #searchform INPUT,
+#nav .navbar-text				{ color:!!ff_newsletter_menu_txtcolor!!; }
+#nav .navbar-toggle 			{ border-color:!!ff_newsletter_menu_txtcolor!!; }
+#nav .navbar-toggle .icon-bar 	{ background-color:!!ff_newsletter_menu_txtcolor!!; }
+
+#nav #searchform INPUT,
+#nav A:hover,
+#nav A:focus		 			{ background-color:!!ff_newsletter_menu_txtcolor[0.1]!!; }
+
+/*******************************************************************
+ * CONTENT
+ *******************************************************************/
+
+/* primary */
+.category .category-name,
+#main H1, #main H2,
+#main H3, #main H4,
+#main H5, #main H6,
+.wp-editor H1, .wp-editor H2,
+.wp-editor H3, .wp-editor H4,
+.wp-editor H5, .wp-editor H6	{ color:!!ff_newsletter_primary_color!!; }
+
+/* secondary */
+.table-banded,
+.table-standard,
+.table-banded TD,
+.table-standard TD,
+#sidebar .this-issue,
+#sidebar .this-issue H3,
+#sidebar .this-issue .category,
+#article-prevnext,
+HR,
+#main .no-thumb-article-table	{ border-color:!!ff_newsletter_secondary_color!!; }
+
+.table-banded THEAD TD,
+.table-standard THEAD TD,
+.table-banded TH,
+.table-standard TH 				{ background-color:!!ff_newsletter_secondary_color!!; }
+
+.table-banded TR:nth-of-type(2n) TD
+						 		{ background-color:!!ff_newsletter_secondary_color[0.2]!!; }
+
+/* link */
+#main A							{ color:!!ff_newsletter_link_color!!; }
+
+/* link decoration */
+.single #content A,
+A.more 							{ text-decoration:!!ff_newsletter_link_decoration!!; }
+
+#sidebar .nav-links A,
+.gallery .gallery-icon		 	{ background-color:!!ff_newsletter_link_color!!; }
+
+/* social icon background */
+#social .social-link 			{ background-color:!!ff_social_icon_bgcolor!!; }
+
+/* social icon text */
+#social .social-link 			{ color:!!ff_social_icon_txtcolor!!; }
+
+
+/*******************************************************************
+ * WIDGET AREA
+ *******************************************************************/
+
+/* widgets background */
+#widgets 						{ background-color:!!ff_newsletter_widgets_bgcolor!!; }
+
+/* widgets text */
+#widgets,
+#widgets A 						{ color:!!ff_newsletter_widgets_txtcolor!!; }
+
+/*******************************************************************
+ * FOOTER
+ *******************************************************************/
+
+/* footer background */
+#footer							{ background-color:!!ff_newsletter_footer_bgcolor!!; }
+
+/* footer text */
+#footer,
+#footer A,
+#footer TD 						{ color:!!ff_newsletter_footer_txtcolor!!; }
+

@@ -1,0 +1,22 @@
+{######################################################################
+ # Index articles in x columns
+ # Extends the index article base template
+ ######################################################################}
+
+{% extends "articles/index/base.twig" %}
+
+{% block container_class %}
+	{{ highlight_count < ( 12 / col_width ) ? 'article-highlight' }}
+{% endblock container_class %}
+
+{% block article_text_only %}
+	<div class="article-wrapper">
+		<div class="article-text">
+			<h3><a href="{{ article.permalink }}">{{ article.title }}</a></h3>
+			{% if show_excerpt %}
+				<p class="excerpt hidden-xs hidden-sm">{{ function( 'ff_the_excerpt', excerpt_length, article.id ) }}</p>
+			{% endif %}
+			{{ function( 'ff_the_tags', article.id ) }}
+		</div>
+	</div>
+{% endblock article_text_only %}

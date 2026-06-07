@@ -1,0 +1,54 @@
+{% set columns = 2 %}
+{% if articles %}
+	<table class="index" cellpadding="0" cellspacing="20" width="640">
+		{% if title %}
+			<tr>
+				<td colspan="{{columns}}"><h2 class="section-title">{{title}}</h2></td>
+			</tr>
+		{% endif %}
+
+		{% for row in articles | batch(columns) %}
+			<tr>
+				{% for post in row %}
+					{% set has_thumb = config.show_thumb and post.thumbnail %}
+					<td class="index__article {% if config.text_padding %} text-padding{% endif %}" valign="top">
+
+						<table cellpadding="0" cellspacing="0"
+							class="{% if has_thumb %} has-thumb {% else %} no-thumb {% endif %}">
+
+							{% if has_thumb %}
+								<tr>
+									<td class="image">
+										{% set image = post.thumbnail %}
+										<a href="{{ post.link }}">
+											<img src="{{ image.src( 'email-article' ) }}" alt="{{ image.alt | default( post.title ) | escape }}">
+										</a>
+									</td>
+								</tr>
+							{% endif %}
+
+							<tr>
+								<td class="title"><h3 class="post-title"><a href="{{ post.link }}" class="title__link">{{ post.title }}</a></h3></td>
+							</tr>
+
+							<tr>
+								<td class="excerpt">
+									{% include 'email/partials/excerpt.twig' %}
+								</td>
+							</tr>
+
+							<tr>
+								<td class="link">
+									{% include 'email/partials/readmore.twig' %}
+								</td>
+							</tr>
+
+						</table>
+
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+	</table>
+{% endif %}

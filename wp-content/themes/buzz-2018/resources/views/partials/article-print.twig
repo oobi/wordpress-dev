@@ -1,0 +1,13 @@
+<article class="article">
+	{% if post.thumbnail %}
+	<div class="article__image">
+		<img src="{{ post.thumbnail.src('article-hero') }}"
+				 alt="{{ post.title | escape  }}">
+	</div>
+	{% endif %}
+	<div class="article__content">
+		<h1 class="page-title">{{ post.title }}</h1>
+		{# <p class="dateline">{{post.post_date|date('F jS, Y')}}</p> #}
+		{{ post.content }}
+	</div>
+</article>

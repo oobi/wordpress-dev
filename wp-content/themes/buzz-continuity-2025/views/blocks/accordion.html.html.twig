@@ -1,0 +1,11 @@
+<div class="accordion-block accordion-item  {{attributes.className}}">
+	<div class="accordion-heading collapsed" role="button" id="accordionHeading{{ index }}" data-toggle="collapse" data-target="#collapse{{ index }}" aria-expanded="false" aria-controls="collapse{{ index }}">
+		<button class="accordion-btn collapsed" type="button" data-toggle="collapse" data-target="#collapse{{ index }}" aria-expanded="true" aria-controls="collapse{{ index }}">
+			{{ fields.heading }}
+			<span class="accordion-icon"></span>
+		</button>
+	</div>
+	<div id="collapse{{ index }}" class="collapse accordion-content" aria-labelledby="accordionHeading{{ index }}">
+		{{ content}}
+	</div>
+</div>

@@ -1,0 +1,27 @@
+.ff-docraptor {
+
+}
+
+.ff-docraptor .spinner {
+	float:left;
+	margin:0 10px 0 0;
+}
+
+.ff-docraptor .ff-docraptor-status {
+	padding: 30px 0;
+}
+
+.ff-docraptor .ff-docraptor-working {
+	font-style:italic;
+	line-height:20px;
+	margin-bottom:20px;
+}
+
+.ff-docraptor .ff-docraptor-message {
+	padding: 10px 0;
+}
+
+.ff-docraptor .error {
+	color:red;
+	font-weight:bold;
+}

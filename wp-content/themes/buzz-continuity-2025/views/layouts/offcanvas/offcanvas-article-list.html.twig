@@ -1,0 +1,31 @@
+{% if navbar.articles %}
+	<li class="nav-item">
+		<a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#navbar-article-menu" role="button" aria-expanded="false" aria-controls="navbar-article-menu" >{{ navbar.articles.title }}</a>
+	</li>
+	<div class="collapse multi-collapse" id="navbar-article-menu">
+		{% for category in navbar.articles %}
+			{% if category.posts|length > 0 %}
+				{% if category.name %}
+					<li>
+						<li class="nav-item">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#{{ category.slug }}" role="button" aria-expanded="false" aria-controls="{{ category.slug }}">{{ category.name }}</a>
+						</li>			  
+					</li>
+					<div class="collapse multi-collapse" id="{{ category.slug }}">
+						{% for item in category.posts %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+							</li>
+						{% endfor %}
+					</div>
+				{% else %}
+					{% for item in category.posts %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+						</li>	
+					{% endfor %}		  
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endif %}

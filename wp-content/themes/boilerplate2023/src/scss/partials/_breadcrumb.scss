@@ -1,0 +1,26 @@
+.breadcrumb {
+	&-container {
+		nav {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	&-item {
+		text-transform: uppercase;
+		font-weight: $font-weight-bold;
+
+		&::before {
+			font-family: $icon-font-family;
+		}
+
+		a {
+			text-decoration: none;
+
+			&:hover {
+				color: var(--bs-primary);
+			}
+		}
+	}
+}

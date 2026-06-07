@@ -1,0 +1,18 @@
+.variable-bg-block {
+	position: relative;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #eee;
+	background-blend-mode: multiply;
+	transition: 1.5s;
+
+	&::before {
+		content: '';
+		@include background-scrim($color: $black, $opacity: 0.15);
+	}
+
+	.content {
+		position: relative;
+	}
+}

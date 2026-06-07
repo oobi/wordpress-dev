@@ -1,0 +1,36 @@
+/**
+ * Standardise block margins
+ */
+@mixin block-margins($multiplier: 1) {
+    margin-top: calc(var(--ff-block-margin) * $multiplier);
+    margin-bottom: calc(var(--ff-block-margin) * $multiplier);
+
+    .wp-block-heading + &,
+    .gb-headline + & {
+        margin-top: 2rem;
+    }
+
+    @include media-breakpoint-up(md) {
+        margin-top: calc(var(--ff-block-margin-lg) * $multiplier);
+        margin-bottom: calc(var(--ff-block-margin-lg) * $multiplier);
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    // Editor style
+    .editor-styles-wrapper & {
+        margin-block-start: calc(var(--ff-block-margin) * $multiplier) !important;
+        margin-block-end: calc(var(--ff-block-margin) * $multiplier) !important;
+
+        @include media-breakpoint-up(md) {
+            margin-block-start: calc(var(--ff-block-margin-lg) * $multiplier) !important;
+            margin-block-end: calc(var(--ff-block-margin-lg) * $multiplier) !important;
+        }
+    }
+}

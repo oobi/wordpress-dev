@@ -1,0 +1,60 @@
+.feature-grid {
+
+	display: grid;
+	column-gap: 1.5rem;
+	row-gap: 1.5rem;
+
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+		"lg"
+		"md"
+		"sm1"
+		"sm2";
+
+
+	@include media-breakpoint-up(sm) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 2fr 1fr 1fr;
+		grid-template-areas:
+			"lg lg"
+			"md md"
+			"sm1 sm2";
+	}
+
+	@include media-breakpoint-up(lg) {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+			"lg lg md md"
+			"lg lg sm1 sm2";
+	}
+}
+
+.feature-grid-item-lg {
+	grid-area: lg;
+
+	.card-text {
+		display: none;
+
+		@include media-breakpoint-up(sm) {
+			display: block;
+		}
+	}
+}
+
+.feature-grid-item-md {
+	grid-area: md;
+}
+
+.feature-grid-item-sm1 {
+	grid-area: sm1;
+}
+
+.feature-grid-item-sm2 {
+	grid-area: sm2;
+}
+
+.feature-grid-item-sm {
+
+}

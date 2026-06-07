@@ -1,0 +1,88 @@
+{# Begin rendering the menu items #}
+{% macro render(menu, maxDepth) %}
+	{% import _self as nav %}
+	{% set maxDepth = maxDepth | default(1) %}
+
+	{% for item in menu %}
+		{{ nav.item(item, maxDepth, 1) }}
+	{% endfor %}
+{% endmacro %}
+
+{# Render the LI element #}
+{% macro item(item, maxDepth, depth) %}
+	{% import _self as nav %}
+
+	<li class="nav-item {{ item.class }} {% if item.current %} active{% endif %}">
+		{{ nav.link(item) }}
+
+		{% if depth < maxDepth and item.get_children %}
+			<div class="nav-submenu">
+				{{ nav.submenu(item, maxDepth, depth + 1) }}
+			</div>
+		{% endif %}
+	</li>
+{% endmacro %}
+
+{# Render the A element #}
+{% macro link(item) %}
+	{% import _self as nav %}
+
+	<a class="nav-link" href="{{ item.link }}" target="{{ item.target }}">
+		<span>{{ item.title }}</span>
+		{% if item.current %}
+			<span class="sr-only">(current)</span>
+		{% endif %}
+	</a>
+{% endmacro %}
+
+{# Recursively render the submenu #}
+{% macro submenu(menu, maxDepth, depth, collapsible) %}
+	{% import _self as nav %}
+
+	<ul class="nav-submenu-list nav-submenu-list-{{depth}} list-unstyled">
+		{% for item in menu.get_children %}
+			{% set classes = 'nav-submenu-item' %}
+
+			{% if item.current %}
+				{% set classes = classes ~ ' active' %}
+			{% endif %}
+
+			{% if item.get_children %}
+				{% set classes = classes ~ ' has-children' %}
+			{% endif %}
+
+			{% set expanded = item.current or ('current-page-ancestor' in item.class) %}
+
+
+			<li class="{{ classes }} {{ item.class }}">
+				<div class="nav-submenu-item-row">
+					<a class="nav-submenu-link" href="{{ item.link }}" target="{{ item.target }}">
+						<span>{{ item.title }}</span>
+						{% if item.current %}
+							<span class="sr-only">(current)</span>
+						{% endif %}
+					</a>
+					{% if depth < maxDepth and item.get_children and collapsible %}
+						<span class="nav-submenu-item-toggle"
+							data-bs-toggle="collapse"
+							data-bs-target="#nav-submenu-collapse-{{item.id}}"
+							aria-controls="nav-submenu-collapse-{{item.id}}"
+							aria-expanded="{{ expanded ? true : false }}">
+						</span>
+					{% endif %}
+				</div>
+				{% if depth < maxDepth and item.get_children %}
+					{% if collapsible %}
+						<div class="nav-submenu-item-menu nav-submenu-item-collapse collapse {{ expanded ? 'show' : ''}}" id="nav-submenu-collapse-{{item.id}}" data-bs-parent="#primaryNavigation">
+							{{ nav.submenu(item, maxDepth, depth + 1, (depth >= 2)) }}
+						</div>
+					{% else %}
+						<div class="nav-submenu-item-menu">
+							{{ nav.submenu(item, maxDepth, depth + 1, (depth >= 2)) }}
+						</div>
+					{% endif %}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endmacro %}

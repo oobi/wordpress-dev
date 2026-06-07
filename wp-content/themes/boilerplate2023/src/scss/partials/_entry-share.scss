@@ -1,0 +1,46 @@
+.entry-share {
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&-label {
+		font-size: 0.719rem;
+		text-transform: uppercase;
+		font-weight: bold;
+
+		display: flex;
+
+		margin-right: 5px;
+
+		&::after {
+			content: '';
+			display: block;
+
+			width: 25px;
+			height: 1px;
+			margin-top: auto;
+			margin-bottom: auto;
+			border-top: 1px solid $gray-500;
+		}
+	}
+
+	&-list {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		align-items: center;
+		margin: 0;
+
+		&-link {
+			&:hover {
+				color: $red;
+			}
+
+			i {
+				font-size: 1rem;
+			}
+		}
+	}
+}

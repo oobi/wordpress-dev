@@ -1,0 +1,27 @@
+<tr>
+    <td id="header" class="{{header_type}}-header">
+
+		{% if header_type == 'image' %}
+
+			{{ header_image_email }}
+
+		{% else %}
+
+			<table cellpadding="0" cellspacing="10" width="640">
+				{% if header_logo %}
+					<tr>
+						<td class="logo" align="center">{{ header_logo }}</td>
+					</tr>
+				{% endif %}
+				<tr class="text">
+					<td class="title" align="center">{{header_text_title}}</td>
+				</tr>
+				<tr>
+					<td class="subtitle" align="center">{{header_text_subtitle}}</td>
+				</tr>
+			</table>
+
+		{% endif %}
+
+    </td>
+</tr>

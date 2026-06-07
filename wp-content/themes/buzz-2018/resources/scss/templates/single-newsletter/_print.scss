@@ -1,0 +1,49 @@
+.page-newsletter-print {
+	background:#FFF;
+	color:#000;
+
+	header {
+		display:block !important;
+	}
+
+	.issue-title {
+		padding: spacer(4) 0;
+		text-align:right;
+	}
+
+	#site {
+		display:block;
+		width:720px !important;
+		max-width:720px !important;
+
+		overflow:visible !important;
+
+		box-shadow:none;
+		padding-left:0;
+		padding-right:0;
+	}
+
+	.row {
+		margin-left:0;
+		margin-right:0;
+	}
+
+	IFRAME,
+	VIDEO {
+		display:none !important;
+	}
+
+	.article {
+		&__image {
+			margin-bottom:2rem;
+		}
+
+		page-break-after: always;
+
+		@media only screen {
+			padding-bottom:5rem;
+		}
+	}
+
+
+}

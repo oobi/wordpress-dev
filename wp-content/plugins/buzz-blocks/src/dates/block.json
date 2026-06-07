@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "buzz/dates",
+	"version": "0.1.0",
+	"title": "Dates for your diary",
+	"category": "buzz",
+	"icon": "calendar-alt",
+	"description": "Dates for your diary",
+	"attributes": {
+
+	},
+
+	"supports": {
+		"html": false,
+		"color": {
+			"text": true,
+			"link": true,
+			"background": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"align": [ "wide", "full" ]
+	},
+
+	"textdomain": "buzz",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"keywords" : [ "buzz", "dates"]
+}

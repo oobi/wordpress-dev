@@ -1,0 +1,164 @@
+/*******************************************************************
+ * GLOBALS
+ *******************************************************************/
+
+BODY 							{ margin:0 auto;
+								  color:#333; }
+#wrapper 						{ margin:0 auto; border:0; border-collapse:collapse; }
+
+IMG 							{ width:100%; height:auto; padding:0; margin:0; }
+A 								{ text-decoration:none; }
+H3 								{ margin:5px 0 10px; }
+A IMG 							{ border:0; }
+
+.align-right 					{ text-align:right; }
+
+HR 								{ clear:both; border:0; border-top:1px solid; margin:20px auto; }
+HR,
+#main .no-thumb-article-table	{ border-color:#9c9c9c; }
+
+/* user links */
+#view-in-browser,
+#unsubscribe	 				{ background:#FFF; }
+
+/* cellspacing
+TABLE 							{ border-collapse:separate; border-spacing:15px; } */
+
+/*******************************************************************
+ * TYPEFACES
+ *******************************************************************/
+
+BODY, TD						{ font-family:Arial, sans-serif; }
+
+/*******************************************************************
+ * HEADER
+ *******************************************************************/
+
+#banner .header-content 		{ padding-left:40px; padding-right:40px; }
+#banner .site-text 				{ padding-left:10px; font-weight:normal; }
+#banner .site-text H1 			{ margin:20px 0 5px;
+								  font-size:28px; font-weight:normal; }
+#banner .site-text P 			{ margin:0 0 10px 0; }
+
+/* image banner */
+.image-banner .custom-header,
+#featured-image IMG 			{ width:640px; display:block; }
+
+/* text/logo banner */
+.text-banner .site-logo IMG		{ max-height:150px; width:auto; max-width:150px; }
+.text-banner .header-content 	{ padding-top:10px; padding-bottom:10px; }
+
+/*******************************************************************
+ * MAIN NAV
+ *******************************************************************/
+
+#nav 							{  }
+#nav UL,
+#nav P 							{ margin:0; }
+#nav TD							{ text-transform:uppercase; font-size:14px; }
+
+/*******************************************************************
+ * ARTICLES
+ *******************************************************************/
+
+#main 							{ background:#FFF;
+								  font-size:15px; }
+#main H3 						{ font-weight:normal; }
+#main IMG 						{  }
+#main TABLE 					{  }
+#main TABLE TD 					{ padding:0; }
+#main TABLE TD.image 			{ }
+
+/* featured */
+#main .feature-table			{  }
+#main .feature-excerpt H3		{ font-size:26px;  }
+#main .feature-excerpt TD		{ padding-bottom:20px; }
+#main .feature .image IMG 		{ width:100%; }
+#main .image + .image,
+#main .feature .image			{ padding-right:0; }
+
+/* not featured */
+#main .article-table	 		{  }
+
+
+/* no thumbnail */
+#main .no-thumb-article-table 	{ border-top:1px solid; }
+#main .no-thumb-article-table H3{ border:0; margin:0;
+								  font-size:18px; }
+
+
+/*******************************************************************
+ * FOOTER
+ *******************************************************************/
+
+#widgets IMG					{ width:auto; height:auto; margin:0 10px 10px 0; }
+
+#footer 						{  }
+
+/* footer */
+#footer TABLE TD				{ font-size:12px; }
+
+/*******************************************************************
+ * UNSUBSCRIBE AND VIEW IN BROWSER
+ *******************************************************************/
+
+#unsubscribe,
+#view-in-browser 				{ padding:10px;
+								  font-size:12px; text-align:center; color:#000; }
+#unsubscribe A,
+#view-in-browser A				{ color:#000; text-decoration:underline; }
+
+
+/*******************************************************************
+ * RESPONSIVE
+ *******************************************************************/
+
+@media only screen and (min-device-width:411px) and (max-device-width:640px) {
+
+	/* link/nav formatting */
+	[class=mdash]				{ display:none; }
+	#view-in-browser A,
+	#nav [class=issue-date]		{ display:block; }
+
+	/* width on large phones */
+	#main IMG,
+	TABLE,
+	#wrapper,
+	#nav TABLE,
+	TABLE[class=row-container],
+	TABLE[class=feature-table],
+    TABLE[class=article-table],
+    #footer TABLE
+    							{ width:415px !important; }
+
+	/* 30px skinnier than above to compensate for cellspacing */
+	TD TABLE TD,
+	TABLE[class=no-thumb-article-table],
+    #main IMG 					{ width:385px !important; }
+
+}
+
+@media only screen and (max-device-width:410px) {
+
+	/* link/nav formatting */
+	#widgets, 
+	[class=mdash]				{ display:none; }
+	#view-in-browser A,
+	#nav [class=issue-date]		{ display:block; }
+
+
+	/* width on small phones */
+	#main IMG,
+	#nav TABLE,
+	TABLE[class=row-container],
+	TABLE[class=feature-table],
+    TABLE[class=article-table],
+    #footer TABLE 				{ width:320px !important; }
+
+	/* 30px skinnier than above to compensate for cellspacing */
+	TABLE[class=no-thumb-article-table],
+    #main IMG 					{ width:290px !important; }
+
+}
+
+

@@ -1,0 +1,2 @@
+<p><a href="http://www.facebook.com"><i class="fa fa-3x fa-facebook-square"></i></a> <a href="http://www.twitter.com"><i class="fa fa-3x fa-twitter-square"></i></a> <a href="http://www.linkedin.com"><i class="fa fa-3x fa-linkedin-square"></i></a><br />
+<a href="./feed"><i class="fa fa-3x fa-rss-square"></i></a> <a href="https://plus.google.com"><i class="fa fa-3x fa-google-plus-square"></i></a> <a href="http://youtube.com"><i class="fa fa-3x fa-youtube-square"></i></a></p>
